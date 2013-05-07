@@ -20,6 +20,22 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("HeadacheModel", "DoctorAccountPatBasicInfor", "DoctorAccount", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.DoctorAccount), "PatBasicInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.PatBasicInfor), true)]
 [assembly: EdmRelationshipAttribute("HeadacheModel", "PatBasicInforVisitRecord", "PatBasicInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.PatBasicInfor), "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.VisitRecord), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "VisitRecordCDSSDiagnosis", "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.VisitRecord), "CDSSDiagnosis", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.CDSSDiagnosis), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "VisitRecordDiagnosisResult", "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.VisitRecord), "DiagnosisResult", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.DiagnosisResult), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "VisitRecordHeadachaOverView", "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.VisitRecord), "HeadachaOverView", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.HeadachaOverView))]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "HeadachaOverViewHeadachePlace", "HeadachaOverView", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.HeadachaOverView), "HeadachePlace", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.HeadachePlace), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "HeadachaOverViewHeadacheAccompany", "HeadachaOverView", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.HeadachaOverView), "HeadacheAccompany", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.HeadacheAccompany), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "HeadachaOverViewHeadacheProdrome", "HeadachaOverView", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.HeadachaOverView), "HeadacheProdrome", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.HeadacheProdrome), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "VisitRecordMedicalHistory", "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.VisitRecord), "MedicalHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.MedicalHistory))]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "MedicalHistoryPreviousDrug", "MedicalHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.MedicalHistory), "PreviousDrug", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.PreviousDrug), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "MedicalHistoryPreviousExam", "MedicalHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.MedicalHistory), "PreviousExam", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.PreviousExam), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "PatBasicInforRelateInfor", "PatBasicInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.PatBasicInfor), "RelateInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.RelateInfor))]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "RelateInforHeadacheFamilyMember", "RelateInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.RelateInfor), "HeadacheFamilyMember", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.HeadacheFamilyMember), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "RelateInforOtherFamilyDisease", "RelateInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.RelateInfor), "OtherFamilyDisease", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.OtherFamilyDisease), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "LifestyleSpecialDiet", "Lifestyle", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.Lifestyle), "SpecialDiet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.SpecialDiet), true)]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "RelateInforLifestyle", "RelateInfor", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.RelateInfor), "Lifestyle", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.Lifestyle))]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "VisitRecordPrescription", "VisitRecord", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.VisitRecord), "Prescription", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(HeadacheCDSSWeb.Models.Prescription))]
+[assembly: EdmRelationshipAttribute("HeadacheModel", "PrescriptionMecicationAdvice", "Prescription", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(HeadacheCDSSWeb.Models.Prescription), "MecicationAdvice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(HeadacheCDSSWeb.Models.MecicationAdvice), true)]
 
 #endregion
 
@@ -118,6 +134,262 @@ namespace HeadacheCDSSWeb.Models
             }
         }
         private ObjectSet<VisitRecord> _VisitRecordSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CDSSDiagnosis> CDSSDiagnosisSet
+        {
+            get
+            {
+                if ((_CDSSDiagnosisSet == null))
+                {
+                    _CDSSDiagnosisSet = base.CreateObjectSet<CDSSDiagnosis>("CDSSDiagnosisSet");
+                }
+                return _CDSSDiagnosisSet;
+            }
+        }
+        private ObjectSet<CDSSDiagnosis> _CDSSDiagnosisSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DiagnosisResult> DiagnosisResultSet
+        {
+            get
+            {
+                if ((_DiagnosisResultSet == null))
+                {
+                    _DiagnosisResultSet = base.CreateObjectSet<DiagnosisResult>("DiagnosisResultSet");
+                }
+                return _DiagnosisResultSet;
+            }
+        }
+        private ObjectSet<DiagnosisResult> _DiagnosisResultSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeadachaOverView> HeadachaOverViewSet
+        {
+            get
+            {
+                if ((_HeadachaOverViewSet == null))
+                {
+                    _HeadachaOverViewSet = base.CreateObjectSet<HeadachaOverView>("HeadachaOverViewSet");
+                }
+                return _HeadachaOverViewSet;
+            }
+        }
+        private ObjectSet<HeadachaOverView> _HeadachaOverViewSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Prescription> PrescriptionSet
+        {
+            get
+            {
+                if ((_PrescriptionSet == null))
+                {
+                    _PrescriptionSet = base.CreateObjectSet<Prescription>("PrescriptionSet");
+                }
+                return _PrescriptionSet;
+            }
+        }
+        private ObjectSet<Prescription> _PrescriptionSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<MedicalHistory> MedicalHistorySet
+        {
+            get
+            {
+                if ((_MedicalHistorySet == null))
+                {
+                    _MedicalHistorySet = base.CreateObjectSet<MedicalHistory>("MedicalHistorySet");
+                }
+                return _MedicalHistorySet;
+            }
+        }
+        private ObjectSet<MedicalHistory> _MedicalHistorySet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Lifestyle> LifestyleSet
+        {
+            get
+            {
+                if ((_LifestyleSet == null))
+                {
+                    _LifestyleSet = base.CreateObjectSet<Lifestyle>("LifestyleSet");
+                }
+                return _LifestyleSet;
+            }
+        }
+        private ObjectSet<Lifestyle> _LifestyleSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeadachePlace> HeadachePlaceSet
+        {
+            get
+            {
+                if ((_HeadachePlaceSet == null))
+                {
+                    _HeadachePlaceSet = base.CreateObjectSet<HeadachePlace>("HeadachePlaceSet");
+                }
+                return _HeadachePlaceSet;
+            }
+        }
+        private ObjectSet<HeadachePlace> _HeadachePlaceSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeadacheAccompany> HeadacheAccompanySet
+        {
+            get
+            {
+                if ((_HeadacheAccompanySet == null))
+                {
+                    _HeadacheAccompanySet = base.CreateObjectSet<HeadacheAccompany>("HeadacheAccompanySet");
+                }
+                return _HeadacheAccompanySet;
+            }
+        }
+        private ObjectSet<HeadacheAccompany> _HeadacheAccompanySet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeadacheProdrome> HeadacheProdromeSet
+        {
+            get
+            {
+                if ((_HeadacheProdromeSet == null))
+                {
+                    _HeadacheProdromeSet = base.CreateObjectSet<HeadacheProdrome>("HeadacheProdromeSet");
+                }
+                return _HeadacheProdromeSet;
+            }
+        }
+        private ObjectSet<HeadacheProdrome> _HeadacheProdromeSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PreviousDrug> PreviousDrugSet
+        {
+            get
+            {
+                if ((_PreviousDrugSet == null))
+                {
+                    _PreviousDrugSet = base.CreateObjectSet<PreviousDrug>("PreviousDrugSet");
+                }
+                return _PreviousDrugSet;
+            }
+        }
+        private ObjectSet<PreviousDrug> _PreviousDrugSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PreviousExam> PreviousExamSet
+        {
+            get
+            {
+                if ((_PreviousExamSet == null))
+                {
+                    _PreviousExamSet = base.CreateObjectSet<PreviousExam>("PreviousExamSet");
+                }
+                return _PreviousExamSet;
+            }
+        }
+        private ObjectSet<PreviousExam> _PreviousExamSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RelateInfor> RelateInforSet
+        {
+            get
+            {
+                if ((_RelateInforSet == null))
+                {
+                    _RelateInforSet = base.CreateObjectSet<RelateInfor>("RelateInforSet");
+                }
+                return _RelateInforSet;
+            }
+        }
+        private ObjectSet<RelateInfor> _RelateInforSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<HeadacheFamilyMember> HeadacheFamilyMemberSet
+        {
+            get
+            {
+                if ((_HeadacheFamilyMemberSet == null))
+                {
+                    _HeadacheFamilyMemberSet = base.CreateObjectSet<HeadacheFamilyMember>("HeadacheFamilyMemberSet");
+                }
+                return _HeadacheFamilyMemberSet;
+            }
+        }
+        private ObjectSet<HeadacheFamilyMember> _HeadacheFamilyMemberSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<OtherFamilyDisease> OtherFamilyDiseaseSet
+        {
+            get
+            {
+                if ((_OtherFamilyDiseaseSet == null))
+                {
+                    _OtherFamilyDiseaseSet = base.CreateObjectSet<OtherFamilyDisease>("OtherFamilyDiseaseSet");
+                }
+                return _OtherFamilyDiseaseSet;
+            }
+        }
+        private ObjectSet<OtherFamilyDisease> _OtherFamilyDiseaseSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SpecialDiet> SpecialDietSet
+        {
+            get
+            {
+                if ((_SpecialDietSet == null))
+                {
+                    _SpecialDietSet = base.CreateObjectSet<SpecialDiet>("SpecialDietSet");
+                }
+                return _SpecialDietSet;
+            }
+        }
+        private ObjectSet<SpecialDiet> _SpecialDietSet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<MecicationAdvice> MecicationAdviceSet
+        {
+            get
+            {
+                if ((_MecicationAdviceSet == null))
+                {
+                    _MecicationAdviceSet = base.CreateObjectSet<MecicationAdvice>("MecicationAdviceSet");
+                }
+                return _MecicationAdviceSet;
+            }
+        }
+        private ObjectSet<MecicationAdvice> _MecicationAdviceSet;
 
         #endregion
         #region AddTo Methods
@@ -145,6 +417,134 @@ namespace HeadacheCDSSWeb.Models
         {
             base.AddObject("VisitRecordSet", visitRecord);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CDSSDiagnosisSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCDSSDiagnosisSet(CDSSDiagnosis cDSSDiagnosis)
+        {
+            base.AddObject("CDSSDiagnosisSet", cDSSDiagnosis);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DiagnosisResultSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDiagnosisResultSet(DiagnosisResult diagnosisResult)
+        {
+            base.AddObject("DiagnosisResultSet", diagnosisResult);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeadachaOverViewSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeadachaOverViewSet(HeadachaOverView headachaOverView)
+        {
+            base.AddObject("HeadachaOverViewSet", headachaOverView);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PrescriptionSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPrescriptionSet(Prescription prescription)
+        {
+            base.AddObject("PrescriptionSet", prescription);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the MedicalHistorySet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMedicalHistorySet(MedicalHistory medicalHistory)
+        {
+            base.AddObject("MedicalHistorySet", medicalHistory);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LifestyleSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLifestyleSet(Lifestyle lifestyle)
+        {
+            base.AddObject("LifestyleSet", lifestyle);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeadachePlaceSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeadachePlaceSet(HeadachePlace headachePlace)
+        {
+            base.AddObject("HeadachePlaceSet", headachePlace);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeadacheAccompanySet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeadacheAccompanySet(HeadacheAccompany headacheAccompany)
+        {
+            base.AddObject("HeadacheAccompanySet", headacheAccompany);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeadacheProdromeSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeadacheProdromeSet(HeadacheProdrome headacheProdrome)
+        {
+            base.AddObject("HeadacheProdromeSet", headacheProdrome);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PreviousDrugSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPreviousDrugSet(PreviousDrug previousDrug)
+        {
+            base.AddObject("PreviousDrugSet", previousDrug);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PreviousExamSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPreviousExamSet(PreviousExam previousExam)
+        {
+            base.AddObject("PreviousExamSet", previousExam);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RelateInforSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRelateInforSet(RelateInfor relateInfor)
+        {
+            base.AddObject("RelateInforSet", relateInfor);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the HeadacheFamilyMemberSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToHeadacheFamilyMemberSet(HeadacheFamilyMember headacheFamilyMember)
+        {
+            base.AddObject("HeadacheFamilyMemberSet", headacheFamilyMember);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the OtherFamilyDiseaseSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOtherFamilyDiseaseSet(OtherFamilyDisease otherFamilyDisease)
+        {
+            base.AddObject("OtherFamilyDiseaseSet", otherFamilyDisease);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SpecialDietSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSpecialDietSet(SpecialDiet specialDiet)
+        {
+            base.AddObject("SpecialDietSet", specialDiet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the MecicationAdviceSet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMecicationAdviceSet(MecicationAdvice mecicationAdvice)
+        {
+            base.AddObject("MecicationAdviceSet", mecicationAdvice);
+        }
 
         #endregion
     }
@@ -153,6 +553,322 @@ namespace HeadacheCDSSWeb.Models
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="CDSSDiagnosis")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CDSSDiagnosis : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CDSSDiagnosis object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="visitRecordId">Initial value of the VisitRecordId property.</param>
+        /// <param name="diagnosisContent">Initial value of the DiagnosisContent property.</param>
+        public static CDSSDiagnosis CreateCDSSDiagnosis(global::System.Int32 id, global::System.Int32 visitRecordId, Diagnosis diagnosisContent)
+        {
+            CDSSDiagnosis cDSSDiagnosis = new CDSSDiagnosis();
+            cDSSDiagnosis.Id = id;
+            cDSSDiagnosis.VisitRecordId = visitRecordId;
+            cDSSDiagnosis.DiagnosisContent = StructuralObject.VerifyComplexObjectIsNotNull(diagnosisContent, "DiagnosisContent");
+            return cDSSDiagnosis;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 VisitRecordId
+        {
+            get
+            {
+                return _VisitRecordId;
+            }
+            set
+            {
+                OnVisitRecordIdChanging(value);
+                ReportPropertyChanging("VisitRecordId");
+                _VisitRecordId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("VisitRecordId");
+                OnVisitRecordIdChanged();
+            }
+        }
+        private global::System.Int32 _VisitRecordId;
+        partial void OnVisitRecordIdChanging(global::System.Int32 value);
+        partial void OnVisitRecordIdChanged();
+
+        #endregion
+        #region Complex Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmComplexPropertyAttribute()]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [XmlElement(IsNullable=true)]
+        [SoapElement(IsNullable=true)]
+        [DataMemberAttribute()]
+        public Diagnosis DiagnosisContent
+        {
+            get
+            {
+                _DiagnosisContent = GetValidValue(_DiagnosisContent, "DiagnosisContent", false, _DiagnosisContentInitialized);
+                _DiagnosisContentInitialized = true;
+                return _DiagnosisContent;
+            }
+            set
+            {
+                OnDiagnosisContentChanging(value);
+                ReportPropertyChanging("DiagnosisContent");
+                _DiagnosisContent = SetValidValue(_DiagnosisContent, value, "DiagnosisContent");
+                _DiagnosisContentInitialized = true;
+                ReportPropertyChanged("DiagnosisContent");
+                OnDiagnosisContentChanged();
+            }
+        }
+        private Diagnosis _DiagnosisContent;
+        private bool _DiagnosisContentInitialized;
+        partial void OnDiagnosisContentChanging(Diagnosis value);
+        partial void OnDiagnosisContentChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordCDSSDiagnosis", "VisitRecord")]
+        public VisitRecord VisitRecord
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordCDSSDiagnosis", "VisitRecord").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordCDSSDiagnosis", "VisitRecord").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<VisitRecord> VisitRecordReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordCDSSDiagnosis", "VisitRecord");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<VisitRecord>("HeadacheModel.VisitRecordCDSSDiagnosis", "VisitRecord", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="DiagnosisResult")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class DiagnosisResult : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new DiagnosisResult object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="visitRecordId">Initial value of the VisitRecordId property.</param>
+        /// <param name="diagnosisContent">Initial value of the DiagnosisContent property.</param>
+        public static DiagnosisResult CreateDiagnosisResult(global::System.Int32 id, global::System.Int32 visitRecordId, Diagnosis diagnosisContent)
+        {
+            DiagnosisResult diagnosisResult = new DiagnosisResult();
+            diagnosisResult.Id = id;
+            diagnosisResult.VisitRecordId = visitRecordId;
+            diagnosisResult.DiagnosisContent = StructuralObject.VerifyComplexObjectIsNotNull(diagnosisContent, "DiagnosisContent");
+            return diagnosisResult;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 VisitRecordId
+        {
+            get
+            {
+                return _VisitRecordId;
+            }
+            set
+            {
+                OnVisitRecordIdChanging(value);
+                ReportPropertyChanging("VisitRecordId");
+                _VisitRecordId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("VisitRecordId");
+                OnVisitRecordIdChanged();
+            }
+        }
+        private global::System.Int32 _VisitRecordId;
+        partial void OnVisitRecordIdChanging(global::System.Int32 value);
+        partial void OnVisitRecordIdChanged();
+
+        #endregion
+        #region Complex Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmComplexPropertyAttribute()]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+        [XmlElement(IsNullable=true)]
+        [SoapElement(IsNullable=true)]
+        [DataMemberAttribute()]
+        public Diagnosis DiagnosisContent
+        {
+            get
+            {
+                _DiagnosisContent = GetValidValue(_DiagnosisContent, "DiagnosisContent", false, _DiagnosisContentInitialized);
+                _DiagnosisContentInitialized = true;
+                return _DiagnosisContent;
+            }
+            set
+            {
+                OnDiagnosisContentChanging(value);
+                ReportPropertyChanging("DiagnosisContent");
+                _DiagnosisContent = SetValidValue(_DiagnosisContent, value, "DiagnosisContent");
+                _DiagnosisContentInitialized = true;
+                ReportPropertyChanged("DiagnosisContent");
+                OnDiagnosisContentChanged();
+            }
+        }
+        private Diagnosis _DiagnosisContent;
+        private bool _DiagnosisContentInitialized;
+        partial void OnDiagnosisContentChanging(Diagnosis value);
+        partial void OnDiagnosisContentChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordDiagnosisResult", "VisitRecord")]
+        public VisitRecord VisitRecord
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordDiagnosisResult", "VisitRecord").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordDiagnosisResult", "VisitRecord").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<VisitRecord> VisitRecordReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordDiagnosisResult", "VisitRecord");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<VisitRecord>("HeadacheModel.VisitRecordDiagnosisResult", "VisitRecord", value);
+                }
+            }
+        }
+
+        #endregion
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -305,6 +1021,2198 @@ namespace HeadacheCDSSWeb.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PatBasicInfor>("HeadacheModel.DoctorAccountPatBasicInfor", "PatBasicInfor", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="HeadachaOverView")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeadachaOverView : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeadachaOverView object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="headacheType">Initial value of the HeadacheType property.</param>
+        /// <param name="headacheDegree">Initial value of the HeadacheDegree property.</param>
+        /// <param name="headcheTime">Initial value of the HeadcheTime property.</param>
+        /// <param name="heacheTimeUnit">Initial value of the HeacheTimeUnit property.</param>
+        /// <param name="frequencyPerDay">Initial value of the FrequencyPerDay property.</param>
+        /// <param name="frequencyPerMonth">Initial value of the FrequencyPerMonth property.</param>
+        /// <param name="onsetFixedDay">Initial value of the OnsetFixedDay property.</param>
+        /// <param name="onsetFixedYear">Initial value of the OnsetFixedYear property.</param>
+        /// <param name="onsetDate">Initial value of the OnsetDate property.</param>
+        /// <param name="onsetAmount">Initial value of the OnsetAmount property.</param>
+        /// <param name="dailyAggravation">Initial value of the DailyAggravation property.</param>
+        public static HeadachaOverView CreateHeadachaOverView(global::System.Int32 id, global::System.String headacheType, global::System.String headacheDegree, global::System.String headcheTime, global::System.String heacheTimeUnit, global::System.String frequencyPerDay, global::System.String frequencyPerMonth, global::System.String onsetFixedDay, global::System.String onsetFixedYear, global::System.String onsetDate, global::System.String onsetAmount, global::System.String dailyAggravation)
+        {
+            HeadachaOverView headachaOverView = new HeadachaOverView();
+            headachaOverView.Id = id;
+            headachaOverView.HeadacheType = headacheType;
+            headachaOverView.HeadacheDegree = headacheDegree;
+            headachaOverView.HeadcheTime = headcheTime;
+            headachaOverView.HeacheTimeUnit = heacheTimeUnit;
+            headachaOverView.FrequencyPerDay = frequencyPerDay;
+            headachaOverView.FrequencyPerMonth = frequencyPerMonth;
+            headachaOverView.OnsetFixedDay = onsetFixedDay;
+            headachaOverView.OnsetFixedYear = onsetFixedYear;
+            headachaOverView.OnsetDate = onsetDate;
+            headachaOverView.OnsetAmount = onsetAmount;
+            headachaOverView.DailyAggravation = dailyAggravation;
+            return headachaOverView;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String HeadacheType
+        {
+            get
+            {
+                return _HeadacheType;
+            }
+            set
+            {
+                OnHeadacheTypeChanging(value);
+                ReportPropertyChanging("HeadacheType");
+                _HeadacheType = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("HeadacheType");
+                OnHeadacheTypeChanged();
+            }
+        }
+        private global::System.String _HeadacheType;
+        partial void OnHeadacheTypeChanging(global::System.String value);
+        partial void OnHeadacheTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String HeadacheDegree
+        {
+            get
+            {
+                return _HeadacheDegree;
+            }
+            set
+            {
+                OnHeadacheDegreeChanging(value);
+                ReportPropertyChanging("HeadacheDegree");
+                _HeadacheDegree = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("HeadacheDegree");
+                OnHeadacheDegreeChanged();
+            }
+        }
+        private global::System.String _HeadacheDegree;
+        partial void OnHeadacheDegreeChanging(global::System.String value);
+        partial void OnHeadacheDegreeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String HeadcheTime
+        {
+            get
+            {
+                return _HeadcheTime;
+            }
+            set
+            {
+                OnHeadcheTimeChanging(value);
+                ReportPropertyChanging("HeadcheTime");
+                _HeadcheTime = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("HeadcheTime");
+                OnHeadcheTimeChanged();
+            }
+        }
+        private global::System.String _HeadcheTime;
+        partial void OnHeadcheTimeChanging(global::System.String value);
+        partial void OnHeadcheTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String HeacheTimeUnit
+        {
+            get
+            {
+                return _HeacheTimeUnit;
+            }
+            set
+            {
+                OnHeacheTimeUnitChanging(value);
+                ReportPropertyChanging("HeacheTimeUnit");
+                _HeacheTimeUnit = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("HeacheTimeUnit");
+                OnHeacheTimeUnitChanged();
+            }
+        }
+        private global::System.String _HeacheTimeUnit;
+        partial void OnHeacheTimeUnitChanging(global::System.String value);
+        partial void OnHeacheTimeUnitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FrequencyPerDay
+        {
+            get
+            {
+                return _FrequencyPerDay;
+            }
+            set
+            {
+                OnFrequencyPerDayChanging(value);
+                ReportPropertyChanging("FrequencyPerDay");
+                _FrequencyPerDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FrequencyPerDay");
+                OnFrequencyPerDayChanged();
+            }
+        }
+        private global::System.String _FrequencyPerDay;
+        partial void OnFrequencyPerDayChanging(global::System.String value);
+        partial void OnFrequencyPerDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FrequencyPerMonth
+        {
+            get
+            {
+                return _FrequencyPerMonth;
+            }
+            set
+            {
+                OnFrequencyPerMonthChanging(value);
+                ReportPropertyChanging("FrequencyPerMonth");
+                _FrequencyPerMonth = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FrequencyPerMonth");
+                OnFrequencyPerMonthChanged();
+            }
+        }
+        private global::System.String _FrequencyPerMonth;
+        partial void OnFrequencyPerMonthChanging(global::System.String value);
+        partial void OnFrequencyPerMonthChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OnsetFixedDay
+        {
+            get
+            {
+                return _OnsetFixedDay;
+            }
+            set
+            {
+                OnOnsetFixedDayChanging(value);
+                ReportPropertyChanging("OnsetFixedDay");
+                _OnsetFixedDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OnsetFixedDay");
+                OnOnsetFixedDayChanged();
+            }
+        }
+        private global::System.String _OnsetFixedDay;
+        partial void OnOnsetFixedDayChanging(global::System.String value);
+        partial void OnOnsetFixedDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OnsetFixedYear
+        {
+            get
+            {
+                return _OnsetFixedYear;
+            }
+            set
+            {
+                OnOnsetFixedYearChanging(value);
+                ReportPropertyChanging("OnsetFixedYear");
+                _OnsetFixedYear = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OnsetFixedYear");
+                OnOnsetFixedYearChanged();
+            }
+        }
+        private global::System.String _OnsetFixedYear;
+        partial void OnOnsetFixedYearChanging(global::System.String value);
+        partial void OnOnsetFixedYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OnsetDate
+        {
+            get
+            {
+                return _OnsetDate;
+            }
+            set
+            {
+                OnOnsetDateChanging(value);
+                ReportPropertyChanging("OnsetDate");
+                _OnsetDate = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OnsetDate");
+                OnOnsetDateChanged();
+            }
+        }
+        private global::System.String _OnsetDate;
+        partial void OnOnsetDateChanging(global::System.String value);
+        partial void OnOnsetDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OnsetAmount
+        {
+            get
+            {
+                return _OnsetAmount;
+            }
+            set
+            {
+                OnOnsetAmountChanging(value);
+                ReportPropertyChanging("OnsetAmount");
+                _OnsetAmount = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OnsetAmount");
+                OnOnsetAmountChanged();
+            }
+        }
+        private global::System.String _OnsetAmount;
+        partial void OnOnsetAmountChanging(global::System.String value);
+        partial void OnOnsetAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DailyAggravation
+        {
+            get
+            {
+                return _DailyAggravation;
+            }
+            set
+            {
+                OnDailyAggravationChanging(value);
+                ReportPropertyChanging("DailyAggravation");
+                _DailyAggravation = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DailyAggravation");
+                OnDailyAggravationChanged();
+            }
+        }
+        private global::System.String _DailyAggravation;
+        partial void OnDailyAggravationChanging(global::System.String value);
+        partial void OnDailyAggravationChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordHeadachaOverView", "VisitRecord")]
+        public VisitRecord VisitRecord
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordHeadachaOverView", "VisitRecord").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordHeadachaOverView", "VisitRecord").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<VisitRecord> VisitRecordReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordHeadachaOverView", "VisitRecord");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<VisitRecord>("HeadacheModel.VisitRecordHeadachaOverView", "VisitRecord", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadachePlace", "HeadachePlace")]
+        public EntityCollection<HeadachePlace> HeadachePlace
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HeadachePlace>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachePlace");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HeadachePlace>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachePlace", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadacheAccompany", "HeadacheAccompany")]
+        public EntityCollection<HeadacheAccompany> HeadacheAccompany
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HeadacheAccompany>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadacheAccompany");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HeadacheAccompany>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadacheAccompany", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadacheProdrome", "HeadacheProdrome")]
+        public EntityCollection<HeadacheProdrome> HeadacheProdrome
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HeadacheProdrome>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadacheProdrome");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HeadacheProdrome>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadacheProdrome", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="HeadacheAccompany")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeadacheAccompany : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeadacheAccompany object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="symptom">Initial value of the Symptom property.</param>
+        /// <param name="headachaOverViewId">Initial value of the HeadachaOverViewId property.</param>
+        public static HeadacheAccompany CreateHeadacheAccompany(global::System.Int32 id, global::System.String symptom, global::System.Int32 headachaOverViewId)
+        {
+            HeadacheAccompany headacheAccompany = new HeadacheAccompany();
+            headacheAccompany.Id = id;
+            headacheAccompany.Symptom = symptom;
+            headacheAccompany.HeadachaOverViewId = headachaOverViewId;
+            return headacheAccompany;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Symptom
+        {
+            get
+            {
+                return _Symptom;
+            }
+            set
+            {
+                OnSymptomChanging(value);
+                ReportPropertyChanging("Symptom");
+                _Symptom = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Symptom");
+                OnSymptomChanged();
+            }
+        }
+        private global::System.String _Symptom;
+        partial void OnSymptomChanging(global::System.String value);
+        partial void OnSymptomChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HeadachaOverViewId
+        {
+            get
+            {
+                return _HeadachaOverViewId;
+            }
+            set
+            {
+                OnHeadachaOverViewIdChanging(value);
+                ReportPropertyChanging("HeadachaOverViewId");
+                _HeadachaOverViewId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HeadachaOverViewId");
+                OnHeadachaOverViewIdChanged();
+            }
+        }
+        private global::System.Int32 _HeadachaOverViewId;
+        partial void OnHeadachaOverViewIdChanging(global::System.Int32 value);
+        partial void OnHeadachaOverViewIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadacheAccompany", "HeadachaOverView")]
+        public HeadachaOverView HeadachaOverView
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadachaOverView").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadachaOverView").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HeadachaOverView> HeadachaOverViewReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadachaOverView");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheAccompany", "HeadachaOverView", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="HeadacheFamilyMember")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeadacheFamilyMember : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeadacheFamilyMember object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="person">Initial value of the Person property.</param>
+        /// <param name="relateInforId">Initial value of the RelateInforId property.</param>
+        public static HeadacheFamilyMember CreateHeadacheFamilyMember(global::System.Int32 id, global::System.String person, global::System.Int32 relateInforId)
+        {
+            HeadacheFamilyMember headacheFamilyMember = new HeadacheFamilyMember();
+            headacheFamilyMember.Id = id;
+            headacheFamilyMember.Person = person;
+            headacheFamilyMember.RelateInforId = relateInforId;
+            return headacheFamilyMember;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Person
+        {
+            get
+            {
+                return _Person;
+            }
+            set
+            {
+                OnPersonChanging(value);
+                ReportPropertyChanging("Person");
+                _Person = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Person");
+                OnPersonChanged();
+            }
+        }
+        private global::System.String _Person;
+        partial void OnPersonChanging(global::System.String value);
+        partial void OnPersonChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RelateInforId
+        {
+            get
+            {
+                return _RelateInforId;
+            }
+            set
+            {
+                OnRelateInforIdChanging(value);
+                ReportPropertyChanging("RelateInforId");
+                _RelateInforId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RelateInforId");
+                OnRelateInforIdChanged();
+            }
+        }
+        private global::System.Int32 _RelateInforId;
+        partial void OnRelateInforIdChanging(global::System.Int32 value);
+        partial void OnRelateInforIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforHeadacheFamilyMember", "RelateInfor")]
+        public RelateInfor RelateInfor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforHeadacheFamilyMember", "RelateInfor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforHeadacheFamilyMember", "RelateInfor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RelateInfor> RelateInforReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforHeadacheFamilyMember", "RelateInfor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RelateInfor>("HeadacheModel.RelateInforHeadacheFamilyMember", "RelateInfor", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="HeadachePlace")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeadachePlace : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeadachePlace object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="position">Initial value of the Position property.</param>
+        /// <param name="specificPlace">Initial value of the SpecificPlace property.</param>
+        /// <param name="headachaOverViewId">Initial value of the HeadachaOverViewId property.</param>
+        public static HeadachePlace CreateHeadachePlace(global::System.Int32 id, global::System.String position, global::System.String specificPlace, global::System.Int32 headachaOverViewId)
+        {
+            HeadachePlace headachePlace = new HeadachePlace();
+            headachePlace.Id = id;
+            headachePlace.Position = position;
+            headachePlace.SpecificPlace = specificPlace;
+            headachePlace.HeadachaOverViewId = headachaOverViewId;
+            return headachePlace;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Position
+        {
+            get
+            {
+                return _Position;
+            }
+            set
+            {
+                OnPositionChanging(value);
+                ReportPropertyChanging("Position");
+                _Position = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Position");
+                OnPositionChanged();
+            }
+        }
+        private global::System.String _Position;
+        partial void OnPositionChanging(global::System.String value);
+        partial void OnPositionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SpecificPlace
+        {
+            get
+            {
+                return _SpecificPlace;
+            }
+            set
+            {
+                OnSpecificPlaceChanging(value);
+                ReportPropertyChanging("SpecificPlace");
+                _SpecificPlace = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SpecificPlace");
+                OnSpecificPlaceChanged();
+            }
+        }
+        private global::System.String _SpecificPlace;
+        partial void OnSpecificPlaceChanging(global::System.String value);
+        partial void OnSpecificPlaceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HeadachaOverViewId
+        {
+            get
+            {
+                return _HeadachaOverViewId;
+            }
+            set
+            {
+                OnHeadachaOverViewIdChanging(value);
+                ReportPropertyChanging("HeadachaOverViewId");
+                _HeadachaOverViewId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HeadachaOverViewId");
+                OnHeadachaOverViewIdChanged();
+            }
+        }
+        private global::System.Int32 _HeadachaOverViewId;
+        partial void OnHeadachaOverViewIdChanging(global::System.Int32 value);
+        partial void OnHeadachaOverViewIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadachePlace", "HeadachaOverView")]
+        public HeadachaOverView HeadachaOverView
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachaOverView").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachaOverView").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HeadachaOverView> HeadachaOverViewReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachaOverView");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadachePlace", "HeadachaOverView", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="HeadacheProdrome")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class HeadacheProdrome : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new HeadacheProdrome object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="prodrome">Initial value of the Prodrome property.</param>
+        /// <param name="headachaOverViewId">Initial value of the HeadachaOverViewId property.</param>
+        public static HeadacheProdrome CreateHeadacheProdrome(global::System.Int32 id, global::System.String prodrome, global::System.Int32 headachaOverViewId)
+        {
+            HeadacheProdrome headacheProdrome = new HeadacheProdrome();
+            headacheProdrome.Id = id;
+            headacheProdrome.Prodrome = prodrome;
+            headacheProdrome.HeadachaOverViewId = headachaOverViewId;
+            return headacheProdrome;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Prodrome
+        {
+            get
+            {
+                return _Prodrome;
+            }
+            set
+            {
+                OnProdromeChanging(value);
+                ReportPropertyChanging("Prodrome");
+                _Prodrome = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Prodrome");
+                OnProdromeChanged();
+            }
+        }
+        private global::System.String _Prodrome;
+        partial void OnProdromeChanging(global::System.String value);
+        partial void OnProdromeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 HeadachaOverViewId
+        {
+            get
+            {
+                return _HeadachaOverViewId;
+            }
+            set
+            {
+                OnHeadachaOverViewIdChanging(value);
+                ReportPropertyChanging("HeadachaOverViewId");
+                _HeadachaOverViewId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HeadachaOverViewId");
+                OnHeadachaOverViewIdChanged();
+            }
+        }
+        private global::System.Int32 _HeadachaOverViewId;
+        partial void OnHeadachaOverViewIdChanging(global::System.Int32 value);
+        partial void OnHeadachaOverViewIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "HeadachaOverViewHeadacheProdrome", "HeadachaOverView")]
+        public HeadachaOverView HeadachaOverView
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadachaOverView").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadachaOverView").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HeadachaOverView> HeadachaOverViewReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadachaOverView");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HeadachaOverView>("HeadacheModel.HeadachaOverViewHeadacheProdrome", "HeadachaOverView", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="Lifestyle")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Lifestyle : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Lifestyle object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="smokeState">Initial value of the SmokeState property.</param>
+        /// <param name="smokeStartAge">Initial value of the SmokeStartAge property.</param>
+        /// <param name="smokeQuitYear">Initial value of the SmokeQuitYear property.</param>
+        /// <param name="smokeYear">Initial value of the SmokeYear property.</param>
+        /// <param name="cigarettesPerDay">Initial value of the CigarettesPerDay property.</param>
+        /// <param name="drinkState">Initial value of the DrinkState property.</param>
+        /// <param name="drinkStartAge">Initial value of the DrinkStartAge property.</param>
+        /// <param name="drinkYear">Initial value of the DrinkYear property.</param>
+        /// <param name="drinkQuitYear">Initial value of the DrinkQuitYear property.</param>
+        /// <param name="drinkPerDay">Initial value of the DrinkPerDay property.</param>
+        /// <param name="drinkCategory">Initial value of the DrinkCategory property.</param>
+        /// <param name="teaPerDay">Initial value of the TeaPerDay property.</param>
+        /// <param name="coffePerDay">Initial value of the CoffePerDay property.</param>
+        /// <param name="exercisePerWeek">Initial value of the ExercisePerWeek property.</param>
+        /// <param name="exerciseTime">Initial value of the ExerciseTime property.</param>
+        /// <param name="exerciseDescription">Initial value of the ExerciseDescription property.</param>
+        /// <param name="weightChange">Initial value of the WeightChange property.</param>
+        /// <param name="weightChangeNote">Initial value of the WeightChangeNote property.</param>
+        /// <param name="otherLifeStyleFactor">Initial value of the OtherLifeStyleFactor property.</param>
+        public static Lifestyle CreateLifestyle(global::System.Int32 id, global::System.String smokeState, global::System.String smokeStartAge, global::System.String smokeQuitYear, global::System.String smokeYear, global::System.String cigarettesPerDay, global::System.String drinkState, global::System.String drinkStartAge, global::System.String drinkYear, global::System.String drinkQuitYear, global::System.String drinkPerDay, global::System.String drinkCategory, global::System.String teaPerDay, global::System.String coffePerDay, global::System.String exercisePerWeek, global::System.String exerciseTime, global::System.String exerciseDescription, global::System.String weightChange, global::System.String weightChangeNote, global::System.String otherLifeStyleFactor)
+        {
+            Lifestyle lifestyle = new Lifestyle();
+            lifestyle.Id = id;
+            lifestyle.SmokeState = smokeState;
+            lifestyle.SmokeStartAge = smokeStartAge;
+            lifestyle.SmokeQuitYear = smokeQuitYear;
+            lifestyle.SmokeYear = smokeYear;
+            lifestyle.CigarettesPerDay = cigarettesPerDay;
+            lifestyle.DrinkState = drinkState;
+            lifestyle.DrinkStartAge = drinkStartAge;
+            lifestyle.DrinkYear = drinkYear;
+            lifestyle.DrinkQuitYear = drinkQuitYear;
+            lifestyle.DrinkPerDay = drinkPerDay;
+            lifestyle.DrinkCategory = drinkCategory;
+            lifestyle.TeaPerDay = teaPerDay;
+            lifestyle.CoffePerDay = coffePerDay;
+            lifestyle.ExercisePerWeek = exercisePerWeek;
+            lifestyle.ExerciseTime = exerciseTime;
+            lifestyle.ExerciseDescription = exerciseDescription;
+            lifestyle.WeightChange = weightChange;
+            lifestyle.WeightChangeNote = weightChangeNote;
+            lifestyle.OtherLifeStyleFactor = otherLifeStyleFactor;
+            return lifestyle;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmokeState
+        {
+            get
+            {
+                return _SmokeState;
+            }
+            set
+            {
+                OnSmokeStateChanging(value);
+                ReportPropertyChanging("SmokeState");
+                _SmokeState = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmokeState");
+                OnSmokeStateChanged();
+            }
+        }
+        private global::System.String _SmokeState;
+        partial void OnSmokeStateChanging(global::System.String value);
+        partial void OnSmokeStateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmokeStartAge
+        {
+            get
+            {
+                return _SmokeStartAge;
+            }
+            set
+            {
+                OnSmokeStartAgeChanging(value);
+                ReportPropertyChanging("SmokeStartAge");
+                _SmokeStartAge = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmokeStartAge");
+                OnSmokeStartAgeChanged();
+            }
+        }
+        private global::System.String _SmokeStartAge;
+        partial void OnSmokeStartAgeChanging(global::System.String value);
+        partial void OnSmokeStartAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmokeQuitYear
+        {
+            get
+            {
+                return _SmokeQuitYear;
+            }
+            set
+            {
+                OnSmokeQuitYearChanging(value);
+                ReportPropertyChanging("SmokeQuitYear");
+                _SmokeQuitYear = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmokeQuitYear");
+                OnSmokeQuitYearChanged();
+            }
+        }
+        private global::System.String _SmokeQuitYear;
+        partial void OnSmokeQuitYearChanging(global::System.String value);
+        partial void OnSmokeQuitYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmokeYear
+        {
+            get
+            {
+                return _SmokeYear;
+            }
+            set
+            {
+                OnSmokeYearChanging(value);
+                ReportPropertyChanging("SmokeYear");
+                _SmokeYear = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmokeYear");
+                OnSmokeYearChanged();
+            }
+        }
+        private global::System.String _SmokeYear;
+        partial void OnSmokeYearChanging(global::System.String value);
+        partial void OnSmokeYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CigarettesPerDay
+        {
+            get
+            {
+                return _CigarettesPerDay;
+            }
+            set
+            {
+                OnCigarettesPerDayChanging(value);
+                ReportPropertyChanging("CigarettesPerDay");
+                _CigarettesPerDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CigarettesPerDay");
+                OnCigarettesPerDayChanged();
+            }
+        }
+        private global::System.String _CigarettesPerDay;
+        partial void OnCigarettesPerDayChanging(global::System.String value);
+        partial void OnCigarettesPerDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkState
+        {
+            get
+            {
+                return _DrinkState;
+            }
+            set
+            {
+                OnDrinkStateChanging(value);
+                ReportPropertyChanging("DrinkState");
+                _DrinkState = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkState");
+                OnDrinkStateChanged();
+            }
+        }
+        private global::System.String _DrinkState;
+        partial void OnDrinkStateChanging(global::System.String value);
+        partial void OnDrinkStateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkStartAge
+        {
+            get
+            {
+                return _DrinkStartAge;
+            }
+            set
+            {
+                OnDrinkStartAgeChanging(value);
+                ReportPropertyChanging("DrinkStartAge");
+                _DrinkStartAge = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkStartAge");
+                OnDrinkStartAgeChanged();
+            }
+        }
+        private global::System.String _DrinkStartAge;
+        partial void OnDrinkStartAgeChanging(global::System.String value);
+        partial void OnDrinkStartAgeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkYear
+        {
+            get
+            {
+                return _DrinkYear;
+            }
+            set
+            {
+                OnDrinkYearChanging(value);
+                ReportPropertyChanging("DrinkYear");
+                _DrinkYear = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkYear");
+                OnDrinkYearChanged();
+            }
+        }
+        private global::System.String _DrinkYear;
+        partial void OnDrinkYearChanging(global::System.String value);
+        partial void OnDrinkYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkQuitYear
+        {
+            get
+            {
+                return _DrinkQuitYear;
+            }
+            set
+            {
+                OnDrinkQuitYearChanging(value);
+                ReportPropertyChanging("DrinkQuitYear");
+                _DrinkQuitYear = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkQuitYear");
+                OnDrinkQuitYearChanged();
+            }
+        }
+        private global::System.String _DrinkQuitYear;
+        partial void OnDrinkQuitYearChanging(global::System.String value);
+        partial void OnDrinkQuitYearChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkPerDay
+        {
+            get
+            {
+                return _DrinkPerDay;
+            }
+            set
+            {
+                OnDrinkPerDayChanging(value);
+                ReportPropertyChanging("DrinkPerDay");
+                _DrinkPerDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkPerDay");
+                OnDrinkPerDayChanged();
+            }
+        }
+        private global::System.String _DrinkPerDay;
+        partial void OnDrinkPerDayChanging(global::System.String value);
+        partial void OnDrinkPerDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrinkCategory
+        {
+            get
+            {
+                return _DrinkCategory;
+            }
+            set
+            {
+                OnDrinkCategoryChanging(value);
+                ReportPropertyChanging("DrinkCategory");
+                _DrinkCategory = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrinkCategory");
+                OnDrinkCategoryChanged();
+            }
+        }
+        private global::System.String _DrinkCategory;
+        partial void OnDrinkCategoryChanging(global::System.String value);
+        partial void OnDrinkCategoryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TeaPerDay
+        {
+            get
+            {
+                return _TeaPerDay;
+            }
+            set
+            {
+                OnTeaPerDayChanging(value);
+                ReportPropertyChanging("TeaPerDay");
+                _TeaPerDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TeaPerDay");
+                OnTeaPerDayChanged();
+            }
+        }
+        private global::System.String _TeaPerDay;
+        partial void OnTeaPerDayChanging(global::System.String value);
+        partial void OnTeaPerDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CoffePerDay
+        {
+            get
+            {
+                return _CoffePerDay;
+            }
+            set
+            {
+                OnCoffePerDayChanging(value);
+                ReportPropertyChanging("CoffePerDay");
+                _CoffePerDay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CoffePerDay");
+                OnCoffePerDayChanged();
+            }
+        }
+        private global::System.String _CoffePerDay;
+        partial void OnCoffePerDayChanging(global::System.String value);
+        partial void OnCoffePerDayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ExercisePerWeek
+        {
+            get
+            {
+                return _ExercisePerWeek;
+            }
+            set
+            {
+                OnExercisePerWeekChanging(value);
+                ReportPropertyChanging("ExercisePerWeek");
+                _ExercisePerWeek = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ExercisePerWeek");
+                OnExercisePerWeekChanged();
+            }
+        }
+        private global::System.String _ExercisePerWeek;
+        partial void OnExercisePerWeekChanging(global::System.String value);
+        partial void OnExercisePerWeekChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ExerciseTime
+        {
+            get
+            {
+                return _ExerciseTime;
+            }
+            set
+            {
+                OnExerciseTimeChanging(value);
+                ReportPropertyChanging("ExerciseTime");
+                _ExerciseTime = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ExerciseTime");
+                OnExerciseTimeChanged();
+            }
+        }
+        private global::System.String _ExerciseTime;
+        partial void OnExerciseTimeChanging(global::System.String value);
+        partial void OnExerciseTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ExerciseDescription
+        {
+            get
+            {
+                return _ExerciseDescription;
+            }
+            set
+            {
+                OnExerciseDescriptionChanging(value);
+                ReportPropertyChanging("ExerciseDescription");
+                _ExerciseDescription = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ExerciseDescription");
+                OnExerciseDescriptionChanged();
+            }
+        }
+        private global::System.String _ExerciseDescription;
+        partial void OnExerciseDescriptionChanging(global::System.String value);
+        partial void OnExerciseDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String WeightChange
+        {
+            get
+            {
+                return _WeightChange;
+            }
+            set
+            {
+                OnWeightChangeChanging(value);
+                ReportPropertyChanging("WeightChange");
+                _WeightChange = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("WeightChange");
+                OnWeightChangeChanged();
+            }
+        }
+        private global::System.String _WeightChange;
+        partial void OnWeightChangeChanging(global::System.String value);
+        partial void OnWeightChangeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String WeightChangeNote
+        {
+            get
+            {
+                return _WeightChangeNote;
+            }
+            set
+            {
+                OnWeightChangeNoteChanging(value);
+                ReportPropertyChanging("WeightChangeNote");
+                _WeightChangeNote = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("WeightChangeNote");
+                OnWeightChangeNoteChanged();
+            }
+        }
+        private global::System.String _WeightChangeNote;
+        partial void OnWeightChangeNoteChanging(global::System.String value);
+        partial void OnWeightChangeNoteChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OtherLifeStyleFactor
+        {
+            get
+            {
+                return _OtherLifeStyleFactor;
+            }
+            set
+            {
+                OnOtherLifeStyleFactorChanging(value);
+                ReportPropertyChanging("OtherLifeStyleFactor");
+                _OtherLifeStyleFactor = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OtherLifeStyleFactor");
+                OnOtherLifeStyleFactorChanged();
+            }
+        }
+        private global::System.String _OtherLifeStyleFactor;
+        partial void OnOtherLifeStyleFactorChanging(global::System.String value);
+        partial void OnOtherLifeStyleFactorChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "LifestyleSpecialDiet", "SpecialDiet")]
+        public EntityCollection<SpecialDiet> SpecialDiet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SpecialDiet>("HeadacheModel.LifestyleSpecialDiet", "SpecialDiet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SpecialDiet>("HeadacheModel.LifestyleSpecialDiet", "SpecialDiet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforLifestyle", "RelateInfor")]
+        public RelateInfor RelateInfor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforLifestyle", "RelateInfor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforLifestyle", "RelateInfor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RelateInfor> RelateInforReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforLifestyle", "RelateInfor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RelateInfor>("HeadacheModel.RelateInforLifestyle", "RelateInfor", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="MecicationAdvice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MecicationAdvice : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new MecicationAdvice object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="prescriptionId">Initial value of the PrescriptionId property.</param>
+        /// <param name="drugApplication">Initial value of the DrugApplication property.</param>
+        /// <param name="drugCategory">Initial value of the DrugCategory property.</param>
+        /// <param name="drugName">Initial value of the DrugName property.</param>
+        /// <param name="therapy">Initial value of the Therapy property.</param>
+        /// <param name="drugDose">Initial value of the DrugDose property.</param>
+        public static MecicationAdvice CreateMecicationAdvice(global::System.Int32 id, global::System.Int32 prescriptionId, global::System.String drugApplication, global::System.String drugCategory, global::System.String drugName, global::System.String therapy, global::System.String drugDose)
+        {
+            MecicationAdvice mecicationAdvice = new MecicationAdvice();
+            mecicationAdvice.Id = id;
+            mecicationAdvice.PrescriptionId = prescriptionId;
+            mecicationAdvice.DrugApplication = drugApplication;
+            mecicationAdvice.DrugCategory = drugCategory;
+            mecicationAdvice.DrugName = drugName;
+            mecicationAdvice.Therapy = therapy;
+            mecicationAdvice.DrugDose = drugDose;
+            return mecicationAdvice;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PrescriptionId
+        {
+            get
+            {
+                return _PrescriptionId;
+            }
+            set
+            {
+                OnPrescriptionIdChanging(value);
+                ReportPropertyChanging("PrescriptionId");
+                _PrescriptionId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrescriptionId");
+                OnPrescriptionIdChanged();
+            }
+        }
+        private global::System.Int32 _PrescriptionId;
+        partial void OnPrescriptionIdChanging(global::System.Int32 value);
+        partial void OnPrescriptionIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugApplication
+        {
+            get
+            {
+                return _DrugApplication;
+            }
+            set
+            {
+                OnDrugApplicationChanging(value);
+                ReportPropertyChanging("DrugApplication");
+                _DrugApplication = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugApplication");
+                OnDrugApplicationChanged();
+            }
+        }
+        private global::System.String _DrugApplication;
+        partial void OnDrugApplicationChanging(global::System.String value);
+        partial void OnDrugApplicationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugCategory
+        {
+            get
+            {
+                return _DrugCategory;
+            }
+            set
+            {
+                OnDrugCategoryChanging(value);
+                ReportPropertyChanging("DrugCategory");
+                _DrugCategory = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugCategory");
+                OnDrugCategoryChanged();
+            }
+        }
+        private global::System.String _DrugCategory;
+        partial void OnDrugCategoryChanging(global::System.String value);
+        partial void OnDrugCategoryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugName
+        {
+            get
+            {
+                return _DrugName;
+            }
+            set
+            {
+                OnDrugNameChanging(value);
+                ReportPropertyChanging("DrugName");
+                _DrugName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugName");
+                OnDrugNameChanged();
+            }
+        }
+        private global::System.String _DrugName;
+        partial void OnDrugNameChanging(global::System.String value);
+        partial void OnDrugNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Therapy
+        {
+            get
+            {
+                return _Therapy;
+            }
+            set
+            {
+                OnTherapyChanging(value);
+                ReportPropertyChanging("Therapy");
+                _Therapy = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Therapy");
+                OnTherapyChanged();
+            }
+        }
+        private global::System.String _Therapy;
+        partial void OnTherapyChanging(global::System.String value);
+        partial void OnTherapyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugDose
+        {
+            get
+            {
+                return _DrugDose;
+            }
+            set
+            {
+                OnDrugDoseChanging(value);
+                ReportPropertyChanging("DrugDose");
+                _DrugDose = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugDose");
+                OnDrugDoseChanged();
+            }
+        }
+        private global::System.String _DrugDose;
+        partial void OnDrugDoseChanging(global::System.String value);
+        partial void OnDrugDoseChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "PrescriptionMecicationAdvice", "Prescription")]
+        public Prescription Prescription
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.PrescriptionMecicationAdvice", "Prescription").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.PrescriptionMecicationAdvice", "Prescription").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Prescription> PrescriptionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.PrescriptionMecicationAdvice", "Prescription");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Prescription>("HeadacheModel.PrescriptionMecicationAdvice", "Prescription", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="MedicalHistory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MedicalHistory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new MedicalHistory object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static MedicalHistory CreateMedicalHistory(global::System.Int32 id)
+        {
+            MedicalHistory medicalHistory = new MedicalHistory();
+            medicalHistory.Id = id;
+            return medicalHistory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordMedicalHistory", "VisitRecord")]
+        public VisitRecord VisitRecord
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordMedicalHistory", "VisitRecord").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordMedicalHistory", "VisitRecord").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<VisitRecord> VisitRecordReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordMedicalHistory", "VisitRecord");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<VisitRecord>("HeadacheModel.VisitRecordMedicalHistory", "VisitRecord", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "MedicalHistoryPreviousDrug", "PreviousDrug")]
+        public EntityCollection<PreviousDrug> PreviousDrug
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PreviousDrug>("HeadacheModel.MedicalHistoryPreviousDrug", "PreviousDrug");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PreviousDrug>("HeadacheModel.MedicalHistoryPreviousDrug", "PreviousDrug", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "MedicalHistoryPreviousExam", "PreviousExam")]
+        public EntityCollection<PreviousExam> PreviousExam
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<PreviousExam>("HeadacheModel.MedicalHistoryPreviousExam", "PreviousExam");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PreviousExam>("HeadacheModel.MedicalHistoryPreviousExam", "PreviousExam", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="OtherFamilyDisease")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class OtherFamilyDisease : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new OtherFamilyDisease object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="relateInforId">Initial value of the RelateInforId property.</param>
+        public static OtherFamilyDisease CreateOtherFamilyDisease(global::System.Int32 id, global::System.Int32 relateInforId)
+        {
+            OtherFamilyDisease otherFamilyDisease = new OtherFamilyDisease();
+            otherFamilyDisease.Id = id;
+            otherFamilyDisease.RelateInforId = relateInforId;
+            return otherFamilyDisease;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RelateInforId
+        {
+            get
+            {
+                return _RelateInforId;
+            }
+            set
+            {
+                OnRelateInforIdChanging(value);
+                ReportPropertyChanging("RelateInforId");
+                _RelateInforId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RelateInforId");
+                OnRelateInforIdChanged();
+            }
+        }
+        private global::System.Int32 _RelateInforId;
+        partial void OnRelateInforIdChanging(global::System.Int32 value);
+        partial void OnRelateInforIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforOtherFamilyDisease", "RelateInfor")]
+        public RelateInfor RelateInfor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforOtherFamilyDisease", "RelateInfor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforOtherFamilyDisease", "RelateInfor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RelateInfor> RelateInforReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.RelateInforOtherFamilyDisease", "RelateInfor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RelateInfor>("HeadacheModel.RelateInforOtherFamilyDisease", "RelateInfor", value);
                 }
             }
         }
@@ -678,6 +3586,966 @@ namespace HeadacheCDSSWeb.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "PatBasicInforRelateInfor", "RelateInfor")]
+        public RelateInfor RelateInfor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.PatBasicInforRelateInfor", "RelateInfor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.PatBasicInforRelateInfor", "RelateInfor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RelateInfor> RelateInforReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RelateInfor>("HeadacheModel.PatBasicInforRelateInfor", "RelateInfor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RelateInfor>("HeadacheModel.PatBasicInforRelateInfor", "RelateInfor", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="Prescription")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Prescription : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Prescription object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="dotorAdvice">Initial value of the DotorAdvice property.</param>
+        public static Prescription CreatePrescription(global::System.Int32 id, global::System.String dotorAdvice)
+        {
+            Prescription prescription = new Prescription();
+            prescription.Id = id;
+            prescription.DotorAdvice = dotorAdvice;
+            return prescription;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DotorAdvice
+        {
+            get
+            {
+                return _DotorAdvice;
+            }
+            set
+            {
+                OnDotorAdviceChanging(value);
+                ReportPropertyChanging("DotorAdvice");
+                _DotorAdvice = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DotorAdvice");
+                OnDotorAdviceChanged();
+            }
+        }
+        private global::System.String _DotorAdvice;
+        partial void OnDotorAdviceChanging(global::System.String value);
+        partial void OnDotorAdviceChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordPrescription", "VisitRecord")]
+        public VisitRecord VisitRecord
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordPrescription", "VisitRecord").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordPrescription", "VisitRecord").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<VisitRecord> VisitRecordReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<VisitRecord>("HeadacheModel.VisitRecordPrescription", "VisitRecord");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<VisitRecord>("HeadacheModel.VisitRecordPrescription", "VisitRecord", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "PrescriptionMecicationAdvice", "MecicationAdvice")]
+        public EntityCollection<MecicationAdvice> MecicationAdvice
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MecicationAdvice>("HeadacheModel.PrescriptionMecicationAdvice", "MecicationAdvice");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MecicationAdvice>("HeadacheModel.PrescriptionMecicationAdvice", "MecicationAdvice", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="PreviousDrug")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PreviousDrug : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PreviousDrug object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="medicalHistoryId">Initial value of the MedicalHistoryId property.</param>
+        /// <param name="drugCategory">Initial value of the DrugCategory property.</param>
+        /// <param name="drugName">Initial value of the DrugName property.</param>
+        /// <param name="dayAmoutnPerM">Initial value of the DayAmoutnPerM property.</param>
+        /// <param name="monthTotalAmount">Initial value of the MonthTotalAmount property.</param>
+        public static PreviousDrug CreatePreviousDrug(global::System.Int32 id, global::System.Int32 medicalHistoryId, global::System.String drugCategory, global::System.String drugName, global::System.String dayAmoutnPerM, global::System.String monthTotalAmount)
+        {
+            PreviousDrug previousDrug = new PreviousDrug();
+            previousDrug.Id = id;
+            previousDrug.MedicalHistoryId = medicalHistoryId;
+            previousDrug.DrugCategory = drugCategory;
+            previousDrug.DrugName = drugName;
+            previousDrug.DayAmoutnPerM = dayAmoutnPerM;
+            previousDrug.MonthTotalAmount = monthTotalAmount;
+            return previousDrug;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MedicalHistoryId
+        {
+            get
+            {
+                return _MedicalHistoryId;
+            }
+            set
+            {
+                OnMedicalHistoryIdChanging(value);
+                ReportPropertyChanging("MedicalHistoryId");
+                _MedicalHistoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MedicalHistoryId");
+                OnMedicalHistoryIdChanged();
+            }
+        }
+        private global::System.Int32 _MedicalHistoryId;
+        partial void OnMedicalHistoryIdChanging(global::System.Int32 value);
+        partial void OnMedicalHistoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugCategory
+        {
+            get
+            {
+                return _DrugCategory;
+            }
+            set
+            {
+                OnDrugCategoryChanging(value);
+                ReportPropertyChanging("DrugCategory");
+                _DrugCategory = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugCategory");
+                OnDrugCategoryChanged();
+            }
+        }
+        private global::System.String _DrugCategory;
+        partial void OnDrugCategoryChanging(global::System.String value);
+        partial void OnDrugCategoryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DrugName
+        {
+            get
+            {
+                return _DrugName;
+            }
+            set
+            {
+                OnDrugNameChanging(value);
+                ReportPropertyChanging("DrugName");
+                _DrugName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DrugName");
+                OnDrugNameChanged();
+            }
+        }
+        private global::System.String _DrugName;
+        partial void OnDrugNameChanging(global::System.String value);
+        partial void OnDrugNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DayAmoutnPerM
+        {
+            get
+            {
+                return _DayAmoutnPerM;
+            }
+            set
+            {
+                OnDayAmoutnPerMChanging(value);
+                ReportPropertyChanging("DayAmoutnPerM");
+                _DayAmoutnPerM = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DayAmoutnPerM");
+                OnDayAmoutnPerMChanged();
+            }
+        }
+        private global::System.String _DayAmoutnPerM;
+        partial void OnDayAmoutnPerMChanging(global::System.String value);
+        partial void OnDayAmoutnPerMChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String MonthTotalAmount
+        {
+            get
+            {
+                return _MonthTotalAmount;
+            }
+            set
+            {
+                OnMonthTotalAmountChanging(value);
+                ReportPropertyChanging("MonthTotalAmount");
+                _MonthTotalAmount = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("MonthTotalAmount");
+                OnMonthTotalAmountChanged();
+            }
+        }
+        private global::System.String _MonthTotalAmount;
+        partial void OnMonthTotalAmountChanging(global::System.String value);
+        partial void OnMonthTotalAmountChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "MedicalHistoryPreviousDrug", "MedicalHistory")]
+        public MedicalHistory MedicalHistory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousDrug", "MedicalHistory").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousDrug", "MedicalHistory").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MedicalHistory> MedicalHistoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousDrug", "MedicalHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousDrug", "MedicalHistory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="PreviousExam")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PreviousExam : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PreviousExam object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="medicalHistoryId">Initial value of the MedicalHistoryId property.</param>
+        /// <param name="examName">Initial value of the ExamName property.</param>
+        /// <param name="result">Initial value of the Result property.</param>
+        /// <param name="date">Initial value of the Date property.</param>
+        public static PreviousExam CreatePreviousExam(global::System.Int32 id, global::System.Int32 medicalHistoryId, global::System.String examName, global::System.String result, global::System.String date)
+        {
+            PreviousExam previousExam = new PreviousExam();
+            previousExam.Id = id;
+            previousExam.MedicalHistoryId = medicalHistoryId;
+            previousExam.ExamName = examName;
+            previousExam.Result = result;
+            previousExam.Date = date;
+            return previousExam;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MedicalHistoryId
+        {
+            get
+            {
+                return _MedicalHistoryId;
+            }
+            set
+            {
+                OnMedicalHistoryIdChanging(value);
+                ReportPropertyChanging("MedicalHistoryId");
+                _MedicalHistoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MedicalHistoryId");
+                OnMedicalHistoryIdChanged();
+            }
+        }
+        private global::System.Int32 _MedicalHistoryId;
+        partial void OnMedicalHistoryIdChanging(global::System.Int32 value);
+        partial void OnMedicalHistoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ExamName
+        {
+            get
+            {
+                return _ExamName;
+            }
+            set
+            {
+                OnExamNameChanging(value);
+                ReportPropertyChanging("ExamName");
+                _ExamName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ExamName");
+                OnExamNameChanged();
+            }
+        }
+        private global::System.String _ExamName;
+        partial void OnExamNameChanging(global::System.String value);
+        partial void OnExamNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Result
+        {
+            get
+            {
+                return _Result;
+            }
+            set
+            {
+                OnResultChanging(value);
+                ReportPropertyChanging("Result");
+                _Result = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Result");
+                OnResultChanged();
+            }
+        }
+        private global::System.String _Result;
+        partial void OnResultChanging(global::System.String value);
+        partial void OnResultChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.String _Date;
+        partial void OnDateChanging(global::System.String value);
+        partial void OnDateChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "MedicalHistoryPreviousExam", "MedicalHistory")]
+        public MedicalHistory MedicalHistory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousExam", "MedicalHistory").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousExam", "MedicalHistory").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MedicalHistory> MedicalHistoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousExam", "MedicalHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MedicalHistory>("HeadacheModel.MedicalHistoryPreviousExam", "MedicalHistory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="RelateInfor")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RelateInfor : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RelateInfor object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="similarFamily">Initial value of the SimilarFamily property.</param>
+        public static RelateInfor CreateRelateInfor(global::System.Int32 id, global::System.String similarFamily)
+        {
+            RelateInfor relateInfor = new RelateInfor();
+            relateInfor.Id = id;
+            relateInfor.SimilarFamily = similarFamily;
+            return relateInfor;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SimilarFamily
+        {
+            get
+            {
+                return _SimilarFamily;
+            }
+            set
+            {
+                OnSimilarFamilyChanging(value);
+                ReportPropertyChanging("SimilarFamily");
+                _SimilarFamily = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SimilarFamily");
+                OnSimilarFamilyChanged();
+            }
+        }
+        private global::System.String _SimilarFamily;
+        partial void OnSimilarFamilyChanging(global::System.String value);
+        partial void OnSimilarFamilyChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "PatBasicInforRelateInfor", "PatBasicInfor")]
+        public PatBasicInfor PatBasicInfor
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PatBasicInfor>("HeadacheModel.PatBasicInforRelateInfor", "PatBasicInfor").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PatBasicInfor>("HeadacheModel.PatBasicInforRelateInfor", "PatBasicInfor").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PatBasicInfor> PatBasicInforReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PatBasicInfor>("HeadacheModel.PatBasicInforRelateInfor", "PatBasicInfor");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PatBasicInfor>("HeadacheModel.PatBasicInforRelateInfor", "PatBasicInfor", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforHeadacheFamilyMember", "HeadacheFamilyMember")]
+        public EntityCollection<HeadacheFamilyMember> HeadacheFamilyMember
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<HeadacheFamilyMember>("HeadacheModel.RelateInforHeadacheFamilyMember", "HeadacheFamilyMember");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<HeadacheFamilyMember>("HeadacheModel.RelateInforHeadacheFamilyMember", "HeadacheFamilyMember", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforOtherFamilyDisease", "OtherFamilyDisease")]
+        public EntityCollection<OtherFamilyDisease> OtherFamilyDisease
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OtherFamilyDisease>("HeadacheModel.RelateInforOtherFamilyDisease", "OtherFamilyDisease");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OtherFamilyDisease>("HeadacheModel.RelateInforOtherFamilyDisease", "OtherFamilyDisease", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "RelateInforLifestyle", "Lifestyle")]
+        public Lifestyle Lifestyle
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.RelateInforLifestyle", "Lifestyle").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.RelateInforLifestyle", "Lifestyle").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Lifestyle> LifestyleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.RelateInforLifestyle", "Lifestyle");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Lifestyle>("HeadacheModel.RelateInforLifestyle", "Lifestyle", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HeadacheModel", Name="SpecialDiet")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SpecialDiet : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SpecialDiet object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="kind">Initial value of the Kind property.</param>
+        /// <param name="lifestyleId">Initial value of the LifestyleId property.</param>
+        public static SpecialDiet CreateSpecialDiet(global::System.Int32 id, global::System.String kind, global::System.Int32 lifestyleId)
+        {
+            SpecialDiet specialDiet = new SpecialDiet();
+            specialDiet.Id = id;
+            specialDiet.Kind = kind;
+            specialDiet.LifestyleId = lifestyleId;
+            return specialDiet;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Kind
+        {
+            get
+            {
+                return _Kind;
+            }
+            set
+            {
+                OnKindChanging(value);
+                ReportPropertyChanging("Kind");
+                _Kind = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Kind");
+                OnKindChanged();
+            }
+        }
+        private global::System.String _Kind;
+        partial void OnKindChanging(global::System.String value);
+        partial void OnKindChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 LifestyleId
+        {
+            get
+            {
+                return _LifestyleId;
+            }
+            set
+            {
+                OnLifestyleIdChanging(value);
+                ReportPropertyChanging("LifestyleId");
+                _LifestyleId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LifestyleId");
+                OnLifestyleIdChanged();
+            }
+        }
+        private global::System.Int32 _LifestyleId;
+        partial void OnLifestyleIdChanging(global::System.Int32 value);
+        partial void OnLifestyleIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "LifestyleSpecialDiet", "Lifestyle")]
+        public Lifestyle Lifestyle
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.LifestyleSpecialDiet", "Lifestyle").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.LifestyleSpecialDiet", "Lifestyle").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Lifestyle> LifestyleReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Lifestyle>("HeadacheModel.LifestyleSpecialDiet", "Lifestyle");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Lifestyle>("HeadacheModel.LifestyleSpecialDiet", "Lifestyle", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -697,18 +4565,14 @@ namespace HeadacheCDSSWeb.Models
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="outpatientID">Initial value of the OutpatientID property.</param>
-        /// <param name="diagnosisResult">Initial value of the DiagnosisResult property.</param>
-        /// <param name="cDSSDiagnosis">Initial value of the CDSSDiagnosis property.</param>
         /// <param name="chiefComplaint">Initial value of the ChiefComplaint property.</param>
         /// <param name="visitDate">Initial value of the VisitDate property.</param>
         /// <param name="patBasicInforId">Initial value of the PatBasicInforId property.</param>
-        public static VisitRecord CreateVisitRecord(global::System.Int32 id, global::System.String outpatientID, global::System.String diagnosisResult, global::System.String cDSSDiagnosis, global::System.String chiefComplaint, global::System.DateTime visitDate, global::System.String patBasicInforId)
+        public static VisitRecord CreateVisitRecord(global::System.Int32 id, global::System.String outpatientID, global::System.String chiefComplaint, global::System.DateTime visitDate, global::System.String patBasicInforId)
         {
             VisitRecord visitRecord = new VisitRecord();
             visitRecord.Id = id;
             visitRecord.OutpatientID = outpatientID;
-            visitRecord.DiagnosisResult = diagnosisResult;
-            visitRecord.CDSSDiagnosis = cDSSDiagnosis;
             visitRecord.ChiefComplaint = chiefComplaint;
             visitRecord.VisitDate = visitDate;
             visitRecord.PatBasicInforId = patBasicInforId;
@@ -768,54 +4632,6 @@ namespace HeadacheCDSSWeb.Models
         private global::System.String _OutpatientID;
         partial void OnOutpatientIDChanging(global::System.String value);
         partial void OnOutpatientIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String DiagnosisResult
-        {
-            get
-            {
-                return _DiagnosisResult;
-            }
-            set
-            {
-                OnDiagnosisResultChanging(value);
-                ReportPropertyChanging("DiagnosisResult");
-                _DiagnosisResult = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("DiagnosisResult");
-                OnDiagnosisResultChanged();
-            }
-        }
-        private global::System.String _DiagnosisResult;
-        partial void OnDiagnosisResultChanging(global::System.String value);
-        partial void OnDiagnosisResultChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String CDSSDiagnosis
-        {
-            get
-            {
-                return _CDSSDiagnosis;
-            }
-            set
-            {
-                OnCDSSDiagnosisChanging(value);
-                ReportPropertyChanging("CDSSDiagnosis");
-                _CDSSDiagnosis = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("CDSSDiagnosis");
-                OnCDSSDiagnosisChanged();
-            }
-        }
-        private global::System.String _CDSSDiagnosis;
-        partial void OnCDSSDiagnosisChanging(global::System.String value);
-        partial void OnCDSSDiagnosisChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -930,6 +4746,244 @@ namespace HeadacheCDSSWeb.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordCDSSDiagnosis", "CDSSDiagnosis")]
+        public EntityCollection<CDSSDiagnosis> CDSSDiagnosis
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CDSSDiagnosis>("HeadacheModel.VisitRecordCDSSDiagnosis", "CDSSDiagnosis");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CDSSDiagnosis>("HeadacheModel.VisitRecordCDSSDiagnosis", "CDSSDiagnosis", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordDiagnosisResult", "DiagnosisResult")]
+        public EntityCollection<DiagnosisResult> DiagnosisResult
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DiagnosisResult>("HeadacheModel.VisitRecordDiagnosisResult", "DiagnosisResult");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DiagnosisResult>("HeadacheModel.VisitRecordDiagnosisResult", "DiagnosisResult", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordHeadachaOverView", "HeadachaOverView")]
+        public HeadachaOverView HeadachaOverView
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.VisitRecordHeadachaOverView", "HeadachaOverView").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.VisitRecordHeadachaOverView", "HeadachaOverView").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<HeadachaOverView> HeadachaOverViewReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<HeadachaOverView>("HeadacheModel.VisitRecordHeadachaOverView", "HeadachaOverView");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<HeadachaOverView>("HeadacheModel.VisitRecordHeadachaOverView", "HeadachaOverView", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordMedicalHistory", "MedicalHistory")]
+        public MedicalHistory MedicalHistory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.VisitRecordMedicalHistory", "MedicalHistory").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.VisitRecordMedicalHistory", "MedicalHistory").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MedicalHistory> MedicalHistoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MedicalHistory>("HeadacheModel.VisitRecordMedicalHistory", "MedicalHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MedicalHistory>("HeadacheModel.VisitRecordMedicalHistory", "MedicalHistory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("HeadacheModel", "VisitRecordPrescription", "Prescription")]
+        public Prescription Prescription
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.VisitRecordPrescription", "Prescription").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.VisitRecordPrescription", "Prescription").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Prescription> PrescriptionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Prescription>("HeadacheModel.VisitRecordPrescription", "Prescription");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Prescription>("HeadacheModel.VisitRecordPrescription", "Prescription", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+    #region ComplexTypes
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="HeadacheModel", Name="Diagnosis")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class Diagnosis : ComplexObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Diagnosis object.
+        /// </summary>
+        /// <param name="firstDianosis">Initial value of the FirstDianosis property.</param>
+        /// <param name="secondDiagnosis">Initial value of the SecondDiagnosis property.</param>
+        public static Diagnosis CreateDiagnosis(global::System.String firstDianosis, global::System.String secondDiagnosis)
+        {
+            Diagnosis diagnosis = new Diagnosis();
+            diagnosis.FirstDianosis = firstDianosis;
+            diagnosis.SecondDiagnosis = secondDiagnosis;
+            return diagnosis;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstDianosis
+        {
+            get
+            {
+                return _FirstDianosis;
+            }
+            set
+            {
+                OnFirstDianosisChanging(value);
+                ReportPropertyChanging("FirstDianosis");
+                _FirstDianosis = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstDianosis");
+                OnFirstDianosisChanged();
+            }
+        }
+        private global::System.String _FirstDianosis;
+        partial void OnFirstDianosisChanging(global::System.String value);
+        partial void OnFirstDianosisChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SecondDiagnosis
+        {
+            get
+            {
+                return _SecondDiagnosis;
+            }
+            set
+            {
+                OnSecondDiagnosisChanging(value);
+                ReportPropertyChanging("SecondDiagnosis");
+                _SecondDiagnosis = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SecondDiagnosis");
+                OnSecondDiagnosisChanged();
+            }
+        }
+        private global::System.String _SecondDiagnosis;
+        partial void OnSecondDiagnosisChanging(global::System.String value);
+        partial void OnSecondDiagnosisChanged();
 
         #endregion
     }
