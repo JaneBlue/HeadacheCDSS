@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CDSSPlatform")]
+[assembly: AssemblyTitle("HeadacheCDSSWeb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CDSSPlatform")]
+[assembly: AssemblyProduct("HeadacheCDSSWeb")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1e504a10-854e-42f2-b00e-8daff1899d72")]
+[assembly: Guid("718a3966-4984-40b6-89e9-311ca1099df2")]
 
 // Version information for an assembly consists of the following four values:
 //

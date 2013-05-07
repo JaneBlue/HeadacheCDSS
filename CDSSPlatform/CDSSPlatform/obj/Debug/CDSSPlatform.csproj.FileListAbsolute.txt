@@ -1,7 +1,0 @@
-D:\Web\try\CDSSPlatform\CDSSPlatform\bin\CDSSPlatform.dll
-D:\Web\try\CDSSPlatform\CDSSPlatform\bin\CDSSPlatform.pdb
-D:\Web\try\CDSSPlatform\CDSSPlatform\bin\EntityFramework.dll
-D:\Web\try\CDSSPlatform\CDSSPlatform\bin\EntityFramework.xml
-D:\Web\try\CDSSPlatform\CDSSPlatform\obj\Debug\ResolveAssemblyReference.cache
-D:\Web\try\CDSSPlatform\CDSSPlatform\obj\Debug\CDSSPlatform.dll
-D:\Web\try\CDSSPlatform\CDSSPlatform\obj\Debug\CDSSPlatform.pdb
