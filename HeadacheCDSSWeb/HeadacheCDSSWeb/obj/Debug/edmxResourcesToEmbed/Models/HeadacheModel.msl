@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HeadacheModelStoreContainer" CdmEntityContainer="HeadacheModelContainer">
+    <EntitySetMapping Name="DoctorAccountSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.DoctorAccount)">
+        <MappingFragment StoreEntitySet="DoctorAccountSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatBasicInforSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PatBasicInfor)">
+        <MappingFragment StoreEntitySet="PatBasicInforSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Job" ColumnName="Job" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Identity" ColumnName="Identity" />
+          <ScalarProperty Name="ChiefDoctor" ColumnName="ChiefDoctor" />
+          <ScalarProperty Name="DoctorAccountId" ColumnName="DoctorAccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VisitRecordSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.VisitRecord)">
+        <MappingFragment StoreEntitySet="VisitRecordSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OutpatientID" ColumnName="OutpatientID" />
+          <ScalarProperty Name="ChiefComplaint" ColumnName="ChiefComplaint" />
+          <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CDSSDiagnosisSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.CDSSDiagnosis)">
+        <MappingFragment StoreEntitySet="CDSSDiagnosisSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
+          <ComplexProperty Name="DiagnosisContent" TypeName="HeadacheModel.Diagnosis">
+            <ScalarProperty Name="FirstDianosis" ColumnName="DiagnosisContent_FirstDianosis" />
+            <ScalarProperty Name="SecondDiagnosis" ColumnName="DiagnosisContent_SecondDiagnosis" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiagnosisResultSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.DiagnosisResult)">
+        <MappingFragment StoreEntitySet="DiagnosisResultSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
+          <ComplexProperty Name="DiagnosisContent" TypeName="HeadacheModel.Diagnosis">
+            <ScalarProperty Name="FirstDianosis" ColumnName="DiagnosisContent_FirstDianosis" />
+            <ScalarProperty Name="SecondDiagnosis" ColumnName="DiagnosisContent_SecondDiagnosis" />
+          </ComplexProperty>
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadachaOverViewSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadachaOverView)">
+        <MappingFragment StoreEntitySet="HeadachaOverViewSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="HeadacheType" ColumnName="HeadacheType" />
+          <ScalarProperty Name="HeadacheDegree" ColumnName="HeadacheDegree" />
+          <ScalarProperty Name="HeadcheTime" ColumnName="HeadcheTime" />
+          <ScalarProperty Name="HeacheTimeUnit" ColumnName="HeacheTimeUnit" />
+          <ScalarProperty Name="FrequencyPerDay" ColumnName="FrequencyPerDay" />
+          <ScalarProperty Name="FrequencyPerMonth" ColumnName="FrequencyPerMonth" />
+          <ScalarProperty Name="OnsetFixedDay" ColumnName="OnsetFixedDay" />
+          <ScalarProperty Name="OnsetFixedYear" ColumnName="OnsetFixedYear" />
+          <ScalarProperty Name="OnsetDate" ColumnName="OnsetDate" />
+          <ScalarProperty Name="OnsetAmount" ColumnName="OnsetAmount" />
+          <ScalarProperty Name="DailyAggravation" ColumnName="DailyAggravation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrescriptionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.Prescription)">
+        <MappingFragment StoreEntitySet="PrescriptionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DotorAdvice" ColumnName="DotorAdvice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicalHistorySet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MedicalHistory)">
+        <MappingFragment StoreEntitySet="MedicalHistorySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LifestyleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.Lifestyle)">
+        <MappingFragment StoreEntitySet="LifestyleSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SmokeState" ColumnName="SmokeState" />
+          <ScalarProperty Name="SmokeStartAge" ColumnName="SmokeStartAge" />
+          <ScalarProperty Name="SmokeQuitYear" ColumnName="SmokeQuitYear" />
+          <ScalarProperty Name="SmokeYear" ColumnName="SmokeYear" />
+          <ScalarProperty Name="CigarettesPerDay" ColumnName="CigarettesPerDay" />
+          <ScalarProperty Name="DrinkState" ColumnName="DrinkState" />
+          <ScalarProperty Name="DrinkStartAge" ColumnName="DrinkStartAge" />
+          <ScalarProperty Name="DrinkYear" ColumnName="DrinkYear" />
+          <ScalarProperty Name="DrinkQuitYear" ColumnName="DrinkQuitYear" />
+          <ScalarProperty Name="DrinkPerDay" ColumnName="DrinkPerDay" />
+          <ScalarProperty Name="DrinkCategory" ColumnName="DrinkCategory" />
+          <ScalarProperty Name="TeaPerDay" ColumnName="TeaPerDay" />
+          <ScalarProperty Name="CoffePerDay" ColumnName="CoffePerDay" />
+          <ScalarProperty Name="ExercisePerWeek" ColumnName="ExercisePerWeek" />
+          <ScalarProperty Name="ExerciseTime" ColumnName="ExerciseTime" />
+          <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
+          <ScalarProperty Name="WeightChange" ColumnName="WeightChange" />
+          <ScalarProperty Name="WeightChangeNote" ColumnName="WeightChangeNote" />
+          <ScalarProperty Name="OtherLifeStyleFactor" ColumnName="OtherLifeStyleFactor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadachePlaceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadachePlace)">
+        <MappingFragment StoreEntitySet="HeadachePlaceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="SpecificPlace" ColumnName="SpecificPlace" />
+          <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadacheAccompanySet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadacheAccompany)">
+        <MappingFragment StoreEntitySet="HeadacheAccompanySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Symptom" ColumnName="Symptom" />
+          <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadacheProdromeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadacheProdrome)">
+        <MappingFragment StoreEntitySet="HeadacheProdromeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Prodrome" ColumnName="Prodrome" />
+          <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreviousDrugSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousDrug)">
+        <MappingFragment StoreEntitySet="PreviousDrugSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
+          <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />
+          <ScalarProperty Name="DrugName" ColumnName="DrugName" />
+          <ScalarProperty Name="DayAmoutnPerM" ColumnName="DayAmoutnPerM" />
+          <ScalarProperty Name="MonthTotalAmount" ColumnName="MonthTotalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreviousExamSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousExam)">
+        <MappingFragment StoreEntitySet="PreviousExamSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
+          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelateInforSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.RelateInfor)">
+        <MappingFragment StoreEntitySet="RelateInforSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimilarFamily" ColumnName="SimilarFamily" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeadacheFamilyMemberSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadacheFamilyMember)">
+        <MappingFragment StoreEntitySet="HeadacheFamilyMemberSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Person" ColumnName="Person" />
+          <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OtherFamilyDiseaseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.OtherFamilyDisease)">
+        <MappingFragment StoreEntitySet="OtherFamilyDiseaseSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialDietSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.SpecialDiet)">
+        <MappingFragment StoreEntitySet="SpecialDietSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Kind" ColumnName="Kind" />
+          <ScalarProperty Name="LifestyleId" ColumnName="LifestyleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MecicationAdviceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MecicationAdvice)">
+        <MappingFragment StoreEntitySet="MecicationAdviceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrescriptionId" ColumnName="PrescriptionId" />
+          <ScalarProperty Name="DrugApplication" ColumnName="DrugApplication" />
+          <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />
+          <ScalarProperty Name="DrugName" ColumnName="DrugName" />
+          <ScalarProperty Name="Therapy" ColumnName="Therapy" />
+          <ScalarProperty Name="DrugDose" ColumnName="DrugDose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="VisitRecordHeadachaOverView" TypeName="HeadacheModel.VisitRecordHeadachaOverView" StoreEntitySet="VisitRecordSet">
+      <EndProperty Name="HeadachaOverView">
+        <ScalarProperty Name="Id" ColumnName="HeadachaOverView_Id" />
+      </EndProperty>
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordMedicalHistory" TypeName="HeadacheModel.VisitRecordMedicalHistory" StoreEntitySet="VisitRecordSet">
+      <EndProperty Name="MedicalHistory">
+        <ScalarProperty Name="Id" ColumnName="MedicalHistory_Id" />
+      </EndProperty>
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RelateInforLifestyle" TypeName="HeadacheModel.RelateInforLifestyle" StoreEntitySet="RelateInforSet">
+      <EndProperty Name="Lifestyle">
+        <ScalarProperty Name="Id" ColumnName="Lifestyle_Id" />
+      </EndProperty>
+      <EndProperty Name="RelateInfor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPrescription" TypeName="HeadacheModel.VisitRecordPrescription" StoreEntitySet="PrescriptionSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="Prescription">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PatBasicInforRelateInfor" TypeName="HeadacheModel.PatBasicInforRelateInfor" StoreEntitySet="PatBasicInforSet">
+      <EndProperty Name="RelateInfor">
+        <ScalarProperty Name="Id" ColumnName="RelateInfor_Id" />
+      </EndProperty>
+      <EndProperty Name="PatBasicInfor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
