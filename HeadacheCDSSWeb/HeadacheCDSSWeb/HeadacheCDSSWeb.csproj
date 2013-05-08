@@ -83,8 +83,15 @@
     <Compile Include="Models\DoctorAccount.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HeadacheDiagnosis.cs" />
     <Compile Include="Models\JsonHelper.cs" />
+    <Compile Include="Models\MitigatingFactors.cs">
+      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PatOperation.cs" />
+    <Compile Include="Models\PrecipitatingFactor.cs">
+      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserOperation.cs" />
     <Compile Include="Models\HeadachaOverView.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>

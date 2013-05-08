@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/08/2013 10:14:19
+-- Date Created: 05/08/2013 15:18:55
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -339,6 +339,22 @@ CREATE TABLE [dbo].[MecicationAdviceSet] (
 );
 GO
 
+-- Creating table 'PrecipitatingFactorSet'
+CREATE TABLE [dbo].[PrecipitatingFactorSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [FactorName] nvarchar(max)  NOT NULL,
+    [HeadachaOverViewId] int  NOT NULL
+);
+GO
+
+-- Creating table 'MitigatingFactorsSet'
+CREATE TABLE [dbo].[MitigatingFactorsSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [FactorName] nvarchar(max)  NOT NULL,
+    [HeadachaOverViewId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -454,6 +470,18 @@ GO
 -- Creating primary key on [Id] in table 'MecicationAdviceSet'
 ALTER TABLE [dbo].[MecicationAdviceSet]
 ADD CONSTRAINT [PK_MecicationAdviceSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'PrecipitatingFactorSet'
+ALTER TABLE [dbo].[PrecipitatingFactorSet]
+ADD CONSTRAINT [PK_PrecipitatingFactorSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'MitigatingFactorsSet'
+ALTER TABLE [dbo].[MitigatingFactorsSet]
+ADD CONSTRAINT [PK_MitigatingFactorsSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -711,6 +739,34 @@ ADD CONSTRAINT [FK_PatBasicInforRelateInfor]
 CREATE INDEX [IX_FK_PatBasicInforRelateInfor]
 ON [dbo].[PatBasicInforSet]
     ([RelateInfor_Id]);
+GO
+
+-- Creating foreign key on [HeadachaOverViewId] in table 'MitigatingFactorsSet'
+ALTER TABLE [dbo].[MitigatingFactorsSet]
+ADD CONSTRAINT [FK_HeadachaOverViewMitigatingFactors]
+    FOREIGN KEY ([HeadachaOverViewId])
+    REFERENCES [dbo].[HeadachaOverViewSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HeadachaOverViewMitigatingFactors'
+CREATE INDEX [IX_FK_HeadachaOverViewMitigatingFactors]
+ON [dbo].[MitigatingFactorsSet]
+    ([HeadachaOverViewId]);
+GO
+
+-- Creating foreign key on [HeadachaOverViewId] in table 'PrecipitatingFactorSet'
+ALTER TABLE [dbo].[PrecipitatingFactorSet]
+ADD CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor]
+    FOREIGN KEY ([HeadachaOverViewId])
+    REFERENCES [dbo].[HeadachaOverViewSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_HeadachaOverViewPrecipitatingFactor'
+CREATE INDEX [IX_FK_HeadachaOverViewPrecipitatingFactor]
+ON [dbo].[PrecipitatingFactorSet]
+    ([HeadachaOverViewId]);
 GO
 
 -- --------------------------------------------------

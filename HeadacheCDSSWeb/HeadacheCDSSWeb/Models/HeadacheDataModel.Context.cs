@@ -44,5 +44,7 @@ namespace HeadacheCDSSWeb.Models
         public DbSet<OtherFamilyDisease> OtherFamilyDiseaseSet { get; set; }
         public DbSet<SpecialDiet> SpecialDietSet { get; set; }
         public DbSet<MecicationAdvice> MecicationAdviceSet { get; set; }
+        public DbSet<PrecipitatingFactor> PrecipitatingFactorSet { get; set; }
+        public DbSet<MitigatingFactors> MitigatingFactorsSet { get; set; }
     }
 }

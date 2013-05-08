@@ -19,6 +19,8 @@ namespace HeadacheCDSSWeb.Models
             this.HeadachePlace = new HashSet<HeadachePlace>();
             this.HeadacheAccompany = new HashSet<HeadacheAccompany>();
             this.HeadacheProdrome = new HashSet<HeadacheProdrome>();
+            this.MitigatingFactors = new HashSet<MitigatingFactors>();
+            this.PrecipitatingFactor = new HashSet<PrecipitatingFactor>();
         }
     
         public int Id { get; set; }
@@ -38,6 +40,8 @@ namespace HeadacheCDSSWeb.Models
         public virtual ICollection<HeadachePlace> HeadachePlace { get; set; }
         public virtual ICollection<HeadacheAccompany> HeadacheAccompany { get; set; }
         public virtual ICollection<HeadacheProdrome> HeadacheProdrome { get; set; }
+        public virtual ICollection<MitigatingFactors> MitigatingFactors { get; set; }
+        public virtual ICollection<PrecipitatingFactor> PrecipitatingFactor { get; set; }
     }
     
 }
