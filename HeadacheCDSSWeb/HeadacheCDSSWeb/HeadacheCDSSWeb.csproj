@@ -196,6 +196,7 @@
     <Content Include="Content\jqpagination.css" />
     <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\patstyle.css" />
+    <Content Include="Content\RecordViewstyle.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -302,6 +303,7 @@
     <Content Include="Views\Diagnosis\Index.cshtml" />
     <Content Include="Views\ViewPatRecord\Index.cshtml" />
     <Content Include="Views\Shared\PatList.cshtml" />
+    <Content Include="Views\Shared\RecordViewLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
