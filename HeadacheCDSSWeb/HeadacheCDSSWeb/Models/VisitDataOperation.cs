@@ -7,9 +7,10 @@ namespace HeadacheCDSSWeb.Models
 {
     public class VisitDataOperation
     {
+        HeadacheModelContainer context = new HeadacheModelContainer();
         public List<PatBasicInfor> GetPat(List<string> Condition)
         {
-            HeadacheModelContainer context = new HeadacheModelContainer();
+            
             List<PatBasicInfor> pat = new List<PatBasicInfor>();
             List<PatBasicInfor> Unormalpat = new List<PatBasicInfor>();
             var pats = from p in context.PatBasicInforSet.ToList()
@@ -61,6 +62,18 @@ namespace HeadacheCDSSWeb.Models
                 }
                 data[j] = d;
             }
+        }
+
+        public List<VisitRecord> GetVistRecord(string PatID)
+        {
+            PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
+            List<VisitRecord> visit = new List<VisitRecord>();
+            foreach (VisitRecord vr in pt.VisitRecord)
+            {
+                visit.Add(vr);
+            }
+            visit.Reverse();
+            return visit;
         }
     }
 }

@@ -53,9 +53,9 @@ namespace HeadacheCDSSWeb.Controllers
                 return View();
             }
         }
-        public ActionResult ViewRecord()
+        public ActionResult ViewRecord(string ID)
         {
-            return RedirectToAction("Index", "ViewPatRecord");
+            return RedirectToAction("Index", "ViewPatRecord", new { ID = ID });
         }
         public ActionResult Query()
         {

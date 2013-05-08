@@ -11,16 +11,16 @@ namespace HeadacheCDSSWeb.Controllers
         //
         // GET: /ViewPatRecord/
 
-        public ActionResult Index()
+        public ActionResult Index(string ID)
         {
-            List<VisitRecord> Lvisit = new List<VisitRecord>();
-            VisitRecord vr = new VisitRecord();
-            vr.VisitDate = DateTime.Now.Date;
-            for(int i=0;i<29;i++){
-                Lvisit.Add(vr);
-            }
-           
+            VisitDataOperation visitop = new VisitDataOperation();
+            List<VisitRecord> Lvisit = visitop.GetVistRecord(ID);
+
             return View(Lvisit);
+        }
+        public ActionResult ViewVisitRecordDetail()
+        {
+            return View();
         }
 
     }
