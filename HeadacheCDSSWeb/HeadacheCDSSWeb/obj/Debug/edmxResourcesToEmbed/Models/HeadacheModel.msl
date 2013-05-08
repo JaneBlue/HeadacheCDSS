@@ -195,6 +195,7 @@
         <MappingFragment StoreEntitySet="OtherFamilyDiseaseSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -217,6 +218,24 @@
           <ScalarProperty Name="DrugName" ColumnName="DrugName" />
           <ScalarProperty Name="Therapy" ColumnName="Therapy" />
           <ScalarProperty Name="DrugDose" ColumnName="DrugDose" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrecipitatingFactorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PrecipitatingFactor)">
+        <MappingFragment StoreEntitySet="PrecipitatingFactorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FactorName" ColumnName="FactorName" />
+          <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MitigatingFactorsSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MitigatingFactors)">
+        <MappingFragment StoreEntitySet="MitigatingFactorsSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FactorName" ColumnName="FactorName" />
+          <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

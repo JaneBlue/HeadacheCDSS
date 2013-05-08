@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/08/2013 15:18:55
+-- Date Created: 05/08/2013 20:14:50
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -71,6 +71,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_PatBasicInforRelateInfor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforRelateInfor];
 GO
+IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewMitigatingFactors]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MitigatingFactorsSet] DROP CONSTRAINT [FK_HeadachaOverViewMitigatingFactors];
+GO
+IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewPrecipitatingFactor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PrecipitatingFactorSet] DROP CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -132,6 +138,12 @@ IF OBJECT_ID(N'[dbo].[SpecialDietSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[MecicationAdviceSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[MecicationAdviceSet];
+GO
+IF OBJECT_ID(N'[dbo].[PrecipitatingFactorSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PrecipitatingFactorSet];
+GO
+IF OBJECT_ID(N'[dbo].[MitigatingFactorsSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MitigatingFactorsSet];
 GO
 
 -- --------------------------------------------------
@@ -315,7 +327,8 @@ GO
 -- Creating table 'OtherFamilyDiseaseSet'
 CREATE TABLE [dbo].[OtherFamilyDiseaseSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [RelateInforId] int  NOT NULL
+    [RelateInforId] int  NOT NULL,
+    [MemberName] nvarchar(max)  NOT NULL
 );
 GO
 

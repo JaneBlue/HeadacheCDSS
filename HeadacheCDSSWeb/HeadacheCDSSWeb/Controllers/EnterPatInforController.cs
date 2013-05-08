@@ -12,7 +12,7 @@ namespace HeadacheCDSSWeb.Controllers
     {
         //
         // GET: /EnterPatientInfor/
-
+ 
         public ActionResult Index()
         {
             return View();
@@ -52,6 +52,25 @@ namespace HeadacheCDSSWeb.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult ViewRecord()
+        {
+            return RedirectToAction("Index", "ViewPatRecord");
+        }
+        public ActionResult Query()
+        {
+            string patname = Request["name"];
+            string patsex = Request["sex"];
+            string date = Request["date"];
+            string diagnosisresult = Request["Diagnosis"];
+            List<string> query = new List<string>();
+            query.Add(patname);
+            query.Add(patsex);
+            query.Add(date);
+            query.Add(diagnosisresult);
+            VisitDataOperation visitop = new VisitDataOperation();
+            List<PatBasicInfor> pts = visitop.GetPat(query);
+            return PartialView("PatList", pts);
         }
     }
 }

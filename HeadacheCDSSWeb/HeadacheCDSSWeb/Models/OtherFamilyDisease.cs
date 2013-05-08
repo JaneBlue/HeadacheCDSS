@@ -16,6 +16,7 @@ namespace HeadacheCDSSWeb.Models
     {
         public int Id { get; set; }
         public int RelateInforId { get; set; }
+        public string MemberName { get; set; }
     
         public virtual RelateInfor RelateInfor { get; set; }
     }

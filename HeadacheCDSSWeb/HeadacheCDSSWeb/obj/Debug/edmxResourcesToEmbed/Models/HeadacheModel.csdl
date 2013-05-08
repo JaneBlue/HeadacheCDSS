@@ -92,6 +92,16 @@
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
       <End Role="RelateInfor" EntitySet="RelateInforSet" />
     </AssociationSet>
+    <EntitySet Name="PrecipitatingFactorSet" EntityType="HeadacheModel.PrecipitatingFactor" />
+    <EntitySet Name="MitigatingFactorsSet" EntityType="HeadacheModel.MitigatingFactors" />
+    <AssociationSet Name="HeadachaOverViewMitigatingFactors" Association="HeadacheModel.HeadachaOverViewMitigatingFactors">
+      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="MitigatingFactors" EntitySet="MitigatingFactorsSet" />
+    </AssociationSet>
+    <AssociationSet Name="HeadachaOverViewPrecipitatingFactor" Association="HeadacheModel.HeadachaOverViewPrecipitatingFactor">
+      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="PrecipitatingFactor" EntitySet="PrecipitatingFactorSet" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DoctorAccount">
     <Key>
@@ -216,6 +226,8 @@
     <NavigationProperty Name="HeadachePlace" Relationship="HeadacheModel.HeadachaOverViewHeadachePlace" FromRole="HeadachaOverView" ToRole="HeadachePlace" />
     <NavigationProperty Name="HeadacheAccompany" Relationship="HeadacheModel.HeadachaOverViewHeadacheAccompany" FromRole="HeadachaOverView" ToRole="HeadacheAccompany" />
     <NavigationProperty Name="HeadacheProdrome" Relationship="HeadacheModel.HeadachaOverViewHeadacheProdrome" FromRole="HeadachaOverView" ToRole="HeadacheProdrome" />
+    <NavigationProperty Name="MitigatingFactors" Relationship="HeadacheModel.HeadachaOverViewMitigatingFactors" FromRole="HeadachaOverView" ToRole="MitigatingFactors" />
+    <NavigationProperty Name="PrecipitatingFactor" Relationship="HeadacheModel.HeadachaOverViewPrecipitatingFactor" FromRole="HeadachaOverView" ToRole="PrecipitatingFactor" />
   </EntityType>
   <Association Name="VisitRecordHeadachaOverView">
     <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
@@ -408,6 +420,7 @@
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="RelateInfor" Relationship="HeadacheModel.RelateInforOtherFamilyDisease" FromRole="OtherFamilyDisease" ToRole="RelateInfor" />
     <Property Type="Int32" Name="RelateInforId" Nullable="false" />
+    <Property Type="String" Name="MemberName" Nullable="false" />
   </EntityType>
   <Association Name="RelateInforHeadacheFamilyMember">
     <End Type="HeadacheModel.RelateInfor" Role="RelateInfor" Multiplicity="1" />
@@ -502,5 +515,47 @@
   <Association Name="PatBasicInforRelateInfor">
     <End Type="HeadacheModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
     <End Type="HeadacheModel.RelateInfor" Role="RelateInfor" Multiplicity="1" />
+  </Association>
+  <EntityType Name="PrecipitatingFactor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FactorName" Nullable="false" />
+    <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.HeadachaOverViewPrecipitatingFactor" FromRole="PrecipitatingFactor" ToRole="HeadachaOverView" />
+    <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MitigatingFactors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FactorName" Nullable="false" />
+    <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.HeadachaOverViewMitigatingFactors" FromRole="MitigatingFactors" ToRole="HeadachaOverView" />
+    <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
+  </EntityType>
+  <Association Name="HeadachaOverViewMitigatingFactors">
+    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.MitigatingFactors" Role="MitigatingFactors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadachaOverView">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MitigatingFactors">
+        <PropertyRef Name="HeadachaOverViewId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HeadachaOverViewPrecipitatingFactor">
+    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrecipitatingFactor" Role="PrecipitatingFactor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HeadachaOverView">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PrecipitatingFactor">
+        <PropertyRef Name="HeadachaOverViewId" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>
