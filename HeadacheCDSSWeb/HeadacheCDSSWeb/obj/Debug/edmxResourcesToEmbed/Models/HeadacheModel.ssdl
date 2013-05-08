@@ -185,25 +185,25 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SmokeState" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SmokeStartAge" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SmokeQuitYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SmokeYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CigarettesPerDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkState" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkStartAge" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkQuitYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkPerDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DrinkCategory" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TeaPerDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CoffePerDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ExercisePerWeek" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ExerciseTime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ExerciseDescription" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="WeightChange" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="WeightChangeNote" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OtherLifeStyleFactor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SmokeState" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SmokeStartAge" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SmokeQuitYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SmokeYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CigarettesPerDay" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkState" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkStartAge" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkQuitYear" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkPerDay" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DrinkCategory" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TeaPerDay" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CoffePerDay" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ExercisePerWeek" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ExerciseTime" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ExerciseDescription" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="WeightChange" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="WeightChangeNote" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="OtherLifeStyleFactor" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="HeadachePlaceSet">
     <Key>
@@ -256,7 +256,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="SimilarFamily" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="SimilarFamily" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Lifestyle_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="HeadacheFamilyMemberSet">

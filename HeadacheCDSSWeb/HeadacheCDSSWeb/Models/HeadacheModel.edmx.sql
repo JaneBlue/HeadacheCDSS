@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/07/2013 20:27:06
+-- Date Created: 05/08/2013 10:14:19
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -19,9 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_DoctorAccountPatBasicInfor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_DoctorAccountPatBasicInfor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforVisitRecord]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_PatBasicInforVisitRecord];
 GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordCDSSDiagnosis]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CDSSDiagnosisSet] DROP CONSTRAINT [FK_VisitRecordCDSSDiagnosis];
@@ -50,9 +47,6 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_MedicalHistoryPreviousExam]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PreviousExamSet] DROP CONSTRAINT [FK_MedicalHistoryPreviousExam];
 GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforRelateInfor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforRelateInfor];
-GO
 IF OBJECT_ID(N'[dbo].[FK_RelateInforHeadacheFamilyMember]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HeadacheFamilyMemberSet] DROP CONSTRAINT [FK_RelateInforHeadacheFamilyMember];
 GO
@@ -70,6 +64,12 @@ IF OBJECT_ID(N'[dbo].[FK_VisitRecordPrescription]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_PrescriptionMecicationAdvice]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MecicationAdviceSet] DROP CONSTRAINT [FK_PrescriptionMecicationAdvice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforVisitRecord]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_PatBasicInforVisitRecord];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforRelateInfor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforRelateInfor];
 GO
 
 -- --------------------------------------------------
@@ -228,25 +228,25 @@ GO
 -- Creating table 'LifestyleSet'
 CREATE TABLE [dbo].[LifestyleSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [SmokeState] nvarchar(max)  NOT NULL,
-    [SmokeStartAge] nvarchar(max)  NOT NULL,
-    [SmokeQuitYear] nvarchar(max)  NOT NULL,
-    [SmokeYear] nvarchar(max)  NOT NULL,
-    [CigarettesPerDay] nvarchar(max)  NOT NULL,
-    [DrinkState] nvarchar(max)  NOT NULL,
-    [DrinkStartAge] nvarchar(max)  NOT NULL,
-    [DrinkYear] nvarchar(max)  NOT NULL,
-    [DrinkQuitYear] nvarchar(max)  NOT NULL,
-    [DrinkPerDay] nvarchar(max)  NOT NULL,
-    [DrinkCategory] nvarchar(max)  NOT NULL,
-    [TeaPerDay] nvarchar(max)  NOT NULL,
-    [CoffePerDay] nvarchar(max)  NOT NULL,
-    [ExercisePerWeek] nvarchar(max)  NOT NULL,
-    [ExerciseTime] nvarchar(max)  NOT NULL,
-    [ExerciseDescription] nvarchar(max)  NOT NULL,
-    [WeightChange] nvarchar(max)  NOT NULL,
-    [WeightChangeNote] nvarchar(max)  NOT NULL,
-    [OtherLifeStyleFactor] nvarchar(max)  NOT NULL
+    [SmokeState] nvarchar(max)  NULL,
+    [SmokeStartAge] nvarchar(max)  NULL,
+    [SmokeQuitYear] nvarchar(max)  NULL,
+    [SmokeYear] nvarchar(max)  NULL,
+    [CigarettesPerDay] nvarchar(max)  NULL,
+    [DrinkState] nvarchar(max)  NULL,
+    [DrinkStartAge] nvarchar(max)  NULL,
+    [DrinkYear] nvarchar(max)  NULL,
+    [DrinkQuitYear] nvarchar(max)  NULL,
+    [DrinkPerDay] nvarchar(max)  NULL,
+    [DrinkCategory] nvarchar(max)  NULL,
+    [TeaPerDay] nvarchar(max)  NULL,
+    [CoffePerDay] nvarchar(max)  NULL,
+    [ExercisePerWeek] nvarchar(max)  NULL,
+    [ExerciseTime] nvarchar(max)  NULL,
+    [ExerciseDescription] nvarchar(max)  NULL,
+    [WeightChange] nvarchar(max)  NULL,
+    [WeightChangeNote] nvarchar(max)  NULL,
+    [OtherLifeStyleFactor] nvarchar(max)  NULL
 );
 GO
 
@@ -299,7 +299,7 @@ GO
 -- Creating table 'RelateInforSet'
 CREATE TABLE [dbo].[RelateInforSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [SimilarFamily] nvarchar(max)  NOT NULL,
+    [SimilarFamily] nvarchar(max)  NULL,
     [Lifestyle_Id] int  NOT NULL
 );
 GO

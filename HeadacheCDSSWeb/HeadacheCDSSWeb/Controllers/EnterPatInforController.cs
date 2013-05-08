@@ -21,46 +21,37 @@ namespace HeadacheCDSSWeb.Controllers
         public ActionResult Index(PatBasicInfor pat)
         {
 
-            //PatOperation pto = new PatOperation();
-            //string HID = Request.Form["住院号"];
-            //string PID = Request.Form["门诊号"];
-            //if (string.IsNullOrEmpty(pat.Name) || string.IsNullOrEmpty(pat.Sex) || string.IsNullOrEmpty(pat.Age) || string.IsNullOrEmpty(pat.Education) || string.IsNullOrEmpty(pat.Phone) || string.IsNullOrEmpty(pat.FamilyMember) || string.IsNullOrEmpty(pat.ChiefDoctor))
-            //{
-            //    ModelState.AddModelError("", "输入项不能为空");
-            //}
-            //else
-            //{
-            //    Regex reg = new Regex("^[0-9]+$");
-            //    Match ma1 = reg.Match(pat.Age);
-            //    Match ma2 = reg.Match(pat.Phone);
-            //    if (ma1.Success && ma2.Success)
-            //    {
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "手机和年龄必须为数字");
-            //    }
+            PatOperation pto = new PatOperation();
 
-
-            //}
-            //if (ModelState.IsValid)
-            //{
-
-            //    string user;
-
-            //    user = HttpContext.Request.Cookies["username"].Value.ToString();
-
-
-            //    pto.InsertPat(pat, HID, PID, user);
-            //    return RedirectToAction("Index", "Diagnosis", new { ID = pat.Id });
-            //}
-            //else
-            //{
-            //    return View();
-            //}
-          return Redirect("/Diagnosis/Index/"+pat.Id);
-
-
+            string PID = Request.Form["门诊号"];
+            if (string.IsNullOrEmpty(pat.Name) || string.IsNullOrEmpty(pat.Sex) || string.IsNullOrEmpty(pat.Age) || string.IsNullOrEmpty(pat.Education) || string.IsNullOrEmpty(pat.Phone) || string.IsNullOrEmpty(pat.Address) || string.IsNullOrEmpty(pat.ChiefDoctor))
+            {
+                ModelState.AddModelError("", "输入项不能为空");
+            }
+            else
+            {
+                Regex reg = new Regex("^[0-9]+$");
+                Match ma1 = reg.Match(pat.Age);
+                Match ma2 = reg.Match(pat.Phone);
+                if (ma1.Success && ma2.Success)
+                {
+                }
+                else
+                {
+                    ModelState.AddModelError("", "手机和年龄必须为数字");
+                }
+            }
+            if (ModelState.IsValid)
+            {
+                string user;
+                user = HttpContext.Request.Cookies["username"].Value.ToString();
+                pto.InsertPat(pat, PID, user);
+                return RedirectToAction("Index", "Diagnosis", new { ID = pat.Id });
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

@@ -18,12 +18,10 @@ namespace HeadacheCDSSWeb.Controllers
         [HttpPost]
         public ActionResult Index(DoctorAccount dacount)
         {
-            HeadacheModelContainer DataContainer = new HeadacheModelContainer();
-            var doctors = from s in DataContainer.DoctorAccountSet.ToList() select s;
-            var doctor = doctors.Where(s => s.UserName == dacount.UserName && s.PassWord == dacount.PassWord).FirstOrDefault();
-            if (doctor != null)
+            UserOperation UOpertation = new UserOperation();
+            if (UOpertation.ValidateUser(dacount.UserName,dacount.PassWord))
             {
-                HttpCookie cookie = new HttpCookie("username", doctor.UserName);
+                HttpCookie cookie = new HttpCookie("username", dacount.UserName);
                 Response.Cookies.Add(cookie);
                 return RedirectToAction("Index", "EnterPatInfor");
 

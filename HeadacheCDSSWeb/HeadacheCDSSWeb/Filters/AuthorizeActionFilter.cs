@@ -12,7 +12,7 @@ namespace HeadacheCDSSWeb.Filters
     {
          public override void  OnActionExecuting(ActionExecutingContext filterContext)  
       {
-
+           
           HttpCookie cookie = filterContext.HttpContext.Request.Cookies["username"];
           if (cookie == null)
           {

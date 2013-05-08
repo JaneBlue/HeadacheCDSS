@@ -244,25 +244,25 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="SmokeState" Nullable="false" />
-    <Property Type="String" Name="SmokeStartAge" Nullable="false" />
-    <Property Type="String" Name="SmokeQuitYear" Nullable="false" />
-    <Property Type="String" Name="SmokeYear" Nullable="false" />
-    <Property Type="String" Name="CigarettesPerDay" Nullable="false" />
-    <Property Type="String" Name="DrinkState" Nullable="false" />
-    <Property Type="String" Name="DrinkStartAge" Nullable="false" />
-    <Property Type="String" Name="DrinkYear" Nullable="false" />
-    <Property Type="String" Name="DrinkQuitYear" Nullable="false" />
-    <Property Type="String" Name="DrinkPerDay" Nullable="false" />
-    <Property Type="String" Name="DrinkCategory" Nullable="false" />
-    <Property Type="String" Name="TeaPerDay" Nullable="false" />
-    <Property Type="String" Name="CoffePerDay" Nullable="false" />
-    <Property Type="String" Name="ExercisePerWeek" Nullable="false" />
-    <Property Type="String" Name="ExerciseTime" Nullable="false" />
-    <Property Type="String" Name="ExerciseDescription" Nullable="false" />
-    <Property Type="String" Name="WeightChange" Nullable="false" />
-    <Property Type="String" Name="WeightChangeNote" Nullable="false" />
-    <Property Type="String" Name="OtherLifeStyleFactor" Nullable="false" />
+    <Property Type="String" Name="SmokeState" Nullable="true" />
+    <Property Type="String" Name="SmokeStartAge" Nullable="true" />
+    <Property Type="String" Name="SmokeQuitYear" Nullable="true" />
+    <Property Type="String" Name="SmokeYear" Nullable="true" />
+    <Property Type="String" Name="CigarettesPerDay" Nullable="true" />
+    <Property Type="String" Name="DrinkState" Nullable="true" />
+    <Property Type="String" Name="DrinkStartAge" Nullable="true" />
+    <Property Type="String" Name="DrinkYear" Nullable="true" />
+    <Property Type="String" Name="DrinkQuitYear" Nullable="true" />
+    <Property Type="String" Name="DrinkPerDay" Nullable="true" />
+    <Property Type="String" Name="DrinkCategory" Nullable="true" />
+    <Property Type="String" Name="TeaPerDay" Nullable="true" />
+    <Property Type="String" Name="CoffePerDay" Nullable="true" />
+    <Property Type="String" Name="ExercisePerWeek" Nullable="true" />
+    <Property Type="String" Name="ExerciseTime" Nullable="true" />
+    <Property Type="String" Name="ExerciseDescription" Nullable="true" />
+    <Property Type="String" Name="WeightChange" Nullable="true" />
+    <Property Type="String" Name="WeightChangeNote" Nullable="true" />
+    <Property Type="String" Name="OtherLifeStyleFactor" Nullable="true" />
     <NavigationProperty Name="SpecialDiet" Relationship="HeadacheModel.LifestyleSpecialDiet" FromRole="Lifestyle" ToRole="SpecialDiet" />
     <NavigationProperty Name="RelateInfor" Relationship="HeadacheModel.RelateInforLifestyle" FromRole="Lifestyle" ToRole="RelateInfor" />
   </EntityType>
@@ -386,7 +386,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="SimilarFamily" Nullable="false" />
+    <Property Type="String" Name="SimilarFamily" Nullable="true" />
     <NavigationProperty Name="HeadacheFamilyMember" Relationship="HeadacheModel.RelateInforHeadacheFamilyMember" FromRole="RelateInfor" ToRole="HeadacheFamilyMember" />
     <NavigationProperty Name="OtherFamilyDisease" Relationship="HeadacheModel.RelateInforOtherFamilyDisease" FromRole="RelateInfor" ToRole="OtherFamilyDisease" />
     <NavigationProperty Name="Lifestyle" Relationship="HeadacheModel.RelateInforLifestyle" FromRole="RelateInfor" ToRole="Lifestyle" />

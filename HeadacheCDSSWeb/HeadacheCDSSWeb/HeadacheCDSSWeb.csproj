@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\DAccountController.cs" />
+    <Compile Include="Controllers\DiagnosisController.cs" />
     <Compile Include="Controllers\EnterPatInforController.cs" />
     <Compile Include="Filters\AuthorizeActionFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -82,6 +83,9 @@
     <Compile Include="Models\DoctorAccount.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\JsonHelper.cs" />
+    <Compile Include="Models\PatOperation.cs" />
+    <Compile Include="Models\UserOperation.cs" />
     <Compile Include="Models\HeadachaOverView.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
@@ -142,6 +146,8 @@
     <Compile Include="Models\SpecialDiet.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VisitData.cs" />
+    <Compile Include="Models\VisitDataOperation.cs" />
     <Compile Include="Models\VisitRecord.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
@@ -167,6 +173,7 @@
     <Content Include="Content\images\login\head.gif" />
     <Content Include="Content\images\login\login.png" />
     <Content Include="Content\images\main_bg.png" />
+    <Content Include="Content\images\menu_bg.png" />
     <Content Include="Content\images\normal-button.png" />
     <Content Include="Content\images\ocx_bg.png" />
     <Content Include="Content\images\sidebar.png" />
@@ -177,6 +184,7 @@
     <Content Include="Content\images\未标题-1_15.png" />
     <Content Include="Content\images\未标题-1_16.png" />
     <Content Include="Content\images\未标题-1_18.png" />
+    <Content Include="Content\indexstyle.css" />
     <Content Include="Content\jqpagination.css" />
     <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\patstyle.css" />
@@ -207,10 +215,12 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\wbox-min.css" />
     <Content Include="Content\zebra_datepicker.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Models\HeadacheModel.edmx.sql" />
+    <Content Include="Scripts\Diagnosis\ReporterOperation.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -219,11 +229,14 @@
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery.jqpagination.js" />
     <Content Include="Scripts\jquery.jqpagination.min.js" />
+    <Content Include="Scripts\jquery.json-2.4.js" />
+    <Content Include="Scripts\jquery.json-2.4.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\wbox-min.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -276,6 +289,7 @@
       <LastGenOutput>HeadacheDataModel.cs</LastGenOutput>
     </None>
     <Content Include="Views\EnterPatInfor\Index.cshtml" />
+    <Content Include="Views\Diagnosis\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
