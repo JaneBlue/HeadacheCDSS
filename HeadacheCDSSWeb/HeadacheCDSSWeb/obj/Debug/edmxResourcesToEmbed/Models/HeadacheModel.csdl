@@ -8,16 +8,6 @@
       <End Role="DoctorAccount" EntitySet="DoctorAccountSet" />
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
     </AssociationSet>
-    <EntitySet Name="CDSSDiagnosisSet" EntityType="HeadacheModel.CDSSDiagnosis" />
-    <EntitySet Name="DiagnosisResultSet" EntityType="HeadacheModel.DiagnosisResult" />
-    <AssociationSet Name="VisitRecordCDSSDiagnosis" Association="HeadacheModel.VisitRecordCDSSDiagnosis">
-      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
-      <End Role="CDSSDiagnosis" EntitySet="CDSSDiagnosisSet" />
-    </AssociationSet>
-    <AssociationSet Name="VisitRecordDiagnosisResult" Association="HeadacheModel.VisitRecordDiagnosisResult">
-      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
-      <End Role="DiagnosisResult" EntitySet="DiagnosisResultSet" />
-    </AssociationSet>
     <EntitySet Name="HeadachaOverViewSet" EntityType="HeadacheModel.HeadachaOverView" />
     <AssociationSet Name="VisitRecordHeadachaOverView" Association="HeadacheModel.VisitRecordHeadachaOverView">
       <End Role="VisitRecord" EntitySet="VisitRecordSet" />
@@ -140,13 +130,17 @@
     <Property Type="String" Name="OutpatientID" Nullable="false" />
     <Property Type="String" Name="ChiefComplaint" Nullable="false" />
     <Property Type="DateTime" Name="VisitDate" Nullable="false" />
-    <NavigationProperty Name="CDSSDiagnosis" Relationship="HeadacheModel.VisitRecordCDSSDiagnosis" FromRole="VisitRecord" ToRole="CDSSDiagnosis" />
-    <NavigationProperty Name="DiagnosisResult" Relationship="HeadacheModel.VisitRecordDiagnosisResult" FromRole="VisitRecord" ToRole="DiagnosisResult" />
     <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.VisitRecordHeadachaOverView" FromRole="VisitRecord" ToRole="HeadachaOverView" />
     <NavigationProperty Name="MedicalHistory" Relationship="HeadacheModel.VisitRecordMedicalHistory" FromRole="VisitRecord" ToRole="MedicalHistory" />
     <NavigationProperty Name="Prescription" Relationship="HeadacheModel.VisitRecordPrescription" FromRole="VisitRecord" ToRole="Prescription" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforVisitRecord" FromRole="VisitRecord" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="CDSSDiagnosis1" Nullable="false" />
+    <Property Type="String" Name="CDSSDiagnosis2" Nullable="false" />
+    <Property Type="String" Name="CDSSDiagnosis3" Nullable="false" />
+    <Property Type="String" Name="DiagnosisResult1" Nullable="false" />
+    <Property Type="String" Name="DiagnosisResult2" Nullable="false" />
+    <Property Type="String" Name="DiagnosisResult3" Nullable="false" />
   </EntityType>
   <Association Name="DoctorAccountPatBasicInfor">
     <End Type="HeadacheModel.DoctorAccount" Role="DoctorAccount" Multiplicity="1" />
@@ -157,48 +151,6 @@
       </Principal>
       <Dependent Role="PatBasicInfor">
         <PropertyRef Name="DoctorAccountId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="CDSSDiagnosis">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="VisitRecord" Relationship="HeadacheModel.VisitRecordCDSSDiagnosis" FromRole="CDSSDiagnosis" ToRole="VisitRecord" />
-    <Property Type="Int32" Name="VisitRecordId" Nullable="false" />
-    <Property Name="DiagnosisContent" Type="HeadacheModel.Diagnosis" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DiagnosisResult">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <NavigationProperty Name="VisitRecord" Relationship="HeadacheModel.VisitRecordDiagnosisResult" FromRole="DiagnosisResult" ToRole="VisitRecord" />
-    <Property Type="Int32" Name="VisitRecordId" Nullable="false" />
-    <Property Name="DiagnosisContent" Type="HeadacheModel.Diagnosis" Nullable="false" />
-  </EntityType>
-  <Association Name="VisitRecordCDSSDiagnosis">
-    <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
-    <End Type="HeadacheModel.CDSSDiagnosis" Role="CDSSDiagnosis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VisitRecord">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CDSSDiagnosis">
-        <PropertyRef Name="VisitRecordId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="VisitRecordDiagnosisResult">
-    <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
-    <End Type="HeadacheModel.DiagnosisResult" Role="DiagnosisResult" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="VisitRecord">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DiagnosisResult">
-        <PropertyRef Name="VisitRecordId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

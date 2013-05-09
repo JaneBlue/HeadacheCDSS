@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/08/2013 20:14:50
+-- Date Created: 05/09/2013 16:27:32
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -19,12 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_DoctorAccountPatBasicInfor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_DoctorAccountPatBasicInfor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordCDSSDiagnosis]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CDSSDiagnosisSet] DROP CONSTRAINT [FK_VisitRecordCDSSDiagnosis];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordDiagnosisResult]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[DiagnosisResultSet] DROP CONSTRAINT [FK_VisitRecordDiagnosisResult];
 GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordHeadachaOverView]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_VisitRecordHeadachaOverView];
@@ -90,12 +84,6 @@ IF OBJECT_ID(N'[dbo].[PatBasicInforSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[VisitRecordSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VisitRecordSet];
-GO
-IF OBJECT_ID(N'[dbo].[CDSSDiagnosisSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CDSSDiagnosisSet];
-GO
-IF OBJECT_ID(N'[dbo].[DiagnosisResultSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DiagnosisResultSet];
 GO
 IF OBJECT_ID(N'[dbo].[HeadachaOverViewSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HeadachaOverViewSet];
@@ -183,26 +171,14 @@ CREATE TABLE [dbo].[VisitRecordSet] (
     [ChiefComplaint] nvarchar(max)  NOT NULL,
     [VisitDate] datetime  NOT NULL,
     [PatBasicInforId] nvarchar(255)  NOT NULL,
+    [CDSSDiagnosis1] nvarchar(max)  NOT NULL,
+    [CDSSDiagnosis2] nvarchar(max)  NOT NULL,
+    [CDSSDiagnosis3] nvarchar(max)  NOT NULL,
+    [DiagnosisResult1] nvarchar(max)  NOT NULL,
+    [DiagnosisResult2] nvarchar(max)  NOT NULL,
+    [DiagnosisResult3] nvarchar(max)  NOT NULL,
     [HeadachaOverView_Id] int  NOT NULL,
     [MedicalHistory_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'CDSSDiagnosisSet'
-CREATE TABLE [dbo].[CDSSDiagnosisSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [VisitRecordId] int  NOT NULL,
-    [DiagnosisContent_FirstDianosis] nvarchar(max)  NOT NULL,
-    [DiagnosisContent_SecondDiagnosis] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'DiagnosisResultSet'
-CREATE TABLE [dbo].[DiagnosisResultSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [VisitRecordId] int  NOT NULL,
-    [DiagnosisContent_FirstDianosis] nvarchar(max)  NOT NULL,
-    [DiagnosisContent_SecondDiagnosis] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -390,18 +366,6 @@ ADD CONSTRAINT [PK_VisitRecordSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'CDSSDiagnosisSet'
-ALTER TABLE [dbo].[CDSSDiagnosisSet]
-ADD CONSTRAINT [PK_CDSSDiagnosisSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'DiagnosisResultSet'
-ALTER TABLE [dbo].[DiagnosisResultSet]
-ADD CONSTRAINT [PK_DiagnosisResultSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'HeadachaOverViewSet'
 ALTER TABLE [dbo].[HeadachaOverViewSet]
 ADD CONSTRAINT [PK_HeadachaOverViewSet]
@@ -514,34 +478,6 @@ ADD CONSTRAINT [FK_DoctorAccountPatBasicInfor]
 CREATE INDEX [IX_FK_DoctorAccountPatBasicInfor]
 ON [dbo].[PatBasicInforSet]
     ([DoctorAccountId]);
-GO
-
--- Creating foreign key on [VisitRecordId] in table 'CDSSDiagnosisSet'
-ALTER TABLE [dbo].[CDSSDiagnosisSet]
-ADD CONSTRAINT [FK_VisitRecordCDSSDiagnosis]
-    FOREIGN KEY ([VisitRecordId])
-    REFERENCES [dbo].[VisitRecordSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordCDSSDiagnosis'
-CREATE INDEX [IX_FK_VisitRecordCDSSDiagnosis]
-ON [dbo].[CDSSDiagnosisSet]
-    ([VisitRecordId]);
-GO
-
--- Creating foreign key on [VisitRecordId] in table 'DiagnosisResultSet'
-ALTER TABLE [dbo].[DiagnosisResultSet]
-ADD CONSTRAINT [FK_VisitRecordDiagnosisResult]
-    FOREIGN KEY ([VisitRecordId])
-    REFERENCES [dbo].[VisitRecordSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordDiagnosisResult'
-CREATE INDEX [IX_FK_VisitRecordDiagnosisResult]
-ON [dbo].[DiagnosisResultSet]
-    ([VisitRecordId]);
 GO
 
 -- Creating foreign key on [HeadachaOverView_Id] in table 'VisitRecordSet'

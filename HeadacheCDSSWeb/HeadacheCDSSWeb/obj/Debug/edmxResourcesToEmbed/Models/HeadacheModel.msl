@@ -36,30 +36,12 @@
           <ScalarProperty Name="ChiefComplaint" ColumnName="ChiefComplaint" />
           <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
           <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CDSSDiagnosisSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.CDSSDiagnosis)">
-        <MappingFragment StoreEntitySet="CDSSDiagnosisSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
-          <ComplexProperty Name="DiagnosisContent" TypeName="HeadacheModel.Diagnosis">
-            <ScalarProperty Name="FirstDianosis" ColumnName="DiagnosisContent_FirstDianosis" />
-            <ScalarProperty Name="SecondDiagnosis" ColumnName="DiagnosisContent_SecondDiagnosis" />
-          </ComplexProperty>
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DiagnosisResultSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.DiagnosisResult)">
-        <MappingFragment StoreEntitySet="DiagnosisResultSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
-          <ComplexProperty Name="DiagnosisContent" TypeName="HeadacheModel.Diagnosis">
-            <ScalarProperty Name="FirstDianosis" ColumnName="DiagnosisContent_FirstDianosis" />
-            <ScalarProperty Name="SecondDiagnosis" ColumnName="DiagnosisContent_SecondDiagnosis" />
-          </ComplexProperty>
+          <ScalarProperty Name="CDSSDiagnosis1" ColumnName="CDSSDiagnosis1" />
+          <ScalarProperty Name="CDSSDiagnosis2" ColumnName="CDSSDiagnosis2" />
+          <ScalarProperty Name="CDSSDiagnosis3" ColumnName="CDSSDiagnosis3" />
+          <ScalarProperty Name="DiagnosisResult1" ColumnName="DiagnosisResult1" />
+          <ScalarProperty Name="DiagnosisResult2" ColumnName="DiagnosisResult2" />
+          <ScalarProperty Name="DiagnosisResult3" ColumnName="DiagnosisResult3" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

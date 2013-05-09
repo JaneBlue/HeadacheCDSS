@@ -30,7 +30,7 @@ namespace HeadacheCDSSWeb.Controllers
         public ActionResult DeleteRecord(string ID)
         {
 
-           
+
             string PatID = ID;
             string RecordID = this.TempData["recordID"].ToString();
             try
