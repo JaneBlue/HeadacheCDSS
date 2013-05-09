@@ -10,10 +10,10 @@ namespace HeadacheCDSSWeb.Controllers
     {
         //
         // GET: /ViewPatRecord/
-
+        VisitDataOperation visitop = new VisitDataOperation();
         public ActionResult Index(string ID)
         {
-            VisitDataOperation visitop = new VisitDataOperation();
+           
             List<VisitRecord> Lvisit = visitop.GetVistRecord(ID);
 
             return View(Lvisit);
@@ -22,6 +22,27 @@ namespace HeadacheCDSSWeb.Controllers
         {
             return View();
         }
+        public ActionResult GoToDiagnosis(string ID)
+        {
+           
+            return RedirectToAction("Index", "Diagnosis", new { ID = ID });
+        }
+        public ActionResult DeleteRecord(string ID)
+        {
 
+           
+            string PatID = ID;
+            string RecordID = this.TempData["recordID"].ToString();
+            try
+            {
+                visitop.DeleteRecord(PatID, RecordID);
+            }
+            catch (Exception e)
+            {
+                return this.Json(new { OK = false, Message = "删除失败" });
+            }
+
+            return this.Json(new { OK = true, Message = RecordID });
+        }
     }
 }

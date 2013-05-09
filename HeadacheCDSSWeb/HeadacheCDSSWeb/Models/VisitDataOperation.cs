@@ -10,14 +10,14 @@ namespace HeadacheCDSSWeb.Models
         HeadacheModelContainer context = new HeadacheModelContainer();
         public List<PatBasicInfor> GetPat(List<string> Condition)
         {
-            
+
             List<PatBasicInfor> pat = new List<PatBasicInfor>();
             List<PatBasicInfor> Unormalpat = new List<PatBasicInfor>();
             var pats = from p in context.PatBasicInforSet.ToList()
                        where (string.IsNullOrEmpty(Condition[0]) ? true : p.Name == Condition[0])
                       && (string.IsNullOrEmpty(Condition[1]) ? true : p.Sex == Condition[1])
                       && (string.IsNullOrEmpty(Condition[2]) ? true : p.VisitRecord.Last().VisitDate == DateTime.Parse(Condition[2]))
-                     // && (string.IsNullOrEmpty(Condition[3]) ? true : p.VisitRecord.Last().CDSSDiagnosis== Condition[3])
+                       // && (string.IsNullOrEmpty(Condition[3]) ? true : p.VisitRecord.Last().CDSSDiagnosis== Condition[3])
                        select p;
 
             try
@@ -63,7 +63,42 @@ namespace HeadacheCDSSWeb.Models
                 data[j] = d;
             }
         }
+        public bool SaveRecord(string PatID,VisitData VData)
+        {
+            try
+            {
+                PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
+                //VisitRecord vr = new VisitRecord();
+                //vr.VisitDate = DateTime.Now;
+                //vr.PatBasicInforId = PatID;
+                //pt.VisitRecord.Add(vr);
+                context.SaveChanges();
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
 
+        }
+        public bool UpdateRecord(string PatID, VisitData VData)
+        {
+            try
+            {
+                PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
+                //VisitRecord vr = new VisitRecord();
+                //vr.VisitDate = DateTime.Now;
+                //vr.PatBasicInforId = PatID;
+                //pt.VisitRecord.Add(vr);
+                context.SaveChanges();
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+                return false;
+            }
+
+        }
         public List<VisitRecord> GetVistRecord(string PatID)
         {
             PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
@@ -74,6 +109,26 @@ namespace HeadacheCDSSWeb.Models
             }
             visit.Reverse();
             return visit;
+        }
+        public bool DeleteRecord(string PatID, string RecordID)
+        {
+            try
+            {
+
+                var record = from p in context.VisitRecordSet.ToList()
+                             where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(RecordID))
+                             select p;
+                VisitRecord r = record.First();
+               // visitrecord 内容删除
+                context.VisitRecordSet.Remove(r);
+                context.SaveChanges();
+                return true;
+            }
+            catch (System.Exception e)
+            {
+                return false;
+
+            }
         }
     }
 }
