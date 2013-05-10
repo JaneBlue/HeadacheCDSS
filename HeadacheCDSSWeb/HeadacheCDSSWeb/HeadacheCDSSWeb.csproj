@@ -124,25 +124,16 @@
     <Compile Include="Models\MecicationAdvice.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MedicalHistory.cs">
-      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\OtherFamilyDisease.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PatBasicInfor.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Prescription.cs">
-      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\PreviousDrug.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PreviousExam.cs">
-      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RelateInfor.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpecialDiet.cs">

@@ -15,14 +15,14 @@ namespace HeadacheCDSSWeb.Models
     public partial class MecicationAdvice
     {
         public int Id { get; set; }
-        public int PrescriptionId { get; set; }
         public string DrugApplication { get; set; }
         public string DrugCategory { get; set; }
         public string DrugName { get; set; }
         public string Therapy { get; set; }
         public string DrugDose { get; set; }
+        public int VisitRecordId { get; set; }
     
-        public virtual Prescription Prescription { get; set; }
+        public virtual VisitRecord VisitRecord { get; set; }
     }
     
 }

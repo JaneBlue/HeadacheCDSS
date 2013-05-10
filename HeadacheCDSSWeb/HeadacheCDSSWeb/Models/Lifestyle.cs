@@ -41,7 +41,7 @@ namespace HeadacheCDSSWeb.Models
         public string OtherLifeStyleFactor { get; set; }
     
         public virtual ICollection<SpecialDiet> SpecialDiet { get; set; }
-        public virtual RelateInfor RelateInfor { get; set; }
+        public virtual PatBasicInfor PatBasicInfor { get; set; }
     }
     
 }

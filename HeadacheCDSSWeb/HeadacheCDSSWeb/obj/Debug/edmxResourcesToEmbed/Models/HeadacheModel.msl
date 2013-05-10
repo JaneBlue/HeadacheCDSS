@@ -25,6 +25,7 @@
           <ScalarProperty Name="Identity" ColumnName="Identity" />
           <ScalarProperty Name="ChiefDoctor" ColumnName="ChiefDoctor" />
           <ScalarProperty Name="DoctorAccountId" ColumnName="DoctorAccountId" />
+          <ScalarProperty Name="SimilarFamily" ColumnName="SimilarFamily" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -42,6 +43,7 @@
           <ScalarProperty Name="DiagnosisResult1" ColumnName="DiagnosisResult1" />
           <ScalarProperty Name="DiagnosisResult2" ColumnName="DiagnosisResult2" />
           <ScalarProperty Name="DiagnosisResult3" ColumnName="DiagnosisResult3" />
+          <ScalarProperty Name="Prescription" ColumnName="Prescription" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -60,21 +62,6 @@
           <ScalarProperty Name="OnsetDate" ColumnName="OnsetDate" />
           <ScalarProperty Name="OnsetAmount" ColumnName="OnsetAmount" />
           <ScalarProperty Name="DailyAggravation" ColumnName="DailyAggravation" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PrescriptionSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.Prescription)">
-        <MappingFragment StoreEntitySet="PrescriptionSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="DotorAdvice" ColumnName="DotorAdvice" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MedicalHistorySet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MedicalHistory)">
-        <MappingFragment StoreEntitySet="MedicalHistorySet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -141,6 +128,7 @@
           <ScalarProperty Name="DrugName" ColumnName="DrugName" />
           <ScalarProperty Name="DayAmoutnPerM" ColumnName="DayAmoutnPerM" />
           <ScalarProperty Name="MonthTotalAmount" ColumnName="MonthTotalAmount" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -152,14 +140,7 @@
           <ScalarProperty Name="ExamName" ColumnName="ExamName" />
           <ScalarProperty Name="Result" ColumnName="Result" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RelateInforSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.RelateInfor)">
-        <MappingFragment StoreEntitySet="RelateInforSet">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="SimilarFamily" ColumnName="SimilarFamily" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -169,6 +150,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Person" ColumnName="Person" />
           <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -178,6 +160,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
           <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -194,12 +177,12 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MecicationAdvice)">
         <MappingFragment StoreEntitySet="MecicationAdviceSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PrescriptionId" ColumnName="PrescriptionId" />
           <ScalarProperty Name="DrugApplication" ColumnName="DrugApplication" />
           <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />
           <ScalarProperty Name="DrugName" ColumnName="DrugName" />
           <ScalarProperty Name="Therapy" ColumnName="Therapy" />
           <ScalarProperty Name="DrugDose" ColumnName="DrugDose" />
+          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -229,33 +212,9 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitRecordMedicalHistory" TypeName="HeadacheModel.VisitRecordMedicalHistory" StoreEntitySet="VisitRecordSet">
-      <EndProperty Name="MedicalHistory">
-        <ScalarProperty Name="Id" ColumnName="MedicalHistory_Id" />
-      </EndProperty>
-      <EndProperty Name="VisitRecord">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="RelateInforLifestyle" TypeName="HeadacheModel.RelateInforLifestyle" StoreEntitySet="RelateInforSet">
+    <AssociationSetMapping Name="PatBasicInforLifestyle" TypeName="HeadacheModel.PatBasicInforLifestyle" StoreEntitySet="PatBasicInforSet">
       <EndProperty Name="Lifestyle">
         <ScalarProperty Name="Id" ColumnName="Lifestyle_Id" />
-      </EndProperty>
-      <EndProperty Name="RelateInfor">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitRecordPrescription" TypeName="HeadacheModel.VisitRecordPrescription" StoreEntitySet="PrescriptionSet">
-      <EndProperty Name="VisitRecord">
-        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
-      </EndProperty>
-      <EndProperty Name="Prescription">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="PatBasicInforRelateInfor" TypeName="HeadacheModel.PatBasicInforRelateInfor" StoreEntitySet="PatBasicInforSet">
-      <EndProperty Name="RelateInfor">
-        <ScalarProperty Name="Id" ColumnName="RelateInfor_Id" />
       </EndProperty>
       <EndProperty Name="PatBasicInfor">
         <ScalarProperty Name="Id" ColumnName="Id" />

@@ -29,15 +29,12 @@ namespace HeadacheCDSSWeb.Models
         public DbSet<PatBasicInfor> PatBasicInforSet { get; set; }
         public DbSet<VisitRecord> VisitRecordSet { get; set; }
         public DbSet<HeadachaOverView> HeadachaOverViewSet { get; set; }
-        public DbSet<Prescription> PrescriptionSet { get; set; }
-        public DbSet<MedicalHistory> MedicalHistorySet { get; set; }
         public DbSet<Lifestyle> LifestyleSet { get; set; }
         public DbSet<HeadachePlace> HeadachePlaceSet { get; set; }
         public DbSet<HeadacheAccompany> HeadacheAccompanySet { get; set; }
         public DbSet<HeadacheProdrome> HeadacheProdromeSet { get; set; }
         public DbSet<PreviousDrug> PreviousDrugSet { get; set; }
         public DbSet<PreviousExam> PreviousExamSet { get; set; }
-        public DbSet<RelateInfor> RelateInforSet { get; set; }
         public DbSet<HeadacheFamilyMember> HeadacheFamilyMemberSet { get; set; }
         public DbSet<OtherFamilyDisease> OtherFamilyDiseaseSet { get; set; }
         public DbSet<SpecialDiet> SpecialDietSet { get; set; }

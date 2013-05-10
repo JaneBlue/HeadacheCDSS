@@ -14,6 +14,11 @@ namespace HeadacheCDSSWeb.Models
 {
     public partial class VisitRecord
     {
+        public VisitRecord()
+        {
+            this.MecicationAdvice = new HashSet<MecicationAdvice>();
+        }
+    
         public int Id { get; set; }
         public string OutpatientID { get; set; }
         public string ChiefComplaint { get; set; }
@@ -25,11 +30,11 @@ namespace HeadacheCDSSWeb.Models
         public string DiagnosisResult1 { get; set; }
         public string DiagnosisResult2 { get; set; }
         public string DiagnosisResult3 { get; set; }
+        public string Prescription { get; set; }
     
         public virtual HeadachaOverView HeadachaOverView { get; set; }
-        public virtual MedicalHistory MedicalHistory { get; set; }
-        public virtual Prescription Prescription { get; set; }
         public virtual PatBasicInfor PatBasicInfor { get; set; }
+        public virtual ICollection<MecicationAdvice> MecicationAdvice { get; set; }
     }
     
 }

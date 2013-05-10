@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/09/2013 16:27:32
+-- Date Created: 05/10/2013 14:28:27
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -32,44 +32,35 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewHeadacheProdrome]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HeadacheProdromeSet] DROP CONSTRAINT [FK_HeadachaOverViewHeadacheProdrome];
 GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordMedicalHistory]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_VisitRecordMedicalHistory];
-GO
-IF OBJECT_ID(N'[dbo].[FK_MedicalHistoryPreviousDrug]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PreviousDrugSet] DROP CONSTRAINT [FK_MedicalHistoryPreviousDrug];
-GO
-IF OBJECT_ID(N'[dbo].[FK_MedicalHistoryPreviousExam]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PreviousExamSet] DROP CONSTRAINT [FK_MedicalHistoryPreviousExam];
-GO
-IF OBJECT_ID(N'[dbo].[FK_RelateInforHeadacheFamilyMember]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[HeadacheFamilyMemberSet] DROP CONSTRAINT [FK_RelateInforHeadacheFamilyMember];
-GO
-IF OBJECT_ID(N'[dbo].[FK_RelateInforOtherFamilyDisease]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[OtherFamilyDiseaseSet] DROP CONSTRAINT [FK_RelateInforOtherFamilyDisease];
-GO
 IF OBJECT_ID(N'[dbo].[FK_LifestyleSpecialDiet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SpecialDietSet] DROP CONSTRAINT [FK_LifestyleSpecialDiet];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RelateInforLifestyle]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[RelateInforSet] DROP CONSTRAINT [FK_RelateInforLifestyle];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordPrescription]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PrescriptionSet] DROP CONSTRAINT [FK_VisitRecordPrescription];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PrescriptionMecicationAdvice]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MecicationAdviceSet] DROP CONSTRAINT [FK_PrescriptionMecicationAdvice];
-GO
 IF OBJECT_ID(N'[dbo].[FK_PatBasicInforVisitRecord]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_PatBasicInforVisitRecord];
-GO
-IF OBJECT_ID(N'[dbo].[FK_PatBasicInforRelateInfor]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforRelateInfor];
 GO
 IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewMitigatingFactors]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MitigatingFactorsSet] DROP CONSTRAINT [FK_HeadachaOverViewMitigatingFactors];
 GO
 IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewPrecipitatingFactor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PrecipitatingFactorSet] DROP CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_VisitRecordMecicationAdvice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MecicationAdviceSet] DROP CONSTRAINT [FK_VisitRecordMecicationAdvice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPreviousDrug]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PreviousDrugSet] DROP CONSTRAINT [FK_PatBasicInforPreviousDrug];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPreviousExam]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PreviousExamSet] DROP CONSTRAINT [FK_PatBasicInforPreviousExam];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforHeadacheFamilyMember]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HeadacheFamilyMemberSet] DROP CONSTRAINT [FK_PatBasicInforHeadacheFamilyMember];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforOtherFamilyDisease]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OtherFamilyDiseaseSet] DROP CONSTRAINT [FK_PatBasicInforOtherFamilyDisease];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PatBasicInforLifestyle]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_PatBasicInforLifestyle];
 GO
 
 -- --------------------------------------------------
@@ -88,12 +79,6 @@ GO
 IF OBJECT_ID(N'[dbo].[HeadachaOverViewSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HeadachaOverViewSet];
 GO
-IF OBJECT_ID(N'[dbo].[PrescriptionSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PrescriptionSet];
-GO
-IF OBJECT_ID(N'[dbo].[MedicalHistorySet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MedicalHistorySet];
-GO
 IF OBJECT_ID(N'[dbo].[LifestyleSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[LifestyleSet];
 GO
@@ -111,9 +96,6 @@ IF OBJECT_ID(N'[dbo].[PreviousDrugSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[PreviousExamSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PreviousExamSet];
-GO
-IF OBJECT_ID(N'[dbo].[RelateInforSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[RelateInforSet];
 GO
 IF OBJECT_ID(N'[dbo].[HeadacheFamilyMemberSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[HeadacheFamilyMemberSet];
@@ -160,7 +142,8 @@ CREATE TABLE [dbo].[PatBasicInforSet] (
     [Identity] nvarchar(max)  NULL,
     [ChiefDoctor] nvarchar(max)  NULL,
     [DoctorAccountId] int  NOT NULL,
-    [RelateInfor_Id] int  NOT NULL
+    [SimilarFamily] bit  NULL,
+    [Lifestyle_Id] int  NOT NULL
 );
 GO
 
@@ -177,8 +160,8 @@ CREATE TABLE [dbo].[VisitRecordSet] (
     [DiagnosisResult1] nvarchar(max)  NOT NULL,
     [DiagnosisResult2] nvarchar(max)  NOT NULL,
     [DiagnosisResult3] nvarchar(max)  NOT NULL,
-    [HeadachaOverView_Id] int  NOT NULL,
-    [MedicalHistory_Id] int  NOT NULL
+    [Prescription] nvarchar(max)  NOT NULL,
+    [HeadachaOverView_Id] int  NOT NULL
 );
 GO
 
@@ -196,20 +179,6 @@ CREATE TABLE [dbo].[HeadachaOverViewSet] (
     [OnsetDate] nvarchar(max)  NOT NULL,
     [OnsetAmount] nvarchar(max)  NOT NULL,
     [DailyAggravation] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'PrescriptionSet'
-CREATE TABLE [dbo].[PrescriptionSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [DotorAdvice] nvarchar(max)  NOT NULL,
-    [VisitRecord_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'MedicalHistorySet'
-CREATE TABLE [dbo].[MedicalHistorySet] (
-    [Id] int IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -270,7 +239,8 @@ CREATE TABLE [dbo].[PreviousDrugSet] (
     [DrugCategory] nvarchar(max)  NOT NULL,
     [DrugName] nvarchar(max)  NOT NULL,
     [DayAmoutnPerM] nvarchar(max)  NOT NULL,
-    [MonthTotalAmount] nvarchar(max)  NOT NULL
+    [MonthTotalAmount] nvarchar(max)  NOT NULL,
+    [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
 
@@ -280,15 +250,8 @@ CREATE TABLE [dbo].[PreviousExamSet] (
     [MedicalHistoryId] int  NOT NULL,
     [ExamName] nvarchar(max)  NOT NULL,
     [Result] nvarchar(max)  NOT NULL,
-    [Date] nvarchar(max)  NOT NULL
-);
-GO
-
--- Creating table 'RelateInforSet'
-CREATE TABLE [dbo].[RelateInforSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [SimilarFamily] nvarchar(max)  NULL,
-    [Lifestyle_Id] int  NOT NULL
+    [Date] nvarchar(max)  NOT NULL,
+    [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
 
@@ -296,7 +259,8 @@ GO
 CREATE TABLE [dbo].[HeadacheFamilyMemberSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Person] nvarchar(max)  NOT NULL,
-    [RelateInforId] int  NOT NULL
+    [RelateInforId] int  NOT NULL,
+    [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
 
@@ -304,7 +268,8 @@ GO
 CREATE TABLE [dbo].[OtherFamilyDiseaseSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [RelateInforId] int  NOT NULL,
-    [MemberName] nvarchar(max)  NOT NULL
+    [MemberName] nvarchar(max)  NOT NULL,
+    [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
 
@@ -319,12 +284,12 @@ GO
 -- Creating table 'MecicationAdviceSet'
 CREATE TABLE [dbo].[MecicationAdviceSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [PrescriptionId] int  NOT NULL,
     [DrugApplication] nvarchar(max)  NOT NULL,
     [DrugCategory] nvarchar(max)  NOT NULL,
     [DrugName] nvarchar(max)  NOT NULL,
     [Therapy] nvarchar(max)  NOT NULL,
-    [DrugDose] nvarchar(max)  NOT NULL
+    [DrugDose] nvarchar(max)  NOT NULL,
+    [VisitRecordId] int  NOT NULL
 );
 GO
 
@@ -372,18 +337,6 @@ ADD CONSTRAINT [PK_HeadachaOverViewSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PrescriptionSet'
-ALTER TABLE [dbo].[PrescriptionSet]
-ADD CONSTRAINT [PK_PrescriptionSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'MedicalHistorySet'
-ALTER TABLE [dbo].[MedicalHistorySet]
-ADD CONSTRAINT [PK_MedicalHistorySet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'LifestyleSet'
 ALTER TABLE [dbo].[LifestyleSet]
 ADD CONSTRAINT [PK_LifestyleSet]
@@ -417,12 +370,6 @@ GO
 -- Creating primary key on [Id] in table 'PreviousExamSet'
 ALTER TABLE [dbo].[PreviousExamSet]
 ADD CONSTRAINT [PK_PreviousExamSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'RelateInforSet'
-ALTER TABLE [dbo].[RelateInforSet]
-ADD CONSTRAINT [PK_RelateInforSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -536,76 +483,6 @@ ON [dbo].[HeadacheProdromeSet]
     ([HeadachaOverViewId]);
 GO
 
--- Creating foreign key on [MedicalHistory_Id] in table 'VisitRecordSet'
-ALTER TABLE [dbo].[VisitRecordSet]
-ADD CONSTRAINT [FK_VisitRecordMedicalHistory]
-    FOREIGN KEY ([MedicalHistory_Id])
-    REFERENCES [dbo].[MedicalHistorySet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordMedicalHistory'
-CREATE INDEX [IX_FK_VisitRecordMedicalHistory]
-ON [dbo].[VisitRecordSet]
-    ([MedicalHistory_Id]);
-GO
-
--- Creating foreign key on [MedicalHistoryId] in table 'PreviousDrugSet'
-ALTER TABLE [dbo].[PreviousDrugSet]
-ADD CONSTRAINT [FK_MedicalHistoryPreviousDrug]
-    FOREIGN KEY ([MedicalHistoryId])
-    REFERENCES [dbo].[MedicalHistorySet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_MedicalHistoryPreviousDrug'
-CREATE INDEX [IX_FK_MedicalHistoryPreviousDrug]
-ON [dbo].[PreviousDrugSet]
-    ([MedicalHistoryId]);
-GO
-
--- Creating foreign key on [MedicalHistoryId] in table 'PreviousExamSet'
-ALTER TABLE [dbo].[PreviousExamSet]
-ADD CONSTRAINT [FK_MedicalHistoryPreviousExam]
-    FOREIGN KEY ([MedicalHistoryId])
-    REFERENCES [dbo].[MedicalHistorySet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_MedicalHistoryPreviousExam'
-CREATE INDEX [IX_FK_MedicalHistoryPreviousExam]
-ON [dbo].[PreviousExamSet]
-    ([MedicalHistoryId]);
-GO
-
--- Creating foreign key on [RelateInforId] in table 'HeadacheFamilyMemberSet'
-ALTER TABLE [dbo].[HeadacheFamilyMemberSet]
-ADD CONSTRAINT [FK_RelateInforHeadacheFamilyMember]
-    FOREIGN KEY ([RelateInforId])
-    REFERENCES [dbo].[RelateInforSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RelateInforHeadacheFamilyMember'
-CREATE INDEX [IX_FK_RelateInforHeadacheFamilyMember]
-ON [dbo].[HeadacheFamilyMemberSet]
-    ([RelateInforId]);
-GO
-
--- Creating foreign key on [RelateInforId] in table 'OtherFamilyDiseaseSet'
-ALTER TABLE [dbo].[OtherFamilyDiseaseSet]
-ADD CONSTRAINT [FK_RelateInforOtherFamilyDisease]
-    FOREIGN KEY ([RelateInforId])
-    REFERENCES [dbo].[RelateInforSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RelateInforOtherFamilyDisease'
-CREATE INDEX [IX_FK_RelateInforOtherFamilyDisease]
-ON [dbo].[OtherFamilyDiseaseSet]
-    ([RelateInforId]);
-GO
-
 -- Creating foreign key on [LifestyleId] in table 'SpecialDietSet'
 ALTER TABLE [dbo].[SpecialDietSet]
 ADD CONSTRAINT [FK_LifestyleSpecialDiet]
@@ -620,48 +497,6 @@ ON [dbo].[SpecialDietSet]
     ([LifestyleId]);
 GO
 
--- Creating foreign key on [Lifestyle_Id] in table 'RelateInforSet'
-ALTER TABLE [dbo].[RelateInforSet]
-ADD CONSTRAINT [FK_RelateInforLifestyle]
-    FOREIGN KEY ([Lifestyle_Id])
-    REFERENCES [dbo].[LifestyleSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_RelateInforLifestyle'
-CREATE INDEX [IX_FK_RelateInforLifestyle]
-ON [dbo].[RelateInforSet]
-    ([Lifestyle_Id]);
-GO
-
--- Creating foreign key on [VisitRecord_Id] in table 'PrescriptionSet'
-ALTER TABLE [dbo].[PrescriptionSet]
-ADD CONSTRAINT [FK_VisitRecordPrescription]
-    FOREIGN KEY ([VisitRecord_Id])
-    REFERENCES [dbo].[VisitRecordSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordPrescription'
-CREATE INDEX [IX_FK_VisitRecordPrescription]
-ON [dbo].[PrescriptionSet]
-    ([VisitRecord_Id]);
-GO
-
--- Creating foreign key on [PrescriptionId] in table 'MecicationAdviceSet'
-ALTER TABLE [dbo].[MecicationAdviceSet]
-ADD CONSTRAINT [FK_PrescriptionMecicationAdvice]
-    FOREIGN KEY ([PrescriptionId])
-    REFERENCES [dbo].[PrescriptionSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PrescriptionMecicationAdvice'
-CREATE INDEX [IX_FK_PrescriptionMecicationAdvice]
-ON [dbo].[MecicationAdviceSet]
-    ([PrescriptionId]);
-GO
-
 -- Creating foreign key on [PatBasicInforId] in table 'VisitRecordSet'
 ALTER TABLE [dbo].[VisitRecordSet]
 ADD CONSTRAINT [FK_PatBasicInforVisitRecord]
@@ -674,20 +509,6 @@ ADD CONSTRAINT [FK_PatBasicInforVisitRecord]
 CREATE INDEX [IX_FK_PatBasicInforVisitRecord]
 ON [dbo].[VisitRecordSet]
     ([PatBasicInforId]);
-GO
-
--- Creating foreign key on [RelateInfor_Id] in table 'PatBasicInforSet'
-ALTER TABLE [dbo].[PatBasicInforSet]
-ADD CONSTRAINT [FK_PatBasicInforRelateInfor]
-    FOREIGN KEY ([RelateInfor_Id])
-    REFERENCES [dbo].[RelateInforSet]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforRelateInfor'
-CREATE INDEX [IX_FK_PatBasicInforRelateInfor]
-ON [dbo].[PatBasicInforSet]
-    ([RelateInfor_Id]);
 GO
 
 -- Creating foreign key on [HeadachaOverViewId] in table 'MitigatingFactorsSet'
@@ -716,6 +537,90 @@ ADD CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor]
 CREATE INDEX [IX_FK_HeadachaOverViewPrecipitatingFactor]
 ON [dbo].[PrecipitatingFactorSet]
     ([HeadachaOverViewId]);
+GO
+
+-- Creating foreign key on [VisitRecordId] in table 'MecicationAdviceSet'
+ALTER TABLE [dbo].[MecicationAdviceSet]
+ADD CONSTRAINT [FK_VisitRecordMecicationAdvice]
+    FOREIGN KEY ([VisitRecordId])
+    REFERENCES [dbo].[VisitRecordSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordMecicationAdvice'
+CREATE INDEX [IX_FK_VisitRecordMecicationAdvice]
+ON [dbo].[MecicationAdviceSet]
+    ([VisitRecordId]);
+GO
+
+-- Creating foreign key on [PatBasicInforId] in table 'PreviousDrugSet'
+ALTER TABLE [dbo].[PreviousDrugSet]
+ADD CONSTRAINT [FK_PatBasicInforPreviousDrug]
+    FOREIGN KEY ([PatBasicInforId])
+    REFERENCES [dbo].[PatBasicInforSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforPreviousDrug'
+CREATE INDEX [IX_FK_PatBasicInforPreviousDrug]
+ON [dbo].[PreviousDrugSet]
+    ([PatBasicInforId]);
+GO
+
+-- Creating foreign key on [PatBasicInforId] in table 'PreviousExamSet'
+ALTER TABLE [dbo].[PreviousExamSet]
+ADD CONSTRAINT [FK_PatBasicInforPreviousExam]
+    FOREIGN KEY ([PatBasicInforId])
+    REFERENCES [dbo].[PatBasicInforSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforPreviousExam'
+CREATE INDEX [IX_FK_PatBasicInforPreviousExam]
+ON [dbo].[PreviousExamSet]
+    ([PatBasicInforId]);
+GO
+
+-- Creating foreign key on [PatBasicInforId] in table 'HeadacheFamilyMemberSet'
+ALTER TABLE [dbo].[HeadacheFamilyMemberSet]
+ADD CONSTRAINT [FK_PatBasicInforHeadacheFamilyMember]
+    FOREIGN KEY ([PatBasicInforId])
+    REFERENCES [dbo].[PatBasicInforSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforHeadacheFamilyMember'
+CREATE INDEX [IX_FK_PatBasicInforHeadacheFamilyMember]
+ON [dbo].[HeadacheFamilyMemberSet]
+    ([PatBasicInforId]);
+GO
+
+-- Creating foreign key on [PatBasicInforId] in table 'OtherFamilyDiseaseSet'
+ALTER TABLE [dbo].[OtherFamilyDiseaseSet]
+ADD CONSTRAINT [FK_PatBasicInforOtherFamilyDisease]
+    FOREIGN KEY ([PatBasicInforId])
+    REFERENCES [dbo].[PatBasicInforSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforOtherFamilyDisease'
+CREATE INDEX [IX_FK_PatBasicInforOtherFamilyDisease]
+ON [dbo].[OtherFamilyDiseaseSet]
+    ([PatBasicInforId]);
+GO
+
+-- Creating foreign key on [Lifestyle_Id] in table 'PatBasicInforSet'
+ALTER TABLE [dbo].[PatBasicInforSet]
+ADD CONSTRAINT [FK_PatBasicInforLifestyle]
+    FOREIGN KEY ([Lifestyle_Id])
+    REFERENCES [dbo].[LifestyleSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_PatBasicInforLifestyle'
+CREATE INDEX [IX_FK_PatBasicInforLifestyle]
+ON [dbo].[PatBasicInforSet]
+    ([Lifestyle_Id]);
 GO
 
 -- --------------------------------------------------

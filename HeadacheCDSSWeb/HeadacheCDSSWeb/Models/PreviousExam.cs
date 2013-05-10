@@ -19,8 +19,9 @@ namespace HeadacheCDSSWeb.Models
         public string ExamName { get; set; }
         public string Result { get; set; }
         public string Date { get; set; }
+        public string PatBasicInforId { get; set; }
     
-        public virtual MedicalHistory MedicalHistory { get; set; }
+        public virtual PatBasicInfor PatBasicInfor { get; set; }
     }
     
 }

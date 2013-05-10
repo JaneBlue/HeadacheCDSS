@@ -20,8 +20,9 @@ namespace HeadacheCDSSWeb.Models
         public string DrugName { get; set; }
         public string DayAmoutnPerM { get; set; }
         public string MonthTotalAmount { get; set; }
+        public string PatBasicInforId { get; set; }
     
-        public virtual MedicalHistory MedicalHistory { get; set; }
+        public virtual PatBasicInfor PatBasicInfor { get; set; }
     }
     
 }
