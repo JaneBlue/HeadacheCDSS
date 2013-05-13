@@ -16,9 +16,9 @@ namespace HeadacheCDSSWeb.Models
             try
             {
                 pat.Id = System.Guid.NewGuid().ToString().Replace("-", "");
-             
-               
-               
+                Lifestyle lstyle = new Lifestyle();
+
+                pat.Lifestyle = lstyle;
                 var users = from s in context.DoctorAccountSet.ToList() select s;
                 DoctorAccount user = users.Where(s => s.UserName == User).FirstOrDefault();
                 user.PatBasicInfor.Add(pat);
