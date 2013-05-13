@@ -90,7 +90,7 @@
     <Compile Include="Models\PrecipitatingFactor.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PrimaryHeadachaOverView.cs">
+    <Compile Include="Models\PrimaryHeadacheOverView.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SecondaryHeadacheSymptom.cs">

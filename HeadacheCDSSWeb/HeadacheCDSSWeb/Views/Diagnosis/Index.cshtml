@@ -8,3 +8,64 @@
         height="540">
     </object>
 </p>
+<script type="text/javascript">
+$(function () {
+    $("#btn1").click(function () {
+            $("#btn2").show();
+            var OCX = document.getElementById('Reporter2');
+            if ($(".selected").last().attr("id") == "辅助诊断") {
+                $("#ocx").hide();
+                $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
+                $.ajax({
+                    url: '@Url.Action("Save", "Diagnosis")',
+                    type: "POST",
+                    data: { postjson: encoded },
+                    success: function (data) {
+                        if (data.OK) {
+                          $(".demo").html("本次问诊信息保存成功！");
+                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                        }
+                        else {
+                            document.getElementById("msg").innerHTML = data.Message.toString();
+                        }
+
+                    },
+                    error: function (jqXhr, textStatus, errorThrown) {
+                        alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                    }
+                });
+            }
+             else {
+                $(".selected").next().addClass("selected");
+                var name = $(".selected").last().attr("id");
+                $(".active").next().addClass("active");
+                $(".active").first().removeClass("active");
+                OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                OCX.ShowReport();
+                OCX.ShowThisPage(name);
+                if (name == "辅助诊断") {
+                    $.ajax({
+                        url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
+                        type: "POST",
+                        data: { postjson: encoded },
+                        success: function (data) {
+                            if (data.OK) {
+                                OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + data.Message);
+                            }
+                            else {
+                                document.getElementById("msg").innerHTML = data.Message.toString();
+
+                            }
+
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                        }
+                    });
+                    $("#b1").html("打印");
+                }
+
+            }
+     });
+    });
+    </script>

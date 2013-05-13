@@ -47,9 +47,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PrimaryHeadachaOverViewSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PrimaryHeadachaOverView)">
-        <MappingFragment StoreEntitySet="PrimaryHeadachaOverViewSet">
+    <EntitySetMapping Name="PrimaryHeadacheOverViewSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PrimaryHeadacheOverView)">
+        <MappingFragment StoreEntitySet="PrimaryHeadacheOverViewSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="HeadacheType" ColumnName="HeadacheType" />
           <ScalarProperty Name="HeadacheDegree" ColumnName="HeadacheDegree" />
@@ -221,7 +221,7 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="VisitRecordPrimaryHeadachaOverView" TypeName="HeadacheModel.VisitRecordPrimaryHeadachaOverView" StoreEntitySet="PrimaryHeadachaOverViewSet">
+    <AssociationSetMapping Name="VisitRecordPrimaryHeadachaOverView" TypeName="HeadacheModel.VisitRecordPrimaryHeadachaOverView" StoreEntitySet="PrimaryHeadacheOverViewSet">
       <EndProperty Name="VisitRecord">
         <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
       </EndProperty>

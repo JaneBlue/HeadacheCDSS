@@ -12,9 +12,9 @@ using System.Collections.Generic;
 
 namespace HeadacheCDSSWeb.Models
 {
-    public partial class PrimaryHeadachaOverView
+    public partial class PrimaryHeadacheOverView
     {
-        public PrimaryHeadachaOverView()
+        public PrimaryHeadacheOverView()
         {
             this.HeadachePlace = new HashSet<HeadachePlace>();
             this.HeadacheAccompany = new HashSet<HeadacheAccompany>();

@@ -68,10 +68,15 @@ namespace HeadacheCDSSWeb.Models
             try
             {
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
-                //VisitRecord vr = new VisitRecord();
-                //vr.VisitDate = DateTime.Now;
-                //vr.PatBasicInforId = PatID;
-                //pt.VisitRecord.Add(vr);
+                pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
+                pt.OtherFamilyDisease = VData.OFamilyDisease;
+                pt.Lifestyle = VData.lifestyle;
+                pt.PreviousDrug = VData.PDrug;
+                pt.PreviousExam = VData.PExam;
+                VisitRecord vr = new VisitRecord();//问诊记录信息保存
+                vr = VData.visitrecord;
+                vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;  
+                pt.VisitRecord.Add(vr);
                 context.SaveChanges();
                 return true;
             }
@@ -130,5 +135,6 @@ namespace HeadacheCDSSWeb.Models
 
             }
         }
+       
     }
 }

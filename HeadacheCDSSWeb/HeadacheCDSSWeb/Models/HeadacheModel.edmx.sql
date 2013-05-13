@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/13/2013 10:57:38
+-- Date Created: 05/13/2013 15:08:42
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -19,9 +19,6 @@ GO
 
 IF OBJECT_ID(N'[dbo].[FK_DoctorAccountPatBasicInfor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PatBasicInforSet] DROP CONSTRAINT [FK_DoctorAccountPatBasicInfor];
-GO
-IF OBJECT_ID(N'[dbo].[FK_VisitRecordHeadachaOverView]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[VisitRecordSet] DROP CONSTRAINT [FK_VisitRecordHeadachaOverView];
 GO
 IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewHeadachePlace]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[HeadachePlaceSet] DROP CONSTRAINT [FK_HeadachaOverViewHeadachePlace];
@@ -65,6 +62,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordSecondaryHeadacheSymptom]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SecondaryHeadacheSymptomSet] DROP CONSTRAINT [FK_VisitRecordSecondaryHeadacheSymptom];
 GO
+IF OBJECT_ID(N'[dbo].[FK_VisitRecordPrimaryHeadachaOverView]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PrimaryHeadachaOverViewSet] DROP CONSTRAINT [FK_VisitRecordPrimaryHeadachaOverView];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -79,8 +79,8 @@ GO
 IF OBJECT_ID(N'[dbo].[VisitRecordSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VisitRecordSet];
 GO
-IF OBJECT_ID(N'[dbo].[HeadachaOverViewSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[HeadachaOverViewSet];
+IF OBJECT_ID(N'[dbo].[PrimaryHeadachaOverViewSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PrimaryHeadachaOverViewSet];
 GO
 IF OBJECT_ID(N'[dbo].[LifestyleSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[LifestyleSet];
@@ -170,8 +170,8 @@ CREATE TABLE [dbo].[VisitRecordSet] (
 );
 GO
 
--- Creating table 'PrimaryHeadachaOverViewSet'
-CREATE TABLE [dbo].[PrimaryHeadachaOverViewSet] (
+-- Creating table 'PrimaryHeadacheOverViewSet'
+CREATE TABLE [dbo].[PrimaryHeadacheOverViewSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [HeadacheType] nvarchar(max)  NOT NULL,
     [HeadacheDegree] nvarchar(max)  NOT NULL,
@@ -345,9 +345,9 @@ ADD CONSTRAINT [PK_VisitRecordSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'PrimaryHeadachaOverViewSet'
-ALTER TABLE [dbo].[PrimaryHeadachaOverViewSet]
-ADD CONSTRAINT [PK_PrimaryHeadachaOverViewSet]
+-- Creating primary key on [Id] in table 'PrimaryHeadacheOverViewSet'
+ALTER TABLE [dbo].[PrimaryHeadacheOverViewSet]
+ADD CONSTRAINT [PK_PrimaryHeadacheOverViewSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -451,7 +451,7 @@ GO
 ALTER TABLE [dbo].[HeadachePlaceSet]
 ADD CONSTRAINT [FK_HeadachaOverViewHeadachePlace]
     FOREIGN KEY ([HeadachaOverViewId])
-    REFERENCES [dbo].[PrimaryHeadachaOverViewSet]
+    REFERENCES [dbo].[PrimaryHeadacheOverViewSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -465,7 +465,7 @@ GO
 ALTER TABLE [dbo].[HeadacheAccompanySet]
 ADD CONSTRAINT [FK_HeadachaOverViewHeadacheAccompany]
     FOREIGN KEY ([HeadachaOverViewId])
-    REFERENCES [dbo].[PrimaryHeadachaOverViewSet]
+    REFERENCES [dbo].[PrimaryHeadacheOverViewSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -479,7 +479,7 @@ GO
 ALTER TABLE [dbo].[HeadacheProdromeSet]
 ADD CONSTRAINT [FK_HeadachaOverViewHeadacheProdrome]
     FOREIGN KEY ([HeadachaOverViewId])
-    REFERENCES [dbo].[PrimaryHeadachaOverViewSet]
+    REFERENCES [dbo].[PrimaryHeadacheOverViewSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -521,7 +521,7 @@ GO
 ALTER TABLE [dbo].[MitigatingFactorsSet]
 ADD CONSTRAINT [FK_HeadachaOverViewMitigatingFactors]
     FOREIGN KEY ([HeadachaOverViewId])
-    REFERENCES [dbo].[PrimaryHeadachaOverViewSet]
+    REFERENCES [dbo].[PrimaryHeadacheOverViewSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -535,7 +535,7 @@ GO
 ALTER TABLE [dbo].[PrecipitatingFactorSet]
 ADD CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor]
     FOREIGN KEY ([HeadachaOverViewId])
-    REFERENCES [dbo].[PrimaryHeadachaOverViewSet]
+    REFERENCES [dbo].[PrimaryHeadacheOverViewSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -643,8 +643,8 @@ ON [dbo].[SecondaryHeadacheSymptomSet]
     ([VisitRecordId]);
 GO
 
--- Creating foreign key on [VisitRecord_Id] in table 'PrimaryHeadachaOverViewSet'
-ALTER TABLE [dbo].[PrimaryHeadachaOverViewSet]
+-- Creating foreign key on [VisitRecord_Id] in table 'PrimaryHeadacheOverViewSet'
+ALTER TABLE [dbo].[PrimaryHeadacheOverViewSet]
 ADD CONSTRAINT [FK_VisitRecordPrimaryHeadachaOverView]
     FOREIGN KEY ([VisitRecord_Id])
     REFERENCES [dbo].[VisitRecordSet]
@@ -653,7 +653,7 @@ ADD CONSTRAINT [FK_VisitRecordPrimaryHeadachaOverView]
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordPrimaryHeadachaOverView'
 CREATE INDEX [IX_FK_VisitRecordPrimaryHeadachaOverView]
-ON [dbo].[PrimaryHeadachaOverViewSet]
+ON [dbo].[PrimaryHeadacheOverViewSet]
     ([VisitRecord_Id]);
 GO
 

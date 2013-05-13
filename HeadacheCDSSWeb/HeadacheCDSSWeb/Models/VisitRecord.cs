@@ -36,7 +36,7 @@ namespace HeadacheCDSSWeb.Models
         public virtual PatBasicInfor PatBasicInfor { get; set; }
         public virtual ICollection<MedicationAdvice> MecicationAdvice { get; set; }
         public virtual ICollection<SecondaryHeadacheSymptom> SecondaryHeadacheSymptom { get; set; }
-        public virtual PrimaryHeadachaOverView PrimaryHeadachaOverView { get; set; }
+        public virtual PrimaryHeadacheOverView PrimaryHeadachaOverView { get; set; }
     }
     
 }
