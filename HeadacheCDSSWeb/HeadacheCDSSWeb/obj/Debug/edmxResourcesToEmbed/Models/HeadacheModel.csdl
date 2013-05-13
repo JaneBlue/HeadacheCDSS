@@ -38,7 +38,7 @@
       <End Role="Lifestyle" EntitySet="LifestyleSet" />
       <End Role="SpecialDiet" EntitySet="SpecialDietSet" />
     </AssociationSet>
-    <EntitySet Name="MecicationAdviceSet" EntityType="HeadacheModel.MecicationAdvice" />
+    <EntitySet Name="MedicationAdviceSet" EntityType="HeadacheModel.MedicationAdvice" />
     <AssociationSet Name="PatBasicInforVisitRecord" Association="HeadacheModel.PatBasicInforVisitRecord">
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
       <End Role="VisitRecord" EntitySet="VisitRecordSet" />
@@ -55,7 +55,7 @@
     </AssociationSet>
     <AssociationSet Name="VisitRecordMecicationAdvice" Association="HeadacheModel.VisitRecordMecicationAdvice">
       <End Role="VisitRecord" EntitySet="VisitRecordSet" />
-      <End Role="MecicationAdvice" EntitySet="MecicationAdviceSet" />
+      <End Role="MecicationAdvice" EntitySet="MedicationAdviceSet" />
     </AssociationSet>
     <AssociationSet Name="PatBasicInforPreviousDrug" Association="HeadacheModel.PatBasicInforPreviousDrug">
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
@@ -306,7 +306,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="RelateInforId" Nullable="false" />
     <Property Type="String" Name="MemberName" Nullable="false" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforOtherFamilyDisease" FromRole="OtherFamilyDisease" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
@@ -332,7 +331,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="MecicationAdvice">
+  <EntityType Name="MedicationAdvice">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -401,7 +400,7 @@
   </Association>
   <Association Name="VisitRecordMecicationAdvice">
     <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
-    <End Type="HeadacheModel.MecicationAdvice" Role="MecicationAdvice" Multiplicity="*" />
+    <End Type="HeadacheModel.MedicationAdvice" Role="MecicationAdvice" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VisitRecord">
         <PropertyRef Name="Id" />

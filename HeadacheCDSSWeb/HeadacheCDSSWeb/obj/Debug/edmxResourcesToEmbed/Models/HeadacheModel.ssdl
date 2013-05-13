@@ -14,7 +14,7 @@
     <EntitySet Name="HeadacheFamilyMemberSet" EntityType="HeadacheModel.Store.HeadacheFamilyMemberSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OtherFamilyDiseaseSet" EntityType="HeadacheModel.Store.OtherFamilyDiseaseSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="SpecialDietSet" EntityType="HeadacheModel.Store.SpecialDietSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MecicationAdviceSet" EntityType="HeadacheModel.Store.MecicationAdviceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicationAdviceSet" EntityType="HeadacheModel.Store.MedicationAdviceSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="PrecipitatingFactorSet" EntityType="HeadacheModel.Store.PrecipitatingFactorSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MitigatingFactorsSet" EntityType="HeadacheModel.Store.MitigatingFactorsSet" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="DoctorAccountPatBasicInfor" Association="HeadacheModel.Store.DoctorAccountPatBasicInfor">
@@ -55,7 +55,7 @@
     </AssociationSet>
     <AssociationSet Name="VisitRecordMecicationAdvice" Association="HeadacheModel.Store.VisitRecordMecicationAdvice">
       <End Role="VisitRecord" EntitySet="VisitRecordSet" />
-      <End Role="MecicationAdvice" EntitySet="MecicationAdviceSet" />
+      <End Role="MecicationAdvice" EntitySet="MedicationAdviceSet" />
     </AssociationSet>
     <AssociationSet Name="PatBasicInforPreviousDrug" Association="HeadacheModel.Store.PatBasicInforPreviousDrug">
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
@@ -227,7 +227,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RelateInforId" Type="int" Nullable="false" />
     <Property Name="MemberName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
@@ -239,7 +238,7 @@
     <Property Name="Kind" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LifestyleId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="MecicationAdviceSet">
+  <EntityType Name="MedicationAdviceSet">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -377,7 +376,7 @@
   </Association>
   <Association Name="VisitRecordMecicationAdvice">
     <End Role="VisitRecord" Type="HeadacheModel.Store.VisitRecordSet" Multiplicity="1" />
-    <End Role="MecicationAdvice" Type="HeadacheModel.Store.MecicationAdviceSet" Multiplicity="*" />
+    <End Role="MecicationAdvice" Type="HeadacheModel.Store.MedicationAdviceSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="VisitRecord">
         <PropertyRef Name="Id" />

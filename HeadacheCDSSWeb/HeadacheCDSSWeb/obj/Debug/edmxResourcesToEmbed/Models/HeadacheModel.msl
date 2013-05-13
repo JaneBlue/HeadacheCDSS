@@ -158,7 +158,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.OtherFamilyDisease)">
         <MappingFragment StoreEntitySet="OtherFamilyDiseaseSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
           <ScalarProperty Name="MemberName" ColumnName="MemberName" />
           <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
@@ -173,9 +172,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="MecicationAdviceSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MecicationAdvice)">
-        <MappingFragment StoreEntitySet="MecicationAdviceSet">
+    <EntitySetMapping Name="MedicationAdviceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.MedicationAdvice)">
+        <MappingFragment StoreEntitySet="MedicationAdviceSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DrugApplication" ColumnName="DrugApplication" />
           <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/10/2013 15:23:16
+-- Date Created: 05/13/2013 10:26:11
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -45,7 +45,7 @@ IF OBJECT_ID(N'[dbo].[FK_HeadachaOverViewPrecipitatingFactor]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PrecipitatingFactorSet] DROP CONSTRAINT [FK_HeadachaOverViewPrecipitatingFactor];
 GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordMecicationAdvice]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MecicationAdviceSet] DROP CONSTRAINT [FK_VisitRecordMecicationAdvice];
+    ALTER TABLE [dbo].[MedicationAdviceSet] DROP CONSTRAINT [FK_VisitRecordMecicationAdvice];
 GO
 IF OBJECT_ID(N'[dbo].[FK_PatBasicInforPreviousDrug]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[PreviousDrugSet] DROP CONSTRAINT [FK_PatBasicInforPreviousDrug];
@@ -106,8 +106,8 @@ GO
 IF OBJECT_ID(N'[dbo].[SpecialDietSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SpecialDietSet];
 GO
-IF OBJECT_ID(N'[dbo].[MecicationAdviceSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MecicationAdviceSet];
+IF OBJECT_ID(N'[dbo].[MedicationAdviceSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MedicationAdviceSet];
 GO
 IF OBJECT_ID(N'[dbo].[PrecipitatingFactorSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[PrecipitatingFactorSet];
@@ -280,8 +280,8 @@ CREATE TABLE [dbo].[SpecialDietSet] (
 );
 GO
 
--- Creating table 'MecicationAdviceSet'
-CREATE TABLE [dbo].[MecicationAdviceSet] (
+-- Creating table 'MedicationAdviceSet'
+CREATE TABLE [dbo].[MedicationAdviceSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [DrugApplication] nvarchar(max)  NOT NULL,
     [DrugCategory] nvarchar(max)  NOT NULL,
@@ -305,6 +305,14 @@ CREATE TABLE [dbo].[MitigatingFactorsSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [FactorName] nvarchar(max)  NOT NULL,
     [HeadachaOverViewId] int  NOT NULL
+);
+GO
+
+-- Creating table 'SecondaryHeadacheSymptomSet'
+CREATE TABLE [dbo].[SecondaryHeadacheSymptomSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Symptom] nvarchar(max)  NOT NULL,
+    [VisitRecordId] int  NOT NULL
 );
 GO
 
@@ -390,9 +398,9 @@ ADD CONSTRAINT [PK_SpecialDietSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'MecicationAdviceSet'
-ALTER TABLE [dbo].[MecicationAdviceSet]
-ADD CONSTRAINT [PK_MecicationAdviceSet]
+-- Creating primary key on [Id] in table 'MedicationAdviceSet'
+ALTER TABLE [dbo].[MedicationAdviceSet]
+ADD CONSTRAINT [PK_MedicationAdviceSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -405,6 +413,12 @@ GO
 -- Creating primary key on [Id] in table 'MitigatingFactorsSet'
 ALTER TABLE [dbo].[MitigatingFactorsSet]
 ADD CONSTRAINT [PK_MitigatingFactorsSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'SecondaryHeadacheSymptomSet'
+ALTER TABLE [dbo].[SecondaryHeadacheSymptomSet]
+ADD CONSTRAINT [PK_SecondaryHeadacheSymptomSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -538,8 +552,8 @@ ON [dbo].[PrecipitatingFactorSet]
     ([HeadachaOverViewId]);
 GO
 
--- Creating foreign key on [VisitRecordId] in table 'MecicationAdviceSet'
-ALTER TABLE [dbo].[MecicationAdviceSet]
+-- Creating foreign key on [VisitRecordId] in table 'MedicationAdviceSet'
+ALTER TABLE [dbo].[MedicationAdviceSet]
 ADD CONSTRAINT [FK_VisitRecordMecicationAdvice]
     FOREIGN KEY ([VisitRecordId])
     REFERENCES [dbo].[VisitRecordSet]
@@ -548,7 +562,7 @@ ADD CONSTRAINT [FK_VisitRecordMecicationAdvice]
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordMecicationAdvice'
 CREATE INDEX [IX_FK_VisitRecordMecicationAdvice]
-ON [dbo].[MecicationAdviceSet]
+ON [dbo].[MedicationAdviceSet]
     ([VisitRecordId]);
 GO
 
@@ -620,6 +634,20 @@ ADD CONSTRAINT [FK_PatBasicInforLifestyle]
 CREATE INDEX [IX_FK_PatBasicInforLifestyle]
 ON [dbo].[PatBasicInforSet]
     ([Lifestyle_Id]);
+GO
+
+-- Creating foreign key on [VisitRecordId] in table 'SecondaryHeadacheSymptomSet'
+ALTER TABLE [dbo].[SecondaryHeadacheSymptomSet]
+ADD CONSTRAINT [FK_VisitRecordSecondaryHeadacheSymptom]
+    FOREIGN KEY ([VisitRecordId])
+    REFERENCES [dbo].[VisitRecordSet]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_VisitRecordSecondaryHeadacheSymptom'
+CREATE INDEX [IX_FK_VisitRecordSecondaryHeadacheSymptom]
+ON [dbo].[SecondaryHeadacheSymptomSet]
+    ([VisitRecordId]);
 GO
 
 -- --------------------------------------------------

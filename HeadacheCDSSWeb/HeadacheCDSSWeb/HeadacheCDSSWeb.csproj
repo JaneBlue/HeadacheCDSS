@@ -80,11 +80,17 @@
     </Compile>
     <Compile Include="Models\HeadacheDiagnosis.cs" />
     <Compile Include="Models\JsonHelper.cs" />
+    <Compile Include="Models\MedicationAdvice.cs">
+      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\MitigatingFactors.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PatOperation.cs" />
     <Compile Include="Models\PrecipitatingFactor.cs">
+      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecondaryHeadacheSymptom.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserOperation.cs" />
@@ -119,9 +125,6 @@
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Lifestyle.cs">
-      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MecicationAdvice.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OtherFamilyDisease.cs">

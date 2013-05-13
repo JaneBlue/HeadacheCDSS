@@ -16,26 +16,13 @@ body,  textarea, option {
 	font-size: 18px;
 }
 
-h1, h2, h3 {
-	font-weight: normal;
-	color: #000000;
-	
-	
+h3
+{
+    font-size: 24px;
+    display :block;
+    margin:10px 78px 0 75px;
+   cursor:pointer;
 }
-
-h1 {
-	letter-spacing: -2px;
-	font-size: 2em;
-}
-
-h2 {
-	letter-spacing: -1px;
-	font-size: 24px;
-	margin: 10px 0 0 58px;
-	padding-bottom: 5px;
-}
-
-
 
 
 
@@ -82,27 +69,16 @@ p
 	
 }
 
-#query {
-	padding: 0 0 20px 0;
-	float: left;
-	width: 270px;
-	padding:0 20px 0 20px;
-	color :#000;
+
+
 	
-}
+
 #detail
 {
     float:left;
     
 }
-#entry {
-	float: right;
-	width: 290px;
-	height: 505px;
-	border-left: 2px  solid #D3E7F2 ;
-	padding :0 50px 0 20px;
-	color:#000;
-}
+
 input
 {
     font-size: 16px;
@@ -229,7 +205,7 @@ input[type="submit"]:active
 
 #List
 {
-    height:615px;
+    height:555px;
 }
 #List ul {
 	margin: 0;
@@ -247,10 +223,6 @@ input[type="submit"]:active
 	height:30px;
 	text-align: center;
 	
-}
-.CurrentView
-{
-    
 }
 #List h2 {
 	text-decoration: none;
@@ -284,53 +256,4 @@ input[type="submit"]:active
 	color: #52640A;
 }
 
-#TestResult
-{
-     padding :0px 20px 0 100px;
-     
-    width: 510px;
-    height: 264px;
-    background: url(images/box1.png) no-repeat ;
-    background-position: right;
-}
-#test
-{
-    padding-top:40px;
-    border:0;
-}
-#TestResult td
-{
-    height: 25px;
-    width:155px
-}
-#DiagnosisResult
-{
-    padding :0 40px 0 80px;
-    width: 510px;
-    height: 92px;
-    background: url(images/box2.png) no-repeat ;
-    background-position: right;
-    text-align: center;
-    
-}
-#RecordNote
-{
-    padding :0px 20px 0 100px;
-    width: 510px;
-    height: 184px;
-    background: url(images/box3.png) no-repeat ;
-    background-position: right;
-  
-}
-#Record
-{
-    padding:30px 0 0 0;
-    overflow-y:auto; 
-   width:490px;
-   height:110px;
-   border:1px;
-}
-#Diagnosis
-{
-    padding:30px 0 0 0;
-}
+

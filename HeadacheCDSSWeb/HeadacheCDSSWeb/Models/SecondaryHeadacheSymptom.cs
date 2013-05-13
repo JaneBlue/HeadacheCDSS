@@ -12,14 +12,10 @@ using System.Collections.Generic;
 
 namespace HeadacheCDSSWeb.Models
 {
-    public partial class MecicationAdvice
+    public partial class SecondaryHeadacheSymptom
     {
         public int Id { get; set; }
-        public string DrugApplication { get; set; }
-        public string DrugCategory { get; set; }
-        public string DrugName { get; set; }
-        public string Therapy { get; set; }
-        public string DrugDose { get; set; }
+        public string Symptom { get; set; }
         public int VisitRecordId { get; set; }
     
         public virtual VisitRecord VisitRecord { get; set; }
