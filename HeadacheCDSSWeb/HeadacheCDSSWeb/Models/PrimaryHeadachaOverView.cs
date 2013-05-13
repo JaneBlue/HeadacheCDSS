@@ -12,9 +12,9 @@ using System.Collections.Generic;
 
 namespace HeadacheCDSSWeb.Models
 {
-    public partial class HeadachaOverView
+    public partial class PrimaryHeadachaOverView
     {
-        public HeadachaOverView()
+        public PrimaryHeadachaOverView()
         {
             this.HeadachePlace = new HashSet<HeadachePlace>();
             this.HeadacheAccompany = new HashSet<HeadacheAccompany>();
@@ -35,13 +35,14 @@ namespace HeadacheCDSSWeb.Models
         public string OnsetDate { get; set; }
         public string OnsetAmount { get; set; }
         public string DailyAggravation { get; set; }
+        public string FirstOnsetContinue { get; set; }
     
-        public virtual VisitRecord VisitRecord { get; set; }
         public virtual ICollection<HeadachePlace> HeadachePlace { get; set; }
         public virtual ICollection<HeadacheAccompany> HeadacheAccompany { get; set; }
         public virtual ICollection<HeadacheProdrome> HeadacheProdrome { get; set; }
         public virtual ICollection<MitigatingFactors> MitigatingFactors { get; set; }
         public virtual ICollection<PrecipitatingFactor> PrecipitatingFactor { get; set; }
+        public virtual VisitRecord VisitRecord { get; set; }
     }
     
 }

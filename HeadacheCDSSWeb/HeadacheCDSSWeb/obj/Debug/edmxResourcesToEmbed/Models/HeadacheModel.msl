@@ -47,9 +47,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="HeadachaOverViewSet">
-      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.HeadachaOverView)">
-        <MappingFragment StoreEntitySet="HeadachaOverViewSet">
+    <EntitySetMapping Name="PrimaryHeadachaOverViewSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PrimaryHeadachaOverView)">
+        <MappingFragment StoreEntitySet="PrimaryHeadachaOverViewSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="HeadacheType" ColumnName="HeadacheType" />
           <ScalarProperty Name="HeadacheDegree" ColumnName="HeadacheDegree" />
@@ -62,6 +62,7 @@
           <ScalarProperty Name="OnsetDate" ColumnName="OnsetDate" />
           <ScalarProperty Name="OnsetAmount" ColumnName="OnsetAmount" />
           <ScalarProperty Name="DailyAggravation" ColumnName="DailyAggravation" />
+          <ScalarProperty Name="FirstOnsetContinue" ColumnName="FirstOnsetContinue" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -203,19 +204,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="VisitRecordHeadachaOverView" TypeName="HeadacheModel.VisitRecordHeadachaOverView" StoreEntitySet="VisitRecordSet">
-      <EndProperty Name="HeadachaOverView">
-        <ScalarProperty Name="Id" ColumnName="HeadachaOverView_Id" />
-      </EndProperty>
-      <EndProperty Name="VisitRecord">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
+    <EntitySetMapping Name="SecondaryHeadacheSymptomSet">
+      <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.SecondaryHeadacheSymptom)">
+        <MappingFragment StoreEntitySet="SecondaryHeadacheSymptomSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Symptom" ColumnName="Symptom" />
+          <ScalarProperty Name="VisitRecordId" ColumnName="VisitRecordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="PatBasicInforLifestyle" TypeName="HeadacheModel.PatBasicInforLifestyle" StoreEntitySet="PatBasicInforSet">
       <EndProperty Name="Lifestyle">
         <ScalarProperty Name="Id" ColumnName="Lifestyle_Id" />
       </EndProperty>
       <EndProperty Name="PatBasicInfor">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="VisitRecordPrimaryHeadachaOverView" TypeName="HeadacheModel.VisitRecordPrimaryHeadachaOverView" StoreEntitySet="PrimaryHeadachaOverViewSet">
+      <EndProperty Name="VisitRecord">
+        <ScalarProperty Name="Id" ColumnName="VisitRecord_Id" />
+      </EndProperty>
+      <EndProperty Name="PrimaryHeadachaOverView">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>

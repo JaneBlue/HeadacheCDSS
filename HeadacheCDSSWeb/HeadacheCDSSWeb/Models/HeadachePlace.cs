@@ -19,7 +19,7 @@ namespace HeadacheCDSSWeb.Models
         public string SpecificPlace { get; set; }
         public int HeadachaOverViewId { get; set; }
     
-        public virtual HeadachaOverView HeadachaOverView { get; set; }
+        public virtual PrimaryHeadachaOverView HeadachaOverView { get; set; }
     }
     
 }

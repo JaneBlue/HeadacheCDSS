@@ -28,7 +28,7 @@ namespace HeadacheCDSSWeb.Models
         public DbSet<DoctorAccount> DoctorAccountSet { get; set; }
         public DbSet<PatBasicInfor> PatBasicInforSet { get; set; }
         public DbSet<VisitRecord> VisitRecordSet { get; set; }
-        public DbSet<HeadachaOverView> HeadachaOverViewSet { get; set; }
+        public DbSet<PrimaryHeadachaOverView> PrimaryHeadachaOverViewSet { get; set; }
         public DbSet<Lifestyle> LifestyleSet { get; set; }
         public DbSet<HeadachePlace> HeadachePlaceSet { get; set; }
         public DbSet<HeadacheAccompany> HeadacheAccompanySet { get; set; }

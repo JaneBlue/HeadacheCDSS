@@ -8,25 +8,21 @@
       <End Role="DoctorAccount" EntitySet="DoctorAccountSet" />
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
     </AssociationSet>
-    <EntitySet Name="HeadachaOverViewSet" EntityType="HeadacheModel.HeadachaOverView" />
-    <AssociationSet Name="VisitRecordHeadachaOverView" Association="HeadacheModel.VisitRecordHeadachaOverView">
-      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
-    </AssociationSet>
+    <EntitySet Name="PrimaryHeadachaOverViewSet" EntityType="HeadacheModel.PrimaryHeadachaOverView" />
     <EntitySet Name="LifestyleSet" EntityType="HeadacheModel.Lifestyle" />
     <EntitySet Name="HeadachePlaceSet" EntityType="HeadacheModel.HeadachePlace" />
     <EntitySet Name="HeadacheAccompanySet" EntityType="HeadacheModel.HeadacheAccompany" />
     <EntitySet Name="HeadacheProdromeSet" EntityType="HeadacheModel.HeadacheProdrome" />
     <AssociationSet Name="HeadachaOverViewHeadachePlace" Association="HeadacheModel.HeadachaOverViewHeadachePlace">
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="HeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
       <End Role="HeadachePlace" EntitySet="HeadachePlaceSet" />
     </AssociationSet>
     <AssociationSet Name="HeadachaOverViewHeadacheAccompany" Association="HeadacheModel.HeadachaOverViewHeadacheAccompany">
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="HeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
       <End Role="HeadacheAccompany" EntitySet="HeadacheAccompanySet" />
     </AssociationSet>
     <AssociationSet Name="HeadachaOverViewHeadacheProdrome" Association="HeadacheModel.HeadachaOverViewHeadacheProdrome">
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="HeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
       <End Role="HeadacheProdrome" EntitySet="HeadacheProdromeSet" />
     </AssociationSet>
     <EntitySet Name="PreviousDrugSet" EntityType="HeadacheModel.PreviousDrug" />
@@ -46,11 +42,11 @@
     <EntitySet Name="PrecipitatingFactorSet" EntityType="HeadacheModel.PrecipitatingFactor" />
     <EntitySet Name="MitigatingFactorsSet" EntityType="HeadacheModel.MitigatingFactors" />
     <AssociationSet Name="HeadachaOverViewMitigatingFactors" Association="HeadacheModel.HeadachaOverViewMitigatingFactors">
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="HeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
       <End Role="MitigatingFactors" EntitySet="MitigatingFactorsSet" />
     </AssociationSet>
     <AssociationSet Name="HeadachaOverViewPrecipitatingFactor" Association="HeadacheModel.HeadachaOverViewPrecipitatingFactor">
-      <End Role="HeadachaOverView" EntitySet="HeadachaOverViewSet" />
+      <End Role="HeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
       <End Role="PrecipitatingFactor" EntitySet="PrecipitatingFactorSet" />
     </AssociationSet>
     <AssociationSet Name="VisitRecordMecicationAdvice" Association="HeadacheModel.VisitRecordMecicationAdvice">
@@ -76,6 +72,15 @@
     <AssociationSet Name="PatBasicInforLifestyle" Association="HeadacheModel.PatBasicInforLifestyle">
       <End Role="PatBasicInfor" EntitySet="PatBasicInforSet" />
       <End Role="Lifestyle" EntitySet="LifestyleSet" />
+    </AssociationSet>
+    <EntitySet Name="SecondaryHeadacheSymptomSet" EntityType="HeadacheModel.SecondaryHeadacheSymptom" />
+    <AssociationSet Name="VisitRecordSecondaryHeadacheSymptom" Association="HeadacheModel.VisitRecordSecondaryHeadacheSymptom">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="SecondaryHeadacheSymptom" EntitySet="SecondaryHeadacheSymptomSet" />
+    </AssociationSet>
+    <AssociationSet Name="VisitRecordPrimaryHeadachaOverView" Association="HeadacheModel.VisitRecordPrimaryHeadachaOverView">
+      <End Role="VisitRecord" EntitySet="VisitRecordSet" />
+      <End Role="PrimaryHeadachaOverView" EntitySet="PrimaryHeadachaOverViewSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="DoctorAccount">
@@ -120,7 +125,6 @@
     <Property Type="String" Name="OutpatientID" Nullable="false" />
     <Property Type="String" Name="ChiefComplaint" Nullable="false" />
     <Property Type="DateTime" Name="VisitDate" Nullable="false" />
-    <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.VisitRecordHeadachaOverView" FromRole="VisitRecord" ToRole="HeadachaOverView" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforVisitRecord" FromRole="VisitRecord" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
     <Property Type="String" Name="CDSSDiagnosis1" Nullable="false" />
@@ -131,6 +135,8 @@
     <Property Type="String" Name="DiagnosisResult3" Nullable="false" />
     <Property Type="String" Name="Prescription" Nullable="false" />
     <NavigationProperty Name="MecicationAdvice" Relationship="HeadacheModel.VisitRecordMecicationAdvice" FromRole="VisitRecord" ToRole="MecicationAdvice" />
+    <NavigationProperty Name="SecondaryHeadacheSymptom" Relationship="HeadacheModel.VisitRecordSecondaryHeadacheSymptom" FromRole="VisitRecord" ToRole="SecondaryHeadacheSymptom" />
+    <NavigationProperty Name="PrimaryHeadachaOverView" Relationship="HeadacheModel.VisitRecordPrimaryHeadachaOverView" FromRole="VisitRecord" ToRole="PrimaryHeadachaOverView" />
   </EntityType>
   <Association Name="DoctorAccountPatBasicInfor">
     <End Type="HeadacheModel.DoctorAccount" Role="DoctorAccount" Multiplicity="1" />
@@ -148,7 +154,7 @@
     <Property Type="String" Name="FirstDianosis" Nullable="false" />
     <Property Type="String" Name="SecondDiagnosis" Nullable="false" />
   </ComplexType>
-  <EntityType Name="HeadachaOverView">
+  <EntityType Name="PrimaryHeadachaOverView">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -164,17 +170,14 @@
     <Property Type="String" Name="OnsetDate" Nullable="false" />
     <Property Type="String" Name="OnsetAmount" Nullable="false" />
     <Property Type="String" Name="DailyAggravation" Nullable="false" />
-    <NavigationProperty Name="VisitRecord" Relationship="HeadacheModel.VisitRecordHeadachaOverView" FromRole="HeadachaOverView" ToRole="VisitRecord" />
     <NavigationProperty Name="HeadachePlace" Relationship="HeadacheModel.HeadachaOverViewHeadachePlace" FromRole="HeadachaOverView" ToRole="HeadachePlace" />
     <NavigationProperty Name="HeadacheAccompany" Relationship="HeadacheModel.HeadachaOverViewHeadacheAccompany" FromRole="HeadachaOverView" ToRole="HeadacheAccompany" />
     <NavigationProperty Name="HeadacheProdrome" Relationship="HeadacheModel.HeadachaOverViewHeadacheProdrome" FromRole="HeadachaOverView" ToRole="HeadacheProdrome" />
     <NavigationProperty Name="MitigatingFactors" Relationship="HeadacheModel.HeadachaOverViewMitigatingFactors" FromRole="HeadachaOverView" ToRole="MitigatingFactors" />
     <NavigationProperty Name="PrecipitatingFactor" Relationship="HeadacheModel.HeadachaOverViewPrecipitatingFactor" FromRole="HeadachaOverView" ToRole="PrecipitatingFactor" />
+    <Property Type="String" Name="FirstOnsetContinue" Nullable="false" />
+    <NavigationProperty Name="VisitRecord" Relationship="HeadacheModel.VisitRecordPrimaryHeadachaOverView" FromRole="PrimaryHeadachaOverView" ToRole="VisitRecord" />
   </EntityType>
-  <Association Name="VisitRecordHeadachaOverView">
-    <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
-  </Association>
   <EntityType Name="Lifestyle">
     <Key>
       <PropertyRef Name="Id" />
@@ -231,7 +234,7 @@
     <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
   </EntityType>
   <Association Name="HeadachaOverViewHeadachePlace">
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
     <End Type="HeadacheModel.HeadachePlace" Role="HeadachePlace" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HeadachaOverView">
@@ -243,7 +246,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="HeadachaOverViewHeadacheAccompany">
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
     <End Type="HeadacheModel.HeadacheAccompany" Role="HeadacheAccompany" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HeadachaOverView">
@@ -255,7 +258,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="HeadachaOverViewHeadacheProdrome">
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
     <End Type="HeadacheModel.HeadacheProdrome" Role="HeadacheProdrome" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HeadachaOverView">
@@ -375,7 +378,7 @@
     <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
   </EntityType>
   <Association Name="HeadachaOverViewMitigatingFactors">
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
     <End Type="HeadacheModel.MitigatingFactors" Role="MitigatingFactors" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HeadachaOverView">
@@ -387,7 +390,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="HeadachaOverViewPrecipitatingFactor">
-    <End Type="HeadacheModel.HeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="HeadachaOverView" Multiplicity="1" />
     <End Type="HeadacheModel.PrecipitatingFactor" Role="PrecipitatingFactor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="HeadachaOverView">
@@ -461,5 +464,30 @@
   <Association Name="PatBasicInforLifestyle">
     <End Type="HeadacheModel.PatBasicInfor" Role="PatBasicInfor" Multiplicity="1" />
     <End Type="HeadacheModel.Lifestyle" Role="Lifestyle" Multiplicity="1" />
+  </Association>
+  <EntityType Name="SecondaryHeadacheSymptom">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Symptom" Nullable="false" />
+    <NavigationProperty Name="VisitRecord" Relationship="HeadacheModel.VisitRecordSecondaryHeadacheSymptom" FromRole="SecondaryHeadacheSymptom" ToRole="VisitRecord" />
+    <Property Type="Int32" Name="VisitRecordId" Nullable="false" />
+  </EntityType>
+  <Association Name="VisitRecordSecondaryHeadacheSymptom">
+    <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+    <End Type="HeadacheModel.SecondaryHeadacheSymptom" Role="SecondaryHeadacheSymptom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VisitRecord">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SecondaryHeadacheSymptom">
+        <PropertyRef Name="VisitRecordId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VisitRecordPrimaryHeadachaOverView">
+    <End Type="HeadacheModel.VisitRecord" Role="VisitRecord" Multiplicity="1" />
+    <End Type="HeadacheModel.PrimaryHeadachaOverView" Role="PrimaryHeadachaOverView" Multiplicity="0..1" />
   </Association>
 </Schema>

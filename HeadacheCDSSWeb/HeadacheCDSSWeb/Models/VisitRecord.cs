@@ -33,10 +33,10 @@ namespace HeadacheCDSSWeb.Models
         public string DiagnosisResult3 { get; set; }
         public string Prescription { get; set; }
     
-        public virtual HeadachaOverView HeadachaOverView { get; set; }
         public virtual PatBasicInfor PatBasicInfor { get; set; }
         public virtual ICollection<MedicationAdvice> MecicationAdvice { get; set; }
         public virtual ICollection<SecondaryHeadacheSymptom> SecondaryHeadacheSymptom { get; set; }
+        public virtual PrimaryHeadachaOverView PrimaryHeadachaOverView { get; set; }
     }
     
 }

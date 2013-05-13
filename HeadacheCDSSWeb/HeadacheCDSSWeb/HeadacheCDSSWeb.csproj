@@ -90,13 +90,13 @@
     <Compile Include="Models\PrecipitatingFactor.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PrimaryHeadachaOverView.cs">
+      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SecondaryHeadacheSymptom.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserOperation.cs" />
-    <Compile Include="Models\HeadachaOverView.cs">
-      <DependentUpon>HeadacheDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\HeadacheAccompany.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
