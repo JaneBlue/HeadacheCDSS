@@ -115,17 +115,17 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="OutpatientID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OutpatientID" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ChiefComplaint" Type="nvarchar(max)" Nullable="false" />
     <Property Name="VisitDate" Type="datetime" Nullable="false" />
     <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="CDSSDiagnosis1" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CDSSDiagnosis2" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CDSSDiagnosis3" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CDSSDiagnosis2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="CDSSDiagnosis3" Type="nvarchar(max)" Nullable="true" />
     <Property Name="DiagnosisResult1" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DiagnosisResult2" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DiagnosisResult3" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Prescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DiagnosisResult2" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DiagnosisResult3" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Prescription" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="PrimaryHeadacheOverViewSet">
     <Key>
@@ -225,7 +225,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Person" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RelateInforId" Type="int" Nullable="false" />
     <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="OtherFamilyDiseaseSet">

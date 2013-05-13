@@ -122,18 +122,18 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="OutpatientID" Nullable="false" />
+    <Property Type="String" Name="OutpatientID" Nullable="true" />
     <Property Type="String" Name="ChiefComplaint" Nullable="false" />
     <Property Type="DateTime" Name="VisitDate" Nullable="false" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforVisitRecord" FromRole="VisitRecord" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
     <Property Type="String" Name="CDSSDiagnosis1" Nullable="false" />
-    <Property Type="String" Name="CDSSDiagnosis2" Nullable="false" />
-    <Property Type="String" Name="CDSSDiagnosis3" Nullable="false" />
+    <Property Type="String" Name="CDSSDiagnosis2" Nullable="true" />
+    <Property Type="String" Name="CDSSDiagnosis3" Nullable="true" />
     <Property Type="String" Name="DiagnosisResult1" Nullable="false" />
-    <Property Type="String" Name="DiagnosisResult2" Nullable="false" />
-    <Property Type="String" Name="DiagnosisResult3" Nullable="false" />
-    <Property Type="String" Name="Prescription" Nullable="false" />
+    <Property Type="String" Name="DiagnosisResult2" Nullable="true" />
+    <Property Type="String" Name="DiagnosisResult3" Nullable="true" />
+    <Property Type="String" Name="Prescription" Nullable="true" />
     <NavigationProperty Name="MecicationAdvice" Relationship="HeadacheModel.VisitRecordMecicationAdvice" FromRole="VisitRecord" ToRole="MecicationAdvice" />
     <NavigationProperty Name="SecondaryHeadacheSymptom" Relationship="HeadacheModel.VisitRecordSecondaryHeadacheSymptom" FromRole="VisitRecord" ToRole="SecondaryHeadacheSymptom" />
     <NavigationProperty Name="PrimaryHeadachaOverView" Relationship="HeadacheModel.VisitRecordPrimaryHeadachaOverView" FromRole="VisitRecord" ToRole="PrimaryHeadachaOverView" />
@@ -300,7 +300,6 @@
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="Person" Nullable="false" />
-    <Property Type="Int32" Name="RelateInforId" Nullable="false" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforHeadacheFamilyMember" FromRole="HeadacheFamilyMember" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
   </EntityType>

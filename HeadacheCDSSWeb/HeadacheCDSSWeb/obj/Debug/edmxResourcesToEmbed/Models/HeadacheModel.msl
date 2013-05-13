@@ -150,7 +150,6 @@
         <MappingFragment StoreEntitySet="HeadacheFamilyMemberSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Person" ColumnName="Person" />
-          <ScalarProperty Name="RelateInforId" ColumnName="RelateInforId" />
           <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>

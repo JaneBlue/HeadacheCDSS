@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/13/2013 15:08:42
+-- Date Created: 05/13/2013 19:54:22
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -63,7 +63,7 @@ IF OBJECT_ID(N'[dbo].[FK_VisitRecordSecondaryHeadacheSymptom]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[SecondaryHeadacheSymptomSet] DROP CONSTRAINT [FK_VisitRecordSecondaryHeadacheSymptom];
 GO
 IF OBJECT_ID(N'[dbo].[FK_VisitRecordPrimaryHeadachaOverView]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[PrimaryHeadachaOverViewSet] DROP CONSTRAINT [FK_VisitRecordPrimaryHeadachaOverView];
+    ALTER TABLE [dbo].[PrimaryHeadacheOverViewSet] DROP CONSTRAINT [FK_VisitRecordPrimaryHeadachaOverView];
 GO
 
 -- --------------------------------------------------
@@ -79,8 +79,8 @@ GO
 IF OBJECT_ID(N'[dbo].[VisitRecordSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VisitRecordSet];
 GO
-IF OBJECT_ID(N'[dbo].[PrimaryHeadachaOverViewSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PrimaryHeadachaOverViewSet];
+IF OBJECT_ID(N'[dbo].[PrimaryHeadacheOverViewSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PrimaryHeadacheOverViewSet];
 GO
 IF OBJECT_ID(N'[dbo].[LifestyleSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[LifestyleSet];
@@ -156,17 +156,17 @@ GO
 -- Creating table 'VisitRecordSet'
 CREATE TABLE [dbo].[VisitRecordSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [OutpatientID] nvarchar(max)  NOT NULL,
+    [OutpatientID] nvarchar(max)  NULL,
     [ChiefComplaint] nvarchar(max)  NOT NULL,
     [VisitDate] datetime  NOT NULL,
     [PatBasicInforId] nvarchar(255)  NOT NULL,
     [CDSSDiagnosis1] nvarchar(max)  NOT NULL,
-    [CDSSDiagnosis2] nvarchar(max)  NOT NULL,
-    [CDSSDiagnosis3] nvarchar(max)  NOT NULL,
+    [CDSSDiagnosis2] nvarchar(max)  NULL,
+    [CDSSDiagnosis3] nvarchar(max)  NULL,
     [DiagnosisResult1] nvarchar(max)  NOT NULL,
-    [DiagnosisResult2] nvarchar(max)  NOT NULL,
-    [DiagnosisResult3] nvarchar(max)  NOT NULL,
-    [Prescription] nvarchar(max)  NOT NULL
+    [DiagnosisResult2] nvarchar(max)  NULL,
+    [DiagnosisResult3] nvarchar(max)  NULL,
+    [Prescription] nvarchar(max)  NULL
 );
 GO
 
@@ -266,7 +266,6 @@ GO
 CREATE TABLE [dbo].[HeadacheFamilyMemberSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Person] nvarchar(max)  NOT NULL,
-    [RelateInforId] int  NOT NULL,
     [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
