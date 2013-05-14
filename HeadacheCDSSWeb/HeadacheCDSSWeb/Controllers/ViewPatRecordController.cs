@@ -13,7 +13,7 @@ namespace HeadacheCDSSWeb.Controllers
         VisitDataOperation visitop = new VisitDataOperation();
         public ActionResult Index(string ID)
         {
-           
+
             List<VisitRecord> Lvisit = visitop.GetVistRecord(ID);
 
             return View(Lvisit);
@@ -24,7 +24,6 @@ namespace HeadacheCDSSWeb.Controllers
         }
         public ActionResult GoToDiagnosis(string ID)
         {
-           
             return RedirectToAction("Index", "Diagnosis", new { ID = ID });
         }
         public ActionResult DeleteRecord(string ID)

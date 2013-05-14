@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Diagnostics;
+using System.Data.Entity.Validation;
 namespace HeadacheCDSSWeb.Models
 {
     public class VisitDataOperation
@@ -73,28 +74,52 @@ namespace HeadacheCDSSWeb.Models
                 pt.Lifestyle = VData.lifestyle;
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
-                VisitRecord vr = new VisitRecord();//问诊记录信息保存
-                vr = VData.visitrecord;
-                vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;  
-                pt.VisitRecord.Add(vr);
+                if (VData.visitrecord!=null)
+                {
+                    VisitRecord vr = new VisitRecord();//问诊记录信息保存
+                    vr = VData.visitrecord;
+                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
+                    vr.PatBasicInforId = PatID;
+                    pt.VisitRecord.Add(vr);
+                }
+                
                 context.SaveChanges();
                 return true;
             }
-            catch (System.Exception ex)
+            catch (DbEntityValidationException dbEx)
             {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
                 return false;
             }
 
         }
-        public bool UpdateRecord(string PatID, VisitData VData)
+        public bool UpdateRecord(string PatID, string VisitID,VisitData VData)
         {
             try
             {
+                
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
-                //VisitRecord vr = new VisitRecord();
-                //vr.VisitDate = DateTime.Now;
-                //vr.PatBasicInforId = PatID;
-                //pt.VisitRecord.Add(vr);
+                pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
+                pt.OtherFamilyDisease = VData.OFamilyDisease;
+                pt.Lifestyle = VData.lifestyle;
+                pt.PreviousDrug = VData.PDrug;
+                pt.PreviousExam = VData.PExam;
+                if( VData.visitrecord!=null)
+                {
+                    var record = from p in context.VisitRecordSet.ToList()
+                             where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
+                             select p;
+                    VisitRecord vr = record.First();
+                    vr = VData.visitrecord;
+                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
+                    vr.PatBasicInforId = PatID;
+                }
                 context.SaveChanges();
                 return true;
             }
@@ -124,6 +149,24 @@ namespace HeadacheCDSSWeb.Models
                              where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(RecordID))
                              select p;
                 VisitRecord r = record.First();
+                if (r.PrimaryHeadachaOverView!=null)
+               {
+                   context.PrimaryHeadacheOverViewSet.Remove(r.PrimaryHeadachaOverView);
+               }
+                if (r.MecicationAdvice.Count!=0)
+                {
+                    foreach (MedicationAdvice ma in r.MecicationAdvice)
+                    {
+                        context.MedicationAdviceSet.Remove(ma);
+                    }
+                }
+                if (r.SecondaryHeadacheSymptom.Count != 0)
+                {
+                    foreach (SecondaryHeadacheSymptom shs in r.SecondaryHeadacheSymptom)
+                    {
+                        context.SecondaryHeadacheSymptomSet.Remove(shs);
+                    }
+                }
                // visitrecord 内容删除
                 context.VisitRecordSet.Remove(r);
                 context.SaveChanges();
@@ -135,6 +178,7 @@ namespace HeadacheCDSSWeb.Models
 
             }
         }
+
        
     }
 }

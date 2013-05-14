@@ -30,14 +30,46 @@ namespace HeadacheCDSSWeb.Controllers
 
             try
             {
-                VisitData obj = JsonHelper.JsonDeserialize<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
-                if (this.TempData["ContinueVisitID"] != null)
+                //VisitData obj = JsonHelper.JsonDeserialize<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
+                VisitData obj = new VisitData();
+                obj.visitrecord = new VisitRecord();
+                obj.visitrecord.ChiefComplaint = "345";
+                obj.visitrecord.OutpatientID = "1";
+                obj.visitrecord.VisitDate = DateTime.Now;
+                obj.visitrecord.CDSSDiagnosis1 = "紧张性头痛";
+                obj.visitrecord.DiagnosisResult1 = "偏头痛";
+                MedicationAdvice ma=new MedicationAdvice();
+                ma.DrugApplication = "chis ";
+                ma.DrugCategory = "曲普坦类";
+                ma.DrugDose="一日三粒";
+                ma.DrugName = "dsfsd";
+                ma.Therapy = "sdf";
+                obj.visitrecord.MecicationAdvice.Add(ma);
+                obj.PHeadacheOverview = new PrimaryHeadacheOverView();
+                obj.PHeadacheOverview.DailyAggravation="yes";
+                obj.PHeadacheOverview.FirstOnsetContinue = "yes";
+                obj.PHeadacheOverview.FrequencyPerDay= "yes";
+                obj.PHeadacheOverview.FrequencyPerMonth = "yes";
+                obj.PHeadacheOverview.HeacheTimeUnit= "yes";
+                obj.PHeadacheOverview.HeadacheDegree = "yes";
+                obj.PHeadacheOverview.HeadacheType= "yes";
+                obj.PHeadacheOverview.OnsetFixedDay = "yes";
+                obj.PHeadacheOverview.OnsetFixedYear = "yes";
+                obj.PHeadacheOverview.OnsetDate = DateTime.Now.ToString();
+                obj.PHeadacheOverview.OnsetAmount= "yes";
+                obj.PHeadacheOverview.HeadcheTime= "yes";
+                HeadachePlace hp = new HeadachePlace();
+                hp.Position = "左侧";
+                hp.SpecificPlace = "脸部";
+                obj.PHeadacheOverview.HeadachePlace.Add(hp);
+                if (this.TempData["ContinueVisitID"] == null)
                 {
                     vr.SaveRecord(PatID, obj);
                 }
                 else
                 {
-                    vr.UpdateRecord(PatID, obj);
+                    string VisitID= this.TempData["ContinueVisitID"].ToString();
+                    vr.UpdateRecord(PatID,VisitID ,obj);
                 }
             }
             catch (Exception e)

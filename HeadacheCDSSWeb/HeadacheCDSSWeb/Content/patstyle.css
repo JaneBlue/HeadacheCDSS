@@ -270,7 +270,10 @@ input[type="submit"]:active
 	text-decoration: none;
 	color: #E6B715;
 }
-
+.pagination 
+{
+    margin-left:20px;
+}
 /* Footer */
 
 #footer {
