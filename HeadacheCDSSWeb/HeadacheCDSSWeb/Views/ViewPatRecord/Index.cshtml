@@ -4,7 +4,11 @@
 }
 @model List<HeadacheCDSSWeb.Models.VisitRecord>
 <div id="content">
-
+<div id="ocx">
+    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="600"
+        height="540">
+    </object>
+</div>
     </div>
     <div id="sidebar">
     <div id="navigate">
@@ -27,18 +31,20 @@
             data-action="last">&raquo;</a>
         </div>
           </div>
-          <h3>头痛日志</h3>
+          <h3 >头痛日志</h3>
           <div>
-            <p>
-            Sed non urna
-            </p>
+              <ul class="diary">
+              <li><a href="#"  >日志分析</a></li>
+              </ul>
           </div>
     </div>
   </div>
   </div>
 <script type="text/javascript">
     $(function () {
+        //打开第一个问诊记录
         $("#accordion").accordion();
+
     });
     $(document).ready(function () {
         $("#delete").hide();
@@ -63,21 +69,17 @@
     });
     $(function () {
 
-        $('#btnOK').click(function () {
+        $(".paging li  a").click(function () {
 
-            var data = { Name: $('#txtName').val() };
-
+            var recordToView = $(this).attr("id");
             $.ajax({
 
                 type: "POST",
 
-                url: '@Url.Action("PartialViewDemo", "Home")',
+                url: '@Url.Action("ViewVisitRecordDetail", "ViewPatRecord")',
 
-                data: data,
-
-                datatype: "html",
-
-                success: function (data) {
+                data: { id: recordToView },
+               success: function (data) {
 
                     $('#content').html(data);
 
@@ -92,6 +94,26 @@
             });
 
         });
+        $(".diary li a").click(function () {
 
+            var recordToView = $(this).attr("id");
+            $.ajax({
+
+                type: "POST",
+                url: '@Url.Action("ViewDiary", "ViewPatRecord")',   
+                success: function (data) {
+                    $('#content').html(data);
+
+                },
+
+                error: function () {
+
+                    alert("处理失败!");
+
+                }
+
+            });
+
+        });
     });
   </script>

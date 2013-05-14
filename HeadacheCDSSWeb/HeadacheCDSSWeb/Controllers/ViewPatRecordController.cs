@@ -18,9 +18,9 @@ namespace HeadacheCDSSWeb.Controllers
 
             return View(Lvisit);
         }
-        public ActionResult ViewVisitRecordDetail()
+        public ActionResult ViewVisitRecordDetail(string ID)
         {
-            return View();
+            return PartialView("VisitContentView");
         }
         public ActionResult GoToDiagnosis(string ID)
         {
@@ -42,6 +42,10 @@ namespace HeadacheCDSSWeb.Controllers
             }
 
             return this.Json(new { OK = true, Message = RecordID });
+        }
+        public ActionResult ViewDiary()
+        {
+            return PartialView("HeadacheDiaryView");
         }
     }
 }

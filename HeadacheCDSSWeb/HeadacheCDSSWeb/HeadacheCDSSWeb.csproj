@@ -294,6 +294,8 @@
     <Content Include="Views\ViewPatRecord\Index.cshtml" />
     <Content Include="Views\Shared\PatList.cshtml" />
     <Content Include="Views\Shared\RecordViewLayout.cshtml" />
+    <Content Include="Views\Shared\HeadacheDiaryView.cshtml" />
+    <Content Include="Views\Shared\VisitContentView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -315,7 +317,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3296</DevelopmentServerPort>
+          <DevelopmentServerPort>16966</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
