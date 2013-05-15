@@ -194,7 +194,22 @@ namespace HeadacheCDSSWeb.Models
 
             }
         }
-
+        public ReportData ViewDetail(string PatID,string RecordID){
+            ReportData rdata = new ReportData();
+            PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
+            rdata.Name=pt.Name;
+            var record = from p in context.VisitRecordSet.ToList()
+                         where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(RecordID))
+                         select p;
+            VisitRecord vr = record.First();
+        
+          foreach (HeadachePlace hp in vr.PrimaryHeadachaOverView.HeadachePlace)
+          {
+              hp.HeadachaOverView = null;
+              rdata.hp.Add(hp);
+          }
+            return rdata;
+        }
        
     }
 }

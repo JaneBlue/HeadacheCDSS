@@ -72,6 +72,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EntityObjectExtensionMethods.cs" />
     <Compile Include="Models\Diagnosis.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
@@ -93,6 +94,7 @@
     <Compile Include="Models\PrimaryHeadacheOverView.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReportData.cs" />
     <Compile Include="Models\SecondaryHeadacheSymptom.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>

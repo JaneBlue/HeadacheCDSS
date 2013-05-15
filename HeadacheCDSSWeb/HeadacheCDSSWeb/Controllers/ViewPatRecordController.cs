@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HeadacheCDSSWeb.Models;
+using System.Web.Script.Serialization;
 namespace HeadacheCDSSWeb.Controllers
 {
     public class ViewPatRecordController : Controller
@@ -19,10 +20,23 @@ namespace HeadacheCDSSWeb.Controllers
             this.TempData["recordID"] = Lvisit.First().Id;
             return View(Lvisit);
         }
-        public ActionResult ViewVisitRecordDetail(string ID)
+        public ActionResult ViewVisitRecordDetail(List<string> PostID)
         {
-            this.TempData["recordID"] = ID.ToString();
-            return this.Json(new { OK = true, Message = ""});
+            try
+            {
+                string PatID = PostID[0];
+                string VisitID = PostID[1];
+                this.TempData["recordID"] = VisitID.ToString();
+                ReportData Rdata = visitop.ViewDetail(PatID, VisitID);
+                System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+                string sJSON = oSerializer.Serialize(Rdata);
+                return Json(sJSON, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception e)
+            {
+                return null;
+            }
+           
         }
         public ActionResult GoToDiagnosis(string ID)
         {

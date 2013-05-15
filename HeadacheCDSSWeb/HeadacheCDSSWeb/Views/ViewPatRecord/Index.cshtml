@@ -19,7 +19,9 @@
                 <div id="delete" class="button">
                     <a>删除记录</a>
                 </div>
+
         </div>
+        <div id="@ViewBag.patId" class="PID" style="display:none;"></div>
     </div>
     <div id="sidebar">
     <div id="navigate">
@@ -82,19 +84,24 @@
         })
     });
     $(function () {
-    
+
 
         $(".paging li  a").click(function () {
 
             var recordToView = $(this).attr("id");
+            var stringArray = new Array();
+            stringArray[0] = $(".PID").attr("id");
+             stringArray[1] = recordToView; 
+
             $.ajax({
 
                 type: "POST",
 
                 url: '@Url.Action("ViewVisitRecordDetail", "ViewPatRecord")',
 
-                data: { id: recordToView },
-               success: function (data) {
+                data: { PostID: stringArray },
+                dataType: "json", type: "POST", traditional: true,
+                success: function (data) {
                     //$('#ViewContent').html(data);
                     $(".CurrentView").parent().css("background-color", "#B9DCF2");
                     $(".CurrentView").removeClass("CurrentView");
@@ -102,31 +109,24 @@
                     $(".CurrentView").parent().css("background-color", "#D3E7F2");
                 },
 
-                error: function () {
-
+                error: function (jqXhr, textStatus, errorThrown) {
+                    alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
                     alert("处理失败!");
-
                 }
 
             });
 
         });
         $(".diary li a").click(function () {
-
-            var recordToView = $(this).attr("id");
             $.ajax({
-
                 type: "POST",
-                url: '@Url.Action("ViewDiary", "ViewPatRecord")',   
+
+                url: '@Url.Action("ViewDiary", "ViewPatRecord")',
                 success: function (data) {
                     $('#ViewContent').html(data);
-                    
                 },
-
                 error: function () {
-
                     alert("处理失败!");
-
                 }
 
             });
