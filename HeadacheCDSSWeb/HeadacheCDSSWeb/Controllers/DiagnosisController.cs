@@ -16,9 +16,11 @@ namespace HeadacheCDSSWeb.Controllers
             this.TempData["PatID"] = ID;
             return View();
         }
-        public ActionResult ContinueVisit(string ID)
+        public ActionResult ContinueVisit(string identity)
         {
-            this.TempData["PatID"] = ID;
+            string[] IDs = identity.Split(new Char[] { '%' });
+            this.TempData["PatID"] = IDs[0];
+            this.TempData["ContinueVisitID"] = IDs[1];
             return View();
         }
         [HttpPost]

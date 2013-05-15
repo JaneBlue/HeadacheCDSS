@@ -4,11 +4,22 @@
 }
 @model List<HeadacheCDSSWeb.Models.VisitRecord>
 <div id="content">
-<div id="ocx">
-    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="600"
-        height="540">
-    </object>
-</div>
+     <div id="ViewContent">
+                 <div id="ocx">
+                    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="600"
+                        height="540">
+                    </object>
+                </div>
+                <div id="continue" class="button">
+                    @Html.ActionLink("继续问诊", "ContinueDiagnosis", new { id = ViewBag.patId })
+                </div>
+                <div id="diagnosis" class="button">
+                    @Html.ActionLink("开始新问诊", "GoToDiagnosis", new { id = ViewBag.patId })
+                </div>
+                <div id="delete" class="button">
+                    <a>删除记录</a>
+                </div>
+        </div>
     </div>
     <div id="sidebar">
     <div id="navigate">
@@ -39,16 +50,19 @@
           </div>
     </div>
   </div>
+  <div id="return" class="button">
+            @Html.ActionLink("返回查询", "index","EnterpatInfor")
+        </div>
   </div>
 <script type="text/javascript">
     $(function () {
         //打开第一个问诊记录
         $("#accordion").accordion();
-
+        $('.paging a:first').addClass("CurrentView");
+        $(".CurrentView").parent().css("background-color", "#D3E7F2");
     });
     $(document).ready(function () {
-        $("#delete").hide();
-        $("#continue").hide();
+        
         $(".paging").find("li").hide();
         $(".paging li:lt(12)").addClass("current").show();
         var num = Math.ceil($(".paging li").length / 12);
@@ -68,6 +82,7 @@
         })
     });
     $(function () {
+    
 
         $(".paging li  a").click(function () {
 
@@ -80,9 +95,11 @@
 
                 data: { id: recordToView },
                success: function (data) {
-
-                    $('#content').html(data);
-
+                    //$('#ViewContent').html(data);
+                    $(".CurrentView").parent().css("background-color", "#B9DCF2");
+                    $(".CurrentView").removeClass("CurrentView");
+                    $('#' + recordToView).addClass("CurrentView");
+                    $(".CurrentView").parent().css("background-color", "#D3E7F2");
                 },
 
                 error: function () {
@@ -102,8 +119,8 @@
                 type: "POST",
                 url: '@Url.Action("ViewDiary", "ViewPatRecord")',   
                 success: function (data) {
-                    $('#content').html(data);
-
+                    $('#ViewContent').html(data);
+                    
                 },
 
                 error: function () {
@@ -115,5 +132,27 @@
             });
 
         });
+        $("#delete").click(function () {
+            var pid = '@ViewBag.patId';
+            $.ajax({
+                url: '@Url.Action("DeleteRecord", "ViewPatRecord")',
+                type: "POST",
+                data: { id: pid },
+                success: function (data) {
+                    if (data.OK) {
+                        $('#' + data.Message).parent().remove();
+                        $("#ViewContent").hide();
+                    }
+                    else {
+                        alert("删除失败");
+                    }
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                }
+            });
+
+        })
+
     });
   </script>

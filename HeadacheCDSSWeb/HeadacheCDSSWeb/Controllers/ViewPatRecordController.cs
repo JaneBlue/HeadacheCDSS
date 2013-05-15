@@ -13,14 +13,16 @@ namespace HeadacheCDSSWeb.Controllers
         VisitDataOperation visitop = new VisitDataOperation();
         public ActionResult Index(string ID)
         {
-
+            this.TempData["PatID"] = ID;
+            this.ViewBag.patId = ID;
             List<VisitRecord> Lvisit = visitop.GetVistRecord(ID);
-
+            this.TempData["recordID"] = Lvisit.First().Id;
             return View(Lvisit);
         }
         public ActionResult ViewVisitRecordDetail(string ID)
         {
-            return PartialView("VisitContentView");
+            this.TempData["recordID"] = ID.ToString();
+            return this.Json(new { OK = true, Message = ""});
         }
         public ActionResult GoToDiagnosis(string ID)
         {
@@ -46,6 +48,12 @@ namespace HeadacheCDSSWeb.Controllers
         public ActionResult ViewDiary()
         {
             return PartialView("HeadacheDiaryView");
+        }
+        public ActionResult ContinueDiagnosis(string ID)
+        {
+            string identity = ID + "%";
+            identity = identity + this.TempData["recordID"].ToString();
+            return RedirectToAction("VisitContinue", "Diagnosis", new { identity = identity });
         }
     }
 }

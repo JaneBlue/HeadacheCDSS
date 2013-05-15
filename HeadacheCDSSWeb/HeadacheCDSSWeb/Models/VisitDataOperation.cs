@@ -151,22 +151,38 @@ namespace HeadacheCDSSWeb.Models
                 VisitRecord r = record.First();
                 if (r.PrimaryHeadachaOverView!=null)
                {
+                    while(r.PrimaryHeadachaOverView.HeadachePlace.Count!=0){
+                        context.HeadachePlaceSet.Remove(r.PrimaryHeadachaOverView.HeadachePlace.First());
+                    }
+                    while (r.PrimaryHeadachaOverView.HeadacheAccompany.Count != 0)
+                    {
+                        context.HeadacheAccompanySet.Remove(r.PrimaryHeadachaOverView.HeadacheAccompany.First());
+                    }
+                    while (r.PrimaryHeadachaOverView.HeadacheProdrome.Count != 0)
+                    {
+                        context.HeadacheProdromeSet.Remove(r.PrimaryHeadachaOverView.HeadacheProdrome.First());
+                    }
+                    while (r.PrimaryHeadachaOverView.PrecipitatingFactor.Count != 0)
+                    {
+                        context.PrecipitatingFactorSet.Remove(r.PrimaryHeadachaOverView.PrecipitatingFactor.First());
+                    }
+                    while (r.PrimaryHeadachaOverView.MitigatingFactors.Count != 0)
+                    {
+                        context.MitigatingFactorsSet.Remove(r.PrimaryHeadachaOverView.MitigatingFactors.First());
+                    }
                    context.PrimaryHeadacheOverViewSet.Remove(r.PrimaryHeadachaOverView);
                }
-                if (r.MecicationAdvice.Count!=0)
-                {
-                    foreach (MedicationAdvice ma in r.MecicationAdvice)
+              
+                    
+                   while ( r.MecicationAdvice.Count!=0)
                     {
-                        context.MedicationAdviceSet.Remove(ma);
+                        context.MedicationAdviceSet.Remove(r.MecicationAdvice.FirstOrDefault());
                     }
-                }
-                if (r.SecondaryHeadacheSymptom.Count != 0)
-                {
-                    foreach (SecondaryHeadacheSymptom shs in r.SecondaryHeadacheSymptom)
+             
+                   while(r.SecondaryHeadacheSymptom.Count != 0)
                     {
-                        context.SecondaryHeadacheSymptomSet.Remove(shs);
+                        context.SecondaryHeadacheSymptomSet.Remove(r.SecondaryHeadacheSymptom.FirstOrDefault());
                     }
-                }
                // visitrecord 内容删除
                 context.VisitRecordSet.Remove(r);
                 context.SaveChanges();

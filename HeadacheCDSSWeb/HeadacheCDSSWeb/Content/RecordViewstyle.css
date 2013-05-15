@@ -151,7 +151,7 @@ font-size: 18px;
 {
     height: 37px;
 	float: right;
-	margin:10px 70px 0 10px;
+	margin:10px 65px 0 10px;
 	padding-top:6px;
 	width :138px;
     background: url(images/normal-button.png) no-repeat ;
@@ -224,6 +224,7 @@ input[type="submit"]:active
 { 
 	background-color:#B9DCF2;
    padding-top:10px;
+   margin-bottom:10px;
 	width: 195px;
 	height:35px;
 	text-align: center;
