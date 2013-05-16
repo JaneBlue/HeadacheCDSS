@@ -21,6 +21,7 @@
                 </div>
 
         </div>
+        <div id="DiaryView"></div>
         <div id="@ViewBag.patId" class="PID" style="display:none;"></div>
     </div>
     <div id="sidebar">
@@ -59,7 +60,8 @@
 <script type="text/javascript">
     $(function () {
         //打开第一个问诊记录
-        $("#accordion").accordion();
+        $("#accordion").accordion(
+        { collapsible: true });
         $('.paging a:first').addClass("CurrentView");
         $(".CurrentView").parent().css("background-color", "#D3E7F2");
     });
@@ -91,7 +93,7 @@
             var recordToView = $(this).attr("id");
             var stringArray = new Array();
             stringArray[0] = $(".PID").attr("id");
-             stringArray[1] = recordToView; 
+            stringArray[1] = recordToView;
 
             $.ajax({
 
@@ -102,6 +104,8 @@
                 data: { PostID: stringArray },
                 dataType: "json", type: "POST", traditional: true,
                 success: function (data) {
+                    $("#ViewContent").show();
+                    $("#DiaryView").hide();
                     //$('#ViewContent').html(data);
                     $(".CurrentView").parent().css("background-color", "#B9DCF2");
                     $(".CurrentView").removeClass("CurrentView");
@@ -123,7 +127,9 @@
 
                 url: '@Url.Action("ViewDiary", "ViewPatRecord")',
                 success: function (data) {
-                    $('#ViewContent').html(data);
+                    $("#ViewContent").hide();
+                    $("#DiaryView").html(data);
+                    $("#DiaryView").show();
                 },
                 error: function () {
                     alert("处理失败!");
