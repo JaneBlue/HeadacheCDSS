@@ -156,7 +156,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.OtherFamilyDisease)">
         <MappingFragment StoreEntitySet="OtherFamilyDiseaseSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
           <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>

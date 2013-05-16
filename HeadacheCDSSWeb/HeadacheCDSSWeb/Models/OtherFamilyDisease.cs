@@ -15,7 +15,7 @@ namespace HeadacheCDSSWeb.Models
     public partial class OtherFamilyDisease
     {
         public int Id { get; set; }
-        public string MemberName { get; set; }
+        public string DiseaseName { get; set; }
         public string PatBasicInforId { get; set; }
     
         public virtual PatBasicInfor PatBasicInfor { get; set; }

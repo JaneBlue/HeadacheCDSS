@@ -230,7 +230,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MemberName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DiseaseName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="SpecialDietSet">

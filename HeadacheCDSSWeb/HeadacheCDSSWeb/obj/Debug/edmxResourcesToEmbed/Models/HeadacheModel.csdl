@@ -306,7 +306,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="MemberName" Nullable="false" />
+    <Property Type="String" Name="DiseaseName" Nullable="false" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforOtherFamilyDisease" FromRole="OtherFamilyDisease" ToRole="PatBasicInfor" />
     <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
   </EntityType>

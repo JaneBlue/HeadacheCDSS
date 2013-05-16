@@ -235,7 +235,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MemberName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DiseaseName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PatBasicInforId" Type="nvarchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="SpecialDietSet">
@@ -784,7 +784,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="MemberName" Nullable="false" />
+          <Property Type="String" Name="DiseaseName" Nullable="false" />
           <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforOtherFamilyDisease" FromRole="OtherFamilyDisease" ToRole="PatBasicInfor" />
           <Property Type="String" Name="PatBasicInforId" Nullable="false" MaxLength="255" />
         </EntityType>
@@ -1126,7 +1126,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.OtherFamilyDisease)">
         <MappingFragment StoreEntitySet="OtherFamilyDiseaseSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
           <ScalarProperty Name="PatBasicInforId" ColumnName="PatBasicInforId" />
         </MappingFragment>
       </EntityTypeMapping>

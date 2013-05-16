@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/16/2013 10:15:21
+-- Date Created: 05/16/2013 13:29:17
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -271,7 +271,7 @@ GO
 -- Creating table 'OtherFamilyDiseaseSet'
 CREATE TABLE [dbo].[OtherFamilyDiseaseSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [MemberName] nvarchar(max)  NOT NULL,
+    [DiseaseName] nvarchar(max)  NOT NULL,
     [PatBasicInforId] nvarchar(255)  NOT NULL
 );
 GO
