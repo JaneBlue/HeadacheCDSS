@@ -201,7 +201,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MedicalHistoryId" Type="int" Nullable="false" />
     <Property Name="DrugCategory" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DrugName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DayAmoutnPerM" Type="nvarchar(max)" Nullable="false" />
@@ -213,7 +212,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MedicalHistoryId" Type="int" Nullable="false" />
     <Property Name="ExamName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Result" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="nvarchar(max)" Nullable="false" />

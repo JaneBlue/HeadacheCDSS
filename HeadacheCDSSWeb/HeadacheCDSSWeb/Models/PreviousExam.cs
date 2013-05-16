@@ -15,7 +15,6 @@ namespace HeadacheCDSSWeb.Models
     public partial class PreviousExam
     {
         public int Id { get; set; }
-        public int MedicalHistoryId { get; set; }
         public string ExamName { get; set; }
         public string Result { get; set; }
         public string Date { get; set; }

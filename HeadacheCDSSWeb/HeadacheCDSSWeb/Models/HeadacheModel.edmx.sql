@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/13/2013 19:54:22
+-- Date Created: 05/16/2013 10:15:21
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -242,7 +242,6 @@ GO
 -- Creating table 'PreviousDrugSet'
 CREATE TABLE [dbo].[PreviousDrugSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [MedicalHistoryId] int  NOT NULL,
     [DrugCategory] nvarchar(max)  NOT NULL,
     [DrugName] nvarchar(max)  NOT NULL,
     [DayAmoutnPerM] nvarchar(max)  NOT NULL,
@@ -254,7 +253,6 @@ GO
 -- Creating table 'PreviousExamSet'
 CREATE TABLE [dbo].[PreviousExamSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [MedicalHistoryId] int  NOT NULL,
     [ExamName] nvarchar(max)  NOT NULL,
     [Result] nvarchar(max)  NOT NULL,
     [Date] nvarchar(max)  NOT NULL,

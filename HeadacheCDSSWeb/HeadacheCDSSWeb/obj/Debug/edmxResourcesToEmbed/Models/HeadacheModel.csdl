@@ -274,7 +274,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="MedicalHistoryId" Nullable="false" />
     <Property Type="String" Name="DrugCategory" Nullable="false" />
     <Property Type="String" Name="DrugName" Nullable="false" />
     <Property Type="String" Name="DayAmoutnPerM" Nullable="false" />
@@ -287,7 +286,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="MedicalHistoryId" Nullable="false" />
     <Property Type="String" Name="ExamName" Nullable="false" />
     <Property Type="String" Name="Result" Nullable="false" />
     <Property Type="String" Name="Date" Nullable="false" />

@@ -15,7 +15,6 @@ namespace HeadacheCDSSWeb.Models
     public partial class PreviousDrug
     {
         public int Id { get; set; }
-        public int MedicalHistoryId { get; set; }
         public string DrugCategory { get; set; }
         public string DrugName { get; set; }
         public string DayAmoutnPerM { get; set; }

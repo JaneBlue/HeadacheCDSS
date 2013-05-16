@@ -64,7 +64,7 @@ namespace HeadacheCDSSWeb.Models
                 data[j] = d;
             }
         }
-        public bool SaveRecord(string PatID,VisitData VData)
+        public bool SaveRecord(string PatID, VisitData VData)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace HeadacheCDSSWeb.Models
                 pt.Lifestyle = VData.lifestyle;
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
-                if (VData.visitrecord!=null)
+                if (VData.visitrecord != null)
                 {
                     VisitRecord vr = new VisitRecord();//问诊记录信息保存
                     vr = VData.visitrecord;
@@ -82,7 +82,7 @@ namespace HeadacheCDSSWeb.Models
                     vr.PatBasicInforId = PatID;
                     pt.VisitRecord.Add(vr);
                 }
-                
+
                 context.SaveChanges();
                 return true;
             }
@@ -99,22 +99,22 @@ namespace HeadacheCDSSWeb.Models
             }
 
         }
-        public bool UpdateRecord(string PatID, string VisitID,VisitData VData)
+        public bool UpdateRecord(string PatID, string VisitID, VisitData VData)
         {
             try
             {
-                
+
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
                 pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
                 pt.OtherFamilyDisease = VData.OFamilyDisease;
                 pt.Lifestyle = VData.lifestyle;
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
-                if( VData.visitrecord!=null)
+                if (VData.visitrecord != null)
                 {
                     var record = from p in context.VisitRecordSet.ToList()
-                             where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
-                             select p;
+                                 where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
+                                 select p;
                     VisitRecord vr = record.First();
                     vr = VData.visitrecord;
                     vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
@@ -149,9 +149,10 @@ namespace HeadacheCDSSWeb.Models
                              where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(RecordID))
                              select p;
                 VisitRecord r = record.First();
-                if (r.PrimaryHeadachaOverView!=null)
-               {
-                    while(r.PrimaryHeadachaOverView.HeadachePlace.Count!=0){
+                if (r.PrimaryHeadachaOverView != null)
+                {
+                    while (r.PrimaryHeadachaOverView.HeadachePlace.Count != 0)
+                    {
                         context.HeadachePlaceSet.Remove(r.PrimaryHeadachaOverView.HeadachePlace.First());
                     }
                     while (r.PrimaryHeadachaOverView.HeadacheAccompany.Count != 0)
@@ -170,20 +171,20 @@ namespace HeadacheCDSSWeb.Models
                     {
                         context.MitigatingFactorsSet.Remove(r.PrimaryHeadachaOverView.MitigatingFactors.First());
                     }
-                   context.PrimaryHeadacheOverViewSet.Remove(r.PrimaryHeadachaOverView);
-               }
-              
-                    
-                   while ( r.MecicationAdvice.Count!=0)
-                    {
-                        context.MedicationAdviceSet.Remove(r.MecicationAdvice.FirstOrDefault());
-                    }
-             
-                   while(r.SecondaryHeadacheSymptom.Count != 0)
-                    {
-                        context.SecondaryHeadacheSymptomSet.Remove(r.SecondaryHeadacheSymptom.FirstOrDefault());
-                    }
-               // visitrecord 内容删除
+                    context.PrimaryHeadacheOverViewSet.Remove(r.PrimaryHeadachaOverView);
+                }
+
+
+                while (r.MecicationAdvice.Count != 0)
+                {
+                    context.MedicationAdviceSet.Remove(r.MecicationAdvice.FirstOrDefault());
+                }
+
+                while (r.SecondaryHeadacheSymptom.Count != 0)
+                {
+                    context.SecondaryHeadacheSymptomSet.Remove(r.SecondaryHeadacheSymptom.FirstOrDefault());
+                }
+                // visitrecord 内容删除
                 context.VisitRecordSet.Remove(r);
                 context.SaveChanges();
                 return true;
@@ -194,22 +195,83 @@ namespace HeadacheCDSSWeb.Models
 
             }
         }
-        public ReportData ViewDetail(string PatID,string RecordID){
+        public ReportData ViewDetail(string PatID, string RecordID)
+        {
             ReportData rdata = new ReportData();
             PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
-            rdata.Name=pt.Name;
+            rdata.Name = pt.Name;
+            rdata.Age = pt.Age;
+            rdata.Sex = pt.Sex;
+            rdata.Address = pt.Address;
+            rdata.Education = pt.Education;
+            rdata.Job = pt.Job;
+            //if (pt.SimilarFamily!=null)
+            //{
+            //    rdata.SimilarFamily = pt.SimilarFamily;
+            //}
+
+
             var record = from p in context.VisitRecordSet.ToList()
                          where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(RecordID))
                          select p;
             VisitRecord vr = record.First();
-        
-          foreach (HeadachePlace hp in vr.PrimaryHeadachaOverView.HeadachePlace)
-          {
-              hp.HeadachaOverView = null;
-              rdata.hp.Add(hp);
-          }
+            rdata.VisitDate = vr.VisitDate;
+            rdata.CDSSDiagnosis1 = vr.CDSSDiagnosis1;
+            rdata.CDSSDiagnosis2 = vr.CDSSDiagnosis2;
+            rdata.CDSSDiagnosis3 = vr.CDSSDiagnosis3;
+            rdata.DiagnosisResult1 = vr.DiagnosisResult1;
+            rdata.DiagnosisResult2 = vr.DiagnosisResult2;
+            rdata.DiagnosisResult3 = vr.DiagnosisResult3;
+            rdata.Prescription = vr.Prescription;
+            rdata.ChiefComplaint = vr.ChiefComplaint;
+            foreach(MedicationAdvice madvice in vr.MecicationAdvice )
+             {  
+                    HMedicine hmedicine=new HMedicine();
+                    hmedicine.DrugApplication = madvice.DrugApplication;
+                    hmedicine.DrugCategory = madvice.DrugCategory;
+                    hmedicine.DrugName = madvice.DrugName;
+                    hmedicine.DrugDose = madvice.DrugDose;
+                    rdata.medicationadvice.Add(hmedicine);
+            }
+            if (vr.PrimaryHeadachaOverView != null)
+            {
+                rdata.headacheoverview.HeadacheType = vr.PrimaryHeadachaOverView.HeadacheType;
+                rdata.headacheoverview.HeadacheDegree = vr.PrimaryHeadachaOverView.HeadacheDegree;
+                rdata.headacheoverview.HeadcheTime = vr.PrimaryHeadachaOverView.HeadcheTime;
+                rdata.headacheoverview.HeacheTimeUnit = vr.PrimaryHeadachaOverView.HeacheTimeUnit;
+                rdata.headacheoverview.FrequencyPerDay = vr.PrimaryHeadachaOverView.FrequencyPerDay;
+                rdata.headacheoverview.FrequencyPerMonth = vr.PrimaryHeadachaOverView.FrequencyPerMonth;
+                rdata.headacheoverview.OnsetFixedDay = vr.PrimaryHeadachaOverView.OnsetFixedDay;
+                rdata.headacheoverview.OnsetFixedYear = vr.PrimaryHeadachaOverView.OnsetFixedYear;
+                rdata.headacheoverview.OnsetDate = vr.PrimaryHeadachaOverView.OnsetDate;
+                rdata.headacheoverview.OnsetAmount = vr.PrimaryHeadachaOverView.OnsetAmount;
+                rdata.headacheoverview.DailyAggravation = vr.PrimaryHeadachaOverView.DailyAggravation;
+                rdata.headacheoverview.FirstOnsetContinue = vr.PrimaryHeadachaOverView.FirstOnsetContinue;
+
+                foreach (HeadachePlace hp in vr.PrimaryHeadachaOverView.HeadachePlace)
+                {
+                    string strPlace = hp.Position + hp.SpecificPlace;
+                    rdata.headacheplace.Add(strPlace);
+                }
+                foreach (HeadacheProdrome hprodrome in vr.PrimaryHeadachaOverView.HeadacheProdrome)
+                {
+                    rdata.headacheprodrome.Add(hprodrome.Prodrome);
+                }
+                foreach(MitigatingFactors mfactors in vr.PrimaryHeadachaOverView.MitigatingFactors)
+                {
+                    rdata.mitigatingfactors.Add(mfactors.FactorName);
+                }
+                foreach(HeadacheAccompany haccompay in vr.PrimaryHeadachaOverView.HeadacheAccompany)
+                {
+                    rdata.headacheaccompany.Add(haccompay.Symptom);
+                }
+                foreach (PrecipitatingFactor pfactor in vr.PrimaryHeadachaOverView.PrecipitatingFactor)
+                {
+                    rdata.precipitatingfactor.Add(pfactor.FactorName);
+                }
+            }
             return rdata;
         }
-       
+
     }
 }

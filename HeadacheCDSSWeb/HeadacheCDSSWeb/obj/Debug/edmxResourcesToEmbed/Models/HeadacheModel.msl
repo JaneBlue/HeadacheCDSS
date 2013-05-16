@@ -124,7 +124,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousDrug)">
         <MappingFragment StoreEntitySet="PreviousDrugSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
           <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />
           <ScalarProperty Name="DrugName" ColumnName="DrugName" />
           <ScalarProperty Name="DayAmoutnPerM" ColumnName="DayAmoutnPerM" />
@@ -137,7 +136,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousExam)">
         <MappingFragment StoreEntitySet="PreviousExamSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
           <ScalarProperty Name="ExamName" ColumnName="ExamName" />
           <ScalarProperty Name="Result" ColumnName="Result" />
           <ScalarProperty Name="Date" ColumnName="Date" />

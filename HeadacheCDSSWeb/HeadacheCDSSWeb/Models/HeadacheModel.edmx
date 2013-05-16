@@ -206,7 +206,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MedicalHistoryId" Type="int" Nullable="false" />
     <Property Name="DrugCategory" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DrugName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DayAmoutnPerM" Type="nvarchar(max)" Nullable="false" />
@@ -218,7 +217,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MedicalHistoryId" Type="int" Nullable="false" />
     <Property Name="ExamName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Result" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
@@ -754,7 +752,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="MedicalHistoryId" Nullable="false" />
           <Property Type="String" Name="DrugCategory" Nullable="false" />
           <Property Type="String" Name="DrugName" Nullable="false" />
           <Property Type="String" Name="DayAmoutnPerM" Nullable="false" />
@@ -767,7 +764,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="MedicalHistoryId" Nullable="false" />
           <Property Type="String" Name="ExamName" Nullable="false" />
           <Property Type="String" Name="Result" Nullable="false" />
           <Property Type="String" Name="Date" Nullable="false" />
@@ -1098,7 +1094,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousDrug)">
         <MappingFragment StoreEntitySet="PreviousDrugSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
           <ScalarProperty Name="DrugCategory" ColumnName="DrugCategory" />
           <ScalarProperty Name="DrugName" ColumnName="DrugName" />
           <ScalarProperty Name="DayAmoutnPerM" ColumnName="DayAmoutnPerM" />
@@ -1111,7 +1106,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(HeadacheModel.PreviousExam)">
         <MappingFragment StoreEntitySet="PreviousExamSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MedicalHistoryId" ColumnName="MedicalHistoryId" />
           <ScalarProperty Name="ExamName" ColumnName="ExamName" />
           <ScalarProperty Name="Result" ColumnName="Result" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1247,8 +1241,8 @@
           <ConnectorPoint PointX="7.96875" PointY="8.6227628580729174" />
           <ConnectorPoint PointX="10.5" PointY="8.6227628580729174" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="HeadacheModel.PreviousDrug" Width="1.5" PointX="3.875" PointY="5.75" Height="2.5430916341145817" />
-        <EntityTypeShape EntityType="HeadacheModel.PreviousExam" Width="1.5" PointX="3.25" PointY="8.375" Height="2.3520719401041665" />
+        <EntityTypeShape EntityType="HeadacheModel.PreviousDrug" Width="1.5" PointX="3.875" PointY="5.75" Height="2.3520719401041656" />
+        <EntityTypeShape EntityType="HeadacheModel.PreviousExam" Width="1.5" PointX="3.25" PointY="8.375" Height="2.1610522460937496" />
         <EntityTypeShape EntityType="HeadacheModel.HeadacheFamilyMember" Width="2" PointX="0.5" PointY="2.875" Height="1.7790128580729165" />
         <EntityTypeShape EntityType="HeadacheModel.OtherFamilyDisease" Width="1.5" PointX="0.5" PointY="5.25" Height="1.7790128580729165" />
         <EntityTypeShape EntityType="HeadacheModel.SpecialDiet" Width="1.5" PointX="3.625" PointY="10.875" Height="1.7790128580729157" />
@@ -1280,19 +1274,17 @@
           <ConnectorPoint PointX="4.125" PointY="5.75" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.PatBasicInforPreviousExam" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.4162399734524738" PointY="5.2693082682291656" />
-          <ConnectorPoint PointX="3.4162399734524738" PointY="8.375" />
+          <ConnectorPoint PointX="3.53125" PointY="5.2693082682291656" />
+          <ConnectorPoint PointX="3.53125" PointY="8.375" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.PatBasicInforHeadacheFamilyMember">
           <ConnectorPoint PointX="2.875" PointY="3.7645064290364583" />
           <ConnectorPoint PointX="2.5" PointY="3.7645064290364583" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.PatBasicInforOtherFamilyDisease">
-          <ConnectorPoint PointX="3.3749995" PointY="5.2693082682291656" />
-          <ConnectorPoint PointX="3.3749995" PointY="6.1395064290364587" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="6.1395064290364578" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="6.1395064290364587" />
-          <ConnectorPoint PointX="2" PointY="6.1395064290364587" />
+          <ConnectorPoint PointX="3.203125" PointY="5.2693082682291656" />
+          <ConnectorPoint PointX="3.203125" PointY="5.6659041341145828" />
+          <ConnectorPoint PointX="2" PointY="5.6659041341145828" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.PatBasicInforLifestyle" ManuallyRouted="false">
           <ConnectorPoint PointX="2.875" PointY="5.2693082682291656" />
