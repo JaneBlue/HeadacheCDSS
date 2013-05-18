@@ -297,6 +297,7 @@
     <Content Include="Views\Shared\RecordViewLayout.cshtml" />
     <Content Include="Views\Shared\HeadacheDiaryView.cshtml" />
     <Content Include="Views\Shared\VisitContentView.cshtml" />
+    <Content Include="Views\Diagnosis\ContinueVisit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

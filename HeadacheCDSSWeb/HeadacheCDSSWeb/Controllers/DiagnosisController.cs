@@ -10,10 +10,12 @@ namespace HeadacheCDSSWeb.Controllers
     {
         //
         // GET: /Diagnosis/
-
+        VisitDataOperation vr = new VisitDataOperation();
         public ActionResult Index(string ID)
         {
+          
             this.TempData["PatID"] = ID;
+        
             return View();
         }
         public ActionResult ContinueVisit(string identity)
@@ -21,12 +23,17 @@ namespace HeadacheCDSSWeb.Controllers
             string[] IDs = identity.Split(new Char[] { '%' });
             this.TempData["PatID"] = IDs[0];
             this.TempData["ContinueVisitID"] = IDs[1];
-            return View();
+           ReportData  RData= vr.ViewDetail(IDs[0], IDs[1]);
+           System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+           string sJSON = JsonHelper.JsonSerializer(RData);
+           ViewData["data"] = sJSON;
+           return View();
+          //  return View(RData);
         }
         [HttpPost]
         public JsonResult Save()
         {
-            VisitDataOperation vr = new VisitDataOperation();
+            
             string jsonStr = Request.Params["postjson"];
             string PatID = this.TempData["PatID"].ToString();
 

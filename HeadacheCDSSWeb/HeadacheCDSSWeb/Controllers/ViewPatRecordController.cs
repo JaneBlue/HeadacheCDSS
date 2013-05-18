@@ -65,7 +65,7 @@ namespace HeadacheCDSSWeb.Controllers
         {
             string identity = ID + "%";
             identity = identity + this.TempData["recordID"].ToString();
-            return RedirectToAction("VisitContinue", "Diagnosis", new { identity = identity });
+            return RedirectToAction("ContinueVisit", "Diagnosis", new { identity = identity });
         }
     }
 }

@@ -11,9 +11,13 @@
             
             window.location.href = strOCXURL;
             }
-        }
+    }
+  
+  
+    
+   
         OCX.ShowReport();
-        OCX.ShowThisPage("继发性头痛筛查");
+        OCX.ShowThisPage("基本筛查");
 
     $("#btn2").hide();
     $("#btn2").click(function () {
@@ -24,10 +28,10 @@
             OCX.ShowReport();
             OCX.ShowThisPage(name);
 
-            if (name == "继发性头痛筛查") {
+            if (name == "基础筛查") {
                 $("#btn2").hide();
             }
-            if (name == "医嘱") {
+            if (name == "医嘱处置") {
                 $("#b1").html("下一步");
             }
      });

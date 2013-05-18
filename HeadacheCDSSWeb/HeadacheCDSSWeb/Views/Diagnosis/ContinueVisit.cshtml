@@ -1,7 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "ContinueVisit";
     Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
-}
+    }
+  @model HeadacheCDSSWeb.Models.ReportData
 
 <p id="ocx">
     <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
@@ -10,7 +11,14 @@
 </p>
 <script type="text/javascript">
 $(function () {
-
+      var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
+      var Name=obj.Name;
+      var number= obj.medicationadvice.length;
+      var Medicin=obj.medicationadvice[0];
+//    var a = $.parseJSON('@Html.Raw(Json.Encode(ViewData["data"]))');
+//    var t = a.Data;
+     //SetData部分
+     //var strName= model.Name;
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
