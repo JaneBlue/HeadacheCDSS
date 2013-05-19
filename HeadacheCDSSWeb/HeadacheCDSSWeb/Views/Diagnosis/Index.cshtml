@@ -15,7 +15,66 @@ $(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
             if ($(".selected").last().attr("id") == "报告") {
-                var thing = { pma: [ { Id: 2, MC1: 'jquery-json', MC2: 'jquery-json', MC3: 'jquery-json', MC4: 'jquery-json', MC5: 'jquery-json', MC6: 'jquery-json', MC7: 'jquery-json', MC8: 'jquery-json', MC9: 'jquery-json', Total: 'jquery-json' }, { Id: 3, MC1: 'jquery-json', MC2: 'jquery-json', MC3: 'jquery-json', MC4: 'jquery-json', MC5: 'jquery-json', MC6: 'jquery-json', MC7: 'jquery-json', MC8: 'jquery-json', MC9: 'jquery-json', Total: 'jquery-json'} ] };
+                
+                
+                var thing = { HFamilyMember: [ { Person: strFuQin}, { Person: strMuQin}, { Person: strXiongDi}
+                                            , { Person: strJieMei}, { Person: strErZi}, { Person: strNvEr}
+                                            , { Person: strZuFu}, { Person: strZiMu}, { Person: strWaiZuFu}
+                                            , { Person: strWaiZuMu}, { Person: strQiTa} ],
+                              OFamilyDisease: [ {DiseaseName: strXinZangJiBin}, {DiseaseName: strDianXian}, {DiseaseName: strGaoXueYa}
+                                            , {DiseaseName: strZuZhong}, {DiseaseName: strGuanJieYan}, {DiseaseName: strZhongLiu}
+                                            , {DiseaseName: strJiaoLv}, {DiseaseName: strQiTa} ],
+                              lifestyle: {SmokeState: strSmokeState, SmokeStartAge: strSmokeStartAge, SmokeQuitYear:strSmokeQuitYear
+                                            , SmokeYear: strSmokeYear, CigarettesPerDay: strCigarettesPerDay, DrinkState:strDrinkState
+                                            , DrinkStartAge: strDrinkStartAge, DrinkYear: strDrinkYear, DrinkQuitYear:strDrinkQuitYear
+                                            , DrinkPerDay: strDrinkPerDay, DrinkCategory: strDrinkCategory, TeaPerDay:strTeaPerDay
+                                            , CoffePerDay: strCoffePerDay, ExercisePerWeek: strExercisePerWeek, ExerciseTime:strExerciseTime
+                                            , ExerciseDescription: strExerciseDescription, WeightChange: strWeightChange, WeightChangeNote:strWeightChangeNote
+                                            , OtherLifeStyleFactor:strOtherLifeStyleFactor
+                                            , SpecialDiet:[{Kind:strDiReLiang}, {Kind:strDiYan}, {Kind:strDiZhi}, {Kind:strDiXianWei}
+                                                            , {Kind:strDiTanShuiHuaHeWu}, {Kind:strGaoReLiang}, {Kind:strGaoXianWei}, {Kind:strQiTa}]},
+                              PDrug: [{DrugCategory: strDrugCategory1, DrugName: strDrugName1, DayAmoutnPerM: strDayAmoutnPerM1, MonthTotalAmount: strMonthTotalAmount1}
+                                        ,{DrugCategory: strDrugCategory2, DrugName: strDrugName2, DayAmoutnPerM: strDayAmoutnPerM2, MonthTotalAmount: strMonthTotalAmount2}
+                                        ,{DrugCategory: strDrugCategory3, DrugName: strDrugName3, DayAmoutnPerM: strDayAmoutnPerM3, MonthTotalAmount: strMonthTotalAmount3}
+                                        ,{DrugCategory: strDrugCategory4, DrugName: strDrugName4, DayAmoutnPerM: strDayAmoutnPerM4, MonthTotalAmount: strMonthTotalAmount4} ],
+                              PExam: [{ExamName: strExamName1, Result:strExamResult1, Date:strExamDate1}
+                                        ,{ExamName: strExamName2, Result:strExamResult2, Date:strExamDate2}
+                                        ,{ExamName: strExamName3, Result:strExamResult3, Date:strExamDate3}
+                                        ,{ExamName: strExamName4, Result:strExamResult4, Date:strExamDate4}
+                                        ,{ExamName: strExamName5, Result:strExamResult5, Date:strExamDate5}],
+                              PHeadacheOverview: {HeadacheType: strHeadacheType, HeadacheDegree: strHeadacheDegree, HeadcheTime: strHeadcheTime
+                                                    , HeacheTimeUnit: strHeacheTimeUnit, FrequencyPerDay: strFrequencyPerDay, FrequencyPerMonth: strFrequencyPerMonth
+                                                    , OnsetFixedDay: strOnsetFixedDay, OnsetFixedYear: strOnsetFixedYear, OnsetDate: strOnsetDate
+                                                    , OnsetAmount: strOnsetAmount, DailyAggravation: strDailyAggravation, FirstOnsetContinue: strFirstOnsetContinue
+                                                    , HeadachePlace:[{Position: strPosition, SpecificPlace: strSpecificPlace1}, {Position: strPosition, SpecificPlace: strSpecificPlace2}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace1}, {Position: strPosition, SpecificPlace: strSpecificPlace2}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace3}, {Position: strPosition, SpecificPlace: strSpecificPlace4}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace5}, {Position: strPosition, SpecificPlace: strSpecificPlace6}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace7}, {Position: strPosition, SpecificPlace: strSpecificPlace8}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace9}, {Position: strPosition, SpecificPlace: strSpecificPlace10}
+                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace11}, {Position: "", SpecificPlace: strSpecificPlace12}
+                                                                        , {Position: "", SpecificPlace: strSpecificPlace13}]
+                                                    , HeadacheAccompany: [{Symptom: strHeadacheAccompanySymptom1},{Symptom: strHeadacheAccompanySymptom2}
+                                                                            , {Symptom: strHeadacheAccompanySymptom3},{Symptom: strHeadacheAccompanySymptom4}
+                                                                            , {Symptom: strHeadacheAccompanySymptom5},{Symptom: strHeadacheAccompanySymptom6}
+                                                                            , {Symptom: strHeadacheAccompanySymptom7},{Symptom: strHeadacheAccompanySymptom8}
+                                                                            , {Symptom: strHeadacheAccompanySymptom9},{Symptom: strHeadacheAccompanySymptom10}
+                                                                            , {Symptom: strHeadacheAccompanySymptom11},{Symptom: strHeadacheAccompanySymptom12}]
+                                                    , MitigatingFactors: [ {FactorName: strMitigatingFactor1}, {FactorName: strMitigatingFactor2}, {FactorName: strMitigatingFactor3}
+                                                                            , {FactorName: strMitigatingFactor4}, {FactorName: strMitigatingFactor5}, {FactorName: strMitigatingFactor6}
+                                                                            , {FactorName: strMitigatingFactor7}, {FactorName: strMitigatingFactor8}, {FactorName: strMitigatingFactor9}
+                                                                            , {FactorName: strMitigatingFactor10} ]
+                                                    , PrecipitatingFactor: [ {} ]
+                                                    , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3} ]},
+                              visitrecord: {OutpatientID: strOutpatientID, ChiefComplaint: strChiefComplaint, VisitDate: strVisitDate
+                                                    ,CDSSDiagnosis1: strCDSSDiagnosis1, CDSSDiagnosis2: strCDSSDiagnosis2, CDSSDiagnosis3: strCDSSDiagnosis3
+                                                    ,DiagnosisResult1: strDiagnosisResult1, DiagnosisResult2: strDiagnosisResult2, DiagnosisResult3: strDiagnosisResult3
+                                                    ,Prescription: strPrescription
+                                                    ,SecondaryHeadacheSymptom:[{Symptom: strSecondaryHeadacheSymptom1}, {Symptom: strSecondaryHeadacheSymptom2}, {Symptom: strSecondaryHeadacheSymptom3}
+                                                                                , {Symptom: strSecondaryHeadacheSymptom4}, {Symptom: strSecondaryHeadacheSymptom5}, {Symptom: strSecondaryHeadacheSymptom6}
+                                                                                , {Symptom: strSecondaryHeadacheSymptom7}, {Symptom: strSecondaryHeadacheSymptom8}, {Symptom: strSecondaryHeadacheSymptom9}
+                                                                                , {Symptom: strSecondaryHeadacheSymptom10}]}
+                                             };
                 var encoded = $.toJSON(thing);
                 $("#ocx").hide();
                 $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
