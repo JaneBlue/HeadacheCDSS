@@ -14,5 +14,6 @@ namespace HeadacheCDSSWeb.Models
         public List<PreviousExam> PExam { get; set; }
         public VisitRecord visitrecord { get; set; }
         public PrimaryHeadacheOverView PHeadacheOverview { get; set; }
+        public SecondaryHeadacheSymptom secHeadacheSymptom { get; set; }
     }
 }
