@@ -174,7 +174,6 @@
     <Property Name="ExerciseDescription" Type="nvarchar(max)" Nullable="true" />
     <Property Name="WeightChange" Type="nvarchar(max)" Nullable="true" />
     <Property Name="WeightChangeNote" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="OtherLifeStyleFactor" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="HeadachePlaceSet">
     <Key>
@@ -680,7 +679,6 @@
           <Property Type="String" Name="ExerciseDescription" Nullable="true" />
           <Property Type="String" Name="WeightChange" Nullable="true" />
           <Property Type="String" Name="WeightChangeNote" Nullable="true" />
-          <Property Type="String" Name="OtherLifeStyleFactor" Nullable="true" />
           <NavigationProperty Name="SpecialDiet" Relationship="HeadacheModel.LifestyleSpecialDiet" FromRole="Lifestyle" ToRole="SpecialDiet" />
           <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforLifestyle" FromRole="Lifestyle" ToRole="PatBasicInfor" />
         </EntityType>
@@ -1060,7 +1058,6 @@
           <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
           <ScalarProperty Name="WeightChange" ColumnName="WeightChange" />
           <ScalarProperty Name="WeightChangeNote" ColumnName="WeightChangeNote" />
-          <ScalarProperty Name="OtherLifeStyleFactor" ColumnName="OtherLifeStyleFactor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1227,7 +1224,7 @@
           <ConnectorPoint PointX="2.875" PointY="1.6100162760416672" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HeadacheModel.PrimaryHeadacheOverView" Width="1.75" PointX="7.875" PointY="1.25" Height="4.6443082682291656" />
-        <EntityTypeShape EntityType="HeadacheModel.Lifestyle" Width="1.875" PointX="0.5" PointY="7.375" Height="5.2173673502604156" />
+        <EntityTypeShape EntityType="HeadacheModel.Lifestyle" Width="1.875" PointX="0.5" PointY="7.375" Height="5.0263476562499978" />
         <EntityTypeShape EntityType="HeadacheModel.HeadachePlace" Width="1.5" PointX="10.25" PointY="1.125" Height="1.9700325520833339" />
         <EntityTypeShape EntityType="HeadacheModel.HeadacheAccompany" Width="1.5" PointX="10.25" PointY="3.375" Height="1.7790128580729165" />
         <EntityTypeShape EntityType="HeadacheModel.HeadacheProdrome" Width="1.5" PointX="10.5" PointY="7" Height="1.7790128580729165" />
@@ -1250,8 +1247,8 @@
         <EntityTypeShape EntityType="HeadacheModel.OtherFamilyDisease" Width="1.5" PointX="0.5" PointY="5.25" Height="1.7790128580729165" />
         <EntityTypeShape EntityType="HeadacheModel.SpecialDiet" Width="1.5" PointX="3.625" PointY="10.875" Height="1.7790128580729157" />
         <AssociationConnector Association="HeadacheModel.LifestyleSpecialDiet">
-          <ConnectorPoint PointX="2.375" PointY="11.733683675130209" />
-          <ConnectorPoint PointX="3.625" PointY="11.733683675130209" />
+          <ConnectorPoint PointX="2.375" PointY="11.638173828124998" />
+          <ConnectorPoint PointX="3.625" PointY="11.638173828124998" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HeadacheModel.MedicationAdvice" Width="2" PointX="5.625" PointY="5.25" Height="2.5430916341145817" />
         <AssociationConnector Association="HeadacheModel.PatBasicInforVisitRecord">
@@ -1287,14 +1284,14 @@
         <AssociationConnector Association="HeadacheModel.PatBasicInforOtherFamilyDisease">
           <ConnectorPoint PointX="3.203125" PointY="5.2693082682291656" />
           <ConnectorPoint PointX="3.203125" PointY="5.6659041341145828" />
+          <ConnectorPoint PointX="3.1145833333333335" PointY="5.6659041341145819" />
+          <ConnectorPoint PointX="2.9479166666666665" PointY="5.6659041341145828" />
           <ConnectorPoint PointX="2" PointY="5.6659041341145828" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.PatBasicInforLifestyle" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.875" PointY="5.2693082682291656" />
-          <ConnectorPoint PointX="2.5" PointY="5.6443082682291656" />
-          <ConnectorPoint PointX="2.75" PointY="5.6443082682291656" />
-          <ConnectorPoint PointX="2.75" PointY="7" />
-          <ConnectorPoint PointX="2.375" PointY="7.375" />
+          <ConnectorPoint PointX="3.03125" PointY="5.2693082682291656" />
+          <ConnectorPoint PointX="3.03125" PointY="10.705526123046875" />
+          <ConnectorPoint PointX="2.375" PointY="10.705526123046875" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HeadacheModel.SecondaryHeadacheSymptom" Width="1.5" PointX="12.125" PointY="0.625" Height="1.3969734700520831" />
         <AssociationConnector Association="HeadacheModel.VisitRecordSecondaryHeadacheSymptom">

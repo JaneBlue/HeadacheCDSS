@@ -38,7 +38,6 @@ namespace HeadacheCDSSWeb.Models
         public string ExerciseDescription { get; set; }
         public string WeightChange { get; set; }
         public string WeightChangeNote { get; set; }
-        public string OtherLifeStyleFactor { get; set; }
     
         public virtual ICollection<SpecialDiet> SpecialDiet { get; set; }
         public virtual PatBasicInfor PatBasicInfor { get; set; }

@@ -88,7 +88,6 @@
           <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
           <ScalarProperty Name="WeightChange" ColumnName="WeightChange" />
           <ScalarProperty Name="WeightChangeNote" ColumnName="WeightChangeNote" />
-          <ScalarProperty Name="OtherLifeStyleFactor" ColumnName="OtherLifeStyleFactor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -189,6 +188,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FactorName" ColumnName="FactorName" />
           <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+          <ScalarProperty Name="FactorDetail" ColumnName="FactorDetail" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

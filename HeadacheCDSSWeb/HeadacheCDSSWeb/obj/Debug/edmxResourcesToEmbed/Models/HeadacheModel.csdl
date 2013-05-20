@@ -201,7 +201,6 @@
     <Property Type="String" Name="ExerciseDescription" Nullable="true" />
     <Property Type="String" Name="WeightChange" Nullable="true" />
     <Property Type="String" Name="WeightChangeNote" Nullable="true" />
-    <Property Type="String" Name="OtherLifeStyleFactor" Nullable="true" />
     <NavigationProperty Name="SpecialDiet" Relationship="HeadacheModel.LifestyleSpecialDiet" FromRole="Lifestyle" ToRole="SpecialDiet" />
     <NavigationProperty Name="PatBasicInfor" Relationship="HeadacheModel.PatBasicInforLifestyle" FromRole="Lifestyle" ToRole="PatBasicInfor" />
   </EntityType>
@@ -364,6 +363,7 @@
     <Property Type="String" Name="FactorName" Nullable="false" />
     <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.HeadachaOverViewPrecipitatingFactor" FromRole="PrecipitatingFactor" ToRole="HeadachaOverView" />
     <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
+    <Property Type="String" Name="FactorDetail" Nullable="false" />
   </EntityType>
   <EntityType Name="MitigatingFactors">
     <Key>

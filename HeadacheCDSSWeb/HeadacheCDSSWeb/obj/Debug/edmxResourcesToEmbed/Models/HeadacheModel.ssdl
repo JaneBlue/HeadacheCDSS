@@ -169,7 +169,6 @@
     <Property Name="ExerciseDescription" Type="nvarchar(max)" Nullable="true" />
     <Property Name="WeightChange" Type="nvarchar(max)" Nullable="true" />
     <Property Name="WeightChangeNote" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="OtherLifeStyleFactor" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="HeadachePlaceSet">
     <Key>
@@ -260,6 +259,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FactorName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeadachaOverViewId" Type="int" Nullable="false" />
+    <Property Name="FactorDetail" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="MitigatingFactorsSet">
     <Key>
