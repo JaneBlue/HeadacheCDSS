@@ -17,7 +17,10 @@ namespace HeadacheCDSSWeb.Controllers
             this.TempData["PatID"] = ID;
             this.ViewBag.patId = ID;
             List<VisitRecord> Lvisit = visitop.GetVistRecord(ID);
-            this.TempData["recordID"] = Lvisit.First().Id;
+            if (Lvisit.Count != 0)
+            {
+                this.TempData["recordID"] = Lvisit.First().Id;
+            }
             return View(Lvisit);
         }
         public ActionResult ViewVisitRecordDetail(List<string> PostID)
