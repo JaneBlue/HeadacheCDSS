@@ -102,7 +102,7 @@ namespace HeadacheCDSSWeb.Controllers
             {
                 return this.Json(new { OK = false, Message = e.Message + "推理出错" });
             }
-
+            strResult = "123";
             return this.Json(new { OK = true, Message = strResult});
          }
     }
