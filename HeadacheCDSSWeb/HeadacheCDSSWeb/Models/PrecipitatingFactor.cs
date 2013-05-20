@@ -17,6 +17,7 @@ namespace HeadacheCDSSWeb.Models
         public int Id { get; set; }
         public string FactorName { get; set; }
         public int HeadachaOverViewId { get; set; }
+        public string FactorDetail { get; set; }
     
         public virtual PrimaryHeadacheOverView HeadachaOverView { get; set; }
     }

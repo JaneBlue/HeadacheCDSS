@@ -68,6 +68,34 @@ namespace HeadacheCDSSWeb.Models
         {
             try
             {
+                //对于空字符串进行处理
+                for (int i = 0; i < VData.HFamilyMember.Count; i++)
+                {
+                    if (VData.HFamilyMember[i].Person == "")
+                    {
+                        VData.HFamilyMember.RemoveAt(i);
+                    }
+                }
+                for(int j=0;j<VData.OFamilyDisease.Count;j++)
+                {
+                    if(VData.OFamilyDisease[j].DiseaseName==""){
+                        VData.OFamilyDisease.RemoveAt(j);
+                    }
+                }
+                for (int m = 0; m < VData.PDrug.Count; m++)
+                {
+                    if (VData.PDrug[m].DrugCategory == "")
+                    {
+                        VData.PDrug.RemoveAt(m);
+                    }
+                }
+                for (int n = 0; n < VData.PExam.Count; n++)
+                {
+                    if (VData.PExam[n].ExamName == "")
+                    {
+                        VData.PExam.RemoveAt(n);
+                    }
+                }
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
                 pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
                 pt.OtherFamilyDisease = VData.OFamilyDisease;
@@ -79,10 +107,49 @@ namespace HeadacheCDSSWeb.Models
                     VisitRecord vr = new VisitRecord();//问诊记录信息保存
                     vr = VData.visitrecord;
                     vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
+                    for (int n = 0; n < VData.PHeadacheOverview.HeadacheAccompany.Count; n++)
+                    {
+                        HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
+                        if (ha.Symptom == "")
+                        {
+                            VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
+                        }
+                    }
+                    for (int n = 0; n < VData.PHeadacheOverview.HeadacheProdrome.Count; n++)
+                    {
+                        HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
+                        if (ha.Prodrome == "")
+                        {
+                            VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
+                        }
+                    }
+                    for (int n = 0; n < VData.PHeadacheOverview.HeadachePlace.Count; n++)
+                    {
+                        HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
+                        if (ha.Position == "")
+                        {
+                            VData.PHeadacheOverview.HeadachePlace.Remove(ha);
+                        }
+                    }
                     vr.PatBasicInforId = PatID;
                     pt.VisitRecord.Add(vr);
                 }
-
+                for (int n = 0; n < VData.PHeadacheOverview.MitigatingFactors.Count; n++)
+                {
+                    MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
+                    if (ha.FactorName == "")
+                    {
+                        VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
+                    }
+                }
+                for (int n = 0; n < VData.PHeadacheOverview.PrecipitatingFactor.Count; n++)
+                {
+                    PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
+                    if (ha.FactorName == "")
+                    {
+                        VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
+                    }
+                }
                 context.SaveChanges();
                 return true;
             }

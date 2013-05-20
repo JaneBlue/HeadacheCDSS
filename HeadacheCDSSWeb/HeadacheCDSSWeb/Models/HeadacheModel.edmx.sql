@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/16/2013 13:29:17
+-- Date Created: 05/20/2013 10:22:22
 -- Generated from EDMX file: D:\2013CDSS\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -300,7 +300,8 @@ GO
 CREATE TABLE [dbo].[PrecipitatingFactorSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [FactorName] nvarchar(max)  NOT NULL,
-    [HeadachaOverViewId] int  NOT NULL
+    [HeadachaOverViewId] int  NOT NULL,
+    [FactorDetail] nvarchar(max)  NOT NULL
 );
 GO
 

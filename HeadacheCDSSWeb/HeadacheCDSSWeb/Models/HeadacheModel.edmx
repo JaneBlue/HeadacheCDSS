@@ -265,6 +265,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FactorName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="HeadachaOverViewId" Type="int" Nullable="false" />
+    <Property Name="FactorDetail" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="MitigatingFactorsSet">
     <Key>
@@ -842,6 +843,7 @@
           <Property Type="String" Name="FactorName" Nullable="false" />
           <NavigationProperty Name="HeadachaOverView" Relationship="HeadacheModel.HeadachaOverViewPrecipitatingFactor" FromRole="PrecipitatingFactor" ToRole="HeadachaOverView" />
           <Property Type="Int32" Name="HeadachaOverViewId" Nullable="false" />
+          <Property Type="String" Name="FactorDetail" Nullable="false" />
         </EntityType>
         <EntityType Name="MitigatingFactors">
           <Key>
@@ -1159,6 +1161,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FactorName" ColumnName="FactorName" />
           <ScalarProperty Name="HeadachaOverViewId" ColumnName="HeadachaOverViewId" />
+          <ScalarProperty Name="FactorDetail" ColumnName="FactorDetail" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1226,20 +1229,20 @@
         <EntityTypeShape EntityType="HeadacheModel.PrimaryHeadacheOverView" Width="1.75" PointX="7.875" PointY="1.25" Height="4.6443082682291656" />
         <EntityTypeShape EntityType="HeadacheModel.Lifestyle" Width="1.875" PointX="0.5" PointY="7.375" Height="5.2173673502604156" />
         <EntityTypeShape EntityType="HeadacheModel.HeadachePlace" Width="1.5" PointX="10.25" PointY="1.125" Height="1.9700325520833339" />
-        <EntityTypeShape EntityType="HeadacheModel.HeadacheAccompany" Width="1.5" PointX="10.375" PointY="3.125" Height="1.7790128580729165" />
+        <EntityTypeShape EntityType="HeadacheModel.HeadacheAccompany" Width="1.5" PointX="10.25" PointY="3.375" Height="1.7790128580729165" />
         <EntityTypeShape EntityType="HeadacheModel.HeadacheProdrome" Width="1.5" PointX="10.5" PointY="7" Height="1.7790128580729165" />
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewHeadachePlace">
           <ConnectorPoint PointX="9.625" PointY="2.1725162760416667" />
           <ConnectorPoint PointX="10.25" PointY="2.1725162760416667" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewHeadacheAccompany">
-          <ConnectorPoint PointX="9.625" PointY="4.0145064290364587" />
-          <ConnectorPoint PointX="10.375" PointY="4.0145064290364587" />
+          <ConnectorPoint PointX="9.625" PointY="4.2645064290364587" />
+          <ConnectorPoint PointX="10.25" PointY="4.2645064290364587" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewHeadacheProdrome" ManuallyRouted="false">
           <ConnectorPoint PointX="7.96875" PointY="5.8943082682291656" />
-          <ConnectorPoint PointX="7.96875" PointY="8.6227628580729174" />
-          <ConnectorPoint PointX="10.5" PointY="8.6227628580729174" />
+          <ConnectorPoint PointX="7.96875" PointY="8.7182727050781246" />
+          <ConnectorPoint PointX="10.5" PointY="8.7182727050781246" />
         </AssociationConnector>
         <EntityTypeShape EntityType="HeadacheModel.PreviousDrug" Width="1.5" PointX="3.875" PointY="5.75" Height="2.3520719401041656" />
         <EntityTypeShape EntityType="HeadacheModel.PreviousExam" Width="1.5" PointX="3.25" PointY="8.375" Height="2.1610522460937496" />
@@ -1255,11 +1258,11 @@
           <ConnectorPoint PointX="4.375" PointY="2.69011474609375" />
           <ConnectorPoint PointX="5" PointY="2.69011474609375" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="HeadacheModel.PrecipitatingFactor" Width="1.5" PointX="8.125" PointY="6.625" Height="1.7790128580729157" />
-        <EntityTypeShape EntityType="HeadacheModel.MitigatingFactors" Width="1.5" PointX="10.5" PointY="5" Height="1.7790128580729157" />
+        <EntityTypeShape EntityType="HeadacheModel.PrecipitatingFactor" Width="1.5" PointX="8.125" PointY="6.625" Height="1.9700325520833317" />
+        <EntityTypeShape EntityType="HeadacheModel.MitigatingFactors" Width="1.5" PointX="10.375" PointY="5.25" Height="1.7790128580729157" />
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewMitigatingFactors">
-          <ConnectorPoint PointX="9.625" PointY="5.4471541341145819" />
-          <ConnectorPoint PointX="10.5" PointY="5.4471541341145819" />
+          <ConnectorPoint PointX="9.625" PointY="5.5721541341145828" />
+          <ConnectorPoint PointX="10.375" PointY="5.5721541341145828" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewPrecipitatingFactor" ManuallyRouted="false">
           <ConnectorPoint PointX="8.875" PointY="5.8943082682291656" />
