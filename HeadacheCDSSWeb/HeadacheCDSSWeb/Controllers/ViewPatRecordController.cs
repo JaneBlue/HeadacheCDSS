@@ -64,6 +64,10 @@ namespace HeadacheCDSSWeb.Controllers
         {
             return PartialView("HeadacheDiaryView");
         }
+        public ActionResult ViewDiaryReport()
+        {
+            return PartialView("DiaryReportView");
+        }
         public ActionResult ContinueDiagnosis(string ID)
         {
             string identity = ID + "%";

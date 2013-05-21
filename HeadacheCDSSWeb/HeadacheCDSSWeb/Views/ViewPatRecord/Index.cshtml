@@ -48,7 +48,8 @@
           <h3 >头痛日志</h3>
           <div>
               <ul class="diary">
-              <li><a href="#"  >日志分析</a></li>
+              <li ><a href="#"  id="statics">头痛情况统计分析</a></li>
+              <li ><a href="#" id="report" >近三个月分析报告</a></li>
               </ul>
           </div>
     </div>
@@ -122,20 +123,35 @@
 
         });
         $(".diary li a").click(function () {
-            $.ajax({
-                type: "POST",
+            if ($(this).attr("id") == "statics") {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ViewDiary", "ViewPatRecord")',
+                    success: function (data) {
+                        $("#ViewContent").hide();
+                        $("#DiaryView").html(data);
+                        $("#DiaryView").show();
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("ViewDiaryReport", "ViewPatRecord")',
+                    success: function (data) {
+                        $("#ViewContent").hide();
+                        $("#DiaryView").html(data);
+                        $("#DiaryView").show();
+                    },
+                    error: function () {
+                        alert("处理失败!");
+                    }
+                });
 
-                url: '@Url.Action("ViewDiary", "ViewPatRecord")',
-                success: function (data) {
-                    $("#ViewContent").hide();
-                    $("#DiaryView").html(data);
-                    $("#DiaryView").show();
-                },
-                error: function () {
-                    alert("处理失败!");
-                }
-
-            });
+            }
 
         });
         $("#delete").click(function () {

@@ -16,17 +16,21 @@ $(function () {
             var OCX = document.getElementById('Reporter2');
             if($(".selected").last().attr("id") == "基本筛查"){
             //var Secondheadache=new Array()
-            var myBoolean=new Boolean(false);
-            for(var i =0;i<10;i++){
-              var j=i+1;
-              var Name="CheckBox_"+j.toString();
-              if("true" == OCX.GetObjectInfo(Name, "checked")){
-              myBoolean=true;
-              }
-              if(myBoolean){
-              alert("ayaa");
-              }
-             // Secondheadache[i]=OCX.GetObjectInfo(CheckboxName, "checked");
+                var myBoolean=new Boolean(false);
+                for(var i =0;i<10;i++){
+                          var j=i+1;
+                          var Name="CheckBox_"+j.toString();
+                          if("true" == OCX.GetObjectInfo(Name, "checked"))
+                          {
+                          myBoolean=true;
+                          }
+                  }
+                 if(myBoolean==true){
+                $(".selected").next().addClass("selected"); 
+                $(".active").next().addClass("active");
+                $(".active").first().removeClass("active");
+               }
+           
             }
             if ($(".selected").last().attr("id") == "报告") {
                 //get SecondaryHeadacheSymptoms
