@@ -23,26 +23,18 @@ h3
     margin:10px 57px 0 55px;
    cursor:pointer;
 }
-
-
-
 p
 {
     margin-top: 9px;
 }
-
-
-
 #wrapper {
 }
 /* Header */
-
 #header {
 	width: 962px;
 	height: 162px;
 	margin: 0 auto;
 	background: url(images/head.png) no-repeat right top;
-	
 }
 #header a
 {
@@ -50,38 +42,27 @@ p
    margin: 70px  25px 0 0 ;
    color:#F0BE72;
 }
-
 /* Page */
-
 #page {
 	width: 960px;
 	margin: 0 auto;
 }
-
 /* Content */
-
 #content {
 	float: right;
 	width: 704px;
 	height:715px;
 	margin: 0;
-	background: url(images/Content.png) no-repeat ;
-	
+	background: url(images/Content.png) no-repeat ;	
 }
 #ocx
 {
     margin:45px  0 0 45px ;
 }
-
-
-	
-
 #detail
 {
-    float:left;
-    
+    float:left;   
 }
-
 input
 {
     font-size: 16px;
@@ -126,7 +107,6 @@ padding-top: 7px;
 font-size: 18px;
 
 }
-
 .error
 {
     display :block;
@@ -134,13 +114,9 @@ font-size: 18px;
     color: #CA471B;
     line-height: 24px;
 }
-
-
-
 .title {
 	margin: 10 0 0 10px;
-	padding-bottom: 5px;
-	
+	padding-bottom: 5px;	
 }
 .button a
 {
@@ -155,9 +131,7 @@ font-size: 18px;
 	padding-top:6px;
 	width :138px;
     background: url(images/normal-button.png) no-repeat ;
-    text-align:center;
-    
-   
+    text-align:center; 
 }
 
 .button:hover
@@ -173,8 +147,6 @@ font-size: 18px;
 {
     cursor:pointer;
 }
-
-
 input[type="submit"]
 {
      height: 37px;
@@ -187,7 +159,6 @@ input[type="submit"]
     border:0;
     font-family:"Microsoft YaHei";
 }
-
 input[type="submit"]:hover
 {
      background: url(images/hover-button.png) no-repeat ;
@@ -196,9 +167,7 @@ input[type="submit"]:active
 {
      background: url(images/click-button.png) no-repeat ;
 }
-
 /* Sidebar */
-
 #sidebar {
 	float: left;
 	width: 256px;
@@ -216,10 +185,8 @@ input[type="submit"]:active
 #List ul {
 	margin: 0;
 	padding: 10px 10px 0 10px;
-	list-style: none;
-	
+	list-style: none;	
 }
-
 #List li
 { 
 	background-color:#B9DCF2;
@@ -227,8 +194,7 @@ input[type="submit"]:active
    margin-bottom:10px;
 	width: 195px;
 	height:35px;
-	text-align: center;
-	
+	text-align: center;	
 }
 #List h2 {
 	text-decoration: none;
@@ -240,8 +206,7 @@ input[type="submit"]:active
 #List a {
 	color: #076FA2;
 	font-size:18px;
-	text-decoration: none;
-    
+	text-decoration: none;   
 }
 
 #List a:hover {
@@ -278,4 +243,47 @@ input[type="submit"]:active
 	color: #52640A;
 }
 
-
+.statics
+{
+    margin: 40px 30px 30px 30px;
+    width:644px;
+    height:640px;
+}
+#time
+{
+  float:right;
+  margin:10px;
+  border-style:inset;
+  height:80px;
+  width:480px;
+}
+#line
+{
+  float:left;
+  margin :15px 0  10px 10px;
+  border-style:inset;
+  height:240px;
+  width:620px;
+}
+#pie
+{
+  float:left;
+  margin :15px 0  10px 10px;
+  border-style:inset;
+  height:240px;
+  width:620px;
+}
+#variable1
+{
+    float:left;
+    width: 120px;
+    height: 180px;
+    border-style:inset;
+}
+#variable2
+{
+    float:left;
+    width: 120px;
+    height: 240px;
+    border-style:inset;
+}
