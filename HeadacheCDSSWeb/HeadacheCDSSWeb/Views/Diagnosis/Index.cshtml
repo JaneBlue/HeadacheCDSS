@@ -591,12 +591,15 @@ $(function () {
                 var strHeadacheProdrome1 = "";
                 var strHeadacheProdrome2 = "";
                 var strHeadacheProdrome3 = "";
+                var strHeadacheProdrome4 = "";
                 if("true" == OCX.GetObjectInfo("RadioBox_VisionYes", "checked"))
                     strHeadacheProdrome1 = "视觉（点状/色斑/线型闪光幻觉/视野缺损）";
                 if("true" == OCX.GetObjectInfo("RadioBox_FeelingYes", "checked"))
                     strHeadacheProdrome2 = "感觉（针刺感/麻木）";
                 if("true" == OCX.GetObjectInfo("RadioBox_WordYes", "checked"))
                     strHeadacheProdrome3 = "语言障碍";
+                if("true" == OCX.GetObjectInfo("RadioBox_2", "checked"))
+                    strHeadacheProdrome4 = "运动障碍";
 
                 //get visit record
                 var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
@@ -658,7 +661,7 @@ $(function () {
                                                                             , {FactorName: strPrecipitatingFactor4, FactorDetail: strPrecipitatingFactorDetail4}, {FactorName: strPrecipitatingFactor5, FactorDetail: strPrecipitatingFactorDetail5}, {FactorName: strPrecipitatingFactor6, FactorDetail: strPrecipitatingFactorDetail6}
                                                                             , {FactorName: strPrecipitatingFactor7, FactorDetail: }, {FactorName: strPrecipitatingFactor8, FactorDetail: }, {FactorName: strPrecipitatingFactor9, FactorDetail: }
                                                                             , {FactorName: strPrecipitatingFactor10, FactorDetail: strPrecipitatingFactorDetail10} ]
-                                                    , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3} ]},
+                                                    , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3}, {Prodrome: strHeadacheProdrome4} ]},
                               visitrecord: {OutpatientID: strOutpatientID, ChiefComplaint: strChiefComplaint, VisitDate: strVisitDate
                                                     ,CDSSDiagnosis1: strCDSSDiagnosis1, CDSSDiagnosis2: strCDSSDiagnosis2, CDSSDiagnosis3: strCDSSDiagnosis3
                                                     ,DiagnosisResult1: strDiagnosisResult1, DiagnosisResult2: strDiagnosisResult2, DiagnosisResult3: strDiagnosisResult3
