@@ -131,6 +131,8 @@
                         $("#ViewContent").hide();
                         $("#DiaryView").html(data);
                         $("#DiaryView").show();
+                        var plot1 = $.jqplot('linegraph', [[3, 7, 9, 1, 4, 6, 8, 2, 5]]);
+
                     },
                     error: function () {
                         alert("处理失败!");
@@ -177,4 +179,7 @@
         })
 
     });
+    
+        
+     
   </script>

@@ -287,3 +287,17 @@ input[type="submit"]:active
     height: 240px;
     border-style:inset;
 }
+#linegraph
+{
+     float:right;
+    width: 420px;
+    height: 230px;
+    border-style:inset;
+}
+#piegraph
+{
+     float:right;
+    width: 420px;
+    height: 230px;
+    border-style:inset;
+}

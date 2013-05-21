@@ -182,6 +182,7 @@
     <Content Include="Content\images\未标题-1_18.png" />
     <Content Include="Content\indexstyle.css" />
     <Content Include="Content\jqpagination.css" />
+    <Content Include="Content\jquery.jqplot.min.css" />
     <Content Include="Content\Loginstyle.css" />
     <Content Include="Content\patstyle.css" />
     <Content Include="Content\RecordViewstyle.css" />
@@ -235,6 +236,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
+    <Content Include="Scripts\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="Scripts\plugins\jquery.jqplot.min.js" />
+    <Content Include="Scripts\plugins\jquery.min.js" />
     <Content Include="Scripts\wbox-min.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
     <Content Include="Web.config">
