@@ -614,6 +614,8 @@ $(function () {
                 var strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_34", "text");
                 var strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_35", "text");
 
+                //prescription
+                var strPrescription = "";
 
                 var thing = { HFamilyMember: [ { Person: strFuQin}, { Person: strMuQin}, { Person: strXiongDi}
                                             , { Person: strJieMei}, { Person: strErZi}, { Person: strNvEr}
@@ -643,13 +645,13 @@ $(function () {
                                                     , HeacheTimeUnit: strHeacheTimeUnit, FrequencyPerDay: strFrequencyPerDay, FrequencyPerMonth: strFrequencyPerMonth
                                                     , OnsetFixedDay: strOnsetFixedDay, OnsetFixedYear: strOnsetFixedYear, OnsetDate: strOnsetDate
                                                     , OnsetAmount: strOnsetAmount, DailyAggravation: strDailyAggravation, FirstOnsetContinue: strFirstOnsetContinue
-                                                    , HeadachePlace:[{Position: strPosition, SpecificPlace: strSpecificPlace1}, {Position: strPosition, SpecificPlace: strSpecificPlace2}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace1}, {Position: strPosition, SpecificPlace: strSpecificPlace2}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace3}, {Position: strPosition, SpecificPlace: strSpecificPlace4}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace5}, {Position: strPosition, SpecificPlace: strSpecificPlace6}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace7}, {Position: strPosition, SpecificPlace: strSpecificPlace8}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace9}, {Position: strPosition, SpecificPlace: strSpecificPlace10}
-                                                                        , {Position: strPosition, SpecificPlace: strSpecificPlace11}, {Position: "", SpecificPlace: strSpecificPlace12}
+                                                    , HeadachePlace:[{Position: strHeadachePlace, SpecificPlace: strSpecificPlace1}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace2}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace1}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace2}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace3}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace4}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace5}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace6}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace7}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace8}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace9}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace10}
+                                                                        , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace11}, {Position: "", SpecificPlace: strSpecificPlace12}
                                                                         , {Position: "", SpecificPlace: strSpecificPlace13}]
                                                     , HeadacheAccompany: [{Symptom: strHeadacheAccompanySymptom1},{Symptom: strHeadacheAccompanySymptom2}
                                                                             , {Symptom: strHeadacheAccompanySymptom3},{Symptom: strHeadacheAccompanySymptom4}
@@ -666,7 +668,7 @@ $(function () {
                                                                             , {FactorName: strPrecipitatingFactor7, FactorDetail: strPrecipitatingFactorDetail7}, {FactorName: strPrecipitatingFactor8, FactorDetail: strPrecipitatingFactorDetail8}, {FactorName: strPrecipitatingFactor9, FactorDetail: strPrecipitatingFactorDetail9}
                                                                             , {FactorName: strPrecipitatingFactor10, FactorDetail: strPrecipitatingFactorDetail10} ]
                                                     , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3}, {Prodrome: strHeadacheProdrome4} ]},
-                              visitrecord: {OutpatientID: strOutpatientID, ChiefComplaint: strChiefComplaint, VisitDate: strVisitDate
+                              visitrecord: {ChiefComplaint: strChiefComplaint
                                                     ,CDSSDiagnosis1: strCDSSDiagnosis1, CDSSDiagnosis2: strCDSSDiagnosis2, CDSSDiagnosis3: strCDSSDiagnosis3
                                                     ,DiagnosisResult1: strDiagnosisResult1, DiagnosisResult2: strDiagnosisResult2, DiagnosisResult3: strDiagnosisResult3
                                                     ,Prescription: strPrescription
