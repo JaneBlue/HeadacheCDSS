@@ -142,7 +142,7 @@ input[type="submit"]
 {
      height: 37px;
 	float: left;
-	margin-left:106px;
+	margin-left:70px;
 	padding:0;
 	width :138px;
     background: url(images/normal-button.png) no-repeat ;
@@ -244,15 +244,21 @@ input[type="submit"]:active
 {
   float:right;
   margin:10px;
-  border-style:inset;
+ 
   height:80px;
-  width:480px;
+  width:620px;
+}
+#time input
+{
+    width:140px;
 }
 #line
 {
   float:left;
   margin :15px 0  10px 10px;
-  border-style:inset;
+ border-style:groove;
+  border-width:2px;
+  border-color: #D3E7F2;
   height:240px;
   width:620px;
 }
@@ -260,7 +266,9 @@ input[type="submit"]:active
 {
   float:left;
   margin :15px 0  10px 10px;
-  border-style:inset;
+ border-style:groove;
+  border-width:2px;
+  border-color: #D3E7F2;
   height:240px;
   width:620px;
 }
@@ -269,14 +277,14 @@ input[type="submit"]:active
     float:left;
     width: 140px;
     height: 190px;
-    border-style:inset;
+    margin-top:50px;
 }
 #variable2
 {
     float:left;
     width: 140px;
     height: 240px;
-    border-style:inset;
+   
   
 }
 #linegraph
@@ -284,12 +292,11 @@ input[type="submit"]:active
      float:right;
     width: 420px;
     height: 190px;
-    border-style:inset;
 }
 #piegraph
 {
      float:right;
     width: 420px;
-    height: 230px;
-    border-style:inset;
+    height: 240px;
+   
 }
