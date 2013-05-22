@@ -66,45 +66,36 @@ p
 input
 {
     font-size: 16px;
-    margin: 0 0 0 2px;
+    margin: 5px 0 0 2px;
     float : left;
     padding: 3px  0 0 3px;
-    width:150px;
+    width:15px;
    height:28px;
-   border: 2px solid #98C2E2;
-   background-color:#D3E7F2;
-}
-select
-{
-     font-size: 16px;
-    margin: 0 0 0 2px;
-    float : left;
   
-    width:160px;
-    height:32px;
-    border: 2px solid #98C2E2;
-     background-color: #D3E7F2;
+  
 }
+
 #content ul, ol {
 	
 	display:block;
 	padding:0;
+	margin:5px 0 0 0;
+    -webkit-padding-start: 0px;
 }
 #content li
 {
     height: 32px;
     display:block;
     text-decoration:none;
-    padding-bottom:15px;
+    padding-bottom:5px;
 }
 #content li span
 {
-   width: 90px;
+   width: 100px;
 float: left;
 text-align: right;
-padding-right: 15px;
 padding-top: 7px;
-font-size: 18px;
+font-size: 16px;
 
 }
 .error
@@ -276,22 +267,23 @@ input[type="submit"]:active
 #variable1
 {
     float:left;
-    width: 120px;
-    height: 180px;
+    width: 140px;
+    height: 190px;
     border-style:inset;
 }
 #variable2
 {
     float:left;
-    width: 120px;
+    width: 140px;
     height: 240px;
     border-style:inset;
+  
 }
 #linegraph
 {
      float:right;
     width: 420px;
-    height: 230px;
+    height: 190px;
     border-style:inset;
 }
 #piegraph

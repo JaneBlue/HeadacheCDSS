@@ -238,6 +238,8 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Scripts\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
     <Content Include="Scripts\plugins\jqplot.canvasTextRenderer.min.js" />
+    <Content Include="Scripts\plugins\jqplot.donutRenderer.min.js" />
+    <Content Include="Scripts\plugins\jqplot.pieRenderer.min.js" />
     <Content Include="Scripts\plugins\jquery.jqplot.min.js" />
     <Content Include="Scripts\plugins\jquery.min.js" />
     <Content Include="Scripts\wbox-min.js" />
