@@ -298,5 +298,10 @@ input[type="submit"]:active
      float:right;
     width: 420px;
     height: 240px;
-   
+}
+#diaryreport
+{
+    margin:40px 100px 40px 100px;
+     width:504px;
+    height:640px;
 }
