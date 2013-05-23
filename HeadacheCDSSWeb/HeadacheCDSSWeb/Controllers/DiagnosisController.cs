@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using HeadacheCDSSWeb.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
 namespace HeadacheCDSSWeb.Controllers
 {
     public class DiagnosisController : Controller
@@ -42,13 +41,7 @@ namespace HeadacheCDSSWeb.Controllers
 
             try
             {
-                //jsonStr.Replace("0", null);
-                VisitData objtemp = JsonConvert.DeserializeObject<VisitData>(jsonStr);
-                string jsonIgnoreNullValues = JsonConvert.SerializeObject(objtemp, new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore, NullValueHandling = NullValueHandling.Ignore });
-                
-                jsonIgnoreNullValues = jsonIgnoreNullValues.Replace("{},", "");
-                jsonIgnoreNullValues = jsonIgnoreNullValues.Replace("{}]", "]");
-                VisitData obj = JsonConvert.DeserializeObject<VisitData>(jsonIgnoreNullValues, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                VisitData obj = JsonConvert.DeserializeObject<VisitData>(jsonStr);
                 //VisitData obj = JsonHelper.JsonDeserialize<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
                 //VisitData obj = new VisitData();
                 //obj.visitrecord = new VisitRecord();
