@@ -35,6 +35,7 @@ namespace HeadacheCDSSWeb.Models
         public List<string> Ofamilydisease;
         public List<PDrug>previousdrug{get;set;}
         public List<Exam>previousexam{get;set;}
+        public List<string> secondaryheadachesymptom { get;set; }
 
         public string OutpatientID { get; set; }
         public string ChiefComplaint { get; set; }
