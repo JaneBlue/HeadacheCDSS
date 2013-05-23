@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "ContinueVisit";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
-    }
-  @model HeadacheCDSSWeb.Models.ReportData
+}
 
 <p id="ocx">
     <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
@@ -15,13 +14,28 @@ $(function () {
       var Name=obj.Name;
       var number= obj.medicationadvice.length;
       var Medicin=obj.medicationadvice[0];
-//    var a = $.parseJSON('@Html.Raw(Json.Encode(ViewData["data"]))');
-//    var t = a.Data;
-     //SetData部分
-     //var strName= model.Name;
+
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
+            if($(".selected").last().attr("id") == "基本筛查"){
+            //var Secondheadache=new Array()
+                var myBoolean=new Boolean(false);
+                for(var i =0;i<10;i++){
+                          var j=i+1;
+                          var Name="CheckBox_"+j.toString();
+                          if("true" == OCX.GetObjectInfo(Name, "checked"))
+                          {
+                          myBoolean=true;
+                          }
+                  }
+                 if(myBoolean==true){
+                $(".selected").next().addClass("selected"); 
+                $(".active").next().addClass("active");
+                $(".active").first().removeClass("active");
+               }
+           
+            }
             if ($(".selected").last().attr("id") == "报告") {
                 //get SecondaryHeadacheSymptoms
                 var strSecondaryHeadacheSymptom1 = "";
@@ -711,7 +725,7 @@ $(function () {
                                 OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + data.Message);
                             }
                             else {
-                                document.getElementById("msg").innerHTML = data.Message.toString();
+                                alert(data.Message.toString());
 
                             }
 
@@ -726,4 +740,4 @@ $(function () {
             }
      });
     });
-    </script>
+</script>
