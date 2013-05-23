@@ -68,28 +68,32 @@ namespace HeadacheCDSSWeb.Models
         {
             try
             {
+                int num1=VData.HFamilyMember.Count-1;
                 //对于空字符串进行处理
-                for (int i = 0; i < VData.HFamilyMember.Count; i++)
+                for (int i = num1; i >=0; i--)
                 {
                     if (VData.HFamilyMember[i].Person == "")
                     {
                         VData.HFamilyMember.RemoveAt(i);
                     }
                 }
-                for(int j=0;j<VData.OFamilyDisease.Count;j++)
+                int num2=VData.OFamilyDisease.Count-1;
+                for(int j=num2;j>=0;j--)
                 {
                     if(VData.OFamilyDisease[j].DiseaseName==""){
                         VData.OFamilyDisease.RemoveAt(j);
                     }
                 }
-                for (int m = 0; m < VData.PDrug.Count; m++)
+                int num3 = VData.PDrug.Count-1;
+                for (int m = num3; m >=0; m--)
                 {
                     if (VData.PDrug[m].DrugCategory == "")
                     {
                         VData.PDrug.RemoveAt(m);
                     }
                 }
-                for (int n = 0; n < VData.PExam.Count; n++)
+                int num4= VData.PExam.Count-1;
+                for (int n = num4; n>=0; n--)
                 {
                     if (VData.PExam[n].ExamName == "")
                     {
@@ -107,7 +111,8 @@ namespace HeadacheCDSSWeb.Models
                     VisitRecord vr = new VisitRecord();//问诊记录信息保存
                     vr = VData.visitrecord;
                     vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
-                    for (int n = 0; n < VData.PHeadacheOverview.HeadacheAccompany.Count; n++)
+                    int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
+                    for (int n = 0; n <=count1 ; n++)
                     {
                         HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
                         if (ha.Symptom == "")
@@ -115,7 +120,8 @@ namespace HeadacheCDSSWeb.Models
                             VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
                         }
                     }
-                    for (int n = 0; n < VData.PHeadacheOverview.HeadacheProdrome.Count; n++)
+                    int  count2=VData.PHeadacheOverview.HeadacheProdrome.Count-1;
+                    for (int n =count2; n >=0 ; n--)
                     {
                         HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
                         if (ha.Prodrome == "")
@@ -123,7 +129,8 @@ namespace HeadacheCDSSWeb.Models
                             VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
                         }
                     }
-                    for (int n = 0; n < VData.PHeadacheOverview.HeadachePlace.Count; n++)
+                    int count3=VData.PHeadacheOverview.HeadachePlace.Count-1;
+                    for (int n = count3; n >=0 ; n--)
                     {
                         HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
                         if (ha.Position == "")
@@ -134,7 +141,8 @@ namespace HeadacheCDSSWeb.Models
                     vr.PatBasicInforId = PatID;
                     pt.VisitRecord.Add(vr);
                 }
-                for (int n = 0; n < VData.PHeadacheOverview.MitigatingFactors.Count; n++)
+                int count4=VData.PHeadacheOverview.MitigatingFactors.Count-1;
+                for (int n =count4 ; n >=0 ; n++)
                 {
                     MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
                     if (ha.FactorName == "")
@@ -142,7 +150,8 @@ namespace HeadacheCDSSWeb.Models
                         VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
                     }
                 }
-                for (int n = 0; n < VData.PHeadacheOverview.PrecipitatingFactor.Count; n++)
+                int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count-1;
+                for (int n = count5; n >=0 ; n++)
                 {
                     PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
                     if (ha.FactorName == "")
