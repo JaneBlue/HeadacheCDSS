@@ -112,7 +112,7 @@ namespace HeadacheCDSSWeb.Models
                     vr = VData.visitrecord;
                     vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
                     int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
-                    for (int n = 0; n <=count1 ; n++)
+                    for (int n = count1; n >= 0; n--)
                     {
                         HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
                         if (ha.Symptom == "")
@@ -142,7 +142,7 @@ namespace HeadacheCDSSWeb.Models
                     pt.VisitRecord.Add(vr);
                 }
                 int count4=VData.PHeadacheOverview.MitigatingFactors.Count-1;
-                for (int n =count4 ; n >=0 ; n++)
+                for (int n =count4 ; n >=0 ; n--)
                 {
                     MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
                     if (ha.FactorName == "")
@@ -151,7 +151,7 @@ namespace HeadacheCDSSWeb.Models
                     }
                 }
                 int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count-1;
-                for (int n = count5; n >=0 ; n++)
+                for (int n = count5; n >=0 ; n--)
                 {
                     PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
                     if (ha.FactorName == "")
