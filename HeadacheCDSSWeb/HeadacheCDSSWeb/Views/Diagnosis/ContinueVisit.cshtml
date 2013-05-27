@@ -11,9 +11,371 @@
 <script type="text/javascript">
 $(function () {
       var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
-      var Name=obj.Name;
-      var number= obj.medicationadvice.length;
-      var Medicin=obj.medicationadvice[0];
+        //set the data to OCX
+        //set Secondary Headache Symptom
+//        var strSecondaryHeadacheSymptom = "";
+//        var lSymptomCount = obj.secondaryheadachesymptom.Count;
+//        for(var lSymptomIndex = 0; lSymptomIndex < lSymptomCount; ++lSymptomIndex)
+//        {
+//            strSecondaryHeadacheSymptom = obj.secondaryheadachesymptom[lSymptomIndex];
+//            if("突然发生的头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_1", "checked", "true");
+//            else if("逐渐加重的头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_2", "checked", "true");
+//            else if("伴有系统性病变征象（发热、颈强直、皮疹）的头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_3", "checked", "true");
+//            else if("神经系统局灶症状和体征（除典型的视觉、感觉先兆之外）" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_4", "checked", "true");
+//            else if("伴有认知障碍的头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_5", "checked", "true");
+//            else if("视乳头水肿" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_6", "checked", "true");
+//            else if("由咳嗽、用力动作诱发的头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_8", "checked", "true");
+//            else if("妊娠期或产后头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_9", "checked", "true");
+//            else if("癌症患者或AIDS患者出现新发头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_10", "checked", "true");
+//            else if("50岁后的新发头痛" == strSecondaryHeadacheSymptom)
+//                OCX.SetObjectInfo("CheckBox_7", "checked", "true");
+//        }
+
+//        //set the headache overview
+//        var strOnsetDate = obj.headacheoverview.OnsetDate;
+//        var strFirstOnsetContinue = obj.headacheoverview.FirstOnsetContinue;
+//        var strOnsetFixedDay = obj.headacheoverview.OnsetFixedDay;
+//        var strOnsetFixedYear = obj.headacheoverview.OnsetFixedYear;
+//        var strHeadacheDegree = obj.headacheoverview.HeadacheDegree;
+//        var strHeadacheType = obj.headacheoverview.HeadacheType;
+//        var strDailyAggravation = obj.headacheoverview.DailyAggravation;
+//        var strHeadcheTime = obj.headacheoverview.HeadcheTime;
+//        var strHeacheTimeUnit = obj.headacheoverview.HeacheTimeUnit;
+//        var strOnsetAmount = obj.headacheoverview.OnsetAmount;
+
+//        OCX.SetObjectInfo("DateTime_1", "text", strOnsetDate);
+//        OCX.SetObjectInfo("ComboBox_5", "text", strFirstOnsetContinue);
+//        OCX.SetObjectInfo("ComboBox_1", "text", strOnsetFixedDay);
+//        OCX.SetObjectInfo("ComboBox_6", "text", strOnsetFixedYear);
+//        OCX.SetObjectInfo("ComboBox_2", "text", strHeadacheDegree);
+//        OCX.SetObjectInfo("ComboBox_3", "text", strHeadacheType);
+//        OCX.SetObjectInfo("ComboBox_8", "text", strDailyAggravation);
+//        OCX.SetObjectInfo("TextBox_1", "text", strHeadcheTime);
+//        OCX.SetObjectInfo("ComboBox_4", "text", strHeacheTimeUnit);
+//        if(strOnsetAmount == "类似发作<5次")
+//            OCX.SetObjectInfo("RadioBox_8", "checked", "true");
+//        if(strOnsetAmount == "类似发作6-9次")
+//            OCX.SetObjectInfo("RadioBox_6", "checked", "true");
+//        if(strOnsetAmount == "类似发作超过10次")
+//            OCX.SetObjectInfo("RadioBox_7", "checked", "true");
+//        if(strOnsetAmount == "持续头痛")
+//            OCX.SetObjectInfo("RadioBox_5", "checked", "true");
+//        OCX.SetObjectInfo("ComboBox_9", "text", strFrequencyPerMonth);
+//        OCX.SetObjectInfo("ComboBox_10", "text", strFrequencyPerDay);
+
+//        //set headache place
+//        var strHeadachePlace = "";
+//        var lheadacheplaceCount = obj.headacheplace.Count;
+//        for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
+//        {
+//            strHeadachePlace = obj.headacheplace[lheadacheplaceIndex].Position;
+//            if("" != strHeadachePlace)
+//                break;
+//        }
+//        var strSpecificPlace1 = "";
+//        var strSpecificPlace2 = "";
+//        var strSpecificPlace3 = "";
+//        var strSpecificPlace4 = "";
+//        var strSpecificPlace5 = "";
+//        var strSpecificPlace6 = "";
+//        var strSpecificPlace7 = "";
+//        var strSpecificPlace8 = "";
+//        var strSpecificPlace9 = "";
+//        var strSpecificPlace10 = "";
+//        var strSpecificPlace11 = "";
+//        var strSpecificPlace12 = "";
+//        var strSpecificPlace13 = "";
+//        for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
+//        {
+//            if("颞部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace1 = "颞部";
+//            else if("枕部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace2 = "枕部";
+//            else if("顶部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace3 = "顶部";
+//            else if("眶部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace4 = "眶部";
+//            else if("颈部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace5 = "颈部";
+//            else if("颌部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace6 = "颌部";
+//            else if("牙部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace7 = "牙部";
+//            else if("脸部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace8 = "脸部";
+//            else if("耳部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace9 = "耳部";
+//            else if("眼睑" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace10 = "眼睑";
+//            else if("前额" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace11 = "前额";
+//            else if("全头痛" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace12 = "全头痛";
+//            else if("其他" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+//                strSpecificPlace13 = "其他";
+//        }
+
+//        if(strHeadachePlace == "左侧为主")
+//        {
+//            if(strSpecificPlace1 == "颞部")
+//                OCX.SetObjectInfo("CheckBox_40", "checked", "true");
+//            if(strSpecificPlace2 == "枕部")
+//                OCX.SetObjectInfo("CheckBox_39", "checked", "true");
+//            if(strSpecificPlace3 == "顶部")
+//                OCX.SetObjectInfo("CheckBox_35", "checked", "true");
+//            if(strSpecificPlace4 == "眶部")
+//                OCX.SetObjectInfo("CheckBox_32", "checked", "true");
+//            if(strSpecificPlace5 == "颈部")
+//                OCX.SetObjectInfo("CheckBox_22", "checked", "true");
+//            if(strSpecificPlace6 == "颌部")
+//                OCX.SetObjectInfo("CheckBox_38", "checked", "true");
+//            if(strSpecificPlace7 == "牙部")
+//                OCX.SetObjectInfo("CheckBox_37", "checked", "true");
+//            if(strSpecificPlace8 == "脸部")
+//                OCX.SetObjectInfo("CheckBox_36", "checked", "true");
+//            if(strSpecificPlace9 == "耳部")
+//                OCX.SetObjectInfo("CheckBox_33", "checked", "true");
+//            if(strSpecificPlace10 == "眼睑")
+//                OCX.SetObjectInfo("CheckBox_31", "checked", "true");
+//            if(strSpecificPlace11 == "前额")
+//                OCX.SetObjectInfo("CheckBox_34", "checked", "true");
+//        }
+//        else if(strHeadachePlace == "右侧为主")
+//        {
+//            if(strSpecificPlace1 == "颞部")
+//                OCX.SetObjectInfo("CheckBox_51", "checked", "true");
+//            if(strSpecificPlace2 == "枕部")
+//                OCX.SetObjectInfo("CheckBox_49", "checked", "true");
+//            if(strSpecificPlace3 == "顶部")
+//                OCX.SetObjectInfo("CheckBox_47", "checked", "true");
+//            if(strSpecificPlace4 == "眶部")
+//                OCX.SetObjectInfo("CheckBox_43", "checked", "true");
+//            if(strSpecificPlace5 == "颈部")
+//                OCX.SetObjectInfo("CheckBox_41", "checked", "true");
+//            if(strSpecificPlace6 == "颌部")
+//                OCX.SetObjectInfo("CheckBox_50", "checked", "true");
+//            if(strSpecificPlace7 == "牙部")
+//                OCX.SetObjectInfo("CheckBox_48", "checked", "true");
+//            if(strSpecificPlace8 == "脸部")
+//                OCX.SetObjectInfo("CheckBox_46", "checked", "true");
+//            if(strSpecificPlace9 == "耳部")
+//                OCX.SetObjectInfo("CheckBox_44", "checked", "true");
+//            if(strSpecificPlace10 == "眼睑")
+//                OCX.SetObjectInfo("CheckBox_42", "checked", "true");
+//            if(strSpecificPlace11 == "前额")
+//                OCX.SetObjectInfo("CheckBox_45", "checked", "true");
+//        }
+//        else if(strHeadachePlace == "双侧")
+//        {
+//            if(strSpecificPlace1 == "颞部")
+//                OCX.SetObjectInfo("CheckBox_53", "checked", "true");
+//            if(strSpecificPlace2 == "枕部")
+//                OCX.SetObjectInfo("CheckBox_54", "checked", "true");
+//            if(strSpecificPlace3 == "顶部")
+//                OCX.SetObjectInfo("CheckBox_57", "checked", "true");
+//            if(strSpecificPlace4 == "眶部")
+//                OCX.SetObjectInfo("CheckBox_61", "checked", "true");
+//            if(strSpecificPlace5 == "颈部")
+//                OCX.SetObjectInfo("CheckBox_62", "checked", "true");
+//            if(strSpecificPlace6 == "颌部")
+//                OCX.SetObjectInfo("CheckBox_52", "checked", "true");
+//            if(strSpecificPlace7 == "牙部")
+//                OCX.SetObjectInfo("CheckBox_55", "checked", "true");
+//            if(strSpecificPlace8 == "脸部")
+//                OCX.SetObjectInfo("CheckBox_56", "checked", "true");
+//            if(strSpecificPlace9 == "耳部")
+//                OCX.SetObjectInfo("CheckBox_59", "checked", "true");
+//            if(strSpecificPlace10 == "眼睑")
+//                OCX.SetObjectInfo("CheckBox_60", "checked", "true");
+//            if(strSpecificPlace11 == "前额")
+//                OCX.SetObjectInfo("CheckBox_58", "checked", "true");
+//        }
+//        if("全头痛" == strSpecificPlace12)
+//            OCX.SetObjectInfo("CheckBox_QuanHeadache", "checked", "true");
+//        if("其他" == strSpecificPlace13)
+//            OCX.SetObjectInfo("CheckBox_OtherHeadache", "checked", "true");
+
+//        //set HeadacheAccompany
+//        var strHeadacheAccompany = "";
+//        var lHeadacheAccompanyCount = obj.headacheaccompany.Count;
+//        for(var lHeadacheAccompanyIndex = 0; lHeadacheAccompanyIndex < lHeadacheAccompanyCount; ++lHeadacheAccompanyIndex)
+//        {
+//            strHeadacheAccompany = obj.headacheaccompany[lHeadacheAccompanyIndex].Symptom;
+//            if("恶心" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Exin", "checked", "true");
+//            else if("呕吐" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Otu", "checked", "true");
+//            else if("畏光" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Weiguang", "checked", "true");
+//            else if("怕吵" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Pachao", "checked", "true");
+//            else if("同侧鼻塞/流涕" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongcebisai", "checked", "true");
+//            else if("同侧结膜充血/流泪" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongcejiemochongxue", "checked", "true");
+//            else if("同侧前额/面部出汗" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongceqianechuhan", "checked", "true");
+//            else if("同侧眼睑水肿" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongceyanjianshuizhong", "checked", "true");
+//            else if("同侧眼睑下垂" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongceyanjianxiachui", "checked", "true");
+//            else if("同侧瞳孔缩小" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Tongcetongkongsuoxiao", "checked", "true");
+//            else if("感觉不安或躁动" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_Ganjuebuan", "checked", "true");
+//            else if("其它" == strHeadacheAccompany)
+//                OCX.SetObjectInfo("CheckBox_OtherCompanySympton", "checked", "true");
+//        }
+
+//        //set HeadacheProdrome
+//        var strHeadacheProdrome = "";
+//        var lHeadacheProdromeCount = obj.headacheprodrome.Count;
+//        for(var lHeadacheProdromeIndex = 0; lHeadacheProdromeIndex < lHeadacheProdromeCount; ++lHeadacheProdromeIndex)
+//        {
+//            strHeadacheProdrome = obj.headacheprodrome[lHeadacheProdromeIndex].Prodrome;
+//            if("视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
+//                OCX.SetObjectInfo("RadioBox_VisionYes", "checked", "true");
+//            else if("感觉（针刺感/麻木）" == strHeadacheProdrome)
+//                OCX.SetObjectInfo("RadioBox_FeelingYes", "checked", "true");
+//            else if("语言障碍" == strHeadacheProdrome)
+//                OCX.SetObjectInfo("RadioBox_WordYes", "checked", "true");
+//            else if("运动障碍" == strHeadacheProdrome)
+//                OCX.SetObjectInfo("RadioBox_2", "checked", "true");         
+//        }
+
+//        //set PreviousExam
+//        var strExamName = "";
+//        var strResult = "";
+//        var strDate = "";
+//        var lPreviousExamCount = obj.previousexam.Count;
+//        for(var lPreviousExamIndex = 0; lPreviousExamIndex < lPreviousExamCount; ++lPreviousExamIndex)
+//        {
+//            strExamName = obj.previousexam[lPreviousExamIndex].ExamName;
+//            strResult = obj.previousexam[lPreviousExamIndex].Result;
+//            strDate = obj.previousexam[lPreviousExamIndex].Date;
+//            if(1 == lPreviousExamIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_InspectionItem1", "text", strExamName);
+//                if("正常" == strResult)
+//                    OCX.SetObjectInfo("RadioBox_InspectionItem1Normal", "checked", "true");
+//                OCX.SetObjectInfo("DateTime_InspectionItem1Date", "text", strDate);
+//            }
+//            else if(2 == lPreviousExamIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_InspectionItem2", "text", strExamName);
+//                if("正常" == strResult)
+//                    OCX.SetObjectInfo("RadioBox_InspectionItem2Normal", "checked", "true");
+//                OCX.SetObjectInfo("DateTime_InspectionItem2Date", "text", strDate);
+//            }
+//            else if(3 == lPreviousExamIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_InspectionItem3", "text", strExamName);
+//                if("正常" == strResult)
+//                    OCX.SetObjectInfo("RadioBox_InspectionItem3Normal", "checked", "true");
+//                OCX.SetObjectInfo("DateTime_InspectionItem3Date", "text", strDate);
+//            }
+//            else if(4 == lPreviousExamIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_InspectionItem4", "text", strExamName);
+//                if("正常" == strResult)
+//                    OCX.SetObjectInfo("RadioBox_InspectionItem4Normal", "checked", "true");
+//                OCX.SetObjectInfo("DateTime_InspectionItem4Date", "text", strDate);
+//            }
+//            else if(5 == lPreviousExamIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_InspectionItem5", "text", strExamName);
+//                if("正常" == strResult)
+//                    OCX.SetObjectInfo("RadioBox_InspectionItem5Normal", "checked", "true");
+//                OCX.SetObjectInfo("DateTime_InspectionItem5Date", "text", strDate);
+//            }
+//        }
+
+//        //set PreviousDrug
+//        var strDrugCategory = "";
+//        var strDrugName = "";
+//        var strDayAmoutnPerM = "";
+//        var strMonthTotalAmount = "";
+//        var lPreviousDrugCount = obj.previousdrug.Count;
+//        for(var lPreviousDrugIndex = 0; lPreviousDrugIndex < lPreviousDrugCount; ++lPreviousDrugIndex)
+//        {
+//            strDrugCategory = obj.previousdrug[lPreviousDrugIndex].ExamName;
+//            strDrugName = obj.previousdrug[lPreviousDrugIndex].Result;
+//            strDayAmoutnPerM = obj.previousdrug[lPreviousDrugIndex].Date;
+//            strMonthTotalAmount = obj.previousdrug[lPreviousDrugIndex].Date;
+//            if(1 == lPreviousDrugIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_DrugCatogry1", "text", strDrugCategory);
+//                OCX.SetObjectInfo("TextBox_20", "text", strDrugName);
+//                OCX.SetObjectInfo("TextBox_Takemedicinedays1", "text", strDayAmoutnPerM);
+//                OCX.SetObjectInfo("TextBox_Takemedicinemonths1", "text", strMonthTotalAmount);
+//            }
+//            else if(2 == lPreviousDrugIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_DrugCatogry2", "text", strDrugCategory);
+//                OCX.SetObjectInfo("TextBox_19", "text", strDrugName);
+//                OCX.SetObjectInfo("TextBox_Takemedicinedays2", "text", strDayAmoutnPerM);
+//                OCX.SetObjectInfo("TextBox_Takemedicinemonths2", "text", strMonthTotalAmount);
+//            }
+//            else if(3 == lPreviousDrugIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_DrugCatogry3", "text", strDrugCategory);
+//                OCX.SetObjectInfo("TextBox_18", "text", strDrugName);
+//                OCX.SetObjectInfo("TextBox_Takemedicinedays3", "text", strDayAmoutnPerM);
+//                OCX.SetObjectInfo("TextBox_Takemedicinemonths3", "text", strMonthTotalAmount);
+//            }
+//            else if(4 == lPreviousDrugIndex)
+//            {
+//                OCX.SetObjectInfo("ComboBox_DrugCatogry4", "text", strDrugCategory);
+//                OCX.SetObjectInfo("TextBox_17", "text", strDrugName);
+//                OCX.SetObjectInfo("TextBox_Takemedicinedays4", "text", strDayAmoutnPerM);
+//                OCX.SetObjectInfo("TextBox_Takemedicinemonths4", "text", strMonthTotalAmount);
+//            }
+//        }
+
+//        //set life style
+
+
+//        //set Headache FamilyMember
+//        var strHeadacheFamilyMember = "";
+//        var lHeadacheFamilyMemberCount = obj.Hfamilymember.Count;
+//        for(var lHeadacheFamilyMemberIndex = 0; lHeadacheFamilyMemberIndex < lHeadacheFamilyMemberCount; ++lHeadacheFamilyMemberIndex)
+//        {
+//            strHeadacheFamilyMember = obj.Hfamilymember[lHeadacheFamilyMemberIndex].Person;
+//            if("父亲" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_21", "checked", "true");
+//            else if("母亲" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_18", "checked", "true");
+//            else if("兄弟" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_14", "checked", "true");
+//            else if("姐妹" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_12", "checked", "true");
+//            else if("儿子" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_20", "checked", "true");
+//            else if("女儿" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_17", "checked", "true");
+//            else if("祖父" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_13", "checked", "true");
+//            else if("祖母" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_63", "checked", "true");
+//            else if("外祖父" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_19", "checked", "true");
+//            else if("外祖母" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_16", "checked", "true");
+//            else if("其他" == strHeadacheFamilyMember)
+//                OCX.SetObjectInfo("CheckBox_15", "checked", "true");
+//        }
+
+        //set Other family disease
+
 
     $("#btn1").click(function () {
             $("#btn2").show();
@@ -72,6 +434,10 @@ $(function () {
                 
                 //get the PrimaryHeadacheOverView information
                 var strOnsetDate = OCX.GetObjectInfo("DateTime_1", "text");
+                if ("/////" == strOnsetDate) 
+                {
+                    strOnsetDate = "1753/01/01///";
+                }
                 var strFirstOnsetContinue = OCX.GetObjectInfo("ComboBox_5", "text");
                 var strOnsetFixedDay = OCX.GetObjectInfo("ComboBox_1", "text");
                 var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_6", "text");
@@ -424,30 +790,50 @@ $(function () {
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem1Normal", "checked"))
                     strExamResult1 = "正常";
                 var strExamDate1 = OCX.GetObjectInfo("DateTime_InspectionItem1Date", "text");
+                if ("/////" == strExamDate1) 
+                {
+                    strExamDate1 = "1753/01/01///";
+                }
 
                 var strExamName2 = OCX.GetObjectInfo("ComboBox_InspectionItem2", "text");
                 var strExamResult2 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem2Normal", "checked"))
                     strExamResult2 = "正常";
                 var strExamDate2 = OCX.GetObjectInfo("DateTime_InspectionItem2Date", "text");
+                if ("/////" == strExamDate2) 
+                {
+                    strExamDate2 = "1753/01/01///";
+                }
 
                 var strExamName3 = OCX.GetObjectInfo("ComboBox_InspectionItem3", "text");
                 var strExamResult3 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem3Normal", "checked"))
                     strExamResult3 = "正常";
                 var strExamDate3 = OCX.GetObjectInfo("DateTime_InspectionItem3Date", "text");
+                if ("/////" == strExamDate3) 
+                {
+                    strExamDate3 = "1753/01/01///";
+                }
 
                 var strExamName4 = OCX.GetObjectInfo("ComboBox_InspectionItem4", "text");
                 var strExamResult4 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem4Normal", "checked"))
                     strExamResult4 = "正常";
                 var strExamDate4 = OCX.GetObjectInfo("DateTime_InspectionItem4Date", "text");
+                if ("/////" == strExamDate4) 
+                {
+                    strExamDate4 = "1753/01/01///";
+                }
 
                 var strExamName5 = OCX.GetObjectInfo("ComboBox_InspectionItem5", "text");
                 var strExamResult5 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem5Normal", "checked"))
                     strExamResult5 = "正常";
                 var strExamDate5 = OCX.GetObjectInfo("DateTime_InspectionItem5Date", "text");
+                if ("/////" == strExamDate5) 
+                {
+                    strExamDate5 = "1753/01/01///";
+                }
 
                 //get headache accompany
                 var strHeadacheAccompanySymptom1 = "";
