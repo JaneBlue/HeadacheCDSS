@@ -19,6 +19,8 @@ namespace HeadacheCDSSWeb.Models
             this.headacheprodrome = new List<string>();
             this.medicationadvice = new List<HMedicine>();
             this.headacheoverview = new HeadacheOverview();
+            this.patlifestyle = new lifestyle();
+            this.patlifestyle.specialDiet = new List<string>();
         }
         public string Id { get; set; }
         public string Name { get; set; }

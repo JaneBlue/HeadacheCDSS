@@ -106,6 +106,7 @@ namespace HeadacheCDSSWeb.Models
                // VData.lifestyle.PatBasicInfor=pt;
              //   pt.Lifestyle = VData.lifestyle;
                 ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
+
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
                 if (VData.visitrecord != null)
@@ -162,6 +163,15 @@ namespace HeadacheCDSSWeb.Models
                         VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
                     }
                 }
+                int count6 = VData.visitrecord.SecondaryHeadacheSymptom.Count - 1;
+                for (int n = count6; n >= 0; n--)
+                {
+                   SecondaryHeadacheSymptom ha = VData.visitrecord.SecondaryHeadacheSymptom.ElementAt(n);
+                    if (ha.Symptom == "")
+                    {
+                        VData.visitrecord.SecondaryHeadacheSymptom.Remove(ha);
+                    }
+                }
                 context.SaveChanges();
                 return true;
             }
@@ -186,7 +196,7 @@ namespace HeadacheCDSSWeb.Models
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
                 pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
                 pt.OtherFamilyDisease = VData.OFamilyDisease;
-                pt.Lifestyle = VData.lifestyle;
+                ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
                 if (VData.visitrecord != null)
@@ -285,7 +295,31 @@ namespace HeadacheCDSSWeb.Models
             rdata.Education = pt.Education;
             rdata.Job = pt.Job;
             rdata.Phone = pt.Phone;
-
+                if(pt.Lifestyle!=null)
+                {
+                    rdata.patlifestyle.SmokeState = pt.Lifestyle.SmokeState;
+                    rdata.patlifestyle.SmokeYear = pt.Lifestyle.SmokeYear;
+                    rdata.patlifestyle.SmokeStartAge = pt.Lifestyle.SmokeStartAge;
+                    rdata.patlifestyle.SmokeQuitYear = pt.Lifestyle.SmokeQuitYear;
+                    rdata.patlifestyle.CigarettesPerDay = pt.Lifestyle.CigarettesPerDay;
+                    rdata.patlifestyle.DrinkState = pt.Lifestyle.DrinkState;
+                    rdata.patlifestyle.DrinkStartAge = pt.Lifestyle.DrinkStartAge;
+                    rdata.patlifestyle.DrinkYear = pt.Lifestyle.DrinkYear;
+                    rdata.patlifestyle.DrinkQuitYear = pt.Lifestyle.DrinkQuitYear;
+                    rdata.patlifestyle.DrinkPerDay = pt.Lifestyle.DrinkPerDay;
+                    rdata.patlifestyle.DrinkCategory = pt.Lifestyle.DrinkCategory;
+                    rdata.patlifestyle.TeaPerDay = pt.Lifestyle.TeaPerDay;
+                    rdata.patlifestyle.CoffePerDay = pt.Lifestyle.CoffePerDay;
+                    rdata.patlifestyle.ExercisePerWeek = pt.Lifestyle.ExercisePerWeek;
+                    rdata.patlifestyle.ExerciseTime = pt.Lifestyle.ExerciseTime;
+                    rdata.patlifestyle.ExerciseDescription = pt.Lifestyle.ExerciseDescription;
+                    rdata.patlifestyle.WeightChange = pt.Lifestyle.WeightChange;
+                    rdata.patlifestyle.WeightChangeNote = pt.Lifestyle.WeightChangeNote;
+                    foreach (SpecialDiet d in pt.Lifestyle.SpecialDiet)
+                    {
+                        rdata.patlifestyle.specialDiet.Add(d.Kind);
+                    }
+                }
             //if (pt.SimilarFamily!=null)
             //{
             //    rdata.SimilarFamily = pt.SimilarFamily;
@@ -323,6 +357,7 @@ namespace HeadacheCDSSWeb.Models
                     hmedicine.DrugDose = madvice.DrugDose;
                     rdata.medicationadvice.Add(hmedicine);
                 }
+            
                 if (vr.PrimaryHeadachaOverView != null)
                 {
                     rdata.headacheoverview.HeadacheType = vr.PrimaryHeadachaOverView.HeadacheType;
