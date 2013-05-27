@@ -13,7 +13,7 @@ namespace HeadacheCDSSWeb.Models
             this.Ofamilydisease = new List<string>();
             this.previousdrug = new List<PDrug>();
             this.headacheplace = new List<string>();
-            this.precipitatingfactor = new List<string>();
+            this.precipitatingfactor = new List<Factor>();
             this.mitigatingfactors = new List<string>();
             this.headacheaccompany = new List<string>();
             this.headacheprodrome = new List<string>();
@@ -49,7 +49,7 @@ namespace HeadacheCDSSWeb.Models
         public string DiagnosisResult3 { get; set; }
         public string Prescription { get; set; }
         public List<string> headacheplace{get;set;}
-        public List<string> precipitatingfactor{get;set;}
+        public List<Factor> precipitatingfactor{get;set;}
         public List<string> mitigatingfactors{get;set;}
         public List<string> headacheaccompany{get;set;}
         public List<string> headacheprodrome{get;set;}
@@ -91,4 +91,9 @@ namespace HeadacheCDSSWeb.Models
         public string DailyAggravation { get; set; }
         public string FirstOnsetContinue { get; set; }
     }
+    public class Factor{
+        public string FName;
+        public string FDetail;
+    }
+
 }

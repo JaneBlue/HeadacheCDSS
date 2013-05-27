@@ -357,7 +357,10 @@ namespace HeadacheCDSSWeb.Models
                     }
                     foreach (PrecipitatingFactor pfactor in vr.PrimaryHeadachaOverView.PrecipitatingFactor)
                     {
-                        rdata.precipitatingfactor.Add(pfactor.FactorName);
+                        Factor f = new Factor();
+                        f.FName = pfactor.FactorName;
+                        f.FDetail = pfactor.FactorDetail;
+                        rdata.precipitatingfactor.Add(f);
                     }
                 }
             }
