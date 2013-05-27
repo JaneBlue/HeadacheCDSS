@@ -112,6 +112,7 @@ namespace HeadacheCDSSWeb.Models
                 {
                     VisitRecord vr = new VisitRecord();//问诊记录信息保存
                     vr = VData.visitrecord;
+                    vr.VisitDate = DateTime.Now.Date;
                     vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
                     int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
                     for (int n = count1; n >= 0; n--)
