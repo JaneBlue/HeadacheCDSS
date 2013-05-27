@@ -55,6 +55,7 @@ namespace HeadacheCDSSWeb.Models
         public List<string> headacheprodrome{get;set;}
         public List<HMedicine> medicationadvice{get;set;}
         public HeadacheOverview headacheoverview{get;set;}
+        public lifestyle  patlifestyle{get;set;}
     }
    public class HMedicine
     {
@@ -95,5 +96,26 @@ namespace HeadacheCDSSWeb.Models
         public string FName;
         public string FDetail;
     }
-
+    public class lifestyle
+    {
+        public string SmokeState { get; set; }
+        public string SmokeStartAge { get; set; }
+        public string SmokeQuitYear { get; set; }
+        public string SmokeYear { get; set; }
+        public string CigarettesPerDay { get; set; }
+        public string DrinkState { get; set; }
+        public string DrinkStartAge { get; set; }
+        public string DrinkYear { get; set; }
+        public string DrinkQuitYear { get; set; }
+        public string DrinkPerDay { get; set; }
+        public string DrinkCategory { get; set; }
+        public string TeaPerDay { get; set; }
+        public string CoffePerDay { get; set; }
+        public string ExercisePerWeek { get; set; }
+        public string ExerciseTime { get; set; }
+        public string ExerciseDescription { get; set; }
+        public string WeightChange { get; set; }
+        public string WeightChangeNote { get; set; }
+        public List<string> specialDiet{get;set;}
+    }
 }
