@@ -90,6 +90,7 @@
     <Compile Include="Models\MitigatingFactors.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ObjectMapper.cs" />
     <Compile Include="Models\PatOperation.cs" />
     <Compile Include="Models\PrecipitatingFactor.cs">
       <DependentUpon>HeadacheDataModel.tt</DependentUpon>

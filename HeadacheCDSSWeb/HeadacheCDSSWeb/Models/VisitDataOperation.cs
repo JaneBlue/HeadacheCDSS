@@ -103,7 +103,9 @@ namespace HeadacheCDSSWeb.Models
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
                 pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
                 pt.OtherFamilyDisease = VData.OFamilyDisease;
-                pt.Lifestyle = VData.lifestyle;
+               // VData.lifestyle.PatBasicInfor=pt;
+             //   pt.Lifestyle = VData.lifestyle;
+                ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
                 if (VData.visitrecord != null)
