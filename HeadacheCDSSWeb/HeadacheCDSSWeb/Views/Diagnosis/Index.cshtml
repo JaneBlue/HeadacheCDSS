@@ -68,10 +68,6 @@ $(function () {
                 
                 //get the PrimaryHeadacheOverView information
                 var strOnsetDate = OCX.GetObjectInfo("DateTime_1", "text");
-                if ("/////" == strOnsetDate) 
-                {
-                    strOnsetDate = "1753/01/01///";
-                }
                 var strFirstOnsetContinue = OCX.GetObjectInfo("ComboBox_5", "text");
                 var strOnsetFixedDay = OCX.GetObjectInfo("ComboBox_1", "text");
                 var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_6", "text");
@@ -424,50 +420,30 @@ $(function () {
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem1Normal", "checked"))
                     strExamResult1 = "正常";
                 var strExamDate1 = OCX.GetObjectInfo("DateTime_InspectionItem1Date", "text");
-                if ("/////" == strExamDate1) 
-                {
-                    strExamDate1 = "1753/01/01///";
-                }
 
                 var strExamName2 = OCX.GetObjectInfo("ComboBox_InspectionItem2", "text");
                 var strExamResult2 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem2Normal", "checked"))
                     strExamResult2 = "正常";
                 var strExamDate2 = OCX.GetObjectInfo("DateTime_InspectionItem2Date", "text");
-                if ("/////" == strExamDate2) 
-                {
-                    strExamDate2 = "1753/01/01///";
-                }
 
                 var strExamName3 = OCX.GetObjectInfo("ComboBox_InspectionItem3", "text");
                 var strExamResult3 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem3Normal", "checked"))
                     strExamResult3 = "正常";
                 var strExamDate3 = OCX.GetObjectInfo("DateTime_InspectionItem3Date", "text");
-                if ("/////" == strExamDate3) 
-                {
-                    strExamDate3 = "1753/01/01///";
-                }
 
                 var strExamName4 = OCX.GetObjectInfo("ComboBox_InspectionItem4", "text");
                 var strExamResult4 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem4Normal", "checked"))
                     strExamResult4 = "正常";
                 var strExamDate4 = OCX.GetObjectInfo("DateTime_InspectionItem4Date", "text");
-                if ("/////" == strExamDate4) 
-                {
-                    strExamDate4 = "1753/01/01///";
-                }
 
                 var strExamName5 = OCX.GetObjectInfo("ComboBox_InspectionItem5", "text");
                 var strExamResult5 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem5Normal", "checked"))
                     strExamResult5 = "正常";
                 var strExamDate5 = OCX.GetObjectInfo("DateTime_InspectionItem5Date", "text");
-                if ("/////" == strExamDate5) 
-                {
-                    strExamDate5 = "1753/01/01///";
-                }
 
                 //get headache accompany
                 var strHeadacheAccompanySymptom1 = "";
