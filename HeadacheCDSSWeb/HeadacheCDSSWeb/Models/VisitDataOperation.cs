@@ -383,7 +383,7 @@ namespace HeadacheCDSSWeb.Models
                 for (int n = count3; n >= 0; n--)
                 {
                     HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
-                    if (ha.Position == "")
+                    if (ha.SpecificPlace == "")
                     {
                         VData.PHeadacheOverview.HeadachePlace.Remove(ha);
                     }
