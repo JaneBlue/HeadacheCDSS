@@ -209,7 +209,7 @@ $(function () {
         var lHeadacheAccompanyCount = obj.headacheaccompany.Count;
         for(var lHeadacheAccompanyIndex = 0; lHeadacheAccompanyIndex < lHeadacheAccompanyCount; ++lHeadacheAccompanyIndex)
         {
-            strHeadacheAccompany = obj.headacheaccompany[lHeadacheAccompanyIndex].Symptom;
+            strHeadacheAccompany = obj.headacheaccompany[lHeadacheAccompanyIndex];
             if("恶心" == strHeadacheAccompany)
                 OCX.SetObjectInfo("CheckBox_Exin", "checked", "true");
             else if("呕吐" == strHeadacheAccompany)
@@ -241,7 +241,7 @@ $(function () {
         var lHeadacheProdromeCount = obj.headacheprodrome.Count;
         for(var lHeadacheProdromeIndex = 0; lHeadacheProdromeIndex < lHeadacheProdromeCount; ++lHeadacheProdromeIndex)
         {
-            strHeadacheProdrome = obj.headacheprodrome[lHeadacheProdromeIndex].Prodrome;
+            strHeadacheProdrome = obj.headacheprodrome[lHeadacheProdromeIndex];
             if("视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
                 OCX.SetObjectInfo("RadioBox_VisionYes", "checked", "true");
             else if("感觉（针刺感/麻木）" == strHeadacheProdrome)
@@ -408,7 +408,7 @@ $(function () {
         var lHeadacheFamilyMemberCount = obj.Hfamilymember.Count;
         for(var lHeadacheFamilyMemberIndex = 0; lHeadacheFamilyMemberIndex < lHeadacheFamilyMemberCount; ++lHeadacheFamilyMemberIndex)
         {
-            strHeadacheFamilyMember = obj.Hfamilymember[lHeadacheFamilyMemberIndex].Person;
+            strHeadacheFamilyMember = obj.Hfamilymember[lHeadacheFamilyMemberIndex];
             if("父亲" == strHeadacheFamilyMember)
                 OCX.SetObjectInfo("CheckBox_21", "checked", "true");
             else if("母亲" == strHeadacheFamilyMember)
