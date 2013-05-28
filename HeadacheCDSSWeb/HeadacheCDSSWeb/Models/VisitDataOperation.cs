@@ -68,121 +68,21 @@ namespace HeadacheCDSSWeb.Models
         {
             try
             {
-                int num1=VData.HFamilyMember.Count-1;
-                //对于空字符串进行处理
-                for (int i = num1; i >=0; i--)
-                {
-                    if (VData.HFamilyMember[i].Person == "")
-                    {
-                        VData.HFamilyMember.RemoveAt(i);
-                    }
-                }
-                int num2=VData.OFamilyDisease.Count-1;
-                for(int j=num2;j>=0;j--)
-                {
-                    if(VData.OFamilyDisease[j].DiseaseName==""){
-                        VData.OFamilyDisease.RemoveAt(j);
-                    }
-                }
-                int num3 = VData.PDrug.Count-1;
-                for (int m = num3; m >=0; m--)
-                {
-                    if (VData.PDrug[m].DrugCategory == "")
-                    {
-                        VData.PDrug.RemoveAt(m);
-                    }
-                }
-                int num4= VData.PExam.Count-1;
-                for (int n = num4; n>=0; n--)
-                {
-                    if (VData.PExam[n].ExamName == "")
-                    {
-                        VData.PExam.RemoveAt(n);
-                    }
-                }
+                VisitData vdata = DataPreprocess(VData);
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
-                pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
-                pt.OtherFamilyDisease = VData.OFamilyDisease;
-               // VData.lifestyle.PatBasicInfor=pt;
-             //   pt.Lifestyle = VData.lifestyle;
-               
-                int num5 = VData.lifestyle.SpecialDiet.Count - 1;
-                for (int n = num5; n >= 0; n--)
+                pt.HeadacheFamilyMember = vdata.HFamilyMember;//个人信息相关保存
+                pt.OtherFamilyDisease = vdata.OFamilyDisease;
+                ObjectMapper.CopyProperties(vdata.lifestyle, pt.Lifestyle);
+                pt.PreviousDrug = vdata.PDrug;
+                pt.PreviousExam = vdata.PExam;
+                if (vdata.visitrecord != null)
                 {
-                    SpecialDiet dt = VData.lifestyle.SpecialDiet.ElementAt(n);
-                    if (dt.Kind== "")
-                    {
-                        VData.lifestyle.SpecialDiet.Remove(dt);
-                    }
-                }
-                ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
-                pt.PreviousDrug = VData.PDrug;
-                pt.PreviousExam = VData.PExam;
-                if (VData.visitrecord != null)
-                {
-                    VisitRecord vr = new VisitRecord();//问诊记录信息保存
-                    vr = VData.visitrecord;
-                    vr.VisitDate = DateTime.Now.Date;
-                   
-                        int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
-                        for (int n = count1; n >= 0; n--)
-                        {
-                            HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
-                            if (ha.Symptom == "")
-                            {
-                                VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
-                            }
-                        }
-                        int count2 = VData.PHeadacheOverview.HeadacheProdrome.Count - 1;
-                        for (int n =count2; n >=0 ; n--)
-                        {
-                            HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
-                            if (ha.Prodrome == "")
-                            {
-                                VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
-                            }
-                        }
-                        int count3=VData.PHeadacheOverview.HeadachePlace.Count-1;
-                        for (int n = count3; n >=0 ; n--)
-                        {
-                            HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
-                            if (ha.Position == "")
-                            {
-                                VData.PHeadacheOverview.HeadachePlace.Remove(ha);
-                            }
-                        }
                     
-               
-                   int count4=VData.PHeadacheOverview.MitigatingFactors.Count-1;
-                    for (int n =count4 ; n >=0 ; n--)
-                    {
-                        MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
-                        if (ha.FactorName == "")
-                        {
-                            VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
-                        }
-                    }
-                   int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count-1;
-                    for (int n = count5; n >=0 ; n--)
-                    {
-                        PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
-                        if (ha.FactorName == "")
-                        {
-                            VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
-                        }
-                    }
-                   int count6 = VData.visitrecord.SecondaryHeadacheSymptom.Count - 1;
-                    for (int n = count6; n >= 0; n--)
-                    {
-                       SecondaryHeadacheSymptom ha = VData.visitrecord.SecondaryHeadacheSymptom.ElementAt(n);
-                        if (ha.Symptom == "")
-                        {
-                            VData.visitrecord.SecondaryHeadacheSymptom.Remove(ha);
-                        }
-                    }
-                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
+                    VisitRecord vr = new VisitRecord();//问诊记录信息保存
+                    vr = vdata.visitrecord;
+                    vr.VisitDate = DateTime.Now.Date;
+                    vr.PrimaryHeadachaOverView = vdata.PHeadacheOverview;
                     vr.PatBasicInforId = PatID;
-                    vr.SecondaryHeadacheSymptom = VData.visitrecord.SecondaryHeadacheSymptom;
                     pt.VisitRecord.Add(vr);
                 }
                 context.SaveChanges();
@@ -205,27 +105,27 @@ namespace HeadacheCDSSWeb.Models
         {
             try
             {
-
+                VisitData vdata = DataPreprocess(VData);
                 PatBasicInfor pt = context.PatBasicInforSet.Find(PatID);
-                pt.HeadacheFamilyMember = VData.HFamilyMember;//个人信息相关保存
-                pt.OtherFamilyDisease = VData.OFamilyDisease;
-                ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
-                pt.PreviousDrug = VData.PDrug;
-                pt.PreviousExam = VData.PExam;
-                if (VData.visitrecord != null)
+                pt.HeadacheFamilyMember = vdata.HFamilyMember;//个人信息相关保存
+                pt.OtherFamilyDisease = vdata.OFamilyDisease;
+                ObjectMapper.CopyProperties(vdata.lifestyle, pt.Lifestyle);
+                pt.PreviousDrug = vdata.PDrug;
+                pt.PreviousExam = vdata.PExam;
+                if (vdata.visitrecord != null)
                 {
                     var record = from p in context.VisitRecordSet.ToList()
                                  where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
                                  select p;
                     VisitRecord vr = record.First();
-                    vr = VData.visitrecord;
-                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
+                    vr = vdata.visitrecord;
+                    vr.PrimaryHeadachaOverView = vdata.PHeadacheOverview;
                     vr.PatBasicInforId = PatID;
                 }
                 context.SaveChanges();
                 return true;
             }
-            catch (System.Exception ex)
+            catch (System.Exception e)
             {
                 return false;
             }
@@ -414,6 +314,116 @@ namespace HeadacheCDSSWeb.Models
             }
             return rdata;
         }
+        public VisitData DataPreprocess(VisitData VData)
+        {
+            try
+            {
+                int num1 = VData.HFamilyMember.Count - 1;
+                //对于空字符串进行处理
+                for (int i = num1; i >= 0; i--)
+                {
+                    if (VData.HFamilyMember[i].Person == "")
+                    {
+                        VData.HFamilyMember.RemoveAt(i);
+                    }
+                }
+                int num2 = VData.OFamilyDisease.Count - 1;
+                for (int j = num2; j >= 0; j--)
+                {
+                    if (VData.OFamilyDisease[j].DiseaseName == "")
+                    {
+                        VData.OFamilyDisease.RemoveAt(j);
+                    }
+                }
+                int num3 = VData.PDrug.Count - 1;
+                for (int m = num3; m >= 0; m--)
+                {
+                    if (VData.PDrug[m].DrugCategory == "")
+                    {
+                        VData.PDrug.RemoveAt(m);
+                    }
+                }
+                int num4 = VData.PExam.Count - 1;
+                for (int n = num4; n >= 0; n--)
+                {
+                    if (VData.PExam[n].ExamName == "")
+                    {
+                        VData.PExam.RemoveAt(n);
+                    }
+                }
+                int num5 = VData.lifestyle.SpecialDiet.Count - 1;
+                for (int n = num5; n >= 0; n--)
+                {
+                    SpecialDiet dt = VData.lifestyle.SpecialDiet.ElementAt(n);
+                    if (dt.Kind == "")
+                    {
+                        VData.lifestyle.SpecialDiet.Remove(dt);
+                    }
+                }
 
+                int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count - 1;
+                for (int n = count1; n >= 0; n--)
+                {
+                    HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
+                    if (ha.Symptom == "")
+                    {
+                        VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
+                    }
+                }
+                int count2 = VData.PHeadacheOverview.HeadacheProdrome.Count - 1;
+                for (int n = count2; n >= 0; n--)
+                {
+                    HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
+                    if (ha.Prodrome == "")
+                    {
+                        VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
+                    }
+                }
+                int count3 = VData.PHeadacheOverview.HeadachePlace.Count - 1;
+                for (int n = count3; n >= 0; n--)
+                {
+                    HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
+                    if (ha.Position == "")
+                    {
+                        VData.PHeadacheOverview.HeadachePlace.Remove(ha);
+                    }
+                }
+
+
+                int count4 = VData.PHeadacheOverview.MitigatingFactors.Count - 1;
+                for (int n = count4; n >= 0; n--)
+                {
+                    MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
+                    if (ha.FactorName == "")
+                    {
+                        VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
+                    }
+                }
+                int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count - 1;
+                for (int n = count5; n >= 0; n--)
+                {
+                    PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
+                    if (ha.FactorName == "")
+                    {
+                        VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
+                    }
+                }
+                int count6 = VData.visitrecord.SecondaryHeadacheSymptom.Count - 1;
+                for (int n = count6; n >= 0; n--)
+                {
+                    SecondaryHeadacheSymptom ha = VData.visitrecord.SecondaryHeadacheSymptom.ElementAt(n);
+                    if (ha.Symptom == "")
+                    {
+                        VData.visitrecord.SecondaryHeadacheSymptom.Remove(ha);
+                    }
+                }
+
+                return VData;
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
+        }
     }
 }
