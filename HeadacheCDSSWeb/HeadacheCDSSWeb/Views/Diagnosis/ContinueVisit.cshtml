@@ -342,7 +342,66 @@ $(function () {
         }
 
         //set life style
-
+        var strSmokeState = obj.patlifestyle.SmokeState;
+        OCX.SetObjectInfo("ComboBox_IfSmoke", "text", strSmokeState);
+        var strSmokeStartAge = obj.patlifestyle.SmokeStartAge;
+        OCX.SetObjectInfo("TextBox_BeginAge", "text", strSmokeStartAge);
+        var strSmokeQuitYear = obj.patlifestyle.SmokeQuitYear;
+        OCX.SetObjectInfo("TextBox_QuitYears", "text", strSmokeQuitYear);
+        var strSmokeYear = obj.patlifestyle.SmokeYear;
+        OCX.SetObjectInfo("TextBox_SmokeYears", "text", strSmokeYear);
+        var strCigarettesPerDay = obj.patlifestyle.CigarettesPerDay;
+        OCX.SetObjectInfo("TextBox_CigaretteAmount", "text", strCigarettesPerDay);
+        var strDrinkState = obj.patlifestyle.DrinkState;
+        OCX.SetObjectInfo("ComboBox_IfDrink", "text", strDrinkState);
+        var strDrinkStartAge = obj.patlifestyle.DrinkStartAge;
+        OCX.SetObjectInfo("TextBox_7", "text", strDrinkStartAge);
+        var strDrinkYear = obj.patlifestyle.DrinkYear;
+        OCX.SetObjectInfo("TextBox_DrinkYears", "text", strDrinkYear);
+        var strDrinkQuitYear = obj.patlifestyle.DrinkQuitYear;
+        OCX.SetObjectInfo("TextBox_QuitDrinkYears", "text", strDrinkQuitYear);
+        var strDrinkPerDay = obj.patlifestyle.DrinkPerDay;
+        OCX.SetObjectInfo("TextBox_DrinkCapacityPerDay", "text", strDrinkPerDay);
+        var strDrinkCategory = obj.patlifestyle.DrinkCategory;
+        OCX.SetObjectInfo("ComboBox_DrinkKind", "text", strDrinkCategory);
+        var strTeaPerDay = obj.patlifestyle.TeaPerDay;
+        OCX.SetObjectInfo("TextBox_TeaCapacity", "text", strTeaPerDay);
+        var strCoffePerDay = obj.patlifestyle.CoffePerDay;
+        OCX.SetObjectInfo("TextBox_CoffeeCapacity", "text", strCoffePerDay);
+        var strExercisePerWeek = obj.patlifestyle.ExercisePerWeek;
+        OCX.SetObjectInfo("ComboBox_DoSportTimes", "text", strExercisePerWeek);
+        var strExerciseTime = obj.patlifestyle.ExerciseTime;
+        OCX.SetObjectInfo("ComboBox_DoSportTime", "text", strExerciseTime);
+        var strExerciseDescription = obj.patlifestyle.ExerciseDescription;
+        OCX.SetObjectInfo("TextBox_DoSportDescription", "text", strExerciseDescription);
+        var strWeightChange = obj.patlifestyle.WeightChange;
+        if("有" == strWeightChange)
+            OCX.SetObjectInfo("RadioBox_WeightChange", "checked", "true");
+        var strWeightChangeNote = obj.patlifestyle.WeightChangeNote;
+        OCX.SetObjectInfo("ComboBox_7", "text", strWeightChangeNote);
+        var listSpecialDiet = obj.patlifestyle.specialDiet;
+        var strSpecialDiet = "";
+        var lSpecialDietCount = obj.patlifestyle.specialDiet.Count;
+        for(var lSpecialDietIndex = 0; lSpecialDietIndex < lSpecialDietCount; ++lSpecialDietIndex)
+        {
+            strSpecialDiet = obj.patlifestyle.specialDiet[lSpecialDietIndex];
+            if("低热量" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_LowHeat", "checked", "true");
+            else if("低盐" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_LowSalt", "checked", "true");
+            else if("低脂" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_LowFat", "checked", "true");
+            else if("低纤维" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_LowFibre", "checked", "true");
+            else if("低碳水化合物" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_LowCarbohydrate", "checked", "true");
+            else if("高热量" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_HighHeat", "checked", "true");
+            else if("高纤维" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_HighFibre", "checked", "true");
+            else if("其他" == strSpecialDiet)
+                OCX.SetObjectInfo("CheckBox_OtherDiet", "checked", "true");
+        }
 
         //set Headache FamilyMember
         var strHeadacheFamilyMember = "";
