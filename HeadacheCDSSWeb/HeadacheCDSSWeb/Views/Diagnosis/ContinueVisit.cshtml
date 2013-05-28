@@ -486,7 +486,34 @@ $(function () {
         }
 
         //set precipitating factors
-        //var str
+        var strPrecipitatingFactorName = "";
+        var strPrecipitatingFactorDetail = "";
+        var lPrecipitatingFactorsCount = obj.precipitatingfactor.Count;
+        for(var lPrecipitatingFactorsIndex = 0; lPrecipitatingFactorsIndex < lPrecipitatingFactorsCount; ++lPrecipitatingFactorsIndex)
+        {
+            strPrecipitatingFactorName = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorName;
+            strPrecipitatingFactorDetail = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorDetail;
+            if("睡眠" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_30", "text", strPrecipitatingFactorDetail);
+            else if("感觉刺激" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_29", "text", strPrecipitatingFactorDetail);
+            else if("紧张/情绪波动" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_28", "text", "有");
+            else if("食物" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_27", "text", strPrecipitatingFactorDetail);
+            else if("活动" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_25", "text", strPrecipitatingFactorDetail);
+            else if("气候" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_14", "text", strPrecipitatingFactorDetail);
+            else if("疲劳/放松" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_15", "text", strPrecipitatingFactorDetail);
+            else if("激素变化" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_16", "text", strPrecipitatingFactorDetail);
+            else if("体位" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_19", "text", strPrecipitatingFactorDetail);
+            else if("其他" == strPrecipitatingFactorName)
+                OCX.SetObjectInfo("ComboBox_24", "text", "有");
+        }
 
     $("#btn1").click(function () {
             $("#btn2").show();
