@@ -21,6 +21,7 @@ namespace HeadacheCDSSWeb.Models
             this.headacheoverview = new HeadacheOverview();
             this.patlifestyle = new lifestyle();
             this.patlifestyle.specialDiet = new List<string>();
+            this.secondaryheadachesymptom = new List<string>();
         }
         public string Id { get; set; }
         public string Name { get; set; }
