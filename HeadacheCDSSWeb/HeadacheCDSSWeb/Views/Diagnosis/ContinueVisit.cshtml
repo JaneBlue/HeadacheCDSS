@@ -10,7 +10,8 @@
 </p>
 <script type="text/javascript">
 $(function () {
-      var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
+        var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
+        var OCX = document.getElementById('Reporter2');
         //set the data to OCX
         //set Secondary Headache Symptom
         var strSecondaryHeadacheSymptom = "";
