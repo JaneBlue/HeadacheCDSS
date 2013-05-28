@@ -105,8 +105,17 @@ namespace HeadacheCDSSWeb.Models
                 pt.OtherFamilyDisease = VData.OFamilyDisease;
                // VData.lifestyle.PatBasicInfor=pt;
              //   pt.Lifestyle = VData.lifestyle;
+               
+                int num5 = VData.lifestyle.SpecialDiet.Count - 1;
+                for (int n = num5; n >= 0; n--)
+                {
+                    SpecialDiet dt = VData.lifestyle.SpecialDiet.ElementAt(n);
+                    if (dt.Kind== "")
+                    {
+                        VData.lifestyle.SpecialDiet.Remove(dt);
+                    }
+                }
                 ObjectMapper.CopyProperties(VData.lifestyle, pt.Lifestyle);
-
                 pt.PreviousDrug = VData.PDrug;
                 pt.PreviousExam = VData.PExam;
                 if (VData.visitrecord != null)
@@ -114,63 +123,67 @@ namespace HeadacheCDSSWeb.Models
                     VisitRecord vr = new VisitRecord();//问诊记录信息保存
                     vr = VData.visitrecord;
                     vr.VisitDate = DateTime.Now.Date;
-                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
-                    int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
-                    for (int n = count1; n >= 0; n--)
+                   
+                        int count1 = VData.PHeadacheOverview.HeadacheAccompany.Count-1;
+                        for (int n = count1; n >= 0; n--)
+                        {
+                            HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
+                            if (ha.Symptom == "")
+                            {
+                                VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
+                            }
+                        }
+                        int count2 = VData.PHeadacheOverview.HeadacheProdrome.Count - 1;
+                        for (int n =count2; n >=0 ; n--)
+                        {
+                            HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
+                            if (ha.Prodrome == "")
+                            {
+                                VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
+                            }
+                        }
+                        int count3=VData.PHeadacheOverview.HeadachePlace.Count-1;
+                        for (int n = count3; n >=0 ; n--)
+                        {
+                            HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
+                            if (ha.Position == "")
+                            {
+                                VData.PHeadacheOverview.HeadachePlace.Remove(ha);
+                            }
+                        }
+                    
+               
+                   int count4=VData.PHeadacheOverview.MitigatingFactors.Count-1;
+                    for (int n =count4 ; n >=0 ; n--)
                     {
-                        HeadacheAccompany ha = VData.PHeadacheOverview.HeadacheAccompany.ElementAt(n);
+                        MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
+                        if (ha.FactorName == "")
+                        {
+                            VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
+                        }
+                    }
+                   int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count-1;
+                    for (int n = count5; n >=0 ; n--)
+                    {
+                        PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
+                        if (ha.FactorName == "")
+                        {
+                            VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
+                        }
+                    }
+                   int count6 = VData.visitrecord.SecondaryHeadacheSymptom.Count - 1;
+                    for (int n = count6; n >= 0; n--)
+                    {
+                       SecondaryHeadacheSymptom ha = VData.visitrecord.SecondaryHeadacheSymptom.ElementAt(n);
                         if (ha.Symptom == "")
                         {
-                            VData.PHeadacheOverview.HeadacheAccompany.Remove(ha);
+                            VData.visitrecord.SecondaryHeadacheSymptom.Remove(ha);
                         }
                     }
-                    int  count2=VData.PHeadacheOverview.HeadacheProdrome.Count-1;
-                    for (int n =count2; n >=0 ; n--)
-                    {
-                        HeadacheProdrome ha = VData.PHeadacheOverview.HeadacheProdrome.ElementAt(n);
-                        if (ha.Prodrome == "")
-                        {
-                            VData.PHeadacheOverview.HeadacheProdrome.Remove(ha);
-                        }
-                    }
-                    int count3=VData.PHeadacheOverview.HeadachePlace.Count-1;
-                    for (int n = count3; n >=0 ; n--)
-                    {
-                        HeadachePlace ha = VData.PHeadacheOverview.HeadachePlace.ElementAt(n);
-                        if (ha.Position == "")
-                        {
-                            VData.PHeadacheOverview.HeadachePlace.Remove(ha);
-                        }
-                    }
+                    vr.PrimaryHeadachaOverView = VData.PHeadacheOverview;
                     vr.PatBasicInforId = PatID;
+                    vr.SecondaryHeadacheSymptom = VData.visitrecord.SecondaryHeadacheSymptom;
                     pt.VisitRecord.Add(vr);
-                }
-                int count4=VData.PHeadacheOverview.MitigatingFactors.Count-1;
-                for (int n =count4 ; n >=0 ; n--)
-                {
-                    MitigatingFactors ha = VData.PHeadacheOverview.MitigatingFactors.ElementAt(n);
-                    if (ha.FactorName == "")
-                    {
-                        VData.PHeadacheOverview.MitigatingFactors.Remove(ha);
-                    }
-                }
-                int count5 = VData.PHeadacheOverview.PrecipitatingFactor.Count-1;
-                for (int n = count5; n >=0 ; n--)
-                {
-                    PrecipitatingFactor ha = VData.PHeadacheOverview.PrecipitatingFactor.ElementAt(n);
-                    if (ha.FactorName == "")
-                    {
-                        VData.PHeadacheOverview.PrecipitatingFactor.Remove(ha);
-                    }
-                }
-                int count6 = VData.visitrecord.SecondaryHeadacheSymptom.Count - 1;
-                for (int n = count6; n >= 0; n--)
-                {
-                   SecondaryHeadacheSymptom ha = VData.visitrecord.SecondaryHeadacheSymptom.ElementAt(n);
-                    if (ha.Symptom == "")
-                    {
-                        VData.visitrecord.SecondaryHeadacheSymptom.Remove(ha);
-                    }
                 }
                 context.SaveChanges();
                 return true;
