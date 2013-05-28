@@ -77,7 +77,13 @@ $(function () {
         var lheadacheplaceCount = obj.headacheplace.Count;
         for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
         {
-            strHeadachePlace = obj.headacheplace[lheadacheplaceIndex].Position;
+            strHeadachePlace = obj.headacheplace[lheadacheplaceIndex];
+            if(strHeadachePlace.contains("左"))
+                strHeadachePlace = "左侧为主";
+            else if(strHeadachePlace.contains("右"))
+                strHeadachePlace = "右侧为主";
+            else if(strHeadachePlace.contains("双"))
+                strHeadachePlace = "双侧";
             if("" != strHeadachePlace)
                 break;
         }
@@ -96,31 +102,31 @@ $(function () {
         var strSpecificPlace13 = "";
         for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
         {
-            if("颞部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            if(obj.headacheplace[lheadacheplaceIndex].contains("颞部"))
                 strSpecificPlace1 = "颞部";
-            else if("枕部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("枕部"))
                 strSpecificPlace2 = "枕部";
-            else if("顶部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("顶部"))
                 strSpecificPlace3 = "顶部";
-            else if("眶部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("眶部"))
                 strSpecificPlace4 = "眶部";
-            else if("颈部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("颈部"))
                 strSpecificPlace5 = "颈部";
-            else if("颌部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("颌部"))
                 strSpecificPlace6 = "颌部";
-            else if("牙部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("牙部"))
                 strSpecificPlace7 = "牙部";
-            else if("脸部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("脸部"))
                 strSpecificPlace8 = "脸部";
-            else if("耳部" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("耳部"))
                 strSpecificPlace9 = "耳部";
-            else if("眼睑" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("眼睑"))
                 strSpecificPlace10 = "眼睑";
-            else if("前额" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("前额"))
                 strSpecificPlace11 = "前额";
-            else if("全头痛" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("全头痛"))
                 strSpecificPlace12 = "全头痛";
-            else if("其他" == obj.headacheplace[lheadacheplaceIndex].SpecificPlace)
+            else if(obj.headacheplace[lheadacheplaceIndex].contains("其他"))
                 strSpecificPlace13 = "其他";
         }
 
