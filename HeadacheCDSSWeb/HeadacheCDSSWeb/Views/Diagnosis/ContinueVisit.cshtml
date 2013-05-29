@@ -14,11 +14,16 @@ $(function () {
         var OCX = document.getElementById('Reporter2');
         //set the data to OCX
         //set patient information
-        OCX.SetObjectInfo("TextBox_2", "text", obj.Name);
-        OCX.SetObjectInfo("TextBox_3", "text", obj.Sex);
-        OCX.SetObjectInfo("TextBox_4", "text", obj.ChiefDoctor);
-        OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
-        OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
+        if(null != obj.Name)
+            OCX.SetObjectInfo("TextBox_2", "text", obj.Name);
+        if(null != obj.Sex)
+            OCX.SetObjectInfo("TextBox_3", "text", obj.Sex);
+        if(null != obj.ChiefDoctor)
+            OCX.SetObjectInfo("TextBox_4", "text", obj.ChiefDoctor);
+        if(null != obj.Phone)
+            OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
+        if(null != obj.Address)
+            OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
         var strChiefComplaint = "";
 
         //set Secondary Headache Symptom
@@ -575,6 +580,9 @@ $(function () {
             else if("其他" == strPrecipitatingFactorName)
                 OCX.SetObjectInfo("ComboBox_24", "text", "有");
         }
+
+        //set chief complaint
+        OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
 
     $("#btn1").click(function () {
             $("#btn2").show();
