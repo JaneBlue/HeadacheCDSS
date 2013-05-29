@@ -622,6 +622,16 @@ $(function () {
                 //set chief complaint
                 var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text") + " 备注：" + OCX.GetObjectInfo("TextBox_13", "text");
                 OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
+
+                //set diagnose
+                var strDiagnose = "";
+                if("" != OCX.GetObjectInfo("ComboBox_31", "text"))
+                    strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
+                if("" != OCX.GetObjectInfo("ComboBox_33", "text"))
+                    strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
+                if("" != OCX.GetObjectInfo("ComboBox_36", "text"))
+                    strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text") + "。";
+                 OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
             }
             if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊")
             {
