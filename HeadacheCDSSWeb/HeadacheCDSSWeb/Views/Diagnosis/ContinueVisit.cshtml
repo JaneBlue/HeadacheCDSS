@@ -13,12 +13,28 @@ $(function () {
         var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
         var OCX = document.getElementById('Reporter2');
         //set the data to OCX
+        //set patient information
+        OCX.SetObjectInfo("TextBox_2", "text", obj.Name);
+        OCX.SetObjectInfo("TextBox_3", "text", obj.Sex);
+        OCX.SetObjectInfo("TextBox_4", "text", obj.ChiefDoctor);
+        OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
+        OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
+        var strChiefComplaint = "";
+
         //set Secondary Headache Symptom
         var strSecondaryHeadacheSymptom = "";
         var lSymptomCount = obj.secondaryheadachesymptom.length;
+        //set chief complaint
+        if(0 != lSymptomCount)
+            strChiefComplaint = "继发性头痛:";
         for(var lSymptomIndex = 0; lSymptomIndex < lSymptomCount; ++lSymptomIndex)
         {
             strSecondaryHeadacheSymptom = obj.secondaryheadachesymptom[lSymptomIndex];
+
+            //set chief complaint
+            strChiefComplaint += " ";
+            strChiefComplaint += strSecondaryHeadacheSymptom;
+
             if("突然发生的头痛" == strSecondaryHeadacheSymptom)
                 OCX.SetObjectInfo("CheckBox_1", "checked", "true");
             else if("逐渐加重的头痛" == strSecondaryHeadacheSymptom)
@@ -103,8 +119,15 @@ $(function () {
         var strSpecificPlace11 = "";
         var strSpecificPlace12 = "";
         var strSpecificPlace13 = "";
+
+        //set Chief Complaint
+        strChiefComplaint += " " + "头痛部位：";
+
         for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
         {
+            //set Chief Complaint
+            strChiefComplaint += " " + obj.headacheplace[lheadacheplaceIndex];
+
             if(obj.headacheplace[lheadacheplaceIndex].indexOf("颞部")>=0)
                 strSpecificPlace1 = "颞部";
             else if(obj.headacheplace[lheadacheplaceIndex].indexOf("枕部")>=0)
@@ -216,6 +239,10 @@ $(function () {
         //set HeadacheAccompany
         var strHeadacheAccompany = "";
         var lHeadacheAccompanyCount = obj.headacheaccompany.length;
+
+        //set Chief Complaint
+        strChiefComplaint += " " + "头痛伴随症状:";
+
         for(var lHeadacheAccompanyIndex = 0; lHeadacheAccompanyIndex < lHeadacheAccompanyCount; ++lHeadacheAccompanyIndex)
         {
             strHeadacheAccompany = obj.headacheaccompany[lHeadacheAccompanyIndex];
@@ -248,9 +275,17 @@ $(function () {
         //set HeadacheProdrome
         var strHeadacheProdrome = "";
         var lHeadacheProdromeCount = obj.headacheprodrome.length;
+
+        //set Chief Complaint
+        strChiefComplaint += " " + "头痛先兆:";
+
         for(var lHeadacheProdromeIndex = 0; lHeadacheProdromeIndex < lHeadacheProdromeCount; ++lHeadacheProdromeIndex)
         {
             strHeadacheProdrome = obj.headacheprodrome[lHeadacheProdromeIndex];
+
+            //set Chief Complaint
+            strChiefComplaint += " " + strHeadacheProdrome;
+
             if("视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
                 OCX.SetObjectInfo("RadioBox_VisionYes", "checked", "true");
             else if("感觉（针刺感/麻木）" == strHeadacheProdrome)
@@ -469,9 +504,17 @@ $(function () {
         //set Mitigating Factors
         var strMitigatingFactors = "";
         var lMitigatingFactorsCount = obj.mitigatingfactors.length;
+
+        //set Chief Complaint
+        strChiefComplaint += " " + "诱发因素:";
+
         for(var lMitigatingFactorsIndex = 0; lMitigatingFactorsIndex < lMitigatingFactorsCount; ++lMitigatingFactorsIndex)
         {
             strMitigatingFactors = obj.mitigatingfactors[lMitigatingFactorsIndex];
+
+            //set Chief Complaint
+            strChiefComplaint += " " + strMitigatingFactors;
+
             if("躺下" == strMitigatingFactors)
                 OCX.SetObjectInfo("ComboBox_20", "text", "有");
             else if("黑暗/安静的房间" == strMitigatingFactors)
@@ -498,10 +541,19 @@ $(function () {
         var strPrecipitatingFactorName = "";
         var strPrecipitatingFactorDetail = "";
         var lPrecipitatingFactorsCount = obj.precipitatingfactor.length;
+
+        //set Chief Complaint
+        strChiefComplaint += " " + "缓解因素:";
+
         for(var lPrecipitatingFactorsIndex = 0; lPrecipitatingFactorsIndex < lPrecipitatingFactorsCount; ++lPrecipitatingFactorsIndex)
         {
             strPrecipitatingFactorName = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorName;
             strPrecipitatingFactorDetail = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorDetail;
+
+            //set Chief Complaint
+            strChiefComplaint += " " + strPrecipitatingFactorName;
+            strChiefComplaint += ":" + strPrecipitatingFactorDetail;
+
             if("睡眠" == strPrecipitatingFactorName)
                 OCX.SetObjectInfo("ComboBox_30", "text", strPrecipitatingFactorDetail);
             else if("感觉刺激" == strPrecipitatingFactorName)
