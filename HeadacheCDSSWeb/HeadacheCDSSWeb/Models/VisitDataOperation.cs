@@ -114,13 +114,19 @@ namespace HeadacheCDSSWeb.Models
                 pt.PreviousExam = vdata.PExam;
                 if (vdata.visitrecord != null)
                 {
-                    var record = from p in context.VisitRecordSet.ToList()
-                                 where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
-                                 select p;
+                    IEnumerable<VisitRecord> record = from p in context.VisitRecordSet.ToList()
+                                                      where (p.PatBasicInfor.Id == PatID) && (p.Id == int.Parse(VisitID))
+                                                      select p;
                     VisitRecord vr = record.First();
-                    vr = vdata.visitrecord;
-                    vr.PrimaryHeadachaOverView = vdata.PHeadacheOverview;
+
+                    ObjectMapper.CopyProperties(vdata.visitrecord, vr);
+                    ObjectMapper.CopyProperties(vdata.PHeadacheOverview, vr.PrimaryHeadachaOverView);
+                    vr.PrimaryHeadachaOverView.VisitRecord=vr;
+                    //  vr = vdata.visitrecord;
+                    //vr.PrimaryHeadachaOverView = vdata.PHeadacheOverview;
                     vr.PatBasicInforId = PatID;
+                    vr.VisitDate = DateTime.Now.Date;
+                    context.Entry(vr).State = System.Data.EntityState.Modified;
                 }
                 context.SaveChanges();
                 return true;
