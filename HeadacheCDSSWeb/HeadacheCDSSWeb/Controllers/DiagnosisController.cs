@@ -96,10 +96,10 @@ namespace HeadacheCDSSWeb.Controllers
         {
             string strResult = null;
             try{
-               // string jsonStr = Request.Params["postjson"];
-               // VisitData obj = JsonHelper.JsonDeserialize<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
+                string jsonStr = Request.Params["postjson"];
+                VisitData obj = JsonConvert.DeserializeObject<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
                 HeadacheDiagnosis HDiagnosis = new HeadacheDiagnosis();
-                //List<string> Result = HDiagnosis.GetDiagnosis(obj);
+                List<string> Result = HDiagnosis.GetDiagnosis(obj);
             }
             catch (Exception e)
             {

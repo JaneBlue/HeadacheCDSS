@@ -32,7 +32,7 @@ $(function () {
                }
            
             }
-            if ($(".selected").last().attr("id") == "报告") {
+            if ($(".selected").last().attr("id") == "报告"||$(".selected").last().attr("id") == "头痛问诊") {
                 //get SecondaryHeadacheSymptoms
                 var strSecondaryHeadacheSymptom1 = "";
                 var strSecondaryHeadacheSymptom2 = "";
@@ -679,26 +679,30 @@ $(function () {
 
                                              };
                 var encoded = $.toJSON(thing);
-                $("#ocx").hide();
-                $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
-                $.ajax({
-                    url: '@Url.Action("Save", "Diagnosis")',
-                    type: "POST",
-                    data: { postjson: encoded },
-                    success: function (data) {
-                        if (data.OK) {
-                          $(".demo").html("本次问诊信息保存成功！");
-                            var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
-                        }
-                        else {
-                            document.getElementById("msg").innerHTML = data.Message.toString();
-                        }
+                }
+                if($(".selected").last().attr("id") == "报告")
+                {
 
-                    },
-                    error: function (jqXhr, textStatus, errorThrown) {
-                        alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-                    }
-                });
+                    $("#ocx").hide();
+                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
+                    $.ajax({
+                        url: '@Url.Action("Save", "Diagnosis")',
+                        type: "POST",
+                        data: { postjson: encoded },
+                        success: function (data) {
+                            if (data.OK) {
+                              $(".demo").html("本次问诊信息保存成功！");
+                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                            }
+                            else {
+                                document.getElementById("msg").innerHTML = data.Message.toString();
+                            }
+
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                        }
+                    });
             }
              else {
                 $(".selected").next().addClass("selected");
