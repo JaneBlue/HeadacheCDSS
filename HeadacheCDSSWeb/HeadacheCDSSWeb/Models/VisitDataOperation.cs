@@ -208,6 +208,7 @@ namespace HeadacheCDSSWeb.Models
             rdata.Education = pt.Education;
             rdata.Job = pt.Job;
             rdata.Phone = pt.Phone;
+            rdata.ChiefDoctor = pt.ChiefDoctor;
                 if(pt.Lifestyle!=null)
                 {
                     rdata.patlifestyle.SmokeState = pt.Lifestyle.SmokeState;
