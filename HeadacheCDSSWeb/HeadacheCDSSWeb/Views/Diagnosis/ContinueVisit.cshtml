@@ -617,6 +617,12 @@ $(function () {
                }
            
             }
+            if ($(".selected").last().attr("id") == "辅助诊断")
+            {
+                //set chief complaint
+                var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text") + " 备注：" + OCX.GetObjectInfo("TextBox_13", "text");
+                OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
+            }
             if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊")
             {
                 var strChiefComplaint = "";
