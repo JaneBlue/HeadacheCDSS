@@ -233,6 +233,7 @@ namespace HeadacheCDSSWeb.Models
                         rdata.patlifestyle.specialDiet.Add(d.Kind);
                     }
                 }
+            
             //if (pt.SimilarFamily!=null)
             //{
             //    rdata.SimilarFamily = pt.SimilarFamily;
@@ -261,6 +262,10 @@ namespace HeadacheCDSSWeb.Models
                 rdata.DiagnosisResult3 = vr.DiagnosisResult3;
                 rdata.Prescription = vr.Prescription;
                 rdata.ChiefComplaint = vr.ChiefComplaint;
+                foreach(SecondaryHeadacheSymptom  ss in vr.SecondaryHeadacheSymptom )
+               {
+                   rdata.secondaryheadachesymptom.Add(ss.Symptom);
+              }
                 foreach (MedicationAdvice madvice in vr.MecicationAdvice)
                 {
                     HMedicine hmedicine = new HMedicine();
