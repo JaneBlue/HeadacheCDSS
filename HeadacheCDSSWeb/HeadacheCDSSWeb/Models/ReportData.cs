@@ -12,6 +12,7 @@ namespace HeadacheCDSSWeb.Models
             this.Hfamilymember = new List<string>();
             this.Ofamilydisease = new List<string>();
             this.previousdrug = new List<PDrug>();
+            this.previousexam = new List<Exam>();
             this.headacheplace = new List<string>();
             this.precipitatingfactor = new List<Factor>();
             this.mitigatingfactors = new List<string>();
