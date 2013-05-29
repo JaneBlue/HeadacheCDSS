@@ -77,15 +77,15 @@ $(function () {
 
         //set headache place
         var strHeadachePlace = "";
-        var lheadacheplaceCount = obj.headacheplace.Count;
+        var lheadacheplaceCount = obj.headacheplace.length;
         for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
         {
             strHeadachePlace = obj.headacheplace[lheadacheplaceIndex];
-            if(strHeadachePlace.contains("左"))
+            if(strHeadachePlace.indexOf("左")>=0)
                 strHeadachePlace = "左侧为主";
-            else if(strHeadachePlace.contains("右"))
+            else if(strHeadachePlace.indexOf("右")>=0)
                 strHeadachePlace = "右侧为主";
-            else if(strHeadachePlace.contains("双"))
+            else if(strHeadachePlace.indexOf("双")>=0)
                 strHeadachePlace = "双侧";
             if("" != strHeadachePlace)
                 break;
@@ -105,31 +105,31 @@ $(function () {
         var strSpecificPlace13 = "";
         for(var lheadacheplaceIndex = 0; lheadacheplaceIndex < lheadacheplaceCount; ++lheadacheplaceIndex)
         {
-            if(obj.headacheplace[lheadacheplaceIndex].contains("颞部"))
+            if(obj.headacheplace[lheadacheplaceIndex].indexOf("颞部")>=0)
                 strSpecificPlace1 = "颞部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("枕部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("枕部")>=0)
                 strSpecificPlace2 = "枕部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("顶部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("顶部")>=0)
                 strSpecificPlace3 = "顶部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("眶部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("眶部")>=0)
                 strSpecificPlace4 = "眶部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("颈部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("颈部")>=0)
                 strSpecificPlace5 = "颈部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("颌部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("颌部")>=0)
                 strSpecificPlace6 = "颌部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("牙部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("牙部")>=0)
                 strSpecificPlace7 = "牙部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("脸部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("脸部")>=0)
                 strSpecificPlace8 = "脸部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("耳部"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("耳部")>=0)
                 strSpecificPlace9 = "耳部";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("眼睑"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("眼睑")>=0)
                 strSpecificPlace10 = "眼睑";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("前额"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("前额")>=0)
                 strSpecificPlace11 = "前额";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("全头痛"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("全头痛")>=0)
                 strSpecificPlace12 = "全头痛";
-            else if(obj.headacheplace[lheadacheplaceIndex].contains("其他"))
+            else if(obj.headacheplace[lheadacheplaceIndex].indexOf("其他")>=0)
                 strSpecificPlace13 = "其他";
         }
 
@@ -215,7 +215,7 @@ $(function () {
 
         //set HeadacheAccompany
         var strHeadacheAccompany = "";
-        var lHeadacheAccompanyCount = obj.headacheaccompany.Count;
+        var lHeadacheAccompanyCount = obj.headacheaccompany.length;
         for(var lHeadacheAccompanyIndex = 0; lHeadacheAccompanyIndex < lHeadacheAccompanyCount; ++lHeadacheAccompanyIndex)
         {
             strHeadacheAccompany = obj.headacheaccompany[lHeadacheAccompanyIndex];
@@ -247,7 +247,7 @@ $(function () {
 
         //set HeadacheProdrome
         var strHeadacheProdrome = "";
-        var lHeadacheProdromeCount = obj.headacheprodrome.Count;
+        var lHeadacheProdromeCount = obj.headacheprodrome.length;
         for(var lHeadacheProdromeIndex = 0; lHeadacheProdromeIndex < lHeadacheProdromeCount; ++lHeadacheProdromeIndex)
         {
             strHeadacheProdrome = obj.headacheprodrome[lHeadacheProdromeIndex];
@@ -265,7 +265,7 @@ $(function () {
         var strExamName = "";
         var strResult = "";
         var strDate = "";
-        var lPreviousExamCount = obj.previousexam.Count;
+        var lPreviousExamCount = obj.previousexam.length;
         for(var lPreviousExamIndex = 0; lPreviousExamIndex < lPreviousExamCount; ++lPreviousExamIndex)
         {
             strExamName = obj.previousexam[lPreviousExamIndex].ExamName;
@@ -313,7 +313,7 @@ $(function () {
         var strDrugName = "";
         var strDayAmoutnPerM = "";
         var strMonthTotalAmount = "";
-        var lPreviousDrugCount = obj.previousdrug.Count;
+        var lPreviousDrugCount = obj.previousdrug.length;
         for(var lPreviousDrugIndex = 0; lPreviousDrugIndex < lPreviousDrugCount; ++lPreviousDrugIndex)
         {
             strDrugCategory = obj.previousdrug[lPreviousDrugIndex].ExamName;
@@ -390,7 +390,7 @@ $(function () {
         OCX.SetObjectInfo("ComboBox_7", "text", strWeightChangeNote);
         var listSpecialDiet = obj.patlifestyle.specialDiet;
         var strSpecialDiet = "";
-        var lSpecialDietCount = obj.patlifestyle.specialDiet.Count;
+        var lSpecialDietCount = obj.patlifestyle.specialDiet.length;
         for(var lSpecialDietIndex = 0; lSpecialDietIndex < lSpecialDietCount; ++lSpecialDietIndex)
         {
             strSpecialDiet = obj.patlifestyle.specialDiet[lSpecialDietIndex];
@@ -414,7 +414,7 @@ $(function () {
 
         //set Headache FamilyMember
         var strHeadacheFamilyMember = "";
-        var lHeadacheFamilyMemberCount = obj.Hfamilymember.Count;
+        var lHeadacheFamilyMemberCount = obj.Hfamilymember.length;
         for(var lHeadacheFamilyMemberIndex = 0; lHeadacheFamilyMemberIndex < lHeadacheFamilyMemberCount; ++lHeadacheFamilyMemberIndex)
         {
             strHeadacheFamilyMember = obj.Hfamilymember[lHeadacheFamilyMemberIndex];
@@ -444,7 +444,7 @@ $(function () {
 
         //set Other family disease
         var strOfamilydisease = "";
-        var lOfamilydiseaseCount = obj.Ofamilydisease.Count;
+        var lOfamilydiseaseCount = obj.Ofamilydisease.length;
         for(var lOfamilydiseaseIndex = 0; lOfamilydiseaseIndex < lOfamilydiseaseCount; ++lOfamilydiseaseIndex)
         {
             strOfamilydisease = obj.Ofamilydisease[lOfamilydiseaseIndex];
@@ -468,7 +468,7 @@ $(function () {
 
         //set Mitigating Factors
         var strMitigatingFactors = "";
-        var lMitigatingFactorsCount = obj.mitigatingfactors.Count;
+        var lMitigatingFactorsCount = obj.mitigatingfactors.length;
         for(var lMitigatingFactorsIndex = 0; lMitigatingFactorsIndex < lMitigatingFactorsCount; ++lMitigatingFactorsIndex)
         {
             strMitigatingFactors = obj.mitigatingfactors[lMitigatingFactorsIndex];
@@ -497,7 +497,7 @@ $(function () {
         //set precipitating factors
         var strPrecipitatingFactorName = "";
         var strPrecipitatingFactorDetail = "";
-        var lPrecipitatingFactorsCount = obj.precipitatingfactor.Count;
+        var lPrecipitatingFactorsCount = obj.precipitatingfactor.length;
         for(var lPrecipitatingFactorsIndex = 0; lPrecipitatingFactorsIndex < lPrecipitatingFactorsCount; ++lPrecipitatingFactorsIndex)
         {
             strPrecipitatingFactorName = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorName;
