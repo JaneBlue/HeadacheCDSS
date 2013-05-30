@@ -10,7 +10,8 @@
 </p>
 <script type="text/javascript">
 $(function () {
-
+   var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
+   //OCX 赋值
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');

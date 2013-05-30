@@ -17,7 +17,10 @@ namespace HeadacheCDSSWeb.Controllers
         {
           
             this.TempData["PatID"] = ID;
-        
+            ReportData RData = vr.ViewDetail(ID, "");
+            System.Web.Script.Serialization.JavaScriptSerializer oSerializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            string sJSON = JsonHelper.JsonSerializer(RData);
+            ViewData["data"] = sJSON;
             return View();
         }
         public ActionResult ContinueVisit(string identity)
