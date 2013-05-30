@@ -229,7 +229,34 @@
         })
 
     });
-    
+    function SetReportData(jsonData) 
+    {
+        var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["jsonData"]))+ ")");
+
+        //set patient basic information
+        var strPatientInfo = "姓名：" + obj.Name;
+        strPatientInfo += " 性别:" + obj.Sex;
+        strPatientInfo += " 年龄:" + obj.Age;
+        strPatientInfo += " 教育程度:" + obj.Education;
+        strPatientInfo += " 工作:" + obj.Job;
+        strPatientInfo += " 电话:" + obj.Phone;
+        strPatientInfo += " 地址:" + obj.Address;
+        strPatientInfo += " 身份证:" + obj.Identity;
+        strPatientInfo += " 主治医生:" + obj.ChiefDoctor;
+        OCX.SetObjectInfo("TextBox_21", "text", strPatientInfo);
+
+        //set chief complaint
+        var strChiefComplaint = obj.ChiefComplaint;
+        OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
+
+        //set diagnoses
+        var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
+        OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
+
+        //set doctor advice
+        var strDoctorAdvice = obj.Prescription;
+        OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
+    }
         
      
   </script>
