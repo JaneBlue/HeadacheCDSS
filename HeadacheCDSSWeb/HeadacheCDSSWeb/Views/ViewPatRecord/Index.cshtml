@@ -85,6 +85,8 @@
                 $("#ViewContent").show();
                 $("#DiaryView").hide();
                 //赋值
+                SetReportData(data);
+                
             },
             error: function (jqXhr, textStatus, errorThrown) {
                 alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
@@ -138,6 +140,7 @@
                     $("#ViewContent").show();
                     $("#DiaryView").hide();
                     //$('#ViewContent').html(data);
+                    SetReportData(data);
                     $(".CurrentView").parent().css("background-color", "#B9DCF2");
                     $(".CurrentView").removeClass("CurrentView");
                     $('#' + recordToView).addClass("CurrentView");
@@ -231,8 +234,8 @@
     });
     function SetReportData(jsonData) 
     {
-        var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["jsonData"]))+ ")");
-
+        var obj = eval('(' +jsonData + ')');
+        var OCX = document.getElementById('Reporter2');
         //set patient basic information
         var strPatientInfo = "姓名：" + obj.Name;
         strPatientInfo += " 性别:" + obj.Sex;
@@ -256,6 +259,8 @@
         //set doctor advice
         var strDoctorAdvice = obj.Prescription;
         OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
+        OCX.ShowReport();
+        OCX.ShowThisPage("就诊记录");
     }
         
      
