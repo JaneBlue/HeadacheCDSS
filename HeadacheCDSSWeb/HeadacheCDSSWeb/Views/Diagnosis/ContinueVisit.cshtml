@@ -523,7 +523,7 @@ $(function () {
         var lMitigatingFactorsCount = obj.mitigatingfactors.length;
 
         //set Chief Complaint
-        strChiefComplaint += " " + "诱发因素:";
+        strChiefComplaint += " " + "缓解因素:";
 
         for(var lMitigatingFactorsIndex = 0; lMitigatingFactorsIndex < lMitigatingFactorsCount; ++lMitigatingFactorsIndex)
         {
@@ -560,12 +560,12 @@ $(function () {
         var lPrecipitatingFactorsCount = obj.precipitatingfactor.length;
 
         //set Chief Complaint
-        strChiefComplaint += " " + "缓解因素:";
+        strChiefComplaint += " " + "诱发因素:";
 
         for(var lPrecipitatingFactorsIndex = 0; lPrecipitatingFactorsIndex < lPrecipitatingFactorsCount; ++lPrecipitatingFactorsIndex)
         {
-            strPrecipitatingFactorName = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorName;
-            strPrecipitatingFactorDetail = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FactorDetail;
+            strPrecipitatingFactorName = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FName;
+            strPrecipitatingFactorDetail = obj.precipitatingfactor[lPrecipitatingFactorsIndex].FDetail;
 
             //set Chief Complaint
             strChiefComplaint += " " + strPrecipitatingFactorName;
@@ -985,7 +985,7 @@ $(function () {
 
                     //get Mitigating information
                     //set Chief Complaint
-                    strChiefComplaint += " " + "诱发因素:";
+                    strChiefComplaint += " " + "缓解因素:";
                     var strMitigatingFactor1 = "";
                     var strMitigatingFactor2 = "";
                     var strMitigatingFactor3 = "";
@@ -1019,7 +1019,7 @@ $(function () {
 
                     //get Precipitating Factor
                     //set Chief Complaint
-                    strChiefComplaint += " " + "缓解因素:";
+                    strChiefComplaint += " " + "诱发因素:";
                     var strPrecipitatingFactor1 = "";
                     var strPrecipitatingFactor2 = "";
                     var strPrecipitatingFactor3 = "";
