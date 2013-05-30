@@ -323,35 +323,35 @@ $(function () {
             strExamName = obj.previousexam[lPreviousExamIndex].ExamName;
             strResult = obj.previousexam[lPreviousExamIndex].Result;
             strDate = obj.previousexam[lPreviousExamIndex].Date;
-            if(1 == lPreviousExamIndex)
+            if(0 == lPreviousExamIndex)
             {
                 OCX.SetObjectInfo("ComboBox_InspectionItem1", "text", strExamName);
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_InspectionItem1Normal", "checked", "true");
                 OCX.SetObjectInfo("DateTime_InspectionItem1Date", "text", strDate);
             }
-            else if(2 == lPreviousExamIndex)
+            else if(1 == lPreviousExamIndex)
             {
                 OCX.SetObjectInfo("ComboBox_InspectionItem2", "text", strExamName);
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_InspectionItem2Normal", "checked", "true");
                 OCX.SetObjectInfo("DateTime_InspectionItem2Date", "text", strDate);
             }
-            else if(3 == lPreviousExamIndex)
+            else if(2 == lPreviousExamIndex)
             {
                 OCX.SetObjectInfo("ComboBox_InspectionItem3", "text", strExamName);
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_InspectionItem3Normal", "checked", "true");
                 OCX.SetObjectInfo("DateTime_InspectionItem3Date", "text", strDate);
             }
-            else if(4 == lPreviousExamIndex)
+            else if(3 == lPreviousExamIndex)
             {
                 OCX.SetObjectInfo("ComboBox_InspectionItem4", "text", strExamName);
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_InspectionItem4Normal", "checked", "true");
                 OCX.SetObjectInfo("DateTime_InspectionItem4Date", "text", strDate);
             }
-            else if(5 == lPreviousExamIndex)
+            else if(4 == lPreviousExamIndex)
             {
                 OCX.SetObjectInfo("ComboBox_InspectionItem5", "text", strExamName);
                 if("正常" == strResult)
@@ -368,32 +368,32 @@ $(function () {
         var lPreviousDrugCount = obj.previousdrug.length;
         for(var lPreviousDrugIndex = 0; lPreviousDrugIndex < lPreviousDrugCount; ++lPreviousDrugIndex)
         {
-            strDrugCategory = obj.previousdrug[lPreviousDrugIndex].ExamName;
-            strDrugName = obj.previousdrug[lPreviousDrugIndex].Result;
-            strDayAmoutnPerM = obj.previousdrug[lPreviousDrugIndex].Date;
-            strMonthTotalAmount = obj.previousdrug[lPreviousDrugIndex].Date;
-            if(1 == lPreviousDrugIndex)
+            strDrugCategory = obj.previousdrug[lPreviousDrugIndex].DrugCategory;
+            strDrugName = obj.previousdrug[lPreviousDrugIndex].DrugName;
+            strDayAmoutnPerM = obj.previousdrug[lPreviousDrugIndex].DayAmoutnPerM;
+            strMonthTotalAmount = obj.previousdrug[lPreviousDrugIndex].MonthTotalAmount;
+            if(0 == lPreviousDrugIndex)
             {
                 OCX.SetObjectInfo("ComboBox_DrugCatogry1", "text", strDrugCategory);
                 OCX.SetObjectInfo("TextBox_20", "text", strDrugName);
                 OCX.SetObjectInfo("TextBox_Takemedicinedays1", "text", strDayAmoutnPerM);
                 OCX.SetObjectInfo("TextBox_Takemedicinemonths1", "text", strMonthTotalAmount);
             }
-            else if(2 == lPreviousDrugIndex)
+            else if(1 == lPreviousDrugIndex)
             {
                 OCX.SetObjectInfo("ComboBox_DrugCatogry2", "text", strDrugCategory);
                 OCX.SetObjectInfo("TextBox_19", "text", strDrugName);
                 OCX.SetObjectInfo("TextBox_Takemedicinedays2", "text", strDayAmoutnPerM);
                 OCX.SetObjectInfo("TextBox_Takemedicinemonths2", "text", strMonthTotalAmount);
             }
-            else if(3 == lPreviousDrugIndex)
+            else if(2 == lPreviousDrugIndex)
             {
                 OCX.SetObjectInfo("ComboBox_DrugCatogry3", "text", strDrugCategory);
                 OCX.SetObjectInfo("TextBox_18", "text", strDrugName);
                 OCX.SetObjectInfo("TextBox_Takemedicinedays3", "text", strDayAmoutnPerM);
                 OCX.SetObjectInfo("TextBox_Takemedicinemonths3", "text", strMonthTotalAmount);
             }
-            else if(4 == lPreviousDrugIndex)
+            else if(3 == lPreviousDrugIndex)
             {
                 OCX.SetObjectInfo("ComboBox_DrugCatogry4", "text", strDrugCategory);
                 OCX.SetObjectInfo("TextBox_17", "text", strDrugName);
