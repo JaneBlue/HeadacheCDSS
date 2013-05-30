@@ -253,6 +253,17 @@ namespace HeadacheCDSSWeb.Models
             {
                 rdata.Ofamilydisease.Add(ofdisease.DiseaseName);
             }
+            foreach (PreviousDrug pdrug in pt.PreviousDrug)
+            {   PDrug pd=new PDrug();
+                ObjectMapper.CopyProperties(pdrug, pd);
+                rdata.previousdrug.Add(pd);
+            }
+            foreach (PreviousExam pexam in pt.PreviousExam)
+            {
+                Exam exam = new Exam();
+                ObjectMapper.CopyProperties(pexam, exam);
+                rdata.previousexam.Add(exam);
+            }
             if (RecordID != "")
             {
 
