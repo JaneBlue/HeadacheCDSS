@@ -20,6 +20,7 @@ namespace HeadacheCDSSWeb.Controllers
             if (Lvisit.Count != 0)
             {
                 this.TempData["recordID"] = Lvisit.First().Id;
+                this.ViewBag.recordId = Lvisit.First().Id;
             }
             return View(Lvisit);
         }

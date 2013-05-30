@@ -23,6 +23,7 @@
         </div>
         <div id="DiaryView"></div>
         <div id="@ViewBag.patId" class="PID" style="display:none;"></div>
+        <div id="@ViewBag.recordId" class="RecordID" style="display:none;"></div>
     </div>
     <div id="sidebar">
     <div id="navigate">
@@ -60,6 +61,37 @@
   </div>
 <script type="text/javascript">
     $(function () {
+        var OCX = document.getElementById('Reporter2');
+        try {
+            OCX.OpenReport("D:\\CDSSOCX");
+        }
+        catch (err) {
+            var b = confirm("是否下载显示控件");
+            if (b) {
+                var strOCXURL;
+                strOCXURL = "http://" + location.host + "/LNCDCDSS/CDSSOCX.exe";
+                window.location.href = strOCXURL;
+            }
+        }
+        var stringArray = new Array();
+        stringArray[0] = $(".PID").attr("id");
+        stringArray[1] = $(".RecordID").attr("id");
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ViewVisitRecordDetail", "ViewPatRecord")',
+            data: { PostID: stringArray },
+            dataType: "json", type: "POST", traditional: true,
+            success: function (data) {
+                $("#ViewContent").show();
+                $("#DiaryView").hide();
+                //赋值
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                alert("处理失败!");
+            }
+
+        });
         //打开第一个问诊记录
         $("#accordion").accordion(
         { collapsible: true });
