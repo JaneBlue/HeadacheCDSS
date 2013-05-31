@@ -244,21 +244,30 @@
         strPatientInfo += " 工作:" + obj.Job;
         strPatientInfo += " 电话:" + obj.Phone;
         strPatientInfo += " 地址:" + obj.Address;
-        strPatientInfo += " 身份证:" + obj.Identity;
+        //strPatientInfo += " 身份证:" + obj.Identity;
         strPatientInfo += " 主治医生:" + obj.ChiefDoctor;
         OCX.SetObjectInfo("TextBox_21", "text", strPatientInfo);
 
         //set chief complaint
-        var strChiefComplaint = obj.ChiefComplaint;
-        OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
-
-        //set diagnoses
-        var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
-        OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
-
+        if(obj.ChiefComplaint!=null)
+        {
+                var strChiefComplaint = obj.ChiefComplaint;
+                OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
+        }
+    //set diagnoses
+            if (obj.DiagnosisResult1 == null && obj.DiagnosisResult2 == null && obj.DiagnosisResult3== null)
+        {
+            
+        }
+        else{
+                var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
+                OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
+        }
         //set doctor advice
-        var strDoctorAdvice = obj.Prescription;
-        OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
+            if (obj.Prescription != null) {
+            var strDoctorAdvice = obj.Prescription;
+            OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
+        }
         OCX.ShowReport();
         OCX.ShowThisPage("就诊记录");
     }
