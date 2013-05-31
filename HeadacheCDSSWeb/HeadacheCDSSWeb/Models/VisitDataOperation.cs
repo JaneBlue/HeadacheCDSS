@@ -93,6 +93,15 @@ namespace HeadacheCDSSWeb.Models
                 pt.OtherFamilyDisease = vdata.OFamilyDisease;
                 ObjectMapper.CopyProperties(vdata.lifestyle, pt.Lifestyle);
                 pt.PreviousDrug = vdata.PDrug;
+                if (vdata.Similarfamily == "有")
+                {
+                    pt.SimilarFamily = true;
+                }
+                else
+                {
+                    pt.SimilarFamily = false;
+                }
+                
                 pt.PreviousExam = vdata.PExam;
                 if (vdata.visitrecord != null)
                 {
@@ -131,6 +140,14 @@ namespace HeadacheCDSSWeb.Models
                 ObjectMapper.CopyProperties(vdata.lifestyle, pt.Lifestyle);
                 pt.PreviousDrug = vdata.PDrug;
                 pt.PreviousExam = vdata.PExam;
+                if (vdata.Similarfamily=="有")
+                {
+                     pt.SimilarFamily=true;
+                }
+                else
+                {
+                    pt.SimilarFamily=false;
+                }
                 if (vdata.visitrecord != null)
                 {
                     IEnumerable<VisitRecord> record = from p in context.VisitRecordSet.ToList()
@@ -234,6 +251,17 @@ namespace HeadacheCDSSWeb.Models
             rdata.Job = pt.Job;
             rdata.Phone = pt.Phone;
             rdata.ChiefDoctor = pt.ChiefDoctor;
+            if (pt.SimilarFamily!=null)
+            {
+                if (pt.SimilarFamily==true)
+                {rdata.SimilarFamily = true;
+                }
+                else{
+                    rdata.SimilarFamily =false ;
+                }
+                
+            }
+            
             if (pt.Lifestyle != null)
             {
                 rdata.patlifestyle.SmokeState = pt.Lifestyle.SmokeState;

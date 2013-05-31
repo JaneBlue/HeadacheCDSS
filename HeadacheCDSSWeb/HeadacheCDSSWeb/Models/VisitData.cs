@@ -12,6 +12,7 @@ namespace HeadacheCDSSWeb.Models
         public Lifestyle lifestyle { get; set; }
         public List<PreviousDrug> PDrug { get; set; }
         public List<PreviousExam> PExam { get; set; }
+        public string Similarfamily{get;set;}
         public VisitRecord visitrecord { get; set; }
         public PrimaryHeadacheOverView PHeadacheOverview { get; set; }
     }
