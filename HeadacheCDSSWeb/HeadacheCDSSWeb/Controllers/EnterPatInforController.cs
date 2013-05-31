@@ -62,7 +62,7 @@ namespace HeadacheCDSSWeb.Controllers
             string patname = Request["name"];
             string patsex = Request["sex"];
             string date = Request["date"];
-            string diagnosisresult = Request["Diagnosis"];
+            string diagnosisresult = Request["diagnosis"];
             List<string> query = new List<string>();
             query.Add(patname);
             query.Add(patsex);

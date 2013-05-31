@@ -20,11 +20,30 @@ namespace HeadacheCDSSWeb.Models
                       && (string.IsNullOrEmpty(Condition[2]) ? true : p.VisitRecord.Last().VisitDate == DateTime.Parse(Condition[2]))
                        // && (string.IsNullOrEmpty(Condition[3]) ? true : p.VisitRecord.Last().CDSSDiagnosis== Condition[3])
                        select p;
-
+            List<PatBasicInfor> SelectedPats=pats.ToList();
+            if (!string.IsNullOrEmpty(Condition[3]))
+            {
+                for (int i = SelectedPats.Count-1; i >=0;i--)
+                {
+                    bool flag = false;
+                    foreach (VisitRecord vr in SelectedPats[i].VisitRecord)
+                    {
+                        if (vr.DiagnosisResult1== Condition[3] || vr.DiagnosisResult2 == Condition[3] || vr.DiagnosisResult3== Condition[3])
+                        {
+                            flag=true;
+                            break;
+                        }
+                    }
+                    if (!flag)
+                    {
+                        SelectedPats.RemoveAt(i);
+                    }
+                }
+            }
             try
             {
 
-                foreach (PatBasicInfor pt in pats)
+                foreach (PatBasicInfor pt in SelectedPats)
                 {
                     if (pt.VisitRecord != null && pt.VisitRecord.Count != 0)
                     {
