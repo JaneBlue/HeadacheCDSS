@@ -1174,6 +1174,8 @@ $(function () {
                         data: { postjson: encoded },
                         success: function (data) {
                             if (data.OK) {
+                             var OCX = document.getElementById('Reporter2');
+                            OCX.PrintPages("报告", true);
                               $(".demo").html("本次问诊信息保存成功！");
                                 var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
                             }
