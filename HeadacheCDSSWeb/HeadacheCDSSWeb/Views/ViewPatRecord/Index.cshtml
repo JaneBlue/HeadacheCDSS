@@ -5,11 +5,7 @@
 @model List<HeadacheCDSSWeb.Models.VisitRecord>
 <div id="content">
      <div id="ViewContent">
-                 <div id="ocx">
-                    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="600"
-                        height="540">
-                    </object>
-                </div>
+                 
                 <div id="continue" class="button">
                     @Html.ActionLink("继续问诊", "ContinueDiagnosis", new { id = ViewBag.patId })
                 </div>
@@ -61,18 +57,18 @@
   </div>
 <script type="text/javascript">
     $(function () {
-        var OCX = document.getElementById('Reporter2');
-        try {
-            OCX.OpenReport("D:\\CDSSOCX");
-        }
-        catch (err) {
-            var b = confirm("是否下载显示控件");
-            if (b) {
-                var strOCXURL;
-                strOCXURL = "http://" + location.host + "/LNCDCDSS/CDSSOCX.exe";
-                window.location.href = strOCXURL;
-            }
-        }
+      //  var OCX = document.getElementById('Reporter2');
+//        try {
+//            OCX.OpenReport("D:\\CDSSOCX");
+//        }
+//        catch (err) {
+//            var b = confirm("是否下载显示控件");
+//            if (b) {
+//                var strOCXURL;
+//                strOCXURL = "http://" + location.host + "/LNCDCDSS/CDSSOCX.exe";
+//                window.location.href = strOCXURL;
+//            }
+//        }
         var stringArray = new Array();
         stringArray[0] = $(".PID").attr("id");
         stringArray[1] = $(".RecordID").attr("id");
@@ -85,7 +81,7 @@
                 $("#ViewContent").show();
                 $("#DiaryView").hide();
                 //赋值
-                SetReportData(data);
+              //  SetReportData(data);
                 
             },
             error: function (jqXhr, textStatus, errorThrown) {
@@ -97,8 +93,8 @@
         //打开第一个问诊记录
         $("#accordion").accordion(
         { collapsible: true });
-        $('.paging a:first').addClass("CurrentView");
-        $(".CurrentView").parent().css("background-color", "#D3E7F2");
+      $('.paging li a:first').addClass("CurrentView");
+      $(".CurrentView").parent().css("background-color", "#D3E7F2");
     });
     $(document).ready(function () {
         
@@ -140,7 +136,7 @@
                     $("#ViewContent").show();
                     $("#DiaryView").hide();
                     //$('#ViewContent').html(data);
-                    SetReportData(data);
+                   // SetReportData(data);
                     $(".CurrentView").parent().css("background-color", "#B9DCF2");
                     $(".CurrentView").removeClass("CurrentView");
                     $('#' + recordToView).addClass("CurrentView");
@@ -232,45 +228,45 @@
         })
 
     });
-    function SetReportData(jsonData) 
-    {
-        var obj = eval('(' +jsonData + ')');
-        var OCX = document.getElementById('Reporter2');
-        //set patient basic information
-        var strPatientInfo = "姓名：" + obj.Name;
-        strPatientInfo += " 性别:" + obj.Sex;
-        strPatientInfo += " 年龄:" + obj.Age;
-        strPatientInfo += " 教育程度:" + obj.Education;
-        strPatientInfo += " 工作:" + obj.Job;
-        strPatientInfo += " 电话:" + obj.Phone;
-        strPatientInfo += " 地址:" + obj.Address;
-        //strPatientInfo += " 身份证:" + obj.Identity;
-        strPatientInfo += " 主治医生:" + obj.ChiefDoctor;
-        OCX.SetObjectInfo("TextBox_21", "text", strPatientInfo);
+//    function SetReportData(jsonData) 
+//    {
+//        var obj = eval('(' +jsonData + ')');
+//        var OCX = document.getElementById('Reporter2');
+//        //set patient basic information
+//        var strPatientInfo = "姓名：" + obj.Name;
+//        strPatientInfo += " 性别:" + obj.Sex;
+//        strPatientInfo += " 年龄:" + obj.Age;
+//        strPatientInfo += " 教育程度:" + obj.Education;
+//        strPatientInfo += " 工作:" + obj.Job;
+//        strPatientInfo += " 电话:" + obj.Phone;
+//        strPatientInfo += " 地址:" + obj.Address;
+//        //strPatientInfo += " 身份证:" + obj.Identity;
+//        strPatientInfo += " 主治医生:" + obj.ChiefDoctor;
+//        OCX.SetObjectInfo("TextBox_21", "text", strPatientInfo);
 
-        //set chief complaint
-        if(obj.ChiefComplaint!=null)
-        {
-                var strChiefComplaint = obj.ChiefComplaint;
-                OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
-        }
-    //set diagnoses
-            if (obj.DiagnosisResult1 == null && obj.DiagnosisResult2 == null && obj.DiagnosisResult3== null)
-        {
-            
-        }
-        else{
-                var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
-                OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
-        }
-        //set doctor advice
-            if (obj.Prescription != null) {
-            var strDoctorAdvice = obj.Prescription;
-            OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
-        }
-        OCX.ShowReport();
-        OCX.ShowThisPage("就诊记录");
-    }
+//        //set chief complaint
+//        if(obj.ChiefComplaint!=null)
+//        {
+//                var strChiefComplaint = obj.ChiefComplaint;
+//                OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
+//        }
+//    //set diagnoses
+//            if (obj.DiagnosisResult1 == null && obj.DiagnosisResult2 == null && obj.DiagnosisResult3== null)
+//        {
+//            
+//        }
+//        else{
+//                var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
+//                OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
+//        }
+//        //set doctor advice
+//            if (obj.Prescription != null) {
+//            var strDoctorAdvice = obj.Prescription;
+//            OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
+//        }
+//        OCX.ShowReport();
+//        OCX.ShowThisPage("就诊记录");
+//    }
         
      
   </script>

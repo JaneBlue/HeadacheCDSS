@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Web.Mvc;
 namespace HeadacheCDSSWeb.Models
 {
     public class HeadacheDiagnosis
@@ -69,8 +69,174 @@ namespace HeadacheCDSSWeb.Models
                         result.Add(conclusion);
                 }
                 else
-                {
-                    //原发性头痛
+              {   //原发性头痛
+                    localhost.InputData InputDataValue = new localhost.InputData();
+                    if(vd.PHeadacheOverview.OnsetDate!=null){
+                        DateTime Startdate=DateTime.Parse(vd.PHeadacheOverview.OnsetDate);
+                        int month = (DateTime.Now.Date.Year - Startdate.Year) * 12 + (DateTime.Now.Date.Month - Startdate.Month);
+                        InputDataValue.m_nHeadache_Duration = month;
+                    }
+                   
+                       if (vd.PHeadacheOverview.FirstOnsetContinue=="是")
+                      {
+                          InputDataValue.m_bDaily_Headache = true;
+                      }
+                       else if (vd.PHeadacheOverview.FirstOnsetContinue == "否")
+                       {
+                           InputDataValue.m_bDaily_Headache = false;
+                       }
+                       if (vd.PHeadacheOverview.OnsetFixedDay=="是"||vd.PHeadacheOverview.OnsetFixedYear=="是")
+                       {
+                            InputDataValue.m_bPeriodism=true;
+                       }
+                       if(vd.PHeadacheOverview.HeadacheDegree!=""){
+                           int number=int.Parse(vd.PHeadacheOverview.HeadacheDegree);
+                           if (number<=4)
+                           {
+                               InputDataValue.m_nHeadacheDegree=localhost.HeadacheDegree.Mild;
+                           }
+                           if (number > 4&&number<8)
+                           {
+                               InputDataValue.m_nHeadacheDegree = localhost.HeadacheDegree.Middle;
+                           }
+                           if (number >= 8)
+                           {
+                               InputDataValue.m_nHeadacheDegree = localhost.HeadacheDegree.Heavy;
+                           }
+                       }
+                  if (vd.PHeadacheOverview.DailyAggravation!="")
+                       {
+                           if(vd.PHeadacheOverview.DailyAggravation=="从无"){
+                               InputDataValue.m_bWorsen_By_Physicial_Activity = false;
+                           }
+                           else
+                           {
+                               InputDataValue.m_bWorsen_By_Physicial_Activity = true;
+                           }
+                       }
+                     
+                    if (vd.PHeadacheOverview.HeadacheType == "搏动性痛" || vd.PHeadacheOverview.HeadacheType == "胀痛")
+                    {
+                        InputDataValue.m_nHeadahceProperty = localhost.HeadacheProperty.Pulse_Pain;
+                    }
+                    if (vd.PHeadacheOverview.HeadacheType == "压迫性痛" || vd.PHeadacheOverview.HeadacheType == "紧箍性痛")
+                   {
+                       InputDataValue.m_nHeadahceProperty = localhost.HeadacheProperty.Pressure_Pain;
+                   }
+                    if (vd.PHeadacheOverview.HeadacheType == "过电样痛" )
+                    {
+                        InputDataValue.m_nHeadahceProperty = localhost.HeadacheProperty.Electric_Shock_Like_Pain;
+                    }
+                    if (vd.PHeadacheOverview.HeadcheTime!="")
+                    {
+                        InputDataValue.m_nHeadache_Duration_PerTime = int.Parse(vd.PHeadacheOverview.HeadcheTime);
+                    }
+                    InputDataValue.m_nHeadache_Duration_PerTime_Unit = vd.PHeadacheOverview.HeacheTimeUnit;
+                     if (vd.PHeadacheOverview.OnsetAmount!="")
+                     { 
+                         string  total=vd.PHeadacheOverview.OnsetAmount;
+                           if (total.Contains("5"))
+                        {
+                         InputDataValue.m_nHeadache_TotalNumber = 3;
+                        }
+                           if (total.Contains("9"))
+                           {
+                               InputDataValue.m_nHeadache_TotalNumber = 7;
+                           }
+                           if (total.Contains("10"))
+                           {
+                               InputDataValue.m_nHeadache_TotalNumber = 12;
+                           }
+                     }
+                   if (vd.PHeadacheOverview.FrequencyPerMonth!="")
+                   {
+                       InputDataValue.m_nHeadache_Monthly_Duration = int.Parse(vd.PHeadacheOverview.FrequencyPerMonth);
+                   }
+                  foreach(HeadachePlace hp in vd.PHeadacheOverview.HeadachePlace)
+                  {
+                      if (hp.Position == "双侧" || hp.Position == "全头痛")
+                    {
+                       InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Bi_Pain;
+                       break;
+                    }
+                     
+                  }
+                 List<localhost.HeadacheAssociatedSymptoms> HeadacheAssociatedSymptonList = new List<localhost.HeadacheAssociatedSymptoms>();
+                     foreach (HeadacheAccompany ha in vd.PHeadacheOverview.HeadacheAccompany)
+                     {
+
+                         if (ha.Symptom == "恶心")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Nausea);
+                             }
+                         if (ha.Symptom == "呕吐")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Vomit);
+                             }
+                         if (ha.Symptom == "怕吵")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Fair_Of_Sound);
+                             }
+                         if (ha.Symptom == "畏光")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Fire_Of_Light);
+                             }
+                         if (ha.Symptom == "同侧鼻塞/流涕")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Blocked_or_Watery_Nose);
+                             }
+                         if (ha.Symptom == "同侧结膜充血/流泪")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Conjunctival_congestion_or_Tears);
+                             }
+                         if (ha.Symptom == "感觉不安或躁动")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Dysphoria);
+                             }
+                         if (ha.Symptom == "同侧前额/面部出汗")
+                             {
+                                 HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Frontal_facial_Sweating);
+                             }
+                         if (ha.Symptom == "同侧眼睑水肿")
+                         {
+                             HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Ipsilateral_Heyelids_Swelling);
+                         }
+                         if (ha.Symptom == "同侧眼睑下垂")
+                         {
+                             HeadacheAssociatedSymptonList.Add(localhost.HeadacheAssociatedSymptoms.Miosis_or_Blepharoptosis);
+                         }
+                    }
+
+                     List<localhost.HeadacheAura> HeadacheAuraList = new List<localhost.HeadacheAura>();
+                foreach(HeadacheProdrome headacheP in vd.PHeadacheOverview.HeadacheProdrome ){
+                    if (headacheP.Prodrome == "单侧视觉")
+                     {
+                         HeadacheAuraList.Add(localhost.HeadacheAura.Hemi_Visual_Aura);
+                     }
+                    if (headacheP.Prodrome == "双侧视觉")
+                     {
+                         HeadacheAuraList.Add(localhost.HeadacheAura.Bilateral_Visual_Aura);
+                     }
+                     if (headacheP.Prodrome == "感觉")
+                     {
+                         HeadacheAuraList.Add(localhost.HeadacheAura.Feeling_Aura);
+                     }
+                     if (headacheP.Prodrome == "语言障碍")
+                     {
+                         HeadacheAuraList.Add(localhost.HeadacheAura.Allolalia);
+                     }
+                     if (headacheP.Prodrome == "运动障碍")
+                     {
+                         HeadacheAuraList.Add(localhost.HeadacheAura.Dyscinesia);
+                     }
+                }
+                     InputDataValue.m_HeadacheAuraList = HeadacheAuraList.ToArray();
+
+                 InputDataValue.m_HeadacheAssociatedSymptonList = HeadacheAssociatedSymptonList.ToArray();
+                   localhost.InferenceService test = new localhost.InferenceService();
+                    string strReslut = null;
+                     test.DoInference(InputDataValue, ref strReslut);
+                 
                 }
 
                 return result;
