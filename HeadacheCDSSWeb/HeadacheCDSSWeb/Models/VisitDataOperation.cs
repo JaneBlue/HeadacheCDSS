@@ -390,6 +390,7 @@ namespace HeadacheCDSSWeb.Models
             else
             {
                 rdata.VisitDate = DateTime.Now.Date;
+                rdata.headacheoverview.OnsetDate = DateTime.Now.Date;
             }
             return rdata;
         }

@@ -32,7 +32,7 @@ namespace HeadacheCDSSWeb.Models
         public string FrequencyPerMonth { get; set; }
         public string OnsetFixedDay { get; set; }
         public string OnsetFixedYear { get; set; }
-        public string OnsetDate { get; set; }
+        public System.DateTime OnsetDate { get; set; }
         public string OnsetAmount { get; set; }
         public string DailyAggravation { get; set; }
         public string FirstOnsetContinue { get; set; }

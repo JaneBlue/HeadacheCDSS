@@ -8,9 +8,9 @@ namespace HeadacheCDSSWeb.Models
     public class HeadacheDiagnosis
     {
         VisitDataOperation vdataoperation = new VisitDataOperation();
-        public List<string> GetDiagnosis(VisitData vData)
+        public string GetDiagnosis(VisitData vData)
         {
-            List<string> result = new List<string>();
+            string result ="";
             VisitData vd = vdataoperation.DataPreprocess(vData);
             if (vd.visitrecord.SecondaryHeadacheSymptom.Count != 0)
             {
@@ -65,15 +65,16 @@ namespace HeadacheCDSSWeb.Models
                             last = last + d + "、";
                         }
                         string DiseaseLast = last.Substring(0, last.Length - 1);
-                        result.Add(DiseaseLast);
-                        result.Add(conclusion);
+                        result = DiseaseLast + conclusion;
+                        
                 }
                 else
               {   //原发性头痛
                     localhost.InputData InputDataValue = new localhost.InputData();
                     if(vd.PHeadacheOverview.OnsetDate!=null){
-                        DateTime Startdate=DateTime.Parse(vd.PHeadacheOverview.OnsetDate);
-                        int month = (DateTime.Now.Date.Year - Startdate.Year) * 12 + (DateTime.Now.Date.Month - Startdate.Month);
+                       DateTime Startdate=vd.PHeadacheOverview.OnsetDate;
+                        //int month = (DateTime.Now.Date.Year - Startdate.Year) * 12 + (DateTime.Now.Date.Month - Startdate.Month);
+                        int month = 12;
                         InputDataValue.m_nHeadache_Duration = month;
                     }
                    
@@ -85,9 +86,12 @@ namespace HeadacheCDSSWeb.Models
                        {
                            InputDataValue.m_bDaily_Headache = false;
                        }
-                       if (vd.PHeadacheOverview.OnsetFixedDay=="是"||vd.PHeadacheOverview.OnsetFixedYear=="是")
+                       if (vd.PHeadacheOverview.OnsetFixedDay=="不固定"&&vd.PHeadacheOverview.OnsetFixedYear=="不固定")
                        {
-                            InputDataValue.m_bPeriodism=true;
+                            InputDataValue.m_bPeriodism=false;
+                       }
+                       else{
+                           InputDataValue.m_bPeriodism = false;
                        }
                        if(vd.PHeadacheOverview.HeadacheDegree!=""){
                            int number=int.Parse(vd.PHeadacheOverview.HeadacheDegree);
@@ -150,7 +154,19 @@ namespace HeadacheCDSSWeb.Models
                      }
                    if (vd.PHeadacheOverview.FrequencyPerMonth!="")
                    {
-                       InputDataValue.m_nHeadache_Monthly_Duration = int.Parse(vd.PHeadacheOverview.FrequencyPerMonth);
+                       string frequency = vd.PHeadacheOverview.FrequencyPerMonth;
+                       if (frequency=="<1")
+                       {
+                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                       }
+                       if (frequency == "1-15")
+                       {
+                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                       }
+                       if (frequency == ">15")
+                       {
+                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                       }
                    }
                   foreach(HeadachePlace hp in vd.PHeadacheOverview.HeadachePlace)
                   {
@@ -236,7 +252,7 @@ namespace HeadacheCDSSWeb.Models
                    localhost.InferenceService test = new localhost.InferenceService();
                     string strReslut = null;
                      test.DoInference(InputDataValue, ref strReslut);
-                 
+                     result=strReslut;
                 }
 
                 return result;

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/20/2013 14:57:34
+-- Date Created: 06/04/2013 09:53:21
 -- Generated from EDMX file: D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
@@ -181,7 +181,7 @@ CREATE TABLE [dbo].[PrimaryHeadacheOverViewSet] (
     [FrequencyPerMonth] nvarchar(max)  NOT NULL,
     [OnsetFixedDay] nvarchar(max)  NOT NULL,
     [OnsetFixedYear] nvarchar(max)  NOT NULL,
-    [OnsetDate] nvarchar(max)  NOT NULL,
+    [OnsetDate] datetime  NOT NULL,
     [OnsetAmount] nvarchar(max)  NOT NULL,
     [DailyAggravation] nvarchar(max)  NOT NULL,
     [FirstOnsetContinue] nvarchar(max)  NOT NULL,

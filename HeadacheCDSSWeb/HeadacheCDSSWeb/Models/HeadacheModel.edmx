@@ -145,7 +145,7 @@
     <Property Name="FrequencyPerMonth" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetFixedDay" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetFixedYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnsetDate" Type="datetime" Nullable="false" />
     <Property Name="OnsetAmount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DailyAggravation" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FirstOnsetContinue" Type="nvarchar(max)" Nullable="false" />
@@ -645,7 +645,7 @@
           <Property Type="String" Name="FrequencyPerMonth" Nullable="false" />
           <Property Type="String" Name="OnsetFixedDay" Nullable="false" />
           <Property Type="String" Name="OnsetFixedYear" Nullable="false" />
-          <Property Type="String" Name="OnsetDate" Nullable="false" />
+          <Property Type="DateTime" Name="OnsetDate" Nullable="false" />
           <Property Type="String" Name="OnsetAmount" Nullable="false" />
           <Property Type="String" Name="DailyAggravation" Nullable="false" />
           <NavigationProperty Name="HeadachePlace" Relationship="HeadacheModel.HeadachaOverViewHeadachePlace" FromRole="HeadachaOverView" ToRole="HeadachePlace" />

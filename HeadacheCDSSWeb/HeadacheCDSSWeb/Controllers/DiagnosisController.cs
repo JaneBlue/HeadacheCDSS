@@ -102,13 +102,13 @@ namespace HeadacheCDSSWeb.Controllers
                 string jsonStr = Request.Params["postjson"];
                 VisitData obj = JsonConvert.DeserializeObject<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
                 HeadacheDiagnosis HDiagnosis = new HeadacheDiagnosis();
-                List<string> Result = HDiagnosis.GetDiagnosis(obj);
+                strResult= HDiagnosis.GetDiagnosis(obj);
             }
             catch (Exception e)
             {
                 return this.Json(new { OK = false, Message = e.Message + "推理出错" });
             }
-            strResult = "123";
+            //strResult = "123";
             return this.Json(new { OK = true, Message = strResult});
          }
     }

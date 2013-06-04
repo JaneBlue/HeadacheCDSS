@@ -140,7 +140,7 @@
     <Property Name="FrequencyPerMonth" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetFixedDay" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetFixedYear" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnsetDate" Type="datetime" Nullable="false" />
     <Property Name="OnsetAmount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DailyAggravation" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FirstOnsetContinue" Type="nvarchar(max)" Nullable="false" />
