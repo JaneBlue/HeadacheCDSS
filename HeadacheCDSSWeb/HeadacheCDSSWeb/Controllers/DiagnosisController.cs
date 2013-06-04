@@ -109,7 +109,13 @@ namespace HeadacheCDSSWeb.Controllers
                 return this.Json(new { OK = false, Message = e.Message + "推理出错" });
             }
             //strResult = "123";
-            return this.Json(new { OK = true, Message = strResult});
+            if(!strResult.Contains("必填项")){
+                return this.Json(new { OK = true, Message = strResult});
+            }
+            else{
+                return this.Json(new { OK = false, Message = strResult });
+            }
+            
          }
     }
 }
