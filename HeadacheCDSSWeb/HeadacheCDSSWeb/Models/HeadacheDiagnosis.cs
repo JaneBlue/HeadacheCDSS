@@ -91,7 +91,7 @@ namespace HeadacheCDSSWeb.Models
                             InputDataValue.m_bPeriodism=false;
                        }
                        else{
-                           InputDataValue.m_bPeriodism = false;
+                           InputDataValue.m_bPeriodism = true;
                        }
                        if(vd.PHeadacheOverview.HeadacheDegree!=""){
                            int number=int.Parse(vd.PHeadacheOverview.HeadacheDegree);
@@ -157,15 +157,15 @@ namespace HeadacheCDSSWeb.Models
                        string frequency = vd.PHeadacheOverview.FrequencyPerMonth;
                        if (frequency=="<1")
                        {
-                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                           InputDataValue.m_nHeadache_Monthly_Duration = 0;
                        }
                        if (frequency == "1-15")
                        {
-                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                           InputDataValue.m_nHeadache_Monthly_Duration = 8;
                        }
                        if (frequency == ">15")
                        {
-                           InputDataValue.m_nHeadache_Monthly_Duration = 3;
+                           InputDataValue.m_nHeadache_Monthly_Duration =16;
                        }
                    }
                   foreach(HeadachePlace hp in vd.PHeadacheOverview.HeadachePlace)
@@ -175,7 +175,11 @@ namespace HeadacheCDSSWeb.Models
                        InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Bi_Pain;
                        break;
                     }
-                     
+                      if (hp.Position == "左侧" || hp.Position == "右侧")
+                      {
+                          InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Uni_Pain;
+                          break;
+                      }
                   }
                  List<localhost.HeadacheAssociatedSymptoms> HeadacheAssociatedSymptonList = new List<localhost.HeadacheAssociatedSymptoms>();
                      foreach (HeadacheAccompany ha in vd.PHeadacheOverview.HeadacheAccompany)
@@ -233,7 +237,7 @@ namespace HeadacheCDSSWeb.Models
                      {
                          HeadacheAuraList.Add(localhost.HeadacheAura.Bilateral_Visual_Aura);
                      }
-                     if (headacheP.Prodrome == "感觉")
+                    if (headacheP.Prodrome.Contains("感觉"))
                      {
                          HeadacheAuraList.Add(localhost.HeadacheAura.Feeling_Aura);
                      }
