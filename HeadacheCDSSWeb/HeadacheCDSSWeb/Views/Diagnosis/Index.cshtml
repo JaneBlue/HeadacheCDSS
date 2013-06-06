@@ -1229,49 +1229,53 @@ $(function () {
                         var diagnosis=false;
                        if($(".selected").last().attr("id")!="头痛问诊")
                        {  
-                        $(".selected").next().addClass("selected");
-                        var name = $(".selected").last().attr("id");
-                        $(".active").next().addClass("active");
-                        $(".active").first().removeClass("active");
-                        OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
-                        OCX.ShowReport();
-                        OCX.ShowThisPage(name);
-                        if(name=="报告"){
-                         $("#b1").html("保存并打印");
+                            $(".selected").next().addClass("selected");
+                            var name = $(".selected").last().attr("id");
+                            $(".active").next().addClass("active");
+                            $(".active").first().removeClass("active");
+                            OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                            OCX.ShowReport();
+                            OCX.ShowThisPage(name);
+                            if(name=="报告"){
+                             $("#b1").html("保存并打印");
+                             }
                          }
-                         
+                         else
+                         {
+                               
+                                    $.ajax({
+                                        url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
+                                        type: "POST",
+                                        data: { postjson: encoded },
+                                        success: function (data) {
+                                            if (data.OK) {
+                                                OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + data.Message);
+                                                   $(".selected").next().addClass("selected");
+                                                   var name = $(".selected").last().attr("id");
+                                                   $(".active").next().addClass("active");
+                                                    $(".active").first().removeClass("active");
+                                                 // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                                                   OCX.ShowReport();
+                                                  OCX.ShowThisPage(name);
+                                            }
+                                            else {
+                                                alert(data.Message.toString());
+
+                                            }
+
+                                        },
+                                        error: function (jqXhr, textStatus, errorThrown) {
+                                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                                        }
+                                    });
+                               
+                            
+                         }
                   
                 }
-                if (diagnosis) {
-                    $.ajax({
-                        url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
-                        type: "POST",
-                        data: { postjson: encoded },
-                        success: function (data) {
-                            if (data.OK) {
-                                OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + data.Message);
-                                   $(".selected").next().addClass("selected");
-                                   var name = $(".selected").last().attr("id");
-                                   $(".active").next().addClass("active");
-                                    $(".active").first().removeClass("active");
-                                 // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
-                                   OCX.ShowReport();
-                                  OCX.ShowThisPage(name);
-                            }
-                            else {
-                                alert(data.Message.toString());
+                
 
-                            }
-
-                        },
-                        error: function (jqXhr, textStatus, errorThrown) {
-                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-                        }
-                    });
-                    
-                }
-
-            }
+        
      });
     });
 </script>
