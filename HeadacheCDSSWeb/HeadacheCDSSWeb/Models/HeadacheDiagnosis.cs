@@ -305,6 +305,28 @@ namespace HeadacheCDSSWeb.Models
                 InputDataValue.m_HeadacheAuraList = HeadacheAuraList.ToArray();
                 foreach (PreviousDrug pdrug in vd.PDrug)
                 {
+                    if(pdrug.DrugCategory=="曲马坦")
+                    {
+                        int day = int.Parse(pdrug.DayAmoutnPerM);
+                        int month=int.Parse(pdrug.MonthTotalAmount);
+                        if (day>10&&month>=3)
+                        {
+                            InputDataValue.m_nTriptan_Drugin_Monthly = day;
+                            InputDataValue.m_nTriptan_Total_Drugin_Duration = month;
+                            
+                        }
+                    }
+                    if (pdrug.DrugCategory != "曲马坦")
+                    {
+                        int day = int.Parse(pdrug.DayAmoutnPerM);
+                        int month = int.Parse(pdrug.MonthTotalAmount);
+                        if (day >15 && month >3)
+                        {
+                            InputDataValue.m_nNon_Triptan_Drugin_Monthly= day;
+                            InputDataValue.m_nNon_Triptan_Total_Drugin_Duration = month;
+                           
+                        }
+                    }
                 }
                 if (errorinfor.Count == 0)
                 {
