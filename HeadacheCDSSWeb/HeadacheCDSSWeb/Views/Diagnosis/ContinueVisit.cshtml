@@ -1816,6 +1816,22 @@ $(function () {
                          else
                          {
                                
+                               if($(".selected").last().attr("id")!="头痛问诊")
+                       {  
+                            $(".selected").next().addClass("selected");
+                            var name = $(".selected").last().attr("id");
+                            $(".active").next().addClass("active");
+                            $(".active").first().removeClass("active");
+                            OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                            OCX.ShowReport();
+                            OCX.ShowThisPage(name);
+                            if(name=="报告"){
+                             $("#b1").html("保存并打印");
+                             }
+                         }
+                         else
+                         {
+
                                     $.ajax({
                                         url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
                                         type: "POST",
@@ -1845,7 +1861,7 @@ $(function () {
                             
                          }
                   
-              
+                 }
                 
 
         
