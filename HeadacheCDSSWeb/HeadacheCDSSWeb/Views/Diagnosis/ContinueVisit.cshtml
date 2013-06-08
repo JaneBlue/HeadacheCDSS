@@ -305,13 +305,6 @@ $(function () {
                     OCX.SetObjectInfo("RadioBox_InspectionItem4Normal", "checked", "true");
                 OCX.SetObjectInfo("DateTime_InspectionItem4Date", "text", strDate);
             }
-            else if(4 == lPreviousExamIndex)
-            {
-                OCX.SetObjectInfo("ComboBox_InspectionItem5", "text", strExamName);
-                if("正常" == strResult)
-                    OCX.SetObjectInfo("RadioBox_InspectionItem5Normal", "checked", "true");
-                OCX.SetObjectInfo("DateTime_InspectionItem5Date", "text", strDate);
-            }
         }
 
         //set PreviousDrug
@@ -389,11 +382,6 @@ $(function () {
         OCX.SetObjectInfo("ComboBox_DoSportTime", "text", strExerciseTime);
         var strExerciseDescription = obj.patlifestyle.ExerciseDescription;
         OCX.SetObjectInfo("TextBox_DoSportDescription", "text", strExerciseDescription);
-        var strWeightChange = obj.patlifestyle.WeightChange;
-        if("有" == strWeightChange)
-            OCX.SetObjectInfo("RadioBox_WeightChange", "checked", "true");
-        var strWeightChangeNote = obj.patlifestyle.WeightChangeNote;
-        OCX.SetObjectInfo("ComboBox_7", "text", strWeightChangeNote);
         var listSpecialDiet = obj.patlifestyle.specialDiet;
         var strSpecialDiet = "";
         var lSpecialDietCount = obj.patlifestyle.specialDiet.length;
@@ -579,7 +567,7 @@ $(function () {
             if ($(".selected").last().attr("id") == "辅助诊断")
             {
                 //set chief complaint
-                var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text") + " 备注：" + OCX.GetObjectInfo("TextBox_13", "text");
+                var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
                 OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
 
                 //set diagnose
@@ -1107,10 +1095,6 @@ $(function () {
                 var strExercisePerWeek = OCX.GetObjectInfo("ComboBox_DoSportTimes", "text");
                 var strExerciseTime = OCX.GetObjectInfo("ComboBox_DoSportTime", "text");
                 var strExerciseDescription = OCX.GetObjectInfo("TextBox_DoSportDescription", "text");
-                var strWeightChange = "无";
-                if("true" == OCX.GetObjectInfo("RadioBox_WeightChange", "checked"))
-                    strWeightChange = "有";
-                var strWeightChangeNote = OCX.GetObjectInfo("ComboBox_7", "text");
 
                 var strDiReLiang = "";
                 var strDiYan = "";
@@ -1202,17 +1186,6 @@ $(function () {
                     strExamDate4 = "1753/01/01///";
                 }
                 var strExamDate4 = strExamDate4.slice(0, 10).replace("/", "-").replace("/", "-") + " 00:00:00";
-
-                var strExamName5 = OCX.GetObjectInfo("ComboBox_InspectionItem5", "text");
-                var strExamResult5 = "异常";
-                if("true" == OCX.GetObjectInfo("RadioBox_InspectionItem5Normal", "checked"))
-                    strExamResult5 = "正常";
-                var strExamDate5 = OCX.GetObjectInfo("DateTime_InspectionItem5Date", "text");
-                if ("/////" == strExamDate5) 
-                {
-                    strExamDate5 = "1753/01/01///";
-                }
-                var strExamDate5 = strExamDate5.slice(0, 10).replace("/", "-").replace("/", "-") + " 00:00:00";
 
                 //get headache accompany
                 var strHeadacheAccompanySymptom1 = "";
@@ -1376,8 +1349,6 @@ $(function () {
                 //get visit record
                 var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
                 var strCDSSDiagnosis1 = OCX.GetObjectInfo("TextBox_14", "text");
-                var strCDSSDiagnosis2 = OCX.GetObjectInfo("TextBox_15", "text");
-                var strCDSSDiagnosis3 = OCX.GetObjectInfo("TextBox_16", "text");
                 var strDiagnosisResult1 = OCX.GetObjectInfo("ComboBox_32", "text");
                 var strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_34", "text");
                 var strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_35", "text");
@@ -1398,7 +1369,7 @@ $(function () {
                                             , DrinkStartAge: strDrinkStartAge, DrinkYear: strDrinkYear, DrinkQuitYear:strDrinkQuitYear
                                             , DrinkPerDay: strDrinkPerDay, DrinkCategory: strDrinkCategory, TeaPerDay:strTeaPerDay
                                             , CoffePerDay: strCoffePerDay, ExercisePerWeek: strExercisePerWeek, ExerciseTime:strExerciseTime
-                                            , ExerciseDescription: strExerciseDescription, WeightChange: strWeightChange, WeightChangeNote:strWeightChangeNote
+                                            , ExerciseDescription: strExerciseDescription
                                             , SpecialDiet:[{Kind:strDiReLiang}, {Kind:strDiYan}, {Kind:strDiZhi}, {Kind:strDiXianWei}
                                                             , {Kind:strDiTanShuiHuaHeWu}, {Kind:strGaoReLiang}, {Kind:strGaoXianWei}, {Kind:strSpecialDietQiTa}]},
                               PDrug: [{DrugCategory: strDrugCategory1, DrugName: strDrugName1, DayAmoutnPerM: strDayAmoutnPerM1, MonthTotalAmount: strMonthTotalAmount1}
@@ -1438,7 +1409,7 @@ $(function () {
                                                                             , {FactorName: strPrecipitatingFactor10, FactorDetail: strPrecipitatingFactorDetail10} ]
                                                     , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3}, {Prodrome: strHeadacheProdrome4} ]},
                               visitrecord: {ChiefComplaint: strChiefComplaint
-                                                    ,CDSSDiagnosis1: strCDSSDiagnosis1, CDSSDiagnosis2: strCDSSDiagnosis2, CDSSDiagnosis3: strCDSSDiagnosis3
+                                                    ,CDSSDiagnosis1: strCDSSDiagnosis1
                                                     ,DiagnosisResult1: strDiagnosisResult1, DiagnosisResult2: strDiagnosisResult2, DiagnosisResult3: strDiagnosisResult3
                                                     ,Prescription: strPrescription
                                                     ,SecondaryHeadacheSymptom:[{Symptom: strSecondaryHeadacheSymptom1}, {Symptom: strSecondaryHeadacheSymptom2}, {Symptom: strSecondaryHeadacheSymptom3}
