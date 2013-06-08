@@ -434,8 +434,8 @@ $(function () {
                         strChiefComplaint += " " + "站立";
                     if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
                         strChiefComplaint += " " + "妊娠";
-                    if("有" == OCX.GetObjectInfo("ComboBox_18", "text"))
-                        strChiefComplaint += " " + "其他";
+                    if("" != OCX.GetObjectInfo("TextBox_26", "text"))
+                        strChiefComplaint += " " + OCX.GetObjectInfo("TextBox_26", "text");
 
                     //get Precipitating Factor
                     //set Chief Complaint
@@ -459,7 +459,7 @@ $(function () {
                     var strPrecipitatingFactorDetail7 = OCX.GetObjectInfo("ComboBox_15", "text");
                     var strPrecipitatingFactorDetail8 = OCX.GetObjectInfo("ComboBox_16", "text");
                     var strPrecipitatingFactorDetail9 = OCX.GetObjectInfo("ComboBox_19", "text");
-                    var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("ComboBox_24", "text");
+                    var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");
                     if("" != strPrecipitatingFactorDetail1)
                     {
                         strChiefComplaint += " " + "睡眠";
@@ -503,9 +503,10 @@ $(function () {
                         strChiefComplaint += " " + "体位";
                         strChiefComplaint += ":" + strPrecipitatingFactorDetail9;
                     }
-                    if("有" == strPrecipitatingFactorDetail10)
+                    if("" != strPrecipitatingFactorDetail10)
                     {
                         strChiefComplaint += " " + "其他";
+                        strChiefComplaint += ":" + strPrecipitatingFactorDetail10;
                     }
 
                     OCX.SetObjectInfo("TextBox_12", "text", strChiefComplaint);
@@ -1040,8 +1041,8 @@ $(function () {
                     strMitigatingFactor8 = "站立";
                 if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
                     strMitigatingFactor9 = "妊娠";
-                if("有" == OCX.GetObjectInfo("ComboBox_18", "text"))
-                    strMitigatingFactor10 = "其他";
+                if("" != OCX.GetObjectInfo("TextBox_26", "text"))
+                    strMitigatingFactor10 = OCX.GetObjectInfo("TextBox_26", "text");
 
                 //get Precipitating Factor
                 var strPrecipitatingFactor1 = "";
@@ -1063,7 +1064,7 @@ $(function () {
                 var strPrecipitatingFactorDetail7 = OCX.GetObjectInfo("ComboBox_15", "text");
                 var strPrecipitatingFactorDetail8 = OCX.GetObjectInfo("ComboBox_16", "text");
                 var strPrecipitatingFactorDetail9 = OCX.GetObjectInfo("ComboBox_19", "text");
-                var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("ComboBox_24", "text");
+                var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");
                 if("" != strPrecipitatingFactorDetail1)
                 {
                     strPrecipitatingFactor1 = "睡眠";
@@ -1102,9 +1103,8 @@ $(function () {
                 {
                     strPrecipitatingFactor9 = "体位";
                 }
-                if("有" == strPrecipitatingFactorDetail10)
+                if("" != strPrecipitatingFactorDetail10)
                 {
-                    strPrecipitatingFactorDetail10 = "";
                     strPrecipitatingFactor10 = "其他";
                 }
 

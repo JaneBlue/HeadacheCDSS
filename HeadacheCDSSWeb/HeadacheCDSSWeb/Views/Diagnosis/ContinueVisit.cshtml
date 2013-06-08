@@ -524,6 +524,7 @@ $(function () {
 
         //set Mitigating Factors
         var strMitigatingFactors = "";
+        var strMitigating
         var lMitigatingFactorsCount = obj.mitigatingfactors.length;
 
         //set Chief Complaint
@@ -554,8 +555,8 @@ $(function () {
                 OCX.SetObjectInfo("ComboBox_13", "text", "有");
             else if("妊娠" == strMitigatingFactors)
                 OCX.SetObjectInfo("ComboBox_17", "text", "有");
-            else if("其他" == strMitigatingFactors)
-                OCX.SetObjectInfo("ComboBox_18", "text", "有");
+            else
+                OCX.SetObjectInfo("TextBox_26", "text", strMitigatingFactors);
         }
 
         //set precipitating factors
@@ -594,7 +595,7 @@ $(function () {
             else if("体位" == strPrecipitatingFactorName)
                 OCX.SetObjectInfo("ComboBox_19", "text", strPrecipitatingFactorDetail);
             else if("其他" == strPrecipitatingFactorName)
-                OCX.SetObjectInfo("ComboBox_24", "text", "有");
+                OCX.SetObjectInfo("TextBox_25", "text", "strPrecipitatingFactorDetail");
         }
 
         //set chief complaint
@@ -1022,8 +1023,8 @@ $(function () {
                         strChiefComplaint += " " + "站立";
                     if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
                         strChiefComplaint += " " + "妊娠";
-                    if("有" == OCX.GetObjectInfo("ComboBox_18", "text"))
-                        strChiefComplaint += " " + "其他";
+                    if("" != OCX.GetObjectInfo("TextBox_26", "text"))
+                        strChiefComplaint += " " + OCX.GetObjectInfo("TextBox_26", "text");
 
                     //get Precipitating Factor
                     //set Chief Complaint
@@ -1047,7 +1048,7 @@ $(function () {
                     var strPrecipitatingFactorDetail7 = OCX.GetObjectInfo("ComboBox_15", "text");
                     var strPrecipitatingFactorDetail8 = OCX.GetObjectInfo("ComboBox_16", "text");
                     var strPrecipitatingFactorDetail9 = OCX.GetObjectInfo("ComboBox_19", "text");
-                    var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("ComboBox_24", "text");
+                    var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");
                     if("" != strPrecipitatingFactorDetail1)
                     {
                         strChiefComplaint += " " + "睡眠";
@@ -1091,9 +1092,10 @@ $(function () {
                         strChiefComplaint += " " + "体位";
                         strChiefComplaint += ":" + strPrecipitatingFactorDetail9;
                     }
-                    if("有" == strPrecipitatingFactorDetail10)
+                    if("" != strPrecipitatingFactorDetail10)
                     {
                         strChiefComplaint += " " + "其他";
+                        strChiefComplaint += ":" + strPrecipitatingFactorDetail9;
                     }
 
                     OCX.SetObjectInfo("TextBox_12", "text", strChiefComplaint);
@@ -1628,8 +1630,8 @@ $(function () {
                     strMitigatingFactor8 = "站立";
                 if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
                     strMitigatingFactor9 = "妊娠";
-                if("有" == OCX.GetObjectInfo("ComboBox_18", "text"))
-                    strMitigatingFactor10 = "其他";
+                if("" != OCX.GetObjectInfo("TextBox_26", "text"))
+                    strMitigatingFactor10 = OCX.GetObjectInfo("TextBox_26", "text");
 
                 //get Precipitating Factor
                 var strPrecipitatingFactor1 = "";
@@ -1651,7 +1653,7 @@ $(function () {
                 var strPrecipitatingFactorDetail7 = OCX.GetObjectInfo("ComboBox_15", "text");
                 var strPrecipitatingFactorDetail8 = OCX.GetObjectInfo("ComboBox_16", "text");
                 var strPrecipitatingFactorDetail9 = OCX.GetObjectInfo("ComboBox_19", "text");
-                var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("ComboBox_24", "text");
+                var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");
                 if("" != strPrecipitatingFactorDetail1)
                 {
                     strPrecipitatingFactor1 = "睡眠";
@@ -1690,9 +1692,8 @@ $(function () {
                 {
                     strPrecipitatingFactor9 = "体位";
                 }
-                if("有" == strPrecipitatingFactorDetail10)
+                if("" != strPrecipitatingFactorDetail10)
                 {
-                    strPrecipitatingFactorDetail10 = "";
                     strPrecipitatingFactor10 = "其他";
                 }
 
