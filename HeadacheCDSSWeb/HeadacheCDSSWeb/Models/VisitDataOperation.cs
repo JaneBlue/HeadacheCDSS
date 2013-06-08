@@ -11,61 +11,84 @@ namespace HeadacheCDSSWeb.Models
         HeadacheModelContainer context = new HeadacheModelContainer();
         public List<PatBasicInfor> GetPat(List<string> Condition)
         {
-
-            List<PatBasicInfor> pat = new List<PatBasicInfor>();
+            List<PatBasicInfor> Pats = new List<PatBasicInfor>();
+            List<PatBasicInfor> SelectedPats = new List<PatBasicInfor>();
             List<PatBasicInfor> Unormalpat = new List<PatBasicInfor>();
-            var pats = from p in context.PatBasicInforSet.ToList()
-                       where (string.IsNullOrEmpty(Condition[0]) ? true : p.Name == Condition[0])
-                      && (string.IsNullOrEmpty(Condition[1]) ? true : p.Sex == Condition[1])
-                      && (string.IsNullOrEmpty(Condition[2]) ? true : p.VisitRecord.Last().VisitDate == DateTime.Parse(Condition[2]))
-                       // && (string.IsNullOrEmpty(Condition[3]) ? true : p.VisitRecord.Last().CDSSDiagnosis== Condition[3])
-                       select p;
-            List<PatBasicInfor> SelectedPats=pats.ToList();
-            if (!string.IsNullOrEmpty(Condition[3]))
-            {
-                for (int i = SelectedPats.Count-1; i >=0;i--)
-                {
-                    bool flag = false;
-                    foreach (VisitRecord vr in SelectedPats[i].VisitRecord)
-                    {
-                        if (vr.DiagnosisResult1== Condition[3] || vr.DiagnosisResult2 == Condition[3] || vr.DiagnosisResult3== Condition[3])
-                        {
-                            flag=true;
-                            break;
-                        }
-                    }
-                    if (!flag)
-                    {
-                        SelectedPats.RemoveAt(i);
-                    }
-                }
-            }
             try
             {
 
-                foreach (PatBasicInfor pt in SelectedPats)
+                var pats = from p in context.PatBasicInforSet.ToList()
+                           where (string.IsNullOrEmpty(Condition[0]) ? true : p.Name == Condition[0])
+                          && (string.IsNullOrEmpty(Condition[1]) ? true : p.Sex == Condition[1])
+                         // && (string.IsNullOrEmpty(Condition[2]) ? true : p.VisitRecord.Last().VisitDate == DateTime.Parse(Condition[2]))
+                           // && (string.IsNullOrEmpty(Condition[3]) ? true : p.VisitRecord.Last().CDSSDiagnosis== Condition[3])
+                           select p;
+                if (pats != null)
                 {
-                    if (pt.VisitRecord != null && pt.VisitRecord.Count != 0)
+
+                    foreach (PatBasicInfor pt in pats)
                     {
-                        pat.Add(pt);
+                        if (pt.VisitRecord != null && pt.VisitRecord.Count != 0)
+                        {
+                            SelectedPats.Add(pt);
+                        }
+                        else
+                        {
+                            Unormalpat.Add(pt);
+                        }
                     }
-                    else
+                    if (!string.IsNullOrEmpty(Condition[2]))
                     {
-                        Unormalpat.Add(pt);
+                        for (int i = SelectedPats.Count - 1; i >= 0; i--)
+                        {
+                            bool flag = false;
+                            foreach (VisitRecord vr in SelectedPats[i].VisitRecord)
+                            {
+                                if (vr.VisitDate == DateTime.Parse(Condition[2]))
+                                {
+                                    flag = true;
+                                    break;
+                                }
+                            }
+                            if (!flag)
+                            {
+                                SelectedPats.RemoveAt(i);
+                            }
+                        }
                     }
+                    if (!string.IsNullOrEmpty(Condition[3]))
+                    {
+                        for (int i = SelectedPats.Count - 1; i >= 0; i--)
+                        {
+                            bool flag = false;
+                            foreach (VisitRecord vr in SelectedPats[i].VisitRecord)
+                            {
+                                if (vr.DiagnosisResult1 == Condition[3] || vr.DiagnosisResult2 == Condition[3] || vr.DiagnosisResult3 == Condition[3])
+                                {
+                                    flag = true;
+                                    break;
+                                }
+                            }
+                            if (!flag)
+                            {
+                                SelectedPats.RemoveAt(i);
+                            }
+                        }
+                    }
+                    if (string.IsNullOrEmpty(Condition[2]))
+                    {
+                        InsertSort(SelectedPats);
+                        SelectedPats.AddRange(Unormalpat);
+                    }
+
                 }
-                if (string.IsNullOrEmpty(Condition[2]))
-                {
-                    InsertSort(pat);
-                }
-                pat.AddRange(Unormalpat);
             }
             catch (Exception e)
             {
                 string error = e.Message;
 
             }
-            return pat;
+            return SelectedPats;
         }
         public static void InsertSort(List<PatBasicInfor> data)
         {
@@ -101,7 +124,7 @@ namespace HeadacheCDSSWeb.Models
                 {
                     pt.SimilarFamily = false;
                 }
-                
+
                 pt.PreviousExam = vdata.PExam;
                 if (vdata.visitrecord != null)
                 {
@@ -140,13 +163,13 @@ namespace HeadacheCDSSWeb.Models
                 ObjectMapper.CopyProperties(vdata.lifestyle, pt.Lifestyle);
                 pt.PreviousDrug = vdata.PDrug;
                 pt.PreviousExam = vdata.PExam;
-                if (vdata.Similarfamily=="有")
+                if (vdata.Similarfamily == "有")
                 {
-                     pt.SimilarFamily=true;
+                    pt.SimilarFamily = true;
                 }
                 else
                 {
-                    pt.SimilarFamily=false;
+                    pt.SimilarFamily = false;
                 }
                 if (vdata.visitrecord != null)
                 {
@@ -251,17 +274,19 @@ namespace HeadacheCDSSWeb.Models
             rdata.Job = pt.Job;
             rdata.Phone = pt.Phone;
             rdata.ChiefDoctor = pt.ChiefDoctor;
-            if (pt.SimilarFamily!=null)
+            if (pt.SimilarFamily != null)
             {
-                if (pt.SimilarFamily==true)
-                {rdata.SimilarFamily = true;
+                if (pt.SimilarFamily == true)
+                {
+                    rdata.SimilarFamily = true;
                 }
-                else{
-                    rdata.SimilarFamily =false ;
+                else
+                {
+                    rdata.SimilarFamily = false;
                 }
-                
+
             }
-            
+
             if (pt.Lifestyle != null)
             {
                 rdata.patlifestyle.SmokeState = pt.Lifestyle.SmokeState;
@@ -301,7 +326,8 @@ namespace HeadacheCDSSWeb.Models
                 rdata.Ofamilydisease.Add(ofdisease.DiseaseName);
             }
             foreach (PreviousDrug pdrug in pt.PreviousDrug)
-            {   PDrug pd=new PDrug();
+            {
+                PDrug pd = new PDrug();
                 ObjectMapper.CopyProperties(pdrug, pd);
                 rdata.previousdrug.Add(pd);
             }
@@ -385,7 +411,7 @@ namespace HeadacheCDSSWeb.Models
                         }
                     }
                 }
-               
+
             }
             else
             {
