@@ -139,181 +139,35 @@ $(function () {
                     var strSpecificPlace12 = "";
                     var strSpecificPlace13 = "";
 
+                    if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
+                        strHeadachePlace = "左侧为主";
+                    else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
+                        strHeadachePlace = "右侧为主";
+                    else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
+                        strHeadachePlace = "双侧";
+
                     if("true" == OCX.GetObjectInfo("CheckBox_40", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace1 = "颞部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_39", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace2 = "枕部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_35", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace3 = "顶部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_32", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace4 = "眶部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_22", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace5 = "颈部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_38", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace6 = "颌部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_37", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace7 = "牙部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_36", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace8 = "脸部";
-                    } 
                    if("true" == OCX.GetObjectInfo("CheckBox_33", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace9 = "耳部";
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_31", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace10 = "眼睑";
-                    }    
                     if("true" == OCX.GetObjectInfo("CheckBox_34", "checked"))
-                    {
-                        strHeadachePlace = "左侧为主";
                         strSpecificPlace11 = "前额";
-                    }
-
-                    //right main
-                    if("左侧为主" != strHeadachePlace)
-                    {
-                        if("true" == OCX.GetObjectInfo("CheckBox_51", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace1 = "颞部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_49", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace2 = "枕部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_47", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace3 = "顶部";
-                        }
-                       if("true" == OCX.GetObjectInfo("CheckBox_43", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace4 = "眶部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_41", "checked"))
-                       {
-                           strHeadachePlace = "右侧为主";
-                           strSpecificPlace5 = "颈部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_50", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace6 = "颌部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_48", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace7 = "牙部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_46", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace8 = "脸部";
-                        } 
-                        if("true" == OCX.GetObjectInfo("CheckBox_44", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace9 = "耳部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_42", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace10 = "眼睑";
-                        }    
-                        if("true" == OCX.GetObjectInfo("CheckBox_45", "checked"))
-                        {
-                            strHeadachePlace = "右侧为主";
-                            strSpecificPlace11 = "前额";
-                        }
-                    }
-
-                    //both main
-                    if("左侧为主" != strHeadachePlace && "右侧为主" != strHeadachePlace)
-                    {
-                        if("true" == OCX.GetObjectInfo("CheckBox_53", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace1 = "颞部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_54", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace2 = "枕部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_57", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                           strSpecificPlace3 = "顶部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_61", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace4 = "眶部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_62", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace5 = "颈部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_52", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace6 = "颌部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_55", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace7 = "牙部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_56", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace8 = "脸部";
-                        } 
-                        if("true" == OCX.GetObjectInfo("CheckBox_59", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace9 = "耳部";
-                        }
-                        if("true" == OCX.GetObjectInfo("CheckBox_60", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace10 = "眼睑";
-                        }    
-                        if("true" == OCX.GetObjectInfo("CheckBox_58", "checked"))
-                        {
-                            strHeadachePlace = "双侧";
-                            strSpecificPlace11 = "前额";
-                        }
-                    }
                     if("true" == OCX.GetObjectInfo("CheckBox_QuanHeadache", "checked"))
                         strSpecificPlace12 = "全头痛";
                     if("true" == OCX.GetObjectInfo("CheckBox_OtherHeadache", "checked"))
@@ -590,181 +444,35 @@ $(function () {
                 var strSpecificPlace12 = "";
                 var strSpecificPlace13 = "";
 
+                if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
+                    strHeadachePlace = "左侧为主";
+                else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
+                    strHeadachePlace = "右侧为主";
+                else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
+                    strHeadachePlace = "双侧";
+
                 if("true" == OCX.GetObjectInfo("CheckBox_40", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace1 = "颞部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_39", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace2 = "枕部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_35", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace3 = "顶部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_32", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace4 = "眶部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_22", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace5 = "颈部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_38", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace6 = "颌部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_37", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace7 = "牙部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_36", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace8 = "脸部";
-                } 
                if("true" == OCX.GetObjectInfo("CheckBox_33", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace9 = "耳部";
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_31", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace10 = "眼睑";
-                }    
                 if("true" == OCX.GetObjectInfo("CheckBox_34", "checked"))
-                {
-                    strHeadachePlace = "左侧为主";
                     strSpecificPlace11 = "前额";
-                }
-
-                //right main
-                if("左侧为主" != strHeadachePlace)
-                {
-                    if("true" == OCX.GetObjectInfo("CheckBox_51", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace1 = "颞部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_49", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace2 = "枕部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_47", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace3 = "顶部";
-                    }
-                   if("true" == OCX.GetObjectInfo("CheckBox_43", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace4 = "眶部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_41", "checked"))
-                   {
-                       strHeadachePlace = "右侧为主";
-                       strSpecificPlace5 = "颈部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_50", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace6 = "颌部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_48", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace7 = "牙部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_46", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace8 = "脸部";
-                    } 
-                    if("true" == OCX.GetObjectInfo("CheckBox_44", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace9 = "耳部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_42", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace10 = "眼睑";
-                    }    
-                    if("true" == OCX.GetObjectInfo("CheckBox_45", "checked"))
-                    {
-                        strHeadachePlace = "右侧为主";
-                        strSpecificPlace11 = "前额";
-                    }
-                }
-
-                //both main
-                if("左侧为主" != strHeadachePlace && "右侧为主" != strHeadachePlace)
-                {
-                    if("true" == OCX.GetObjectInfo("CheckBox_53", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace1 = "颞部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_54", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace2 = "枕部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_57", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                       strSpecificPlace3 = "顶部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_61", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace4 = "眶部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_62", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace5 = "颈部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_52", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace6 = "颌部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_55", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace7 = "牙部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_56", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace8 = "脸部";
-                    } 
-                    if("true" == OCX.GetObjectInfo("CheckBox_59", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace9 = "耳部";
-                    }
-                    if("true" == OCX.GetObjectInfo("CheckBox_60", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace10 = "眼睑";
-                    }    
-                    if("true" == OCX.GetObjectInfo("CheckBox_58", "checked"))
-                    {
-                        strHeadachePlace = "双侧";
-                        strSpecificPlace11 = "前额";
-                    }
-                }
                 if("true" == OCX.GetObjectInfo("CheckBox_QuanHeadache", "checked"))
                     strSpecificPlace12 = "全头痛";
                 if("true" == OCX.GetObjectInfo("CheckBox_OtherHeadache", "checked"))
