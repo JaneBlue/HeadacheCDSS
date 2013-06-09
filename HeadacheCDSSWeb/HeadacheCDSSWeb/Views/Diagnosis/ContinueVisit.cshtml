@@ -436,11 +436,6 @@ $(function () {
                 OCX.SetObjectInfo("CheckBox_15", "checked", "true");
         }
 
-        //set similar headache
-        var bSimilarFamily = obj.SimilarFamily;
-        if(bSimilarFamily)
-            OCX.SetObjectInfo("RadioBox_3", "checked", "true");
-
         //set Other family disease
         var strOfamilydisease = "";
         var lOfamilydiseaseCount = obj.Ofamilydisease.length;
@@ -1045,13 +1040,6 @@ $(function () {
                 if("true" == OCX.GetObjectInfo("CheckBox_15", "checked"))
                     strHFamilyMemberQiTa = "其他";
 
-                //get similar headache
-                var strSimilarHeadache = "";
-                if("true" == OCX.GetObjectInfo("RadioBox_3", "checked"))
-                    strSimilarHeadache = "有";
-                else
-                    strSimilarHeadache = "无";
-
                 //get OtherFamilyDisease
                 var strXinZangJiBin = "";
                 var strDianXian = "";
@@ -1356,8 +1344,7 @@ $(function () {
                 //prescription
                 var strPrescription = "";
 
-                var thing = { Similarfamily : strSimilarHeadache,
-                              HFamilyMember: [ { Person: strFuQin}, { Person: strMuQin}, { Person: strXiongDi}
+                var thing = { HFamilyMember: [ { Person: strFuQin}, { Person: strMuQin}, { Person: strXiongDi}
                                             , { Person: strJieMei}, { Person: strErZi}, { Person: strNvEr}
                                             , { Person: strZuFu}, { Person: strZiMu}, { Person: strWaiZuFu}
                                             , { Person: strWaiZuMu}, { Person: strHFamilyMemberQiTa} ],
