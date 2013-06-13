@@ -5,10 +5,12 @@
 @model List<HeadacheCDSSWeb.Models.VisitRecord>
 <div id="content">
      <div id="ViewContent">
-                    <div id="ocx">
-                    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2">
-                    </object>
-                    </div>
+          <div id="ocx">
+                 <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="600"
+                       height="540">
+                  </object>
+               </div>
+
                 <div id="continue" class="button">
                     @Html.ActionLink("继续问诊", "ContinueDiagnosis", new { id = ViewBag.patId })
                 </div>
