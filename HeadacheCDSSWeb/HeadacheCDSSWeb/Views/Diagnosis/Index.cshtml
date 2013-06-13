@@ -55,12 +55,27 @@ $(function () {
                 //set diagnose
                 var strDiagnose = "";
                 if("" != OCX.GetObjectInfo("ComboBox_31", "text"))
-                    strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
+                {
+                     if("" != OCX.GetObjectInfo("ComboBox_32", "text"))   
+                        strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
+                     else
+                        strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + "。  ";
+                }
                 if("" != OCX.GetObjectInfo("ComboBox_33", "text"))
-                    strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
+                {
+                    if("" != OCX.GetObjectInfo("ComboBox_34", "text"))
+                        strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
+                    else
+                        strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + "。  ";
+                }
                 if("" != OCX.GetObjectInfo("ComboBox_36", "text"))
-                    strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text") + "。";
-                 OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
+                {
+                    if("" != OCX.GetObjectInfo("ComboBox_35", "text"))
+                        strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text") + "。";
+                    else
+                        strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + "。";
+                }
+                OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
             }
             if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊")
             {
@@ -1036,8 +1051,14 @@ $(function () {
                 var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
                 var strCDSSDiagnosis1 = OCX.GetObjectInfo("TextBox_14", "text");
                 var strDiagnosisResult1 = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text");
+                if("" == OCX.GetObjectInfo("ComboBox_32", "text"))
+                    strDiagnosisResult1 = OCX.GetObjectInfo("ComboBox_31", "text");
                 var strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text");
+                if("" == OCX.GetObjectInfo("ComboBox_34", "text"))
+                    strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_33", "text");
                 var strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text");
+                if("" == OCX.GetObjectInfo("ComboBox_35", "text"))
+                    strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_36", "text");
 
                 //prescription
                 var strPrescription = "";
