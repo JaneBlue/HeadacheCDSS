@@ -257,8 +257,10 @@ $(function () {
             //set Chief Complaint
             strChiefComplaint += " " + strHeadacheProdrome;
 
-            if("视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
+            if("单侧视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
                 OCX.SetObjectInfo("RadioBox_VisionYes", "checked", "true");
+            else if("双侧视觉（点状/色斑/线型闪光幻觉/视野缺损）" == strHeadacheProdrome)
+                OCX.SetObjectInfo("RadioBox_11", "checked", "true");
             else if("感觉（针刺感/麻木）" == strHeadacheProdrome)
                 OCX.SetObjectInfo("RadioBox_FeelingYes", "checked", "true");
             else if("语言障碍" == strHeadacheProdrome)
@@ -776,7 +778,9 @@ $(function () {
                     strChiefComplaint += "感觉躁动会不安。头痛前有";
 
                     if("true" == OCX.GetObjectInfo("RadioBox_VisionYes", "checked"))
-                        strChiefComplaint += "视觉（点状/色斑/线型闪光幻觉/视野缺损） ";
+                        strChiefComplaint += "单侧视觉（点状/色斑/线型闪光幻觉/视野缺损） ";
+                    if("true" == OCX.GetObjectInfo("RadioBox_11", "checked"))
+                        strChiefComplaint += "双侧视觉（点状/色斑/线型闪光幻觉/视野缺损） ";
                     if("true" == OCX.GetObjectInfo("RadioBox_FeelingYes", "checked"))
                         strChiefComplaint += "感觉（针刺感/麻木） ";
                     if("true" == OCX.GetObjectInfo("RadioBox_WordYes", "checked"))
@@ -1441,8 +1445,11 @@ $(function () {
                 var strHeadacheProdrome2 = "";
                 var strHeadacheProdrome3 = "";
                 var strHeadacheProdrome4 = "";
+                var strHeadacheProdrome5 = "";
                 if("true" == OCX.GetObjectInfo("RadioBox_VisionYes", "checked"))
-                    strHeadacheProdrome1 = "视觉（点状/色斑/线型闪光幻觉/视野缺损）";
+                    strHeadacheProdrome1 = "单侧视觉（点状/色斑/线型闪光幻觉/视野缺损）";
+                if("true" == OCX.GetObjectInfo("RadioBox_11", "checked"))
+                    strHeadacheProdrome5 = "双侧视觉（点状/色斑/线型闪光幻觉/视野缺损）";
                 if("true" == OCX.GetObjectInfo("RadioBox_FeelingYes", "checked"))
                     strHeadacheProdrome2 = "感觉（针刺感/麻木）";
                 if("true" == OCX.GetObjectInfo("RadioBox_WordYes", "checked"))
@@ -1509,7 +1516,7 @@ $(function () {
                                                                             , {FactorName: strPrecipitatingFactor4, FactorDetail: strPrecipitatingFactorDetail4}, {FactorName: strPrecipitatingFactor5, FactorDetail: strPrecipitatingFactorDetail5}, {FactorName: strPrecipitatingFactor6, FactorDetail: strPrecipitatingFactorDetail6}
                                                                             , {FactorName: strPrecipitatingFactor7, FactorDetail: strPrecipitatingFactorDetail7}, {FactorName: strPrecipitatingFactor8, FactorDetail: strPrecipitatingFactorDetail8}, {FactorName: strPrecipitatingFactor9, FactorDetail: strPrecipitatingFactorDetail9}
                                                                             , {FactorName: strPrecipitatingFactor10, FactorDetail: strPrecipitatingFactorDetail10} ]
-                                                    , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3}, {Prodrome: strHeadacheProdrome4} ]},
+                                                    , HeadacheProdrome: [ {Prodrome: strHeadacheProdrome1}, {Prodrome: strHeadacheProdrome2}, {Prodrome: strHeadacheProdrome3}, {Prodrome: strHeadacheProdrome4}, {Prodrome: strHeadacheProdrome5} ]},
                               visitrecord: {ChiefComplaint: strChiefComplaint
                                                     ,CDSSDiagnosis1: strCDSSDiagnosis1
                                                     ,DiagnosisResult1: strDiagnosisResult1, DiagnosisResult2: strDiagnosisResult2, DiagnosisResult3: strDiagnosisResult3
