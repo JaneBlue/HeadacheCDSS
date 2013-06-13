@@ -11,6 +11,133 @@
 $(function () {
         var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
         var OCX = document.getElementById('Reporter2');
+        SetDataIntoOCX(OCX, obj);
+       
+    $("#btn1").click(function () {
+            $("#btn2").show();
+            var OCX = document.getElementById('Reporter2');
+            if($(".selected").last().attr("id") == "基本筛查"){
+            //var Secondheadache=new Array()
+                var myBoolean=new Boolean(false);
+                for(var i =0;i<10;i++){
+                          var j=i+1;
+                          var Name="CheckBox_"+j.toString();
+                          if("true" == OCX.GetObjectInfo(Name, "checked"))
+                          {
+                          myBoolean=true;
+                          }
+                  }
+                 if(myBoolean==true){
+                $(".selected").next().addClass("selected"); 
+                $(".active").next().addClass("active");
+                $(".active").first().removeClass("active");
+               }
+           
+            }
+            if ($(".selected").last().attr("id") == "辅助诊断"||$(".selected").last().attr("id") == "报告")
+            {
+                //set chief complaint
+                var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
+                OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
+
+                //set diagnose
+                var strDiagnose = "";
+                if("" != OCX.GetObjectInfo("ComboBox_31", "text"))
+                    strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
+                if("" != OCX.GetObjectInfo("ComboBox_33", "text"))
+                    strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
+                if("" != OCX.GetObjectInfo("ComboBox_36", "text"))
+                    strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text") + "。";
+                 OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
+            }
+            if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊"||$(".selected").last().attr("id") == "报告")
+            {
+                
+               var encoded = $.toJSON(ChangeDataFromOCXIntoJSObject(OCX));
+                }
+                if($(".selected").last().attr("id") == "报告")
+                {
+
+                    $("#ocx").hide();
+                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
+                    $.ajax({
+                        url: '@Url.Action("Save", "Diagnosis")',
+                        type: "POST",
+                        data: { postjson: encoded },
+                        success: function (data) {
+                            if (data.OK) {
+                             var OCX = document.getElementById('Reporter2');
+                            OCX.EnableMacroPrint(true);
+                            OCX.PrintPages("报告", false);
+                              $(".demo").html("本次问诊信息保存成功！");
+                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                            }
+                            else {
+                                document.getElementById("msg").innerHTML = data.Message.toString();
+                            }
+
+                        },
+                        error: function (jqXhr, textStatus, errorThrown) {
+                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                        }
+                    });
+            }
+                         else
+                         {
+                               
+                               if($(".selected").last().attr("id")!="头痛问诊")
+                       {  
+                            $(".selected").next().addClass("selected");
+                            var name = $(".selected").last().attr("id");
+                            $(".active").next().addClass("active");
+                            $(".active").first().removeClass("active");
+                            OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                            OCX.ShowReport();
+                            OCX.ShowThisPage(name);
+                            if(name=="报告"){
+                             $("#b1").html("保存并打印");
+                             }
+                         }
+                         else
+                         {
+
+                                    $.ajax({
+                                        url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
+                                        type: "POST",
+                                        data: { postjson: encoded },
+                                        success: function (data) {
+                                            if (data.OK) {
+                                               OCX.SetObjectInfo("TextBox_14", "text",data.Message);
+                                                   $(".selected").next().addClass("selected");
+                                                   var name = $(".selected").last().attr("id");
+                                                   $(".active").next().addClass("active");
+                                                    $(".active").first().removeClass("active");
+                                                 // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                                                   OCX.ShowReport();
+                                                  OCX.ShowThisPage(name);
+                                            }
+                                            else {
+                                                alert(data.Message.toString());
+
+                                            }
+
+                                        },
+                                        error: function (jqXhr, textStatus, errorThrown) {
+                                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                                        }
+                                    });
+                               
+                            
+                         }
+                  
+                 }
+                
+
+        
+     });
+    });
+    function SetDataIntoOCX(OCX, obj)
+    {
         //set the data to OCX
         //set patient information
         if(null != obj.Name)
@@ -539,130 +666,7 @@ $(function () {
 
         //set chief complaint
         OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
-       
-    $("#btn1").click(function () {
-            $("#btn2").show();
-            var OCX = document.getElementById('Reporter2');
-            if($(".selected").last().attr("id") == "基本筛查"){
-            //var Secondheadache=new Array()
-                var myBoolean=new Boolean(false);
-                for(var i =0;i<10;i++){
-                          var j=i+1;
-                          var Name="CheckBox_"+j.toString();
-                          if("true" == OCX.GetObjectInfo(Name, "checked"))
-                          {
-                          myBoolean=true;
-                          }
-                  }
-                 if(myBoolean==true){
-                $(".selected").next().addClass("selected"); 
-                $(".active").next().addClass("active");
-                $(".active").first().removeClass("active");
-               }
-           
-            }
-            if ($(".selected").last().attr("id") == "辅助诊断"||$(".selected").last().attr("id") == "报告")
-            {
-                //set chief complaint
-                var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
-                OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
-
-                //set diagnose
-                var strDiagnose = "";
-                if("" != OCX.GetObjectInfo("ComboBox_31", "text"))
-                    strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
-                if("" != OCX.GetObjectInfo("ComboBox_33", "text"))
-                    strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
-                if("" != OCX.GetObjectInfo("ComboBox_36", "text"))
-                    strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text") + "。";
-                 OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
-            }
-            if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊"||$(".selected").last().attr("id") == "报告")
-            {
-                
-               var encoded = $.toJSON(ChangeDataFromOCXIntoJSObject(OCX));
-                }
-                if($(".selected").last().attr("id") == "报告")
-                {
-
-                    $("#ocx").hide();
-                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
-                    $.ajax({
-                        url: '@Url.Action("Save", "Diagnosis")',
-                        type: "POST",
-                        data: { postjson: encoded },
-                        success: function (data) {
-                            if (data.OK) {
-                             var OCX = document.getElementById('Reporter2');
-                            OCX.EnableMacroPrint(true);
-                            OCX.PrintPages("报告", false);
-                              $(".demo").html("本次问诊信息保存成功！");
-                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
-                            }
-                            else {
-                                document.getElementById("msg").innerHTML = data.Message.toString();
-                            }
-
-                        },
-                        error: function (jqXhr, textStatus, errorThrown) {
-                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-                        }
-                    });
-            }
-                         else
-                         {
-                               
-                               if($(".selected").last().attr("id")!="头痛问诊")
-                       {  
-                            $(".selected").next().addClass("selected");
-                            var name = $(".selected").last().attr("id");
-                            $(".active").next().addClass("active");
-                            $(".active").first().removeClass("active");
-                            OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
-                            OCX.ShowReport();
-                            OCX.ShowThisPage(name);
-                            if(name=="报告"){
-                             $("#b1").html("保存并打印");
-                             }
-                         }
-                         else
-                         {
-
-                                    $.ajax({
-                                        url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
-                                        type: "POST",
-                                        data: { postjson: encoded },
-                                        success: function (data) {
-                                            if (data.OK) {
-                                               OCX.SetObjectInfo("TextBox_14", "text",data.Message);
-                                                   $(".selected").next().addClass("selected");
-                                                   var name = $(".selected").last().attr("id");
-                                                   $(".active").next().addClass("active");
-                                                    $(".active").first().removeClass("active");
-                                                 // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
-                                                   OCX.ShowReport();
-                                                  OCX.ShowThisPage(name);
-                                            }
-                                            else {
-                                                alert(data.Message.toString());
-
-                                            }
-
-                                        },
-                                        error: function (jqXhr, textStatus, errorThrown) {
-                                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-                                        }
-                                    });
-                               
-                            
-                         }
-                  
-                 }
-                
-
-        
-     });
-    });
+    }
     function ChangeDataFromOCXIntoJSObject(OCX)
     {        
         OCX.SetObjectInfo("TextBox_12", "text", GetChiefComplaint(OCX));          
