@@ -25,8 +25,17 @@ namespace HeadacheCDSSWeb.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.3.12/HeadacheInference/InferenceService.asmx")]
+        public string HeadacheCDSSWeb_WebReference_InferenceService {
+            get {
+                return ((string)(this["HeadacheCDSSWeb_WebReference_InferenceService"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/HeadacheInference/InferenceService.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://192.168.3.12/HeadacheInference/InferenceService.asmx")]
         public string HeadacheCDSSWeb_localhost_InferenceService {
             get {
                 return ((string)(this["HeadacheCDSSWeb_localhost_InferenceService"]));

@@ -133,10 +133,10 @@
   </wsdl:binding>
   <wsdl:service name="InferenceService">
     <wsdl:port name="InferenceServiceSoap" binding="tns:InferenceServiceSoap">
-      <soap:address location="http://localhost/HeadacheInference/InferenceService.asmx" />
+      <soap:address location="http://192.168.3.12/HeadacheInference/InferenceService.asmx" />
     </wsdl:port>
     <wsdl:port name="InferenceServiceSoap12" binding="tns:InferenceServiceSoap12">
-      <soap12:address location="http://localhost/HeadacheInference/InferenceService.asmx" />
+      <soap12:address location="http://192.168.3.12/HeadacheInference/InferenceService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
