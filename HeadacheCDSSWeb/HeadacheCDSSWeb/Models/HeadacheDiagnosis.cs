@@ -36,7 +36,7 @@ namespace HeadacheCDSSWeb.Models
                 StrDisease.Add(Disease9);
                 List<string> advice = new List<string>();
                 List<string> disease = new List<string>();
-                string conclusion = "";
+                string conclusion = "需要做以下检查：";
                 for (int n = 0; n < vd.visitrecord.SecondaryHeadacheSymptom.Count; n++)
                 {
                     int num = n + 1;
@@ -59,13 +59,13 @@ namespace HeadacheCDSSWeb.Models
                         }
                     }
                 }
-                string last = "";
+                string last = "可能患有以下疾病：";
                 foreach (string d in disease)
                 {
                     last = last + d + "、";
                 }
                 string DiseaseLast = last.Substring(0, last.Length - 1);
-                result = DiseaseLast + conclusion;
+                result = DiseaseLast +","+ conclusion;
 
             }
             else
@@ -305,7 +305,7 @@ namespace HeadacheCDSSWeb.Models
                 InputDataValue.m_HeadacheAuraList = HeadacheAuraList.ToArray();
                 foreach (PreviousDrug pdrug in vd.PDrug)
                 {
-                    if(pdrug.DrugCategory=="曲马坦")
+                    if(pdrug.DrugCategory=="曲普坦")
                     {
                         int day = int.Parse(pdrug.DayAmoutnPerM);
                         int month=int.Parse(pdrug.MonthTotalAmount);
@@ -316,7 +316,7 @@ namespace HeadacheCDSSWeb.Models
                             
                         }
                     }
-                    if (pdrug.DrugCategory != "曲马坦")
+                    if (pdrug.DrugCategory != "曲普坦")
                     {
                         int day = int.Parse(pdrug.DayAmoutnPerM);
                         int month = int.Parse(pdrug.MonthTotalAmount);

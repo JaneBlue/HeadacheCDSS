@@ -1048,7 +1048,7 @@ $(function () {
                                         data: { postjson: encoded },
                                         success: function (data) {
                                             if (data.OK) {
-                                                OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + data.Message);
+                                                  OCX.SetObjectInfo("TextBox_14", "text",data.Message);
                                                    $(".selected").next().addClass("selected");
                                                    var name = $(".selected").last().attr("id");
                                                    $(".active").next().addClass("active");
