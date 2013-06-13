@@ -226,7 +226,7 @@ namespace HeadacheCDSSWeb.Models
                         InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Bi_Pain;
                         break;
                     }
-                    if (hp.Position.Contains("左侧") || hp.Position.Contains("左侧"))
+                    if (hp.Position.Contains("左侧") || hp.Position.Contains("右侧"))
                     {
                         InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Uni_Pain;
                         break;
@@ -281,11 +281,11 @@ namespace HeadacheCDSSWeb.Models
                 List<localhost.HeadacheAura> HeadacheAuraList = new List<localhost.HeadacheAura>();
                 foreach (HeadacheProdrome headacheP in vd.PHeadacheOverview.HeadacheProdrome)
                 {
-                    if (headacheP.Prodrome == "单侧视觉")
+                    if (headacheP.Prodrome.Contains("单侧视觉"))
                     {
                         HeadacheAuraList.Add(localhost.HeadacheAura.Hemi_Visual_Aura);
                     }
-                    if (headacheP.Prodrome == "双侧视觉")
+                    if (headacheP.Prodrome.Contains("双侧视觉"))
                     {
                         HeadacheAuraList.Add(localhost.HeadacheAura.Bilateral_Visual_Aura);
                     }
