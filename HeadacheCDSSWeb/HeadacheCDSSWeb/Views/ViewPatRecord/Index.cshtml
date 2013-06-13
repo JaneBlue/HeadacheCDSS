@@ -255,15 +255,11 @@
                 var strChiefComplaint = obj.ChiefComplaint;
                 OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
         }
-    //set diagnoses
-            if (obj.DiagnosisResult1 == null && obj.DiagnosisResult2 == null && obj.DiagnosisResult3== null)
-        {
-            
-        }
-        else{
-                var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
-                OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
-        }
+
+        //set diagnoses
+        var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
+        OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
+
         //set doctor advice
             if (obj.Prescription != null) {
             var strDoctorAdvice = obj.Prescription;

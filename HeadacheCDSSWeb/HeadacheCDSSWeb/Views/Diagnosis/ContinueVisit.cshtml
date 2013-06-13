@@ -1117,9 +1117,9 @@ $(function () {
         //get visit record
         var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
         var strCDSSDiagnosis1 = OCX.GetObjectInfo("TextBox_14", "text");
-        var strDiagnosisResult1 = OCX.GetObjectInfo("ComboBox_32", "text");
-        var strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_34", "text");
-        var strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_35", "text");
+        var strDiagnosisResult1 = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text");
+        var strDiagnosisResult2 = OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text");
+        var strDiagnosisResult3 = OCX.GetObjectInfo("ComboBox_36", "text") + ":" + OCX.GetObjectInfo("ComboBox_35", "text");
 
         //prescription
         var strPrescription = "";
