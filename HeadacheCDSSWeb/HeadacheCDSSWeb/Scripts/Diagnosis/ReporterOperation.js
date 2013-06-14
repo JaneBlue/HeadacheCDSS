@@ -28,11 +28,11 @@
             OCX.ShowReport();
             OCX.ShowThisPage(name);
 
-            if (name == "基础筛查") {
+            if (name == "基本筛查") {
                 $("#btn2").hide();
             }
             if (name == "医嘱处置") {
-                $("#b1").html("下一步");
+                $("#btn1").html("下一步");
             }
      });
        
