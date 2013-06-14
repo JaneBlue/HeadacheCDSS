@@ -24,7 +24,7 @@ namespace HeadacheCDSSWeb.Controllers
             PatOperation pto = new PatOperation();
 
             string PID = Request.Form["门诊号"];
-            if (string.IsNullOrEmpty(pat.Name) || string.IsNullOrEmpty(pat.Sex) || string.IsNullOrEmpty(pat.Age) || string.IsNullOrEmpty(pat.Education) || string.IsNullOrEmpty(pat.Phone) || string.IsNullOrEmpty(pat.Address) || string.IsNullOrEmpty(pat.ChiefDoctor))
+            if (string.IsNullOrEmpty(pat.Name) || string.IsNullOrEmpty(pat.Sex) || string.IsNullOrEmpty(pat.Age) || string.IsNullOrEmpty(pat.Phone))
             {
                 ModelState.AddModelError("", "输入项不能为空");
             }
