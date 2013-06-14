@@ -450,6 +450,9 @@ namespace HeadacheCDSSWeb.localhost {
         
         /// <remarks/>
         Electric_Shock_Like_Pain,
+        
+        /// <remarks/>
+        Other,
     }
     
     /// <remarks/>

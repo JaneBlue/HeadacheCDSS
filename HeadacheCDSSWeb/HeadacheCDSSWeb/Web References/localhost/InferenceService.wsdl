@@ -83,6 +83,7 @@
           <s:enumeration value="Pulse_Pain" />
           <s:enumeration value="Pressure_Pain" />
           <s:enumeration value="Electric_Shock_Like_Pain" />
+          <s:enumeration value="Other" />
         </s:restriction>
       </s:simpleType>
       <s:element name="DoInferenceResponse">

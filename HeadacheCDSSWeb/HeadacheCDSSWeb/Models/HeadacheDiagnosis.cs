@@ -158,6 +158,10 @@ namespace HeadacheCDSSWeb.Models
                     {
                         InputDataValue.m_nHeadahceProperty = localhost.HeadacheProperty.Electric_Shock_Like_Pain;
                     }
+                    if (vd.PHeadacheOverview.HeadacheType == "其它")
+                    {
+                        InputDataValue.m_nHeadahceProperty = localhost.HeadacheProperty.Other;
+                    }
                 }
                 else
                 {
