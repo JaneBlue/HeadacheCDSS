@@ -190,7 +190,7 @@ namespace HeadacheCDSSWeb.Models
                     {
                         InputDataValue.m_nHeadache_TotalNumber = 7;
                     }
-                    if (total.Contains("10"))
+                    if (total.Contains("10")||total.Contains("持续头痛"))
                     {
                         InputDataValue.m_nHeadache_TotalNumber = 12;
                     }
@@ -231,6 +231,10 @@ namespace HeadacheCDSSWeb.Models
                         InputDataValue.m_HeadacheLocation = localhost.HeadacheLocation.Uni_Pain;
                         break;
                     }
+                }
+                if (vd.PHeadacheOverview.HeadachePlace.Count==0)
+                {
+                    errorinfor.Add("头痛部位");
                 }
                 List<localhost.HeadacheAssociatedSymptoms> HeadacheAssociatedSymptonList = new List<localhost.HeadacheAssociatedSymptoms>();
                 foreach (HeadacheAccompany ha in vd.PHeadacheOverview.HeadacheAccompany)
