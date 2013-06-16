@@ -1241,11 +1241,30 @@ $(function () {
             var strChiefComplaint = "概述：患者头痛";
             //get the PrimaryHeadacheOverView information
             var strOnsetDate = OCX.GetObjectInfo("DateTime_1", "text");
-            if ("/////" == strOnsetDate) 
+            if ("/////" != strOnsetDate) 
             {
-                strOnsetDate = "";
+                var nOnsetYear = parseInt(strOnsetDate.substring(0, strOnsetDate.indexOf("/")));
+                var strOnsetExceptYear = strOnsetDate.substring(strOnsetDate.indexOf("/") + 1);
+                var nOnsetMonth = parseInt(strOnsetExceptYear.substring(0, strOnsetExceptYear.indexOf("/")));
+                today = new Date();
+                var nTodayYear = today.getFullYear();
+                var nTodayMonth = today.getMonth() + 1;
+
+                var nMonth = 0;
+                var nYear = 0;
+                if(nTodayMonth > nOnsetMonth)
+                {
+                    nMonth = nTodayMonth - nOnsetMonth;
+                }
+                else if(nTodayMonth < nOnsetMonth)
+                {
+                    nMonth = nTodayMonth + 12 - nOnsetMonth;
+                    nTodayYear -= 1;
+                }
+                nYear = nTodayYear - nOnsetYear;
+
+                strChiefComplaint += nYear.toString() + "年" + nMonth.toString() + "月，共发作";
             }
-            strChiefComplaint += strOnsetDate + "年（月），共发作";
 
             var strOnsetAmount = "";
             if("true" == OCX.GetObjectInfo("RadioBox_8", "checked"))
