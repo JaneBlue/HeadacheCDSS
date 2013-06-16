@@ -60,13 +60,15 @@ $(function () {
                         strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + ":" + OCX.GetObjectInfo("ComboBox_32", "text") + "。  ";
                      else
                         strDiagnose = OCX.GetObjectInfo("ComboBox_31", "text") + "。  ";
-                }
+                     strDiagnose += "\n";
+                }                
                 if("" != OCX.GetObjectInfo("ComboBox_33", "text"))
                 {
                     if("" != OCX.GetObjectInfo("ComboBox_34", "text"))
                         strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + ":" + OCX.GetObjectInfo("ComboBox_34", "text") + "。  ";
                     else
                         strDiagnose += OCX.GetObjectInfo("ComboBox_33", "text") + "。  ";
+                    strDiagnose += "\n";
                 }
                 if("" != OCX.GetObjectInfo("ComboBox_36", "text"))
                 {
