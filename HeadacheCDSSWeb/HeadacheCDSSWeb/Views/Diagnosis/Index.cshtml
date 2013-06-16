@@ -393,6 +393,8 @@ $(function () {
                 strChiefComplaint += "语言障碍 ";
             if("true" == OCX.GetObjectInfo("RadioBox_2", "checked"))
                 strChiefComplaint += "运动障碍 ";
+            if("有" == strChiefComplaint.charAt(strChiefComplaint.length - 1))
+                strChiefComplaint += "无";
             strChiefComplaint += "先兆。 既往检查与服药：";
                     
             //get PreviousExam
@@ -509,10 +511,11 @@ $(function () {
             if("true" == OCX.GetObjectInfo("CheckBox_15", "checked"))
                 strHFamilyMemberQiTa = "其他";
             strChiefComplaint += strFuQin + strMuQin + strXiongDi + strJieMei + strErZi + strNvEr + strZuFu + strZiMu + strWaiZuFu + strWaiZuMu + strHFamilyMemberQiTa + "有类似头痛。";
-                    
+            if(":" == strChiefComplaint.charAt(strChiefComplaint.length - 1))
+                strChiefComplaint += "无";
+               
             //get Precipitating Factor
-            //set Chief Complaint
-            strChiefComplaint += " 诱发缓解因素：多于";
+            //set Chief Complaint    
             var strPrecipitatingFactor1 = "";
             var strPrecipitatingFactor2 = "";
             var strPrecipitatingFactor3 = "";
@@ -532,90 +535,95 @@ $(function () {
             var strPrecipitatingFactorDetail7 = OCX.GetObjectInfo("ComboBox_15", "text");
             var strPrecipitatingFactorDetail8 = OCX.GetObjectInfo("ComboBox_16", "text");
             var strPrecipitatingFactorDetail9 = OCX.GetObjectInfo("ComboBox_19", "text");
-            var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");
-            if("" != strPrecipitatingFactorDetail1)
-            {
-                strChiefComplaint += " " + "睡眠";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail1;
+            var strPrecipitatingFactorDetail10 = OCX.GetObjectInfo("TextBox_25", "text");   
+            if("" != strPrecipitatingFactorDetail1 || "" != strPrecipitatingFactorDetail2 || "有" == strPrecipitatingFactorDetail3
+            || "" != strPrecipitatingFactorDetail4 || "" != strPrecipitatingFactorDetail5 || "" != strPrecipitatingFactorDetail6
+            || "有" == strPrecipitatingFactorDetail7 || "" != strPrecipitatingFactorDetail8 || "" != strPrecipitatingFactorDetail9
+            || "" != strPrecipitatingFactorDetail10)  
+            {  
+                strChiefComplaint += " 多于";               
+                if("" != strPrecipitatingFactorDetail1)
+                {
+                    strChiefComplaint += " " + "睡眠";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail1;
+                }
+                if("" != strPrecipitatingFactorDetail2)
+                {
+                    strChiefComplaint += " " + "感觉刺激";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail2;
+                }
+                if("有" == strPrecipitatingFactorDetail3)
+                {
+                    strChiefComplaint += " " + "紧张/情绪波动";
+                }
+                if("" != strPrecipitatingFactorDetail4)
+                {
+                    strChiefComplaint += " " + "食物";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail4;
+                }
+                if("" != strPrecipitatingFactorDetail5)
+                {
+                    strChiefComplaint += " " + "活动";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail5;
+                }
+                if("" != strPrecipitatingFactorDetail6)
+                {
+                    strChiefComplaint += " " + "气候";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail6;
+                }
+                if("有" == strPrecipitatingFactorDetail7)
+                {
+                    strChiefComplaint += " " + "疲劳/放松";
+                }
+                if("" != strPrecipitatingFactorDetail8)
+                {
+                    strChiefComplaint += " " + "激素变化";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail8;
+                }
+                if("" != strPrecipitatingFactorDetail9)
+                {
+                    strChiefComplaint += " " + "体位";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail9;
+                }
+                if("" != strPrecipitatingFactorDetail10)
+                {
+                    strChiefComplaint += " " + "其他";
+                    strChiefComplaint += ":" + strPrecipitatingFactorDetail10;
+                }
+                strChiefComplaint += "后诱发。";
             }
-            if("" != strPrecipitatingFactorDetail2)
-            {
-                strChiefComplaint += " " + "感觉刺激";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail2;
-            }
-            if("有" == strPrecipitatingFactorDetail3)
-            {
-                strChiefComplaint += " " + "紧张/情绪波动";
-            }
-            if("" != strPrecipitatingFactorDetail4)
-            {
-                strChiefComplaint += " " + "食物";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail4;
-            }
-            if("" != strPrecipitatingFactorDetail5)
-            {
-                strChiefComplaint += " " + "活动";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail5;
-            }
-            if("" != strPrecipitatingFactorDetail6)
-            {
-                strChiefComplaint += " " + "气候";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail6;
-            }
-            if("有" == strPrecipitatingFactorDetail7)
-            {
-                strChiefComplaint += " " + "疲劳/放松";
-            }
-            if("" != strPrecipitatingFactorDetail8)
-            {
-                strChiefComplaint += " " + "激素变化";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail8;
-            }
-            if("" != strPrecipitatingFactorDetail9)
-            {
-                strChiefComplaint += " " + "体位";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail9;
-            }
-            if("" != strPrecipitatingFactorDetail10)
-            {
-                strChiefComplaint += " " + "其他";
-                strChiefComplaint += ":" + strPrecipitatingFactorDetail10;
-            }
-            strChiefComplaint += "后诱发。多于";
                     
             //get Mitigating information
             //set Chief Complaint
-            var strMitigatingFactor1 = "";
-            var strMitigatingFactor2 = "";
-            var strMitigatingFactor3 = "";
-            var strMitigatingFactor4 = "";
-            var strMitigatingFactor5 = "";
-            var strMitigatingFactor6 = "";
-            var strMitigatingFactor7 = "";
-            var strMitigatingFactor8 = "";
-            var strMitigatingFactor9 = "";
-            var strMitigatingFactor10 = "";
-            if("有" == OCX.GetObjectInfo("ComboBox_20", "text"))
-                strChiefComplaint += " " + "躺下";
-            if("有" == OCX.GetObjectInfo("ComboBox_21", "text"))
-                strChiefComplaint += " " + "黑暗/安静的房间";
-            if("有" == OCX.GetObjectInfo("ComboBox_22", "text"))
-                strChiefComplaint += " " + "按摩";
-            if("有" == OCX.GetObjectInfo("ComboBox_23", "text"))
-                strChiefComplaint += " " + "热敷";
-            if("有" == OCX.GetObjectInfo("ComboBox_26", "text"))
-                strChiefComplaint += " " + "冷敷";
-            if("有" == OCX.GetObjectInfo("ComboBox_11", "text"))
-                strChiefComplaint += " " + "快步走";
-            if("有" == OCX.GetObjectInfo("ComboBox_12", "text"))
-                strChiefComplaint += " " + "锻炼";
-            if("有" == OCX.GetObjectInfo("ComboBox_13", "text"))
-                strChiefComplaint += " " + "站立";
-            if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
-                strChiefComplaint += " " + "妊娠";
-            if("" != OCX.GetObjectInfo("TextBox_26", "text"))
-                strChiefComplaint += " " + OCX.GetObjectInfo("TextBox_26", "text");
-            strChiefComplaint += "后缓解。";
+            if("有" == OCX.GetObjectInfo("ComboBox_20", "text") || "有" == OCX.GetObjectInfo("ComboBox_21", "text") 
+            || "有" == OCX.GetObjectInfo("ComboBox_22", "text") || "有" == OCX.GetObjectInfo("ComboBox_23", "text")
+            || "有" == OCX.GetObjectInfo("ComboBox_26", "text") || "有" == OCX.GetObjectInfo("ComboBox_11", "text")
+            || "有" == OCX.GetObjectInfo("ComboBox_12", "text") || "有" == OCX.GetObjectInfo("ComboBox_13", "text")
+            || "有" == OCX.GetObjectInfo("ComboBox_17", "text") || "" != OCX.GetObjectInfo("TextBox_26", "text"))
+            {
+                strChiefComplaint += " 多于";
+                if("有" == OCX.GetObjectInfo("ComboBox_20", "text"))
+                    strChiefComplaint += " " + "躺下";
+                if("有" == OCX.GetObjectInfo("ComboBox_21", "text"))
+                    strChiefComplaint += " " + "黑暗/安静的房间";
+                if("有" == OCX.GetObjectInfo("ComboBox_22", "text"))
+                    strChiefComplaint += " " + "按摩";
+                if("有" == OCX.GetObjectInfo("ComboBox_23", "text"))
+                    strChiefComplaint += " " + "热敷";
+                if("有" == OCX.GetObjectInfo("ComboBox_26", "text"))
+                    strChiefComplaint += " " + "冷敷";
+                if("有" == OCX.GetObjectInfo("ComboBox_11", "text"))
+                    strChiefComplaint += " " + "快步走";
+                if("有" == OCX.GetObjectInfo("ComboBox_12", "text"))
+                    strChiefComplaint += " " + "锻炼";
+                if("有" == OCX.GetObjectInfo("ComboBox_13", "text"))
+                    strChiefComplaint += " " + "站立";
+                if("有" == OCX.GetObjectInfo("ComboBox_17", "text"))
+                    strChiefComplaint += " " + "妊娠";
+                if("" != OCX.GetObjectInfo("TextBox_26", "text"))
+                    strChiefComplaint += " " + OCX.GetObjectInfo("TextBox_26", "text");
+                strChiefComplaint += "后缓解。";
+            }
         }
         return strChiefComplaint;
     }
