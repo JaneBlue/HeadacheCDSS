@@ -191,10 +191,6 @@
     <Content Include="Content\images\split.png" />
     <Content Include="Content\images\triangle.png" />
     <Content Include="Content\images\wait.gif" />
-    <Content Include="Content\images\未标题-1_13.png" />
-    <Content Include="Content\images\未标题-1_15.png" />
-    <Content Include="Content\images\未标题-1_16.png" />
-    <Content Include="Content\images\未标题-1_18.png" />
     <Content Include="Content\indexstyle.css" />
     <Content Include="Content\jqpagination.css" />
     <Content Include="Content\jquery.jqplot.min.css" />
