@@ -247,6 +247,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\plugins\excanvas.js" />
     <Content Include="Scripts\plugins\jqplot.canvasAxisLabelRenderer.min.js" />
     <Content Include="Scripts\plugins\jqplot.canvasTextRenderer.min.js" />
     <Content Include="Scripts\plugins\jqplot.donutRenderer.min.js" />
@@ -385,7 +386,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59374</DevelopmentServerPort>
+          <DevelopmentServerPort>2818</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
