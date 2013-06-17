@@ -211,6 +211,11 @@ input[type="submit"]:active
      text-align: center;
     list-style: none;
 }
+.diary li
+{
+    padding-top:10px;
+   margin-bottom:10px;
+}
 .diary li a{
     font-size:19px;
 	text-decoration: none;
@@ -275,27 +280,27 @@ input[type="submit"]:active
 #variable1
 {
     float:left;
-    width: 140px;
+    width: 120px;
     height: 190px;
-    margin-top:50px;
+    margin:50px 20px 0 40px;
 }
 #variable2
 {
     float:left;
     width: 140px;
     height: 240px;
-   
+    margin: 0 10px 0 40px;
   
 }
 #linegraph
 {
-     float:right;
+     float:left;
     width: 420px;
     height: 190px;
 }
 #piegraph
 {
-     float:right;
+     float:left;
     width: 420px;
     height: 240px;
 }
