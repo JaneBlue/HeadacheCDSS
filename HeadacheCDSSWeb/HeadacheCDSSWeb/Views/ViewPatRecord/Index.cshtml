@@ -105,14 +105,14 @@
     $(document).ready(function () {
         
         $(".paging").find("li").hide();
-        $(".paging li:lt(12)").addClass("current").show();
-        var num = Math.ceil($(".paging li").length / 12);
+        $(".paging li:lt(10)").addClass("current").show();
+        var num = Math.ceil($(".paging li").length / 10);
         $('.pagination').jqPagination({
             max_page: num,
             paged: function (page) {
                 $(".current").hide();
-                var start = (page - 1) * 12;
-                for (var i = 0; i < 12; i++) {
+                var start = (page - 1) * 10;
+                for (var i = 0; i < 10; i++) {
 
                     $(".paging li:eq(" + start + ")").addClass("current").show();
                     start = start + 1;
