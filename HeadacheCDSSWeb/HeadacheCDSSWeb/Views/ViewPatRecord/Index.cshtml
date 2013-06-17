@@ -31,21 +31,21 @@
           <div id="accordion">
           <h3>就诊记录</h3>
           <div>
-          <div id="List">
+            <div id="List">
             <ul class="paging">
             @foreach (var item in Model)
             {
                 <li><a href="#"  id="@item.Id">@item.VisitDate.Date.ToString("yyyy-MM-dd")</a> </li>
             }
-        </ul>
-        </div>
-        <div class="pagination">
-        <a href="#" class="first" data-action="first">&laquo;</a> <a href="#" class="previous"
-            data-action="previous">&lsaquo;</a>
-        <input type="text" readonly="readonly" data-max-page="40" />
-        <a href="#" class="next" data-action="next">&rsaquo;</a> <a href="#" class="last"
-            data-action="last">&raquo;</a>
-        </div>
+           </ul>
+           </div>
+            <div class="pagination">
+            <a href="#" class="first" data-action="first">&laquo;</a> <a href="#" class="previous"
+                data-action="previous">&lsaquo;</a>
+            <input type="text" readonly="readonly" data-max-page="40" />
+            <a href="#" class="next" data-action="next">&rsaquo;</a> <a href="#" class="last"
+                data-action="last">&raquo;</a>
+            </div>
           </div>
           <h3 >头痛日志</h3>
           <div>
