@@ -1,0 +1,307 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0;
+	padding: 0;
+	background-color:#c0c0c0;
+	font-size: 17px;
+	color:#076FA2;
+	font-family: "Microsoft YaHei",Î¢ÈíÑÅºÚ,Tahoma,Helvetica,arial,sans-serif;
+	
+}
+
+body,  textarea, option {
+
+	
+	font-size: 18px;
+}
+
+h3
+{
+    font-size: 24px;
+    display :block;
+    margin:10px 57px 0 55px;
+   cursor:pointer;
+}
+p
+{
+    margin-top: 9px;
+}
+#wrapper {
+}
+/* Header */
+#header {
+	width: 962px;
+	height: 162px;
+	margin: 0 auto;
+	background: url(images/head.png) no-repeat right top;
+}
+#header a
+{
+   float:right;
+   margin: 70px  25px 0 0 ;
+   color:#F0BE72;
+}
+/* Page */
+#page {
+	width: 960px;
+	margin: 0 auto;
+}
+/* Content */
+#content {
+	float: right;
+	width: 704px;
+	height:715px;
+	margin: 0;
+	background: url(images/Content.png) no-repeat ;	
+}
+#ocx
+{
+    margin:45px  0 0 45px ;
+}
+#detail
+{
+    float:left;   
+}
+input
+{
+    font-size: 16px;
+    margin: 5px 0 0 2px;
+    float : left;
+    padding: 3px  0 0 3px;
+    width:15px;
+   height:28px;
+  
+  
+}
+
+#content ul, ol {
+	
+	display:block;
+	padding:0;
+	margin:5px 0 0 0;
+    -webkit-padding-start: 0px;
+}
+#content li
+{
+    height: 32px;
+    display:block;
+    text-decoration:none;
+    padding-bottom:5px;
+}
+#content li span
+{
+   width: 100px;
+float: left;
+text-align: right;
+padding-top: 7px;
+font-size: 16px;
+
+}
+.error
+{
+    display :block;
+   padding:55px 0 0 105px;
+    color: #CA471B;
+    line-height: 24px;
+}
+.title {
+	margin: 10 0 0 10px;
+	padding-bottom: 5px;	
+}
+.button a
+{
+     text-decoration:none;
+     color: #000;
+}
+.button
+{
+    height: 37px;
+	float: right;
+	margin:10px 65px 0 10px;
+	padding-top:6px;
+	width :138px;
+    background: url(images/normal-button.png) no-repeat ;
+    text-align:center; 
+}
+
+.button:hover
+{
+     background: url(images/hover-button.png) no-repeat ;
+      cursor:pointer;
+}
+.button.active
+{
+     background: url(images/click-button.png) no-repeat ;
+}
+.button a:hover
+{
+    cursor:pointer;
+}
+input[type="submit"]
+{
+     height: 37px;
+	float: left;
+	margin-left:70px;
+	padding:0;
+	width :138px;
+    background: url(images/normal-button.png) no-repeat ;
+    text-align:center;
+    border:0;
+    font-family:"Microsoft YaHei";
+}
+input[type="submit"]:hover
+{
+     background: url(images/hover-button.png) no-repeat ;
+}
+input[type="submit"]:active
+{
+     background: url(images/click-button.png) no-repeat ;
+}
+/* Sidebar */
+#sidebar {
+	float: left;
+	width: 256px;
+	height: 715px;
+	background: url(images/sidebar.png) no-repeat ;
+}
+#navigate
+{
+     padding: 0 21px 0 21px ;
+}
+#List
+{
+    height:555px;
+}
+#List ul {
+	margin: 0;
+	padding: 10px 10px 0 10px;
+	list-style: none;	
+}
+#List li
+{ 
+	background-color:#B9DCF2;
+   padding-top:10px;
+   margin-bottom:10px;
+	width: 195px;
+	height:35px;
+	text-align: center;	
+}
+#List h2 {
+	text-decoration: none;
+	padding: 7px 2px 0 0;
+	margin:0;
+	text-align:center;
+}
+
+#List a {
+	color: #076FA2;
+	font-size:18px;
+	text-decoration: none;   
+}
+
+#List a:hover {
+	text-decoration: none;
+	color: #E6B715;
+}
+.diary
+{
+    margin:0 10px 0 10px;
+    padding:10px 0 10px 0;
+     text-align: center;
+    list-style: none;
+}
+.diary li a{
+    font-size:19px;
+	text-decoration: none;
+	
+ }
+ .diary li a:hover {
+	text-decoration: none;
+	color: #E6B715;
+	cursor:pointer;
+}
+/* Footer */
+
+#footer {
+	clear: both;
+	width: 962px;
+	height: 118px;
+	margin: 0 auto;
+	padding: 0 0 0 0;
+	background: url(images/foot-2.png) no-repeat ;
+	font-size: smaller;
+	color: #52640A;
+}
+
+.statics
+{
+    margin: 40px 30px 30px 30px;
+    width:644px;
+    height:640px;
+}
+#time
+{
+  float:right;
+  margin:10px;
+ 
+  height:80px;
+  width:620px;
+}
+#time input
+{
+    width:140px;
+}
+#line
+{
+  float:left;
+  margin :15px 0  10px 10px;
+ border-style:groove;
+  border-width:2px;
+  border-color: #D3E7F2;
+  height:240px;
+  width:620px;
+}
+#pie
+{
+  float:left;
+  margin :15px 0  10px 10px;
+ border-style:groove;
+  border-width:2px;
+  border-color: #D3E7F2;
+  height:240px;
+  width:620px;
+}
+#variable1
+{
+    float:left;
+    width: 140px;
+    height: 190px;
+    margin-top:50px;
+}
+#variable2
+{
+    float:left;
+    width: 140px;
+    height: 240px;
+   
+  
+}
+#linegraph
+{
+     float:right;
+    width: 420px;
+    height: 190px;
+}
+#piegraph
+{
+     float:right;
+    width: 420px;
+    height: 240px;
+}
+#diaryreport
+{
+    margin:40px 100px 40px 100px;
+     width:504px;
+    height:640px;
+}
