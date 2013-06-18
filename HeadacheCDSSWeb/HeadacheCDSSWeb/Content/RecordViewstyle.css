@@ -310,3 +310,7 @@ input[type="submit"]:active
      width:504px;
     height:640px;
 }
+#diaryreport td
+{
+    width :338px;
+}
