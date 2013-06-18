@@ -10,7 +10,7 @@ namespace HeadacheCDSSWeb.Models
     {
        HeadacheModelContainer context = new HeadacheModelContainer();
        
-        public void InsertPat(PatBasicInfor pat, string PID, string User)
+        public bool InsertPat(PatBasicInfor pat, string PID, string User)
         {
 
             try
@@ -24,16 +24,11 @@ namespace HeadacheCDSSWeb.Models
                 user.PatBasicInfor.Add(pat);
 
                 context.SaveChanges();
+                return true;
             }
-            catch (DbEntityValidationException dbEx)
+            catch (Exception e)
             {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
+                return false;
             }
         }
     }

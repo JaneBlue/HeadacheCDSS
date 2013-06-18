@@ -312,5 +312,6 @@ input[type="submit"]:active
 }
 #diaryreport td
 {
-    width :302px;
+    width :282px;
+    padding:6px;
 }

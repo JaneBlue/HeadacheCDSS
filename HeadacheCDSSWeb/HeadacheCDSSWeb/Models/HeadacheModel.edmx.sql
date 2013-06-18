@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/04/2013 09:53:21
--- Generated from EDMX file: D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
+-- Date Created: 06/18/2013 11:06:39
+-- Generated from EDMX file: D:\2013headachecdss\code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\Models\HeadacheModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -144,7 +144,7 @@ CREATE TABLE [dbo].[PatBasicInforSet] (
     [Education] nvarchar(max)  NULL,
     [Job] nvarchar(max)  NULL,
     [Phone] nvarchar(max)  NOT NULL,
-    [Address] nvarchar(max)  NOT NULL,
+    [Address] nvarchar(max)  NULL,
     [Identity] nvarchar(max)  NULL,
     [ChiefDoctor] nvarchar(max)  NULL,
     [DoctorAccountId] int  NOT NULL,

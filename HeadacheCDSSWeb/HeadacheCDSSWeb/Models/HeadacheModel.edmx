@@ -108,7 +108,7 @@
     <Property Name="Education" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Job" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Identity" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ChiefDoctor" Type="nvarchar(max)" Nullable="true" />
     <Property Name="DoctorAccountId" Type="int" Nullable="false" />
@@ -582,7 +582,7 @@
           <Property Type="String" Name="Education" Nullable="true" />
           <Property Type="String" Name="Job" Nullable="true" />
           <Property Type="String" Name="Phone" Nullable="false" />
-          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="true" />
           <Property Type="String" Name="Identity" Nullable="true" />
           <Property Type="String" Name="ChiefDoctor" Nullable="true" />
           <NavigationProperty Name="DoctorAccount" Relationship="HeadacheModel.DoctorAccountPatBasicInfor" FromRole="PatBasicInfor" ToRole="DoctorAccount" />
