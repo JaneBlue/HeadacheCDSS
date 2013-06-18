@@ -101,6 +101,7 @@
         { collapsible: true });
         $('.paging li a:first').addClass("CurrentView");
         $(".CurrentView").parent().css("background-color", "#D3E7F2");
+        
     });
     $(document).ready(function () {
         
@@ -166,6 +167,8 @@
                         $("#ViewContent").hide();
                         $("#DiaryView").html(data);
                         $("#DiaryView").show();
+                        $("#d1").Zebra_DatePicker();
+                        $("#d2").Zebra_DatePicker();
                         var plot1 = $.jqplot('linegraph', [[3, 7, 9, 1, 4, 6, 8, 2, 5]]);
                         var data = [
                                                     ['恶心', 12], ['呕吐', 18], ['畏光', 14],
