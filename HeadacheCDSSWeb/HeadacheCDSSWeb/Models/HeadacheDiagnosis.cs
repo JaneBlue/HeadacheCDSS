@@ -65,7 +65,7 @@ namespace HeadacheCDSSWeb.Models
                     last = last + d + "、";
                 }
                 string DiseaseLast = last.Substring(0, last.Length - 1);
-                result = DiseaseLast +","+ conclusion;
+                result = DiseaseLast + "," + conclusion;
 
             }
             else
@@ -77,7 +77,12 @@ namespace HeadacheCDSSWeb.Models
                     DateTime Startdate = vd.PHeadacheOverview.OnsetDate;
                     int month = (DateTime.Now.Date.Year - Startdate.Year) * 12 + (DateTime.Now.Date.Month - Startdate.Month);
                     InputDataValue.m_nHeadache_Duration = month;
+                    if (month == 3125)
+                    {
+                        errorinfor.Add("最近起病年月");
+                    }
                 }
+
                 if (vd.PHeadacheOverview.FirstOnsetContinue != "")
                 {
                     if (vd.PHeadacheOverview.FirstOnsetContinue == "是")
@@ -194,7 +199,7 @@ namespace HeadacheCDSSWeb.Models
                     {
                         InputDataValue.m_nHeadache_TotalNumber = 7;
                     }
-                    if (total.Contains("10")||total.Contains("持续头痛"))
+                    if (total.Contains("10") || total.Contains("持续头痛"))
                     {
                         InputDataValue.m_nHeadache_TotalNumber = 12;
                     }
@@ -236,7 +241,7 @@ namespace HeadacheCDSSWeb.Models
                         break;
                     }
                 }
-                if (vd.PHeadacheOverview.HeadachePlace.Count==0)
+                if (vd.PHeadacheOverview.HeadachePlace.Count == 0)
                 {
                     errorinfor.Add("头痛部位");
                 }
@@ -313,26 +318,29 @@ namespace HeadacheCDSSWeb.Models
                 InputDataValue.m_HeadacheAuraList = HeadacheAuraList.ToArray();
                 foreach (PreviousDrug pdrug in vd.PDrug)
                 {
-                    if(pdrug.DrugCategory=="曲普坦")
-                    {
-                        int day = int.Parse(pdrug.DayAmoutnPerM);
-                        int month=int.Parse(pdrug.MonthTotalAmount);
-                        if (day>10&&month>=3)
-                        {
-                            InputDataValue.m_nTriptan_Drugin_Monthly = day;
-                            InputDataValue.m_nTriptan_Total_Drugin_Duration = month;
-                            
-                        }
-                    }
-                    if (pdrug.DrugCategory != "曲普坦")
+                    if (pdrug.DayAmoutnPerM != "" && pdrug.MonthTotalAmount != "")
                     {
                         int day = int.Parse(pdrug.DayAmoutnPerM);
                         int month = int.Parse(pdrug.MonthTotalAmount);
-                        if (day >15 && month >3)
+                        if (pdrug.DrugCategory == "曲普坦")
                         {
-                            InputDataValue.m_nNon_Triptan_Drugin_Monthly= day;
-                            InputDataValue.m_nNon_Triptan_Total_Drugin_Duration = month;
-                           
+
+                            if (day > 10 && month >= 3)
+                            {
+                                InputDataValue.m_nTriptan_Drugin_Monthly = day;
+                                InputDataValue.m_nTriptan_Total_Drugin_Duration = month;
+
+                            }
+                        }
+                        if (pdrug.DrugCategory != "曲普坦")
+                        {
+
+                            if (day > 15 && month > 3)
+                            {
+                                InputDataValue.m_nNon_Triptan_Drugin_Monthly = day;
+                                InputDataValue.m_nNon_Triptan_Total_Drugin_Duration = month;
+
+                            }
                         }
                     }
                 }
@@ -347,17 +355,17 @@ namespace HeadacheCDSSWeb.Models
                 }
                 else
                 {
-                    for( int i=0;i<errorinfor.Count;i++)
-                    { 
-                        string err=errorinfor[i];
-                        if (i!=errorinfor.Count-1)
-                      {
-                          err = err + ",";
-                       }
-                        
+                    for (int i = 0; i < errorinfor.Count; i++)
+                    {
+                        string err = errorinfor[i];
+                        if (i != errorinfor.Count - 1)
+                        {
+                            err = err + ",";
+                        }
+
                         result = result + err;
                     }
-                    result = "注意："+result + "为必填项，请填写";
+                    result = "注意：" + result + "为必填项，请填写";
                 }
             }
 
