@@ -306,11 +306,11 @@ input[type="submit"]:active
 }
 #diaryreport
 {
-    margin:40px 100px 40px 100px;
-     width:504px;
+    margin:40px 0 40px 50px;
+     width:604px;
     height:640px;
 }
 #diaryreport td
 {
-    width :338px;
+    width :302px;
 }
