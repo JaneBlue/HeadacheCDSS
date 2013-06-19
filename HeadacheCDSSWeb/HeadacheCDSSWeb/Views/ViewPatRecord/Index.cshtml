@@ -241,23 +241,57 @@
     {
         var obj = eval('(' +jsonData + ')');
         var OCX = document.getElementById('Reporter2');
+
         //set patient basic information
-        var strPatientInfo = "姓名：" + obj.Name;
-        strPatientInfo += " 性别:" + obj.Sex;
-        strPatientInfo += " 年龄:" + obj.Age;
-        strPatientInfo += " 教育程度:" + obj.Education;
-        strPatientInfo += " 工作:" + obj.Job;
-        strPatientInfo += " 电话:" + obj.Phone;
-        strPatientInfo += " 地址:" + obj.Address;
+        //get data
+        var strName = "";
+        if (null != obj.Name)
+            strName = obj.Name;
+
+        var strSex = "";
+        if (null != obj.Sex)
+            strSex = obj.Sex;
+
+        var strAge = "";
+        if (null != obj.Age)
+            strAge = obj.Age;
+
+        var strEducation = "";
+        if (null != obj.Education)
+            strEducation = obj.Education;
+
+        var strJob = "";
+        if (null != obj.Job)
+            strJob = obj.Job;
+
+        var strPhone = "";
+        if (null != obj.Phone)
+            strPhone = obj.Phone;
+
+        var strAddress = "";
+        if (null != obj.Address)
+            strAddress = obj.Address;
+
+        var strChiefDoctor = "";
+        if (null != obj.ChiefDoctor)
+            strChiefDoctor = obj.ChiefDoctor;
+
+        var strPatientInfo = "姓名：" + strName;
+        strPatientInfo += " 性别:" + strSex;
+        strPatientInfo += " 年龄:" + strAge;
+        strPatientInfo += " 教育程度:" + strEducation;
+        strPatientInfo += " 工作:" + strJob;
+        strPatientInfo += " 电话:" + strPhone;
+        strPatientInfo += " 地址:" + strAddress;
         //strPatientInfo += " 身份证:" + obj.Identity;
-        strPatientInfo += " 主治医生:" + obj.ChiefDoctor;
+        strPatientInfo += " 主治医生:" + strChiefDoctor;
         OCX.SetObjectInfo("TextBox_21", "text", strPatientInfo);
 
         //set chief complaint
         if(obj.ChiefComplaint!=null)
         {
-                var strChiefComplaint = obj.ChiefComplaint;
-                OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
+            var strChiefComplaint = obj.ChiefComplaint;
+            OCX.SetObjectInfo("TextBox_22", "text", strChiefComplaint);
         }
 
         //set diagnoses
@@ -272,7 +306,8 @@
             OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
 
         //set doctor advice
-            if (obj.Prescription != null) {
+        if (obj.Prescription != null) 
+        {
             var strDoctorAdvice = obj.Prescription;
             OCX.SetObjectInfo("TextBox_24", "text", strDoctorAdvice);
         }
