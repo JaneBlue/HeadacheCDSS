@@ -10,6 +10,7 @@
 </p>
 <script type="text/javascript">
 $(function () {
+    
    var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
    //OCX 赋值
     var OCX = document.getElementById('Reporter2');
@@ -91,7 +92,7 @@ $(function () {
                 {
 
                     $("#ocx").hide();
-                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
+                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div><button class='wboxbtn' style='font-size:18px;height:40px;width:100px' onclick='display_alert()'>打印报告</button>", show: true  });
                     $.ajax({
                         url: '@Url.Action("Save", "Diagnosis")',
                         type: "POST",
@@ -99,10 +100,13 @@ $(function () {
                         success: function (data) {
                             if (data.OK) {
                              var OCX = document.getElementById('Reporter2');
-                            OCX.EnableMacroPrint(true);
-                            OCX.PrintPages("报告", false);
-                              $(".demo").html("本次问诊信息保存成功！");
-                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                           // OCX.EnableMacroPrint(true);
+                           // OCX.PrintPages("报告", false);
+                              $(".demo").html("本次问诊信息保存成功！需要打印报告请点击下方按钮");
+                               
+                               $(".wboxbtn").css("background-color","yellow");
+                              //document.getElementById("wb").style.backgroundImage = 'url(images/normal-button.png)'
+                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 9000);
                             }
                             else {
                                 document.getElementById("msg").innerHTML = data.Message.toString();
@@ -167,6 +171,15 @@ $(function () {
         
      });
     });
+
+    function display_alert()
+  {
+      var OCX = document.getElementById('Reporter2');
+      OCX.EnableMacroPrint(true);
+      OCX.PrintPages("报告", false);
+  }
+
+
     function GetChiefComplaint(OCX)
     {
         var strChiefComplaint = "";

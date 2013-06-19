@@ -23,7 +23,7 @@ background-color:#FFFFFF;
 .header{
 width:962px;
 height:148px;
-background:url(images/head.png) no-repeat center;
+background:url(images/header.png) no-repeat center;
 font-size:0;
 }
 .header a
@@ -45,7 +45,7 @@ top: 80px ;
 #menu ul{
 display:block;
 list-style:none;
-padding:0 0 0 70px;
+padding:0 0 0 100px;
 margin:0px;
 }
 #menu ul li{
@@ -108,7 +108,7 @@ line-height:27px;
 #direct ul{
 	display:block;
 list-style:none;
-padding:0 0 0 70px;
+padding:0 0 0 100px;
 margin:0px;
 }
 #direct ul li{

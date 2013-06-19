@@ -104,7 +104,7 @@
     <Property Type="String" Name="Education" Nullable="true" />
     <Property Type="String" Name="Job" Nullable="true" />
     <Property Type="String" Name="Phone" Nullable="false" />
-    <Property Type="String" Name="Address" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="true" />
     <Property Type="String" Name="Identity" Nullable="true" />
     <Property Type="String" Name="ChiefDoctor" Nullable="true" />
     <NavigationProperty Name="DoctorAccount" Relationship="HeadacheModel.DoctorAccountPatBasicInfor" FromRole="PatBasicInfor" ToRole="DoctorAccount" />

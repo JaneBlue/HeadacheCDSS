@@ -103,7 +103,7 @@
     <Property Name="Education" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Job" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Identity" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ChiefDoctor" Type="nvarchar(max)" Nullable="true" />
     <Property Name="DoctorAccountId" Type="int" Nullable="false" />

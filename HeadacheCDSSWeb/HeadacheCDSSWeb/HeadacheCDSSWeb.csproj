@@ -178,6 +178,7 @@
     <Content Include="Content\images\foot-2.png" />
     <Content Include="Content\images\foot.png" />
     <Content Include="Content\images\head.png" />
+    <Content Include="Content\images\header.png" />
     <Content Include="Content\images\hover-button.png" />
     <Content Include="Content\images\login\content.png" />
     <Content Include="Content\images\login\footer.png" />
@@ -191,6 +192,15 @@
     <Content Include="Content\images\split.png" />
     <Content Include="Content\images\triangle.png" />
     <Content Include="Content\images\wait.gif" />
+    <Content Include="Content\images\wbox\close.png" />
+    <Content Include="Content\images\wbox\close0.png" />
+    <Content Include="Content\images\wbox\loading.gif" />
+    <Content Include="Content\images\wbox\titleBG.png" />
+    <Content Include="Content\images\wbox\titleBG0.png" />
+    <Content Include="Content\images\wbox\titleBG1.png" />
+    <Content Include="Content\images\wbox\wbox.gif" />
+    <Content Include="Content\images\wbox\wbox.png" />
+    <Content Include="Content\images\wbox\wbox2.gif" />
     <Content Include="Content\indexstyle.css" />
     <Content Include="Content\jqpagination.css" />
     <Content Include="Content\jquery.jqplot.min.css" />
@@ -256,6 +266,7 @@
     <Content Include="Scripts\plugins\jquery.jqplot.min.js" />
     <Content Include="Scripts\plugins\jquery.min.js" />
     <Content Include="Scripts\wbox-min.js" />
+    <Content Include="Scripts\wbox.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
@@ -370,6 +381,7 @@
       <CachedSettingsPropName>HeadacheCDSSWeb_localhost_InferenceService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
