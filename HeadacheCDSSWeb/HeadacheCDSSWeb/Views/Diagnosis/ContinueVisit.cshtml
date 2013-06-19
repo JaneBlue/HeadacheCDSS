@@ -65,7 +65,8 @@ $(function () {
                     else
                         strDiagnose += OCX.GetObjectInfo("ComboBox_36", "text") + "。";
                 }
-                OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
+                if("" != strDiagnose)
+                    OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
             }
             if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊"||$(".selected").last().attr("id") == "报告")
             {
