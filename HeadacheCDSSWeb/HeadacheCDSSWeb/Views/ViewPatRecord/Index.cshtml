@@ -261,8 +261,15 @@
         }
 
         //set diagnoses
-        var strDiagnoses = obj.DiagnosisResult1 + " " + obj.DiagnosisResult2 + " " + obj.DiagnosisResult3;
-        OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
+        var strDiagnoses = "";
+        if (null != obj.DiagnosisResult1)
+            strDiagnoses += obj.DiagnosisResult1;
+        if (null != obj.DiagnosisResult2)
+            strDiagnoses += " " + obj.DiagnosisResult2;
+        if (null != obj.DiagnosisResult3)
+            strDiagnoses += " " + obj.DiagnosisResult3;
+        if ("" != strDiagnoses)
+            OCX.SetObjectInfo("TextBox_23", "text", strDiagnoses);
 
         //set doctor advice
             if (obj.Prescription != null) {
