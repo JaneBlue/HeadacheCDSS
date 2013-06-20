@@ -79,7 +79,7 @@ namespace HeadacheCDSSWeb.Controllers
             //strResult = "123";
             if(!strResult.Contains("必填项")){
                 if (strResult.Length < 20)
-                    strResult = "                          " + strResult;
+                    strResult = "\n" + "                          " + strResult;
                 return this.Json(new { OK = true, Message = strResult});
             }
             else{
