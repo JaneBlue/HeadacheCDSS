@@ -34,7 +34,7 @@ $(function () {
                }
            
             }
-            if ($(".selected").last().attr("id") == "辅助诊断"||$(".selected").last().attr("id") == "报告")
+            if ($(".selected").last().attr("id") == "辅助诊断"||$(".selected").last().attr("id") == "报告预览")
             {
                 //set chief complaint
                 var strChiefComplaint = OCX.GetObjectInfo("TextBox_12", "text");
@@ -68,12 +68,12 @@ $(function () {
                 if("" != strDiagnose)
                     OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
             }
-            if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊"||$(".selected").last().attr("id") == "报告")
+            if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊"||$(".selected").last().attr("id") == "报告预览")
             {
                 
                var encoded = $.toJSON(ChangeDataFromOCXIntoJSObject(OCX));
                 }
-                if($(".selected").last().attr("id") == "报告")
+                if($(".selected").last().attr("id") == "报告预览")
                 {
 
                     $("#ocx").hide();
@@ -86,7 +86,7 @@ $(function () {
                             if (data.OK) {
                              var OCX = document.getElementById('Reporter2');
 //                            OCX.EnableMacroPrint(true);
-//                            OCX.PrintPages("报告", false);
+//                            OCX.PrintPages("报告预览", false);
                                $(".demo").html("本次问诊信息保存成功！需要打印报告请点击下方按钮");      
                                $(".wboxbtn").css("background-color","yellow");
                                 var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
@@ -113,8 +113,8 @@ $(function () {
                             OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
                             OCX.ShowReport();
                             OCX.ShowThisPage(name);
-                            if(name=="报告"){
-                             $("#b1").html("保存并打印");
+                            if(name=="报告预览"){
+                             $("#btn1").html("保存");
                              }
                          }
                          else
@@ -160,7 +160,7 @@ $(function () {
   {
       var OCX = document.getElementById('Reporter2');
       OCX.EnableMacroPrint(true);
-      OCX.PrintPages("报告", false);
+      OCX.PrintPages("报告预览", false);
   }
     function SetDataIntoOCX(OCX, obj)
     {
