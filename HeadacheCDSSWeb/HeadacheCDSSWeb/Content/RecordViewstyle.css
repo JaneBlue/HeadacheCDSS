@@ -241,7 +241,7 @@ input[type="submit"]:active
 
 .statics
 {
-    margin: 40px 30px 30px 30px;
+    margin: 0px 30px 30px 30px;
     width:644px;
     height:640px;
 }
@@ -306,7 +306,7 @@ input[type="submit"]:active
 }
 #diaryreport
 {
-    margin:40px 0 40px 50px;
+    margin:0px 0 40px 50px;
      width:604px;
     height:640px;
 }

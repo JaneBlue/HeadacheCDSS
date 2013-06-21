@@ -169,6 +169,7 @@ background:url(images/foot.png) no-repeat bottom;
 .btn:hover
 {
      background: url(images/hover-button.png) no-repeat ;
+      cursor: pointer;
 }
 .btn:active
 {
@@ -176,7 +177,7 @@ background:url(images/foot.png) no-repeat bottom;
 }
 .btn a
 {
-    cursor:default;
+    cursor: pointer;
 }
 
 .demo

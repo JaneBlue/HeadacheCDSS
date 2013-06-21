@@ -92,7 +92,7 @@ $(function () {
                 {
 
                     $("#ocx").hide();
-                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div><button class='wboxbtn' style='font-size:18px;height:40px;width:100px' onclick='display_alert()'>打印报告</button>", show: true  });
+                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
                     $.ajax({
                         url: '@Url.Action("Save", "Diagnosis")',
                         type: "POST",
@@ -100,13 +100,9 @@ $(function () {
                         success: function (data) {
                             if (data.OK) {
                              var OCX = document.getElementById('Reporter2');
-                           // OCX.EnableMacroPrint(true);
-                           // OCX.PrintPages("报告预览", false);
-                              $(".demo").html("本次问诊信息保存成功！需要打印报告请点击下方按钮");
-                               
-                               $(".wboxbtn").css("background-color","yellow");
+                              $(".demo").html("本次问诊信息保存成功！稍候将自动退出"); 
                               //document.getElementById("wb").style.backgroundImage = 'url(images/normal-button.png)'
-                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 9000);
+                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
                             }
                             else {
                                 document.getElementById("msg").innerHTML = data.Message.toString();
@@ -130,7 +126,9 @@ $(function () {
                             OCX.ShowReport();
                             OCX.ShowThisPage(name);
                             if(name=="报告预览"){
-                             $("#btn1").html("保存");
+                             $("#btn1").html("保存并退出");
+                             addprint();
+
                              }
                          }
                          else
@@ -171,14 +169,18 @@ $(function () {
         
      });
     });
-
-    function display_alert()
-  {
-      var OCX = document.getElementById('Reporter2');
-      OCX.EnableMacroPrint(true);
-      OCX.PrintPages("报告预览", false);
+    function addprint(){ 
+   $("#btn1").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>'); 
+   document.getElementById("btn3").onclick=function(){ PrintReport()};   
+   } 
+  function deleteprint(){
+  $("#btn3").remove();
   }
-
+  function PrintReport() {
+        var OCX = document.getElementById('Reporter2');
+        OCX.EnableMacroPrint(true);
+        OCX.PrintPages("报告预览", false);
+    }
 
     function GetChiefComplaint(OCX)
     {
