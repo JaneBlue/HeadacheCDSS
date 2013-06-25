@@ -10,7 +10,8 @@
 </p>
 <script type="text/javascript">
 $(function () {
-    
+$("#direct ul").hide();
+$("#submenu").hide();
    var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
    //OCX 赋值
     var OCX = document.getElementById('Reporter2');
@@ -26,6 +27,12 @@ $(function () {
         OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
     if(null != obj.Address)
         OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
+
+        //子菜单 点击
+         $(".nav-tabs li a").click(function () {
+          $(".on").removeClass("on");
+          $(this).parent().addClass("on");
+           });
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
@@ -45,7 +52,10 @@ $(function () {
                 $(".active").next().addClass("active");
                 $(".active").first().removeClass("active");
                }
-           
+              else{
+               addmenu();
+                  
+              }
             }
             if ($(".selected").last().attr("id") == "辅助诊断")
             {
@@ -87,10 +97,11 @@ $(function () {
             }
             if ($(".selected").last().attr("id") == "报告预览"||$(".selected").last().attr("id") == "头痛问诊") {
                 var encoded = $.toJSON(ChangeDataFromOCXIntoJSObject(OCX));
+               
                 }
                 if($(".selected").last().attr("id") == "报告预览")
                 {
-
+                    deletemenu();
                     $("#ocx").hide();
                     $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
                     $.ajax({
@@ -146,12 +157,13 @@ $(function () {
                                                    $(".active").next().addClass("active");
                                                     $(".active").first().removeClass("active");
                                                  // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                                                  deletemenu();
                                                    OCX.ShowReport();
                                                   OCX.ShowThisPage(name);
                                             }
                                             else {
                                                 alert(data.Message.toString());
-
+                                                
                                             }
 
                                         },
@@ -175,6 +187,17 @@ $(function () {
    } 
   function deleteprint(){
   $("#btn3").remove();
+  }
+  function addmenu(){
+     $("#direct").hide();
+    $("#Reporter2").css("height","500");
+    $("#submenu").show();
+    //$("#ne").before('<div id="submenu" ><ul class="nav-tabs"><li class="on"><a href="#">头痛概述</a></li><li><a href="#">头痛部位</a></li><li><a  href="#" >相关症状</a></li><li><a href="#">既往治疗</a></li><li><a>生活方式</a></li><li><a href="#">家族病史</a></li><li><a href="#">诱发缓解因素</a></li></ul></div>'); 
+  }
+   function deletemenu(){
+      $("#direct").show();
+    $("#submenu").hide();
+   $("#Reporter2").css("height","540");
   }
   function PrintReport() {
         var OCX = document.getElementById('Reporter2');

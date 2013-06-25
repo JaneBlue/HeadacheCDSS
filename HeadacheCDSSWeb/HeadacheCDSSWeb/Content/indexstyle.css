@@ -186,3 +186,46 @@ background:url(images/foot.png) no-repeat bottom;
     width:400px;
     font-size:18px;
 }
+#submenu
+{
+    height:38px;
+    width :900px;
+    float:left;
+    margin-top:2px;
+   
+}
+.nav-tabs {
+border-bottom: 2px solid #DDD;
+height: 36px;
+margin-left:30px;
+}
+.nav-tabs li
+{
+    float:left;
+    line-height:20px;
+  
+}
+.nav-tabs li a
+{
+    padding: 7px 7px 7px 7px;
+     
+    border: 1px solid transparent;
+    -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    display: block;
+    color: #08C;
+     text-decoration: none;
+     font-size:16px;
+}
+.nav-tabs  li  a:hover, .nav-tabs  li  a:focus {
+border-color: #EEE #EEE #DDD;
+background-color: #EEE;
+}
+.nav-tabs  .on  a, .nav-tabs  .on  a:hover, .nav-tabs  .on  a:focus {
+color: #555;
+cursor: pointer;
+background-color: #9ECCE9;
+border: 2px solid #DDD;
+border-bottom-color: transparent;
+}

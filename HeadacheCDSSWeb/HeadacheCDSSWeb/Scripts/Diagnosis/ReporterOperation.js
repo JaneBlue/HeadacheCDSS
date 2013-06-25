@@ -27,9 +27,16 @@
         $(".active").last().removeClass("active");
         OCX.ShowReport();
         OCX.ShowThisPage(name);
-
+        if (name == "头痛问诊") {
+            $("#direct").hide();
+            $("#Reporter2").css("height", "500");
+            $("#submenu").show();
+        }
         if (name == "基本筛查") {
             $("#btn2").hide();
+            $("#submenu").hide();
+            $("#Reporter2").css("height", "540");
+            $("#direct").show();
         }
         if (name == "医嘱处置") {
             $("#btn1").html("下一步");
