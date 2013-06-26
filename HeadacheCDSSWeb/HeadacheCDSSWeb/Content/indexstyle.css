@@ -192,7 +192,7 @@ background:url(images/foot.png) no-repeat bottom;
     width :900px;
     float:left;
     margin-top:2px;
-   
+   margin-bottom:5px;
 }
 .nav-tabs {
 border-bottom: 2px solid #DDD;

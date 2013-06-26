@@ -39,6 +39,9 @@ $("#submenu").hide();
           }
           else{
            $("#ne").show();
+           OCX.ShowReport();
+           var name=$(this).text();
+            OCX.ShowThisPage(name);
           }
            });
     $("#btn1").click(function () {
@@ -143,6 +146,10 @@ $("#submenu").hide();
                             $(".active").first().removeClass("active");
                             OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
                             OCX.ShowReport();
+                            if(name=="头痛问诊"){
+                            name="头痛概述"
+                            }
+                            
                             OCX.ShowThisPage(name);
                             if(name=="报告预览"){
                              $("#btn1").html("保存并退出");

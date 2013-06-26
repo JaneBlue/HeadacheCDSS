@@ -26,10 +26,13 @@
         $(".active").prev().addClass("active");
         $(".active").last().removeClass("active");
         OCX.ShowReport();
-        OCX.ShowThisPage(name);
+
         if (name == "头痛问诊") {
+            name == "头痛概述";
             $("#direct").hide();
             $("#Reporter2").css("height", "500");
+            $(".on").removeClass("on");
+            $(".nav-tabs li:lt(1) ").addClass("on");
             $("#submenu").show();
         }
         if (name == "基本筛查") {
@@ -42,7 +45,8 @@
             $("#btn1").html("下一步");
             deleteprint();
         }
+        OCX.ShowThisPage(name);
     });
-    
+
 
 });
