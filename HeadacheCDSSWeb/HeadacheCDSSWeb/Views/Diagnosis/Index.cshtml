@@ -32,6 +32,14 @@ $("#submenu").hide();
          $(".nav-tabs li a").click(function () {
           $(".on").removeClass("on");
           $(this).parent().addClass("on");
+          if($(this).text()=="头痛部位")
+          {
+            $("#ne").hide();
+            //$("#submenu").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>')
+          }
+          else{
+           $("#ne").show();
+          }
            });
     $("#btn1").click(function () {
             $("#btn2").show();
