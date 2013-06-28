@@ -10,9 +10,28 @@
 </p>
 </div>
 <div id="Hplace">
+
+<div id="hplace">
+
+   <div id="picture">
+   <img src="../../Content/images/peoplehead.jpg"  id="first" usemap="#Map" alt="text"/>
+   <map name="Map" id="Map">
+  <area shape="circle" coords="186,197,26" href="#" />
+  <area shape="circle" coords="149,277,43" href="#" />
+</map>
+   </div>
+   <div id="hpNote"><h>头痛部位选择</h><br>
+<input type="radio" name="sex" value="male">双侧<br>
+<input type="radio" name="sex" value="female">单侧
+</div>
+</div>
 </div>
 <script type="text/javascript">
 $(function () {
+ $('#first').maphilight({
+            fillColor: '008800'
+        });
+$("#Hplace").hide();
 $("#direct ul").hide();
 $("#submenu").hide();
    var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
@@ -37,19 +56,12 @@ $("#submenu").hide();
           $(this).parent().addClass("on");
           if($(this).text()=="头痛部位")
           {
-                    //$("#OcxContent").hide();
-                   $.ajax({
-                    type: "GET",
-                    url: '@Url.Action("GetHPlace", "Diagnosis")',
-                    data: null,
-                    success: function (viewHTML) { 
-                        $("#OcxContent").html(viewHTML); 
-                    },
-                    error: function () {}
-                    });
+                   $("#OcxContent").hide();
+                   $("#Hplace").show();
           }
           else{
            $("#OcxContent").show();
+           $("#Hplace").hide();
            OCX.ShowReport();
            var name=$(this).text();
             OCX.ShowThisPage(name);

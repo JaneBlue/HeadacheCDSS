@@ -193,9 +193,10 @@ background:url(images/foot.png) no-repeat bottom;
     float:left;
     margin-top:2px;
    margin-bottom:5px;
+   display:block;
 }
 .nav-tabs {
-border-bottom: 2px solid #DDD;
+border-bottom: 2px solid #2D72C3;
 height: 36px;
 margin-left:30px;
 }
@@ -214,24 +215,45 @@ margin-left:30px;
      -moz-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
     display: block;
-    color: #08C;
+    color: #FFFFFF;
      text-decoration: none;
      font-size:16px;
 }
 .nav-tabs  li  a:hover, .nav-tabs  li  a:focus {
-border-color: #EEE #EEE #DDD;
-background-color: #EEE;
+border-color: #5F9BD4 #5F9BD4 #2D72C3;
+background-color: #5F9BD4;
 }
 .nav-tabs  .on  a, .nav-tabs  .on  a:hover, .nav-tabs  .on  a:focus {
 color: #555;
 cursor: pointer;
 background-color: #9ECCE9;
-border: 2px solid #DDD;
+border: 2px solid #2D72C3;
 border-bottom-color: transparent;
 }
 #hplace
+{  
+    display:block;
+    width:900px;
+    height:440px;
+	float: right;
+	font-size:18px;
+	margin:20px 0 0 25px;
+	padding-left:20px;
+	padding-right:20px;
+}
+#picture
 {
-    width:915px;
-    height:540px;
-	margin-left: 25px;
+     width:454px;
+     height:450px;
+    border-style:dashed;
+    border-color:#5D99D3;
+    float:right;
+}
+#hpNote
+{
+    font-size:18px;
+     width:200px;
+     height:200px;
+     padding-right:50px;
+      float:right;
 }

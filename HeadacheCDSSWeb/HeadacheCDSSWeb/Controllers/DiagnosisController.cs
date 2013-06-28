@@ -69,6 +69,9 @@ namespace HeadacheCDSSWeb.Controllers
             try{
                 string jsonStr = Request.Params["postjson"];
                 VisitData obj = JsonConvert.DeserializeObject<VisitData>(jsonStr);//jsonStr.FromJsonTo<VisitData>();
+                HeadachePlace h1=new HeadachePlace();
+                h1.Position = "左侧为主";
+                obj.PHeadacheOverview.HeadachePlace.Add(h1);//629演示
                 HeadacheDiagnosis HDiagnosis = new HeadacheDiagnosis();
                 strResult= HDiagnosis.GetDiagnosis(obj);
             }

@@ -29,6 +29,8 @@
 
         if (name == "头痛问诊") {
             name == "头痛概述";
+            $("#OcxContent").show();
+            $("#Hplace").hide();
             $("#direct").hide();
             $("#Reporter2").css("height", "500");
             $(".on").removeClass("on");
