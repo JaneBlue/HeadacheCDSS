@@ -229,3 +229,9 @@ background-color: #9ECCE9;
 border: 2px solid #DDD;
 border-bottom-color: transparent;
 }
+#hplace
+{
+    width:915px;
+    height:540px;
+	margin-left: 25px;
+}

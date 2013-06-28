@@ -87,5 +87,9 @@ namespace HeadacheCDSSWeb.Controllers
             }
             
          }
+        public ActionResult GetHPlace()
+        {
+            return PartialView("PatHeadachePlace");
+        }
     }
 }

@@ -268,6 +268,7 @@
     <Content Include="Scripts\wbox-min.js" />
     <Content Include="Scripts\wbox.js" />
     <Content Include="Scripts\zebra_datepicker.js" />
+    <Content Include="Views\Shared\PatHeadachePlace.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />

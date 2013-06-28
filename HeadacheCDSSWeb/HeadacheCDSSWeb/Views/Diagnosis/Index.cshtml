@@ -2,12 +2,15 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
 }
-
+<div id="OcxContent">
 <p id="ocx">
     <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
         height="540">
     </object>
 </p>
+</div>
+<div id="Hplace">
+</div>
 <script type="text/javascript">
 $(function () {
 $("#direct ul").hide();
@@ -34,11 +37,19 @@ $("#submenu").hide();
           $(this).parent().addClass("on");
           if($(this).text()=="头痛部位")
           {
-            $("#ne").hide();
-            //$("#submenu").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>')
+                    //$("#OcxContent").hide();
+                   $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("GetHPlace", "Diagnosis")',
+                    data: null,
+                    success: function (viewHTML) { 
+                        $("#OcxContent").html(viewHTML); 
+                    },
+                    error: function () {}
+                    });
           }
           else{
-           $("#ne").show();
+           $("#OcxContent").show();
            OCX.ShowReport();
            var name=$(this).text();
             OCX.ShowThisPage(name);
