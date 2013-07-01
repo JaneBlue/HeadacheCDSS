@@ -28,7 +28,7 @@
         OCX.ShowReport();
 
         if (name == "头痛问诊") {
-            name == "头痛概述";
+            name = "头痛概述";
             $("#OcxContent").show();
             $("#Hplace").hide();
             $("#direct").hide();

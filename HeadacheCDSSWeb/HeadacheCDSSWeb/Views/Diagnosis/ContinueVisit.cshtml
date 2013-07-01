@@ -2,17 +2,67 @@
     ViewBag.Title = "ContinueVisit";
     Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
 }
+<div id="OcxContent">
 <p id="ocx">
     <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
         height="540">
     </object>
 </p>
+</div>
+<div id="Hplace">
+
+<div id="hplace">
+
+   <div id="picture">
+   <img src="../../Content/images/peoplehead.jpg"  id="first" usemap="#Map" alt="text"/>
+   <map name="Map" id="Map">
+  <area id="p1" shape="poly" title="耳部" coords="255,268,267,275,281,275,291,266,297,258,303,247,305,237,308,228,311,219,311,207,308,200,303,192,301,184,294,178,286,177,285,176,284,176,274,174,269,177,271,178,268,180,263,186,258,197,263,209,274,215,273,226,270,230,269,236,271,244,265,249,261,255,256,260" href="#" onclick="MapFunction('#p1')" />
+  <area id="p2" shape="poly" title="枕部" coords="386,197,364,205,357,215,351,230,346,251,346,261,348,277,354,286,362,295,367,294,374,284,380,272,387,258,393,241,401,222,404,205,403,195" href="#" onclick="MapFunction('#p2')" />
+  <area id="p3" shape="poly" title="颈部" coords="362,334,312,341,262,350,217,370,169,394,181,424,188,446,230,442,323,444,342,442,361,445,407,445,412,444,417,441,396,412,385,397,375,375,368,359" href="#" onclick="MapFunction('#p3')" />
+  <area id="p4" shape="poly" title="额部" coords="109,97,102,109,98,122,93,135,111,141,127,143,140,141,157,135,156,114,158,96,151,85,142,79,132,70,118,84" href="#" onclick="MapFunction('#p4')" />
+  <area id="p5" shape="poly" title="顶部" coords="218,37,172,45,131,67,150,84,173,79,185,83,202,82,221,80,268,79,306,76,347,67,321,53,269,39" href="#" onclick="MapFunction('#p5')" />
+  <area id="p6" shape="poly" title="颌部" coords="64,306,61,298,69,284,90,283,114,314,128,325,144,344,151,367,115,386,90,382,75,369,73,362,76,343,67,321,69,313" href="#" onclick="MapFunction('#p6')" />
+  <area id="p7" shape="poly" title="眼部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189" href="#" onclick="MapFunction('#p7')" />
+  <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157" href="#" onclick="MapFunction('#p8')" />
+  <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220" href="#" onclick="MapFunction('#p9')" />
+</map>
+
+   </div>
+   <div id="hpNote"><h>头痛部位选择</h><br>
+<input type="radio" id="bi"name="position" value="双侧">双侧<br>
+<input type="radio" id="unileft" name="position" value="单侧">左侧为主<br>
+<input type="radio" id="uniright" name="position" value="单侧">右侧为主
+</div>
+</div>
+</div>
 <script type="text/javascript">
 $(function () {
         var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
         var OCX = document.getElementById('Reporter2');
         SetDataIntoOCX(OCX, obj);
-       
+         //子菜单 点击
+         $(".nav-tabs li a").click(function () {
+          $(".on").removeClass("on");
+          $(this).parent().addClass("on");
+          if($(this).text()=="头痛部位")
+          {
+                   $("#OcxContent").hide();
+                   $("#Hplace").show();
+          }
+          else{
+           $("#OcxContent").show();
+           $("#Hplace").hide();
+           OCX.ShowReport();
+           var name=$(this).text();
+            OCX.ShowThisPage(name);
+          }
+           });
+       $('#first').maphilight({
+            fillColor: '008800'
+        });
+        $("#Hplace").hide();
+        $("#direct ul").hide();
+        $("#submenu").hide();
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
@@ -32,6 +82,9 @@ $(function () {
                 $(".active").next().addClass("active");
                 $(".active").first().removeClass("active");
                }
+               else{
+               addmenu();      
+              }
            
             }
             if ($(".selected").last().attr("id") == "辅助诊断"||$(".selected").last().attr("id") == "报告预览")
@@ -109,6 +162,9 @@ $(function () {
                             $(".active").first().removeClass("active");
                             OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
                             OCX.ShowReport();
+                            if(name=="头痛问诊"){
+                            name="头痛概述"
+                            }
                             OCX.ShowThisPage(name);
                             if(name=="报告预览"){
                             $("#btn1").html("保存并退出");
@@ -130,6 +186,7 @@ $(function () {
                                                    $(".active").next().addClass("active");
                                                     $(".active").first().removeClass("active");
                                                  // OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
+                                                   deletemenu();
                                                    OCX.ShowReport();
                                                   OCX.ShowThisPage(name);
                                             }
@@ -153,7 +210,42 @@ $(function () {
         
      });
     });
-
+     function MapFunction(placeid)
+        {
+          var data = $(placeid).mouseout().data('maphilight') || {};
+           data.alwaysOn = !data.alwaysOn;
+           $(placeid).data('maphilight', data).trigger('alwaysOn.maphilight')
+        }
+        function GetHeadachePlace()
+        { 
+          var placesid=new Array("#p1","#p2","#p3","#p4","#p5","#p6","#p7","#p8","#p9");
+           var places=new Array("耳部","枕部","颈部","额部","顶部","颌部","眼部","颞部","脸部");
+          var placevalues=new Array(9);
+        
+               for (var i=0;i<9;i++)
+                {
+                  var data = $(placesid[i]).mouseout().data('maphilight') || {};
+                    if(data.alwaysOn){
+                    placevalues[i]= data.alwaysOn;
+                    }
+                    else{
+                     placevalues[i]=false;
+                    }
+                 
+                }
+                return placevalues;
+        }
+         function addmenu(){
+     $("#direct").hide();
+    $("#Reporter2").css("height","500");
+    $("#submenu").show();
+    //$("#ne").before('<div id="submenu" ><ul class="nav-tabs"><li class="on"><a href="#">头痛概述</a></li><li><a href="#">头痛部位</a></li><li><a  href="#" >相关症状</a></li><li><a href="#">既往治疗</a></li><li><a>生活方式</a></li><li><a href="#">家族病史</a></li><li><a href="#">诱发缓解因素</a></li></ul></div>'); 
+     }
+   function deletemenu(){
+      $("#direct").show();
+    $("#submenu").hide();
+   $("#Reporter2").css("height","540");
+     }
      function addprint(){ 
    $("#btn1").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>'); 
    document.getElementById("btn3").onclick=function(){ PrintReport()};   
@@ -777,35 +869,37 @@ $(function () {
         var strSpecificPlace12 = "";
         var strSpecificPlace13 = "";
 
-        if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
-            strHeadachePlace = "左侧为主";
-        else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
-            strHeadachePlace = "右侧为主";
-        else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
-            strHeadachePlace = "双侧";
-
-        if("true" == OCX.GetObjectInfo("CheckBox_40", "checked"))
-            strSpecificPlace1 = "颞部";
-        if("true" == OCX.GetObjectInfo("CheckBox_39", "checked"))
-            strSpecificPlace2 = "枕部";
-        if("true" == OCX.GetObjectInfo("CheckBox_35", "checked"))
-            strSpecificPlace3 = "顶部";
-        if("true" == OCX.GetObjectInfo("CheckBox_32", "checked"))
-            strSpecificPlace4 = "眶部";
-        if("true" == OCX.GetObjectInfo("CheckBox_22", "checked"))
-            strSpecificPlace5 = "颈部";
-        if("true" == OCX.GetObjectInfo("CheckBox_38", "checked"))
-            strSpecificPlace6 = "颌部";
-        if("true" == OCX.GetObjectInfo("CheckBox_37", "checked"))
-            strSpecificPlace7 = "牙部";
-        if("true" == OCX.GetObjectInfo("CheckBox_36", "checked"))
-            strSpecificPlace8 = "脸部";
-        if("true" == OCX.GetObjectInfo("CheckBox_33", "checked"))
-            strSpecificPlace9 = "耳部";
-        if("true" == OCX.GetObjectInfo("CheckBox_31", "checked"))
-            strSpecificPlace10 = "眼睑";
-        if("true" == OCX.GetObjectInfo("CheckBox_34", "checked"))
-            strSpecificPlace11 = "前额";
+          var value=GetHeadachePlace();
+//                if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
+//                    strHeadachePlace = "左侧为主";
+//                else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
+//                    strHeadachePlace = "右侧为主";
+//                else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
+//                    strHeadachePlace = "双侧";
+                    if(document.getElementById("bi").checked)
+                     strHeadachePlace = "双侧";
+                    if(document.getElementById("unileft").checked)
+                    strHeadachePlace ="左侧为主";
+                    if(document.getElementById("uniright").checked)
+                     strHeadachePlace = "右侧为主";
+                if(value[7])
+                    strSpecificPlace1 = "颞部";
+                if(value[1])
+                    strSpecificPlace2 = "枕部";
+                if(value[4])
+                    strSpecificPlace3 = "顶部";
+                if(value[6])
+                    strSpecificPlace4 = "眼部";
+                if(value[2])
+                    strSpecificPlace5 = "颈部";
+                if(value[5])
+                    strSpecificPlace6 = "颌部";
+                if(value[8])
+                    strSpecificPlace8 = "脸部";
+               if(value[0])
+                    strSpecificPlace9 = "耳部"; 
+                if(value[3])
+                    strSpecificPlace11 = "前额";
         if("true" == OCX.GetObjectInfo("CheckBox_QuanHeadache", "checked"))
             strSpecificPlace12 = "全头痛";
         if("true" == OCX.GetObjectInfo("CheckBox_OtherHeadache", "checked"))
