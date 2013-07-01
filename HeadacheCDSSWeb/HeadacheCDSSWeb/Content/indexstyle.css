@@ -251,9 +251,9 @@ border-bottom-color: transparent;
 }
 #hpNote
 {
-    font-size:18px;
+    font-size:24px;
      width:200px;
      height:200px;
-     padding-right:50px;
+     padding:150px 50px 0 0;
       float:right;
 }
