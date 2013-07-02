@@ -22,7 +22,7 @@
   <area id="p4" shape="poly" title="额部" coords="109,97,102,109,98,122,93,135,111,141,127,143,140,141,157,135,156,114,158,96,151,85,142,79,132,70,118,84" href="#" onclick="MapFunction('#p4')" />
   <area id="p5" shape="poly" title="顶部" coords="218,37,172,45,131,67,150,84,173,79,185,83,202,82,221,80,268,79,306,76,347,67,321,53,269,39" href="#" onclick="MapFunction('#p5')" />
   <area id="p6" shape="poly" title="颌部" coords="64,306,61,298,69,284,90,283,114,314,128,325,144,344,151,367,115,386,90,382,75,369,73,362,76,343,67,321,69,313" href="#" onclick="MapFunction('#p6')" />
-  <area id="p7" shape="poly" title="眼部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189" href="#" onclick="MapFunction('#p7')" />
+  <area id="p7" shape="poly" title="眶部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189" href="#" onclick="MapFunction('#p7')" />
   <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157" href="#" onclick="MapFunction('#p8')" />
   <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220" href="#" onclick="MapFunction('#p9')" />
 </map>
@@ -222,7 +222,7 @@ $(function () {
         function GetHeadachePlace()
         { 
           var placesid=new Array("#p1","#p2","#p3","#p4","#p5","#p6","#p7","#p8","#p9");
-           var places=new Array("耳部","枕部","颈部","额部","顶部","颌部","眼部","颞部","脸部");
+           var places=new Array("耳部","枕部","颈部","额部","顶部","颌部","眶部","颞部","脸部");
           var placevalues=new Array(9);
         
                for (var i=0;i<9;i++)
@@ -824,7 +824,7 @@ $(function () {
         MapFunction("#p5");
         if(obj.headacheplace[i].indexOf("颌部")>=0)
         MapFunction("#p6");
-        if(obj.headacheplace[i].indexOf("眼部")>=0)
+        if(obj.headacheplace[i].indexOf("眶部")>=0)
         MapFunction("#p7");
         if(obj.headacheplace[i].indexOf("颞部")>=0)
         MapFunction("#p8");
@@ -935,7 +935,7 @@ $(function () {
                 if(value[4])
                     strSpecificPlace3 = "顶部";
                 if(value[6])
-                    strSpecificPlace4 = "眼部";
+                    strSpecificPlace4 = "眶部";
                 if(value[2])
                     strSpecificPlace5 = "颈部";
                 if(value[5])
@@ -1520,7 +1520,7 @@ $(function () {
             if(value[4])
                 strSpecificPlace3 = "顶部、";
             if(value[6])
-                strSpecificPlace4 = "眼部、";
+                strSpecificPlace4 = "眶部、";
             if(value[2])
                 strSpecificPlace5 = "颈部、";
             if(value[5])
