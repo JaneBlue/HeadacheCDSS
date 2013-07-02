@@ -89,7 +89,7 @@ $("#submenu").hide();
           $(".on").removeClass("on");
           $(this).parent().addClass("on");
           if($(this).text()=="头痛部位")
-          {
+          {        $("#btn2").hide();
                    $("#OcxContent").hide();
                    $("#Hplace").show();
           }
@@ -99,6 +99,8 @@ $("#submenu").hide();
            OCX.ShowReport();
            var name=$(this).text();
             OCX.ShowThisPage(name);
+            if(name=="头痛概述")
+            $("#btn2").show();
           }
            });
     $("#btn1").click(function () {

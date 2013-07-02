@@ -41,12 +41,12 @@ $(function () {
         var OCX = document.getElementById('Reporter2');
         SetDataIntoOCX(OCX, obj);
         SetHeadachePlace(obj);
-         //子菜单 点击
+         ///子菜单 点击
          $(".nav-tabs li a").click(function () {
           $(".on").removeClass("on");
           $(this).parent().addClass("on");
           if($(this).text()=="头痛部位")
-          {
+          {        $("#btn2").hide();
                    $("#OcxContent").hide();
                    $("#Hplace").show();
           }
@@ -56,6 +56,8 @@ $(function () {
            OCX.ShowReport();
            var name=$(this).text();
             OCX.ShowThisPage(name);
+            if(name=="头痛概述")
+            $("#btn2").show();
           }
            });
        $('#first').maphilight({
