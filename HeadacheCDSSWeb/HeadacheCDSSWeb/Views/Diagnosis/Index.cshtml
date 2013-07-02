@@ -40,7 +40,7 @@
         {
           var data = $(placeid).mouseout().data('maphilight') || {};
            data.alwaysOn = !data.alwaysOn;
-           $(placeid).data('maphilight', data).trigger('alwaysOn.maphilight')
+           $(placeid).data('maphilight', data).trigger('alwaysOn.maphilight');
         }
         function GetHeadachePlace()
         { 

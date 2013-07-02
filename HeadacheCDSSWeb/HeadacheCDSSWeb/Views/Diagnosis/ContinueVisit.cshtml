@@ -40,6 +40,7 @@ $(function () {
         var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
         var OCX = document.getElementById('Reporter2');
         SetDataIntoOCX(OCX, obj);
+        SetHeadachePlace(obj);
          //子菜单 点击
          $(".nav-tabs li a").click(function () {
           $(".on").removeClass("on");
@@ -789,6 +790,49 @@ $(function () {
         //set chief complaint
         OCX.SetObjectInfo("TextBox_9", "text", strChiefComplaint);
     }
+     function SetHeadachePlace(obj)
+    { 
+      var lheadacheplaceCount = obj.headacheplace.length;
+       if(lheadacheplaceCount>0){
+         var place=obj.headacheplace[0].charAt(0);
+                switch (place)
+                {
+                case "双":
+                   document.getElementById("bi").checked=true;
+                  break;
+                case "左":
+                  document.getElementById("unileft").checked=true;
+                  break;
+                case "右":
+                  document.getElementById("uniright").checked=true;
+                  break;
+                  }
+       }
+      for(var i=0;i<lheadacheplaceCount;i++)
+      {
+        if(obj.headacheplace[i].indexOf("耳部")>=0)
+        MapFunction("#p1");
+        if(obj.headacheplace[i].indexOf("枕部")>=0)
+        MapFunction("#p2");
+        if(obj.headacheplace[i].indexOf("颈部")>=0)
+        MapFunction("#p3");
+        if(obj.headacheplace[i].indexOf("前额")>=0)
+        MapFunction("#p4");
+        if(obj.headacheplace[i].indexOf("顶部")>=0)
+        MapFunction("#p5");
+        if(obj.headacheplace[i].indexOf("颌部")>=0)
+        MapFunction("#p6");
+        if(obj.headacheplace[i].indexOf("眼部")>=0)
+        MapFunction("#p7");
+        if(obj.headacheplace[i].indexOf("颞部")>=0)
+        MapFunction("#p8");
+         if(obj.headacheplace[i].indexOf("脸部")>=0)
+        MapFunction("#p9");
+      }
+
+    }
+   
+
     function ChangeDataFromOCXIntoJSObject(OCX)
     {        
         OCX.SetObjectInfo("TextBox_12", "text", GetChiefComplaint(OCX));          
@@ -1804,4 +1848,5 @@ $(function () {
         }
         return strChiefComplaint;
     }
+   
 </script>
