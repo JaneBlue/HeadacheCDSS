@@ -1466,49 +1466,72 @@ $(function () {
             var strSpecificPlace7 = "";
             var strSpecificPlace8 = "";
             var strSpecificPlace9 = "";
-            var strSpecificPlace10 = "";
-            var strSpecificPlace11 = "";
-            var strSpecificPlace12 = "";
-            var strSpecificPlace13 = "";
-                    
-            if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
-                strHeadachePlace = "左侧为主：";
-            else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
-                strHeadachePlace = "右侧为主：";
-            else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
-                strHeadachePlace = "双侧：";
-                    
-            if("true" == OCX.GetObjectInfo("CheckBox_40", "checked"))
+//            var strSpecificPlace10 = "";
+//            var strSpecificPlace11 = "";
+//            var strSpecificPlace12 = "";
+//            var strSpecificPlace13 = "";
+//                    
+//            if("true" == OCX.GetObjectInfo("RadioBox_4", "checked"))
+//                strHeadachePlace = "左侧为主：";
+//            else if("true" == OCX.GetObjectInfo("RadioBox_9", "checked"))
+//                strHeadachePlace = "右侧为主：";
+//            else if("true" == OCX.GetObjectInfo("RadioBox_10", "checked"))
+//                strHeadachePlace = "双侧：";
+//                    
+//            if("true" == OCX.GetObjectInfo("CheckBox_40", "checked"))
+//                strSpecificPlace1 = "颞部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_39", "checked"))
+//                strSpecificPlace2 = "枕部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_35", "checked"))
+//                strSpecificPlace3 = "顶部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_32", "checked"))
+//                strSpecificPlace4 = "眶部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_22", "checked"))
+//                strSpecificPlace5 = "颈部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_38", "checked"))
+//                strSpecificPlace6 = "颌部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_37", "checked"))
+//                strSpecificPlace7 = "牙部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_36", "checked"))
+//                strSpecificPlace8 = "脸部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_33", "checked"))
+//                strSpecificPlace9 = "耳部、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_31", "checked"))
+//                strSpecificPlace10 = "眼睑、";
+//            if("true" == OCX.GetObjectInfo("CheckBox_34", "checked"))
+//                strSpecificPlace11 = "前额";
+//            if("true" == OCX.GetObjectInfo("CheckBox_QuanHeadache", "checked"))
+//                strSpecificPlace12 = "，全头痛";
+//            if("true" == OCX.GetObjectInfo("CheckBox_OtherHeadache", "checked"))
+//                strSpecificPlace13 = "，其他";
+                     if(document.getElementById("bi").checked)
+                     strHeadachePlace = "双侧 : ";
+                    if(document.getElementById("unileft").checked)
+                    strHeadachePlace ="左侧为主 : ";
+                    if(document.getElementById("uniright").checked)
+                     strHeadachePlace = "右侧为主 : ";
+                 var value=GetHeadachePlace();   
+            if(value[7])
                 strSpecificPlace1 = "颞部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_39", "checked"))
+            if(value[1])
                 strSpecificPlace2 = "枕部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_35", "checked"))
+            if(value[4])
                 strSpecificPlace3 = "顶部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_32", "checked"))
-                strSpecificPlace4 = "眶部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_22", "checked"))
+            if(value[6])
+                strSpecificPlace4 = "眼部、";
+            if(value[2])
                 strSpecificPlace5 = "颈部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_38", "checked"))
+            if(value[5])
                 strSpecificPlace6 = "颌部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_37", "checked"))
-                strSpecificPlace7 = "牙部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_36", "checked"))
+          if(value[3])
+                strSpecificPlace7 = "前额、";
+            if(value[8])
                 strSpecificPlace8 = "脸部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_33", "checked"))
+            if(value[0])
                 strSpecificPlace9 = "耳部、";
-            if("true" == OCX.GetObjectInfo("CheckBox_31", "checked"))
-                strSpecificPlace10 = "眼睑、";
-            if("true" == OCX.GetObjectInfo("CheckBox_34", "checked"))
-                strSpecificPlace11 = "前额";
-            if("true" == OCX.GetObjectInfo("CheckBox_QuanHeadache", "checked"))
-                strSpecificPlace12 = "，全头痛";
-            if("true" == OCX.GetObjectInfo("CheckBox_OtherHeadache", "checked"))
-                strSpecificPlace13 = "，其他";
-                    
             strChiefComplaint += "， 头痛部位为" + strHeadachePlace + strSpecificPlace1 + strSpecificPlace2 + strSpecificPlace3
                                 + strSpecificPlace4 + strSpecificPlace5 + strSpecificPlace6 + strSpecificPlace7
-                                + strSpecificPlace8 + strSpecificPlace9 + strSpecificPlace10 + strSpecificPlace11
-                                + strSpecificPlace12 + strSpecificPlace13;
+                                + strSpecificPlace8 + strSpecificPlace9;
                     
             var strFrequencyPerMonth = OCX.GetObjectInfo("ComboBox_7", "text");
             strChiefComplaint += "每月发作" + strFrequencyPerMonth + "天。";
