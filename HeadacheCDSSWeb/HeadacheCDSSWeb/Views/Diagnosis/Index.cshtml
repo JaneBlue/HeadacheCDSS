@@ -354,11 +354,10 @@ $("#submenu").hide();
                 strChiefComplaint += "没有";
             strChiefComplaint += "每日头痛，";
                     
-            var strOnsetFixedDay = OCX.GetObjectInfo("ComboBox_42", "text");
-            var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_24", "text");
-            if(("" == strOnsetFixedDay || "不固定" == strOnsetFixedDay) && ("" == strOnsetFixedYear || "不固定" == strOnsetFixedYear))
+            var strIfFixed = OCX.GetObjectInfo("ComboBox_1", "text");
+            if("否" == strIfFixed)
                 strChiefComplaint += "头痛无周期性，";
-            else
+            else if("是" == strIfFixed)
                 strChiefComplaint += "头痛具有周期性，";
                     
             var strHeadacheDegree = OCX.GetObjectInfo("ComboBox_41", "text");
@@ -818,8 +817,9 @@ $("#submenu").hide();
                 var strOnsetDate = strOnsetDate.slice(0, 10).replace("/", "-").replace("/", "-") + " 00:00:00";
 
                 var strFirstOnsetContinue = OCX.GetObjectInfo("ComboBox_37", "text");
-                var strOnsetFixedDay = OCX.GetObjectInfo("ComboBox_42", "text");
-                var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_24", "text");
+                //var strOnsetFixedDay = OCX.GetObjectInfo("ComboBox_42", "text");
+                //var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_24", "text");
+                var strIfFixed = OCX.GetObjectInfo("ComboBox_1", "text");
                 var strHeadacheDegree = OCX.GetObjectInfo("ComboBox_41", "text");
                 var strHeadacheType = OCX.GetObjectInfo("ComboBox_40", "text");
                 var strDailyAggravation = OCX.GetObjectInfo("ComboBox_38", "text");
@@ -1263,7 +1263,7 @@ $("#submenu").hide();
                                         ,{ExamName: strExamName4, Result:strExamResult4, Date:strExamDate4}],
                               PHeadacheOverview: {HeadacheType: strHeadacheType, HeadacheDegree: strHeadacheDegree, HeadcheTime: strHeadcheTime
                                                     , HeacheTimeUnit: strHeacheTimeUnit, FrequencyPerDay: strFrequencyPerDay, FrequencyPerMonth: strFrequencyPerMonth
-                                                    , OnsetFixedDay: strOnsetFixedDay, OnsetFixedYear: strOnsetFixedYear, OnsetDate: strOnsetDate
+                                                    , OnsetFixedPeriod: strIfFixed, OnsetDate: strOnsetDate
                                                     , OnsetAmount: strOnsetAmount, DailyAggravation: strDailyAggravation, FirstOnsetContinue: strFirstOnsetContinue
                                                     , HeadachePlace:[{Position: strHeadachePlace, SpecificPlace: strSpecificPlace1}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace2}
                                                                         , {Position: strHeadachePlace, SpecificPlace: strSpecificPlace1}, {Position: strHeadachePlace, SpecificPlace: strSpecificPlace2}
