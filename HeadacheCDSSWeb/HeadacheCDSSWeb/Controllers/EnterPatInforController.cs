@@ -26,7 +26,7 @@ namespace HeadacheCDSSWeb.Controllers
             string PID = Request.Form["门诊号"];
             if (string.IsNullOrEmpty(pat.Name) || string.IsNullOrEmpty(pat.Sex) || string.IsNullOrEmpty(pat.Age) || string.IsNullOrEmpty(pat.Phone))
             {
-                ModelState.AddModelError("", "输入项不能为空");
+                ModelState.AddModelError("", "带*的输入项不能为空");
             }
             else
             {

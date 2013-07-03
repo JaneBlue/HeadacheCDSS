@@ -147,7 +147,13 @@ padding-top: 7px;
 font-size: 18px;
 
 }
-
+#content li p
+{
+color:Red;
+text-align:center;
+font-size: 18px;
+padding-top:7px;
+}
 .error
 {
     display :block;
