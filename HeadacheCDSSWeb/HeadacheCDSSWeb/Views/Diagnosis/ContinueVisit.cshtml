@@ -1446,9 +1446,9 @@ $(function () {
             //var strOnsetFixedYear = OCX.GetObjectInfo("ComboBox_24", "text");
             var strIfFixed = OCX.GetObjectInfo("ComboBox_1", "text");
             if("否" == strIfFixed)
-                strChiefComplaint += "头痛无周期性，";
+                strChiefComplaint += "头痛不在某段时间集中发作，";
             else if("是" == strIfFixed)
-                strChiefComplaint += "头痛具有周期性，";
+                strChiefComplaint += "头痛在某段时间集中发作，";
             
             var strHeadacheDegree = OCX.GetObjectInfo("ComboBox_41", "text");
             strChiefComplaint += "头痛程度评分" + strHeadacheDegree + "分，";
