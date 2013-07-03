@@ -138,8 +138,7 @@
     <Property Name="HeacheTimeUnit" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FrequencyPerDay" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FrequencyPerMonth" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetFixedDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetFixedYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnsetFixedPeriod" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetDate" Type="datetime" Nullable="false" />
     <Property Name="OnsetAmount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DailyAggravation" Type="nvarchar(max)" Nullable="false" />

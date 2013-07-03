@@ -57,8 +57,7 @@
           <ScalarProperty Name="HeacheTimeUnit" ColumnName="HeacheTimeUnit" />
           <ScalarProperty Name="FrequencyPerDay" ColumnName="FrequencyPerDay" />
           <ScalarProperty Name="FrequencyPerMonth" ColumnName="FrequencyPerMonth" />
-          <ScalarProperty Name="OnsetFixedDay" ColumnName="OnsetFixedDay" />
-          <ScalarProperty Name="OnsetFixedYear" ColumnName="OnsetFixedYear" />
+          <ScalarProperty Name="OnsetFixedPeriod" ColumnName="OnsetFixedPeriod" />
           <ScalarProperty Name="OnsetDate" ColumnName="OnsetDate" />
           <ScalarProperty Name="OnsetAmount" ColumnName="OnsetAmount" />
           <ScalarProperty Name="DailyAggravation" ColumnName="DailyAggravation" />

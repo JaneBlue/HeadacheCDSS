@@ -143,8 +143,7 @@
     <Property Name="HeacheTimeUnit" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FrequencyPerDay" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FrequencyPerMonth" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetFixedDay" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OnsetFixedYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OnsetFixedPeriod" Type="nvarchar(max)" Nullable="false" />
     <Property Name="OnsetDate" Type="datetime" Nullable="false" />
     <Property Name="OnsetAmount" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DailyAggravation" Type="nvarchar(max)" Nullable="false" />
@@ -643,8 +642,7 @@
           <Property Type="String" Name="HeacheTimeUnit" Nullable="false" />
           <Property Type="String" Name="FrequencyPerDay" Nullable="false" />
           <Property Type="String" Name="FrequencyPerMonth" Nullable="false" />
-          <Property Type="String" Name="OnsetFixedDay" Nullable="false" />
-          <Property Type="String" Name="OnsetFixedYear" Nullable="false" />
+          <Property Type="String" Name="OnsetFixedPeriod" Nullable="false" />
           <Property Type="DateTime" Name="OnsetDate" Nullable="false" />
           <Property Type="String" Name="OnsetAmount" Nullable="false" />
           <Property Type="String" Name="DailyAggravation" Nullable="false" />
@@ -1027,8 +1025,7 @@
           <ScalarProperty Name="HeacheTimeUnit" ColumnName="HeacheTimeUnit" />
           <ScalarProperty Name="FrequencyPerDay" ColumnName="FrequencyPerDay" />
           <ScalarProperty Name="FrequencyPerMonth" ColumnName="FrequencyPerMonth" />
-          <ScalarProperty Name="OnsetFixedDay" ColumnName="OnsetFixedDay" />
-          <ScalarProperty Name="OnsetFixedYear" ColumnName="OnsetFixedYear" />
+          <ScalarProperty Name="OnsetFixedPeriod" ColumnName="OnsetFixedPeriod" />
           <ScalarProperty Name="OnsetDate" ColumnName="OnsetDate" />
           <ScalarProperty Name="OnsetAmount" ColumnName="OnsetAmount" />
           <ScalarProperty Name="DailyAggravation" ColumnName="DailyAggravation" />
@@ -1223,7 +1220,7 @@
           <ConnectorPoint PointX="2.125" PointY="1.6100162760416672" />
           <ConnectorPoint PointX="2.875" PointY="1.6100162760416672" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="HeadacheModel.PrimaryHeadacheOverView" Width="1.75" PointX="7.875" PointY="1.25" Height="4.6443082682291656" />
+        <EntityTypeShape EntityType="HeadacheModel.PrimaryHeadacheOverView" Width="1.75" PointX="7.875" PointY="1.25" Height="4.45328857421875" />
         <EntityTypeShape EntityType="HeadacheModel.Lifestyle" Width="1.875" PointX="0.5" PointY="7.375" Height="5.0263476562499978" />
         <EntityTypeShape EntityType="HeadacheModel.HeadachePlace" Width="1.5" PointX="10.25" PointY="1.125" Height="1.9700325520833339" />
         <EntityTypeShape EntityType="HeadacheModel.HeadacheAccompany" Width="1.5" PointX="10.25" PointY="3.375" Height="1.7790128580729165" />
@@ -1237,7 +1234,7 @@
           <ConnectorPoint PointX="10.25" PointY="4.2645064290364587" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewHeadacheProdrome" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.96875" PointY="5.8943082682291656" />
+          <ConnectorPoint PointX="7.96875" PointY="5.70328857421875" />
           <ConnectorPoint PointX="7.96875" PointY="8.7182727050781246" />
           <ConnectorPoint PointX="10.5" PointY="8.7182727050781246" />
         </AssociationConnector>
@@ -1258,11 +1255,11 @@
         <EntityTypeShape EntityType="HeadacheModel.PrecipitatingFactor" Width="1.5" PointX="8.125" PointY="6.625" Height="1.9700325520833317" />
         <EntityTypeShape EntityType="HeadacheModel.MitigatingFactors" Width="1.5" PointX="10.375" PointY="5.25" Height="1.7790128580729157" />
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewMitigatingFactors">
-          <ConnectorPoint PointX="9.625" PointY="5.5721541341145828" />
-          <ConnectorPoint PointX="10.375" PointY="5.5721541341145828" />
+          <ConnectorPoint PointX="9.625" PointY="5.4766442871093748" />
+          <ConnectorPoint PointX="10.375" PointY="5.4766442871093748" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.HeadachaOverViewPrecipitatingFactor" ManuallyRouted="false">
-          <ConnectorPoint PointX="8.875" PointY="5.8943082682291656" />
+          <ConnectorPoint PointX="8.875" PointY="5.70328857421875" />
           <ConnectorPoint PointX="8.875" PointY="6.625" />
         </AssociationConnector>
         <AssociationConnector Association="HeadacheModel.VisitRecordMecicationAdvice">

@@ -98,13 +98,13 @@ namespace HeadacheCDSSWeb.Models
                 {
                     errorinfor.Add("是否每日头痛");
                 }
-                if (vd.PHeadacheOverview.OnsetFixedDay == "" || vd.PHeadacheOverview.OnsetFixedYear == "")
+                if (vd.PHeadacheOverview.OnsetFixedPeriod == "")
                 {
                     errorinfor.Add("头痛是否固定时间发生");
                 }
                 else
                 {
-                    if (vd.PHeadacheOverview.OnsetFixedDay == "不固定" && vd.PHeadacheOverview.OnsetFixedYear == "不固定")
+                    if (vd.PHeadacheOverview.OnsetFixedPeriod == "否")
                     {
                         InputDataValue.m_bPeriodism = false;
                     }

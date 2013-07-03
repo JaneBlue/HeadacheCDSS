@@ -165,8 +165,7 @@
     <Property Type="String" Name="HeacheTimeUnit" Nullable="false" />
     <Property Type="String" Name="FrequencyPerDay" Nullable="false" />
     <Property Type="String" Name="FrequencyPerMonth" Nullable="false" />
-    <Property Type="String" Name="OnsetFixedDay" Nullable="false" />
-    <Property Type="String" Name="OnsetFixedYear" Nullable="false" />
+    <Property Type="String" Name="OnsetFixedPeriod" Nullable="false" />
     <Property Type="DateTime" Name="OnsetDate" Nullable="false" />
     <Property Type="String" Name="OnsetAmount" Nullable="false" />
     <Property Type="String" Name="DailyAggravation" Nullable="false" />

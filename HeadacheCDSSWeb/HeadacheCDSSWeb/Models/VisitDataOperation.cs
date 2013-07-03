@@ -378,8 +378,8 @@ namespace HeadacheCDSSWeb.Models
                         rdata.headacheoverview.HeacheTimeUnit = vr.PrimaryHeadachaOverView.HeacheTimeUnit;
                         rdata.headacheoverview.FrequencyPerDay = vr.PrimaryHeadachaOverView.FrequencyPerDay;
                         rdata.headacheoverview.FrequencyPerMonth = vr.PrimaryHeadachaOverView.FrequencyPerMonth;
-                        rdata.headacheoverview.OnsetFixedDay = vr.PrimaryHeadachaOverView.OnsetFixedDay;
-                        rdata.headacheoverview.OnsetFixedYear = vr.PrimaryHeadachaOverView.OnsetFixedYear;
+                        rdata.headacheoverview.OnsetFixedPeriod = vr.PrimaryHeadachaOverView.OnsetFixedPeriod;
+
                         rdata.headacheoverview.OnsetDate = vr.PrimaryHeadachaOverView.OnsetDate;
                         rdata.headacheoverview.OnsetAmount = vr.PrimaryHeadachaOverView.OnsetAmount;
                         rdata.headacheoverview.DailyAggravation = vr.PrimaryHeadachaOverView.DailyAggravation;
