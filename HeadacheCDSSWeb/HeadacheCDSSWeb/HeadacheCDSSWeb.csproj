@@ -166,6 +166,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\arrow.png" />
     <Content Include="Content\images\box1.png" />
     <Content Include="Content\images\box2.png" />
     <Content Include="Content\images\box3.png" />
@@ -191,6 +192,7 @@
     <Content Include="Content\images\peoplehead.jpg" />
     <Content Include="Content\images\sidebar.png" />
     <Content Include="Content\images\split.png" />
+    <Content Include="Content\images\tab-selected.png" />
     <Content Include="Content\images\triangle.png" />
     <Content Include="Content\images\wait.gif" />
     <Content Include="Content\images\wbox\close.png" />

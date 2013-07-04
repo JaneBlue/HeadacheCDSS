@@ -38,7 +38,7 @@ font-size:0;
 /*-----------------------------menu-------------------*/
 #menu{
 width:962px;
-height:40px;
+height:60px;
 margin:0px 0 0px 0;
 background:url(images/menu_bg.png) repeat ;
 top: 80px ;
@@ -46,13 +46,13 @@ top: 80px ;
 #menu ul{
 display:block;
 list-style:none;
-padding:0 0 0 117px;
+padding:0 0 0 61px;
 margin:0px;
 }
 #menu ul li{
 display:inline;
 padding:0px;
-margin:0px;
+margin:10px 0 0 0;
 height:30px;
 }
 
@@ -60,7 +60,7 @@ height:30px;
 height:32px;
 display:block;
 padding:6px 10px 0 10px;
-margin:0 4px 0 4px;
+margin:10px 4px 0 4px;
 float:left;
 text-decoration:none;
 text-align:center;
@@ -73,7 +73,7 @@ line-height:27px;
 height:32px;
 display:block;
 padding:6px 10px 0 10px;
-margin:0px 5px 0 5px;
+margin:10px 5px 0 5px;
 float:left;
 text-decoration:none;
 text-align:center ;
@@ -97,6 +97,32 @@ line-height:27px;
 	float: left;
 	background: url(images/circle-orange.png);
 	font-weight: normal;
+	margin-top:10px;
+}
+#menu ul li b p
+{
+    height:32px;
+display:block;
+padding:6px 10px 0 10px;
+margin:0 4px 0 4px;
+float:left;
+text-decoration:none;
+text-align:center;
+color:#000;
+font-size:20px;
+line-height:27px;
+}
+#arrow
+{
+	width: 23px;
+	height: 60px;
+	float: left;
+	background: url(images/arrow.png);
+	font-weight: normal;
+	display:inline;
+     padding:0px;
+     margin:0 5px 0 0;
+    
 }
 
 	
@@ -195,13 +221,13 @@ background:url(images/foot.png) no-repeat bottom;
     width :900px;
     float:left;
     margin-top:2px;
-   margin-bottom:5px;
+  
    display:block;
 }
 .nav-tabs {
-border-bottom: 2px solid #2D72C3;
+
 height: 36px;
-margin-left:30px;
+margin-left:0px;
 }
 .nav-tabs li
 {
@@ -213,35 +239,36 @@ margin-left:30px;
 {
     padding: 7px 7px 7px 7px;
      
-    border: 1px solid transparent;
+    border: 1px solid #A0A0A0;
     -webkit-border-radius: 6px 6px 0 0;
      -moz-border-radius: 6px 6px 0 0;
     border-radius: 6px 6px 0 0;
     display: block;
-    color: #FFFFFF;
+    color: #66737B;
      text-decoration: none;
      font-size:16px;
 }
 .nav-tabs  li  a:hover, .nav-tabs  li  a:focus {
-border-color: #5F9BD4 #5F9BD4 #2D72C3;
-background-color: #5F9BD4;
+ background: url(images/tab-selected.png) repeat ;
+ border: 1px solid #66737B;
+ color: #3D3838;
 }
 .nav-tabs  .on  a, .nav-tabs  .on  a:hover, .nav-tabs  .on  a:focus {
-color: #555;
+color: #3D3838;
+border: 1px solid #66737B;
 cursor: pointer;
 background-color: #9ECCE9;
-border: 2px solid #2D72C3;
-border-bottom-color: transparent;
+ background: url(images/tab-selected.png) repeat ;
 }
 #hplace
 {  
     display:block;
-    width:900px;
+    width:800px;
     height:440px;
 	float: right;
 	font-size:18px;
-	margin:20px 0 0 25px;
-	padding-left:20px;
+	margin-top:25px;
+	
 	padding-right:20px;
 }
 #picture
@@ -250,13 +277,13 @@ border-bottom-color: transparent;
      height:450px;
     border-style:dashed;
     border-color:#5D99D3;
-    float:right;
+    float:left;
 }
 #hpNote
 {
     font-size:24px;
      width:200px;
      height:200px;
-     padding:100px 50px 0 0;
-      float:right;
+     padding:100px 0 0 0;
+      float:left;
 }
