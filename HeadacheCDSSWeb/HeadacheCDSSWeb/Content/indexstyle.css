@@ -225,7 +225,7 @@ background:url(images/foot.png) no-repeat bottom;
    display:block;
 }
 .nav-tabs {
-
+padding:0;
 height: 36px;
 margin-left:0px;
 }
@@ -233,7 +233,7 @@ margin-left:0px;
 {
     float:left;
     line-height:20px;
-  
+     border-bottom: 1px solid #66737B;
 }
 .nav-tabs li a
 {
@@ -255,7 +255,7 @@ margin-left:0px;
 }
 .nav-tabs  .on  a, .nav-tabs  .on  a:hover, .nav-tabs  .on  a:focus {
 color: #3D3838;
-border: 1px solid #66737B;
+border: 2px solid #66737B;
 cursor: pointer;
 background-color: #9ECCE9;
  background: url(images/tab-selected.png) repeat ;
