@@ -172,7 +172,7 @@ font-size:0px;
 }
 .ocx{
 	width:915px;
-    height:540px;
+    height:550px;
 	margin-left: 25px;
 }
 /*---------------footer------------------------*/
@@ -220,8 +220,7 @@ background:url(images/foot.png) no-repeat bottom;
     height:38px;
     width :900px;
     float:left;
-    margin-top:2px;
-  
+    margin-top:2px; 
    display:block;
 }
 .nav-tabs {
@@ -232,15 +231,11 @@ margin-left:0px;
 .nav-tabs li
 {
     float:left;
-    line-height:20px;
-   
+    line-height:20px;  
 }
 .nav-tabs li a
 {
     padding: 7px 7px 7px 7px;
-     
-    
-   
     display: block;
     color: #66737B;
      text-decoration: none;
@@ -261,13 +256,12 @@ background-color: #9ECCE9;
 #hplace
 {  
     display:block;
-    width:800px;
+    width:700px;
     height:440px;
 	float: right;
 	font-size:18px;
 	margin-top:25px;
-	
-	padding-right:50px;
+	padding-right:170px;
 }
 #picture
 {
