@@ -83,7 +83,7 @@ $(function () {
               }
            });
     $("#btn1").click(function () {
-            $("#btn2").show();
+           
             var OCX = document.getElementById('Reporter2');
             if($(".selected").last().attr("id") == "基本筛查")
             {
@@ -218,12 +218,10 @@ $(function () {
                                         }
                                     });
                          }
-                  
                 }
-                
-
-        
+          $("#btn2").show();
        });
+
     });
     function PrepareForTab()
     {
