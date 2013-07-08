@@ -2,7 +2,7 @@
 /* CSS Document */
 body
 {
-background-color:#c0c0c0;
+background-color:rgb(219, 242, 255);
 font-family: "Microsoft YaHei",Arial, Helvetica, sans-serif;
 padding:0;
 font-size:12px;
@@ -165,7 +165,7 @@ background:url(images/triangle.png) no-repeat ;
 /*------------------------------------center content--------------------*/
 .center_content{
 width:962px;
-height:670px;
+height:600px;
 padding:0px 0 0 0;
 background:url(images/main_bg.png) repeat-x center;
 font-size:0px;
@@ -233,16 +233,14 @@ margin-left:0px;
 {
     float:left;
     line-height:20px;
-     border-bottom: 1px solid #66737B;
+   
 }
 .nav-tabs li a
 {
     padding: 7px 7px 7px 7px;
      
-    border: 1px solid #A0A0A0;
-    -webkit-border-radius: 6px 6px 0 0;
-     -moz-border-radius: 6px 6px 0 0;
-    border-radius: 6px 6px 0 0;
+    
+   
     display: block;
     color: #66737B;
      text-decoration: none;
@@ -269,7 +267,7 @@ background-color: #9ECCE9;
 	font-size:18px;
 	margin-top:25px;
 	
-	padding-right:20px;
+	padding-right:50px;
 }
 #picture
 {
@@ -277,7 +275,7 @@ background-color: #9ECCE9;
      height:450px;
     border-style:dashed;
     border-color:#5D99D3;
-    float:left;
+    float:right;
 }
 #hpNote
 {
@@ -285,5 +283,5 @@ background-color: #9ECCE9;
      width:200px;
      height:200px;
      padding:100px 0 0 0;
-      float:left;
+      float:right;
 }

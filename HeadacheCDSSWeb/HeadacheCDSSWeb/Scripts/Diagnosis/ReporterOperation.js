@@ -30,7 +30,8 @@
         if (name == "头痛问诊") {
             name = "头痛概述";
             $("#OcxContent").show();
-            $("#Hplace").hide();
+            $("#Hplace").css("visibility", "hidden");
+            $("#hplace").css("height", "0"); 
             $("#direct").hide();
             $("#Reporter2").css("height", "500");
             $(".on").removeClass("on");

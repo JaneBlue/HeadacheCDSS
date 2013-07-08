@@ -3,129 +3,110 @@
     Layout = "~/Views/Shared/Diagnosis_Layout.cshtml";
 }
 <div id="OcxContent">
-<p id="ocx">
-    <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
-        height="540">
-    </object>
-</p>
+    <p id="ocx">
+        <object id="Reporter2" classid="clsid:466F909A-0EE1-4F40-A2CA-9906C5E36CB2" width="920"
+            height="540">
+        </object>
+    </p>
 </div>
 <div id="Hplace">
-
-<div id="hplace">
-<div id="hpNote"><h>头痛部位选择</h><br></br>
-<input type="radio" id="bi"name="position" value="双侧">双侧<br></br>
-<input type="radio" id="unileft" name="position" value="单侧">左侧为主<br></br>
-<input type="radio" id="uniright" name="position" value="单侧">右侧为主
+    <div id="hplace">
+        <div id="picture">
+            <img src="../../Content/images/peoplehead.jpg" id="first" usemap="#Map" alt="text" />
+            <map name="Map" id="Map">
+                <area id="p1" shape="poly" title="耳部" coords="255,268,267,275,281,275,291,266,297,258,303,247,305,237,308,228,311,219,311,207,308,200,303,192,301,184,294,178,286,177,285,176,284,176,274,174,269,177,271,178,268,180,263,186,258,197,263,209,274,215,273,226,270,230,269,236,271,244,265,249,261,255,256,260"
+                    href="#" onclick="MapFunction('#p1')" />
+                <area id="p2" shape="poly" title="枕部" coords="386,197,364,205,357,215,351,230,346,251,346,261,348,277,354,286,362,295,367,294,374,284,380,272,387,258,393,241,401,222,404,205,403,195"
+                    href="#" onclick="MapFunction('#p2')" />
+                <area id="p3" shape="poly" title="颈部" coords="362,334,312,341,262,350,217,370,169,394,181,424,188,446,230,442,323,444,342,442,361,445,407,445,412,444,417,441,396,412,385,397,375,375,368,359"
+                    href="#" onclick="MapFunction('#p3')" />
+                <area id="p4" shape="poly" title="额部" coords="109,97,102,109,98,122,93,135,111,141,127,143,140,141,157,135,156,114,158,96,151,85,142,79,132,70,118,84"
+                    href="#" onclick="MapFunction('#p4')" />
+                <area id="p5" shape="poly" title="顶部" coords="218,37,172,45,131,67,150,84,173,79,185,83,202,82,221,80,268,79,306,76,347,67,321,53,269,39"
+                    href="#" onclick="MapFunction('#p5')" />
+                <area id="p6" shape="poly" title="颌部" coords="64,306,61,298,69,284,90,283,114,314,128,325,144,344,151,367,115,386,90,382,75,369,73,362,76,343,67,321,69,313"
+                    href="#" onclick="MapFunction('#p6')" />
+                <area id="p7" shape="poly" title="眶部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189"
+                    href="#" onclick="MapFunction('#p7')" />
+                <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157"
+                    href="#" onclick="MapFunction('#p8')" />
+                <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220"
+                    href="#" onclick="MapFunction('#p9')" />
+            </map>
+        </div>
+        <div id="hpNote">
+            <h>头痛部位选择</h>
+            <br></br>
+            <input type="radio" id="bi" name="position" value="双侧">双侧<br></br>
+            <input type="radio" id="unileft" name="position" value="单侧">左侧为主<br></br>
+            <input type="radio" id="uniright" name="position" value="单侧">右侧为主
+        </div>
+    </div>
 </div>
-   <div id="picture">
-   <img src="../../Content/images/peoplehead.jpg"  id="first" usemap="#Map" alt="text"/>
-   <map name="Map" id="Map">
-  <area id="p1" shape="poly" title="耳部" coords="255,268,267,275,281,275,291,266,297,258,303,247,305,237,308,228,311,219,311,207,308,200,303,192,301,184,294,178,286,177,285,176,284,176,274,174,269,177,271,178,268,180,263,186,258,197,263,209,274,215,273,226,270,230,269,236,271,244,265,249,261,255,256,260" href="#" onclick="MapFunction('#p1')" />
-  <area id="p2" shape="poly" title="枕部" coords="386,197,364,205,357,215,351,230,346,251,346,261,348,277,354,286,362,295,367,294,374,284,380,272,387,258,393,241,401,222,404,205,403,195" href="#" onclick="MapFunction('#p2')" />
-  <area id="p3" shape="poly" title="颈部" coords="362,334,312,341,262,350,217,370,169,394,181,424,188,446,230,442,323,444,342,442,361,445,407,445,412,444,417,441,396,412,385,397,375,375,368,359" href="#" onclick="MapFunction('#p3')" />
-  <area id="p4" shape="poly" title="额部" coords="109,97,102,109,98,122,93,135,111,141,127,143,140,141,157,135,156,114,158,96,151,85,142,79,132,70,118,84" href="#" onclick="MapFunction('#p4')" />
-  <area id="p5" shape="poly" title="顶部" coords="218,37,172,45,131,67,150,84,173,79,185,83,202,82,221,80,268,79,306,76,347,67,321,53,269,39" href="#" onclick="MapFunction('#p5')" />
-  <area id="p6" shape="poly" title="颌部" coords="64,306,61,298,69,284,90,283,114,314,128,325,144,344,151,367,115,386,90,382,75,369,73,362,76,343,67,321,69,313" href="#" onclick="MapFunction('#p6')" />
-  <area id="p7" shape="poly" title="眶部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189" href="#" onclick="MapFunction('#p7')" />
-  <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157" href="#" onclick="MapFunction('#p8')" />
-  <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220" href="#" onclick="MapFunction('#p9')" />
-</map>
-
-   </div>
-   
-</div>
-</div>
-<script type="text/javascript">
-        function MapFunction(placeid)
-        {
-          var data = $(placeid).mouseout().data('maphilight') || {};
-           data.alwaysOn = !data.alwaysOn;
-           $(placeid).data('maphilight', data).trigger('alwaysOn.maphilight');
-        }
-        function GetHeadachePlace()
-        { 
-          var placesid=new Array("#p1","#p2","#p3","#p4","#p5","#p6","#p7","#p8","#p9");
-           var places=new Array("耳部","枕部","颈部","额部","顶部","颌部","眶部","颞部","脸部");
-          var placevalues=new Array(9);
-        
-               for (var i=0;i<9;i++)
-                {
-                  var data = $(placesid[i]).mouseout().data('maphilight') || {};
-                    if(data.alwaysOn){
-                    placevalues[i]= data.alwaysOn;
-                    }
-                    else{
-                     placevalues[i]=false;
-                    }
-                 
-                }
-                return placevalues;
-        }
+<script type="text/javascript">       
 $(function () {
- $('#first').maphilight({
-            fillColor: '008800'
-        });
-$("#Hplace").hide();
-$("#direct ul").hide();
-$("#submenu").hide();
-   var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
-   //OCX 赋值
-    var OCX = document.getElementById('Reporter2');
-    //set the data to OCX
-    //set patient information
-    if(null != obj.Name)
-        OCX.SetObjectInfo("TextBox_2", "text", obj.Name);
-    if(null != obj.Sex)
-        OCX.SetObjectInfo("TextBox_3", "text", obj.Sex);
-    if(null != obj.ChiefDoctor)
-        OCX.SetObjectInfo("TextBox_4", "text", obj.ChiefDoctor);
-    if(null != obj.Phone)
-        OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
-    if(null != obj.Address)
-        OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
+       PrepareForTab();
+        var obj = eval ("(" + @Html.Raw(Json.Encode(ViewData["data"]))+ ")");
+       //OCX 赋值
+        var OCX = document.getElementById('Reporter2');
+        //set the data to OCX
+        //set patient information
+        if(null != obj.Name)
+            OCX.SetObjectInfo("TextBox_2", "text", obj.Name);
+        if(null != obj.Sex)
+            OCX.SetObjectInfo("TextBox_3", "text", obj.Sex);
+        if(null != obj.ChiefDoctor)
+            OCX.SetObjectInfo("TextBox_4", "text", obj.ChiefDoctor);
+        if(null != obj.Phone)
+            OCX.SetObjectInfo("TextBox_6", "text", obj.Phone);
+        if(null != obj.Address)
+            OCX.SetObjectInfo("TextBox_8", "text", obj.Address);
 
         //子菜单 点击
          $(".nav-tabs li a").click(function () {
-          $(".on").removeClass("on");
-          $(this).parent().addClass("on");
-          if($(this).text()=="头痛部位")
-          {        $("#btn2").hide();
-                   $("#OcxContent").hide();
-                   $("#Hplace").show();
-          }
-          else{
-           $("#OcxContent").show();
-           $("#Hplace").hide();
-           OCX.ShowReport();
-           var name=$(this).text();
-            OCX.ShowThisPage(name);
-            if(name=="头痛概述")
-            $("#btn2").show();
-          }
+              $(".on").removeClass("on");
+              $(this).parent().addClass("on");
+              if($(this).text()=="头痛部位")
+              {        
+                     $("#btn2").hide();
+                       $("#ocx").hide();
+                      showhplace();
+              }
+              else{
+                   $("#ocx").show();
+                  hidehplace();
+                   OCX.ShowReport();
+                   var name=$(this).text();
+                    OCX.ShowThisPage(name);
+                    if(name=="头痛概述")
+                    $("#btn2").show();
+              }
            });
     $("#btn1").click(function () {
             $("#btn2").show();
             var OCX = document.getElementById('Reporter2');
-            if($(".selected").last().attr("id") == "基本筛查"){
-            //var Secondheadache=new Array()
-                var myBoolean=new Boolean(false);
-                for(var i =0;i<10;i++){
-                          var j=i+1;
-                          var Name="CheckBox_"+j.toString();
-                          if("true" == OCX.GetObjectInfo(Name, "checked"))
-                          {
-                          myBoolean=true;
-                          }
-                  }
-                 if(myBoolean==true){
-                $(".selected").next().addClass("selected"); 
-                $(".active").next().addClass("active");
-                $(".active").first().removeClass("active");
-               }
-              else{
-               addmenu();
-                  
-              }
+            if($(".selected").last().attr("id") == "基本筛查")
+            {
+                    var myBoolean=new Boolean(false);
+                    for(var i =0;i<10;i++)
+                    {
+                              var j=i+1;
+                              var Name="CheckBox_"+j.toString();
+                              if("true" == OCX.GetObjectInfo(Name, "checked"))
+                              {
+                              myBoolean=true;
+                              }
+                      }
+                     if(myBoolean==true)
+                     {
+                        $(".selected").next().addClass("selected"); 
+                        $(".active").next().addClass("active");
+                        $(".active").first().removeClass("active");
+                     }
+                  else
+                  {
+                       addmenu();
+                    }
             }
             if ($(".selected").last().attr("id") == "辅助诊断")
             {
@@ -162,39 +143,35 @@ $("#submenu").hide();
                     OCX.SetObjectInfo("TextBox_10", "text", strDiagnose);
             }
             if ($(".selected").last().attr("id") == "基本筛查" || $(".selected").last().attr("id") == "头痛问诊")
-            {
                 OCX.SetObjectInfo("TextBox_12", "text", GetChiefComplaint(OCX));
-            }
-            if ($(".selected").last().attr("id") == "报告预览"||$(".selected").last().attr("id") == "头痛问诊") {
+            if ($(".selected").last().attr("id") == "报告预览"||$(".selected").last().attr("id") == "头痛问诊") 
                 var encoded = $.toJSON(ChangeDataFromOCXIntoJSObject(OCX));
-               
-                }
-                if($(".selected").last().attr("id") == "报告预览")
-                {
-                    deletemenu();
-                    $("#ocx").hide();
-                    $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
-                    $.ajax({
-                        url: '@Url.Action("Save", "Diagnosis")',
-                        type: "POST",
-                        data: { postjson: encoded },
-                        success: function (data) {
-                            if (data.OK) {
-                             var OCX = document.getElementById('Reporter2');
-                              $(".demo").html("本次问诊信息保存成功！稍候将自动退出"); 
-                              //document.getElementById("wb").style.backgroundImage = 'url(images/normal-button.png)'
-                                var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                
+                    if($(".selected").last().attr("id") == "报告预览")
+                    {
+                        deletemenu();
+                        $("#ocx").hide();
+                        $(".active").wBox({title: "提示信息", html: "<div class='demo'><img src='../../Content/images/wait.gif'/></div>", show: true  });
+                        $.ajax({
+                            url: '@Url.Action("Save", "Diagnosis")',
+                            type: "POST",
+                            data: { postjson: encoded },
+                            success: function (data) {
+                                if (data.OK) {
+                                 var OCX = document.getElementById('Reporter2');
+                                  $(".demo").html("本次问诊信息保存成功！稍候将自动退出"); 
+                                  //document.getElementById("wb").style.backgroundImage = 'url(images/normal-button.png)'
+                                    var t = setTimeout("  window.location.href = '@Url.Action("Index", "EnterPatInfor")'", 6000);
+                                }
+                                else {
+                                    document.getElementById("msg").innerHTML = data.Message.toString();
+                                }
+                            },
+                            error: function (jqXhr, textStatus, errorThrown) {
+                                alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
                             }
-                            else {
-                                document.getElementById("msg").innerHTML = data.Message.toString();
-                            }
-
-                        },
-                        error: function (jqXhr, textStatus, errorThrown) {
-                            alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
-                        }
-                    });
-            }
+                        });
+              }
              else {
                         
                        if($(".selected").last().attr("id")!="头痛问诊")
@@ -205,27 +182,24 @@ $("#submenu").hide();
                             $(".active").first().removeClass("active");
                             OCX.SetData("Data_source/VisitRecord/CDSSDiagnosis", "        " + "正在推理中。。。");
                             OCX.ShowReport();
-                            if(name=="头痛问诊"){
-                            name="头痛概述"
-                            }
-                            
+                            if(name=="头痛问诊")
+                            name="头痛概述";
                             OCX.ShowThisPage(name);
-                            if(name=="报告预览"){
+                            if(name=="报告预览")
+                            {
                              $("#btn1").html("保存并退出");
                              addprint();
-
                              }
                          }
                          else
                          {
-                               
                                     $.ajax({
                                         url: '@Url.Action("CDSSdiagnosis", "Diagnosis")',
                                         type: "POST",
                                         data: { postjson: encoded },
                                         success: function (data) {
                                             if (data.OK) {
-                                                  OCX.SetObjectInfo("TextBox_14", "text",data.Message);
+                                                   OCX.SetObjectInfo("TextBox_14", "text",data.Message);
                                                    $(".selected").next().addClass("selected");
                                                    var name = $(".selected").last().attr("id");
                                                    $(".active").next().addClass("active");
@@ -237,51 +211,85 @@ $("#submenu").hide();
                                             }
                                             else {
                                                 alert(data.Message.toString());
-                                                
-                                            }
-
+                                                }
                                         },
                                         error: function (jqXhr, textStatus, errorThrown) {
                                             alert("Error '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
                                         }
                                     });
-                               
-                            
                          }
                   
                 }
                 
 
         
-     });
+       });
     });
+    function PrepareForTab()
+    {
+           $("#first").maphilight({ fillColor: '008800' });
+           $("#Hplace").css("visibility","hidden");
+            $("#hplace").css("height","0");  
+            $("#submenu").hide();
+    }
+    function hidehplace()
+    {
+          $("#Hplace").css("visibility","hidden");
+            $("#hplace").css("height","0"); 
+    }
+    function showhplace(){
+    $("#Hplace").css("visibility","visible");  
+         $("#hplace").css("height","440");  
+    }
     function addprint(){ 
-   $("#btn1").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>'); 
-   document.getElementById("btn3").onclick=function(){ PrintReport()};   
-   } 
-  function deleteprint(){
-  $("#btn3").remove();
-  }
-  function addmenu(){
-     $("#direct").hide();
-    $("#Reporter2").css("height","500");
-    $("#submenu").show();
-    //$("#ne").before('<div id="submenu" ><ul class="nav-tabs"><li class="on"><a href="#">头痛概述</a></li><li><a href="#">头痛部位</a></li><li><a  href="#" >相关症状</a></li><li><a href="#">既往治疗</a></li><li><a>生活方式</a></li><li><a href="#">家族病史</a></li><li><a href="#">诱发缓解因素</a></li></ul></div>'); 
-  }
-   function deletemenu(){
-      $("#direct").show();
-    $("#Hplace").hide();
-    $("#submenu").hide();
-   $("#Reporter2").css("height","540");
-   $("#OcxContent").show();
-       
-  }
-  function PrintReport() {
+       $("#btn1").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>'); 
+       document.getElementById("btn3").onclick=function(){ PrintReport()};   
+     } 
+     function deleteprint(){
+        $("#btn3").remove();
+    }
+     function addmenu(){ 
+       $("#Reporter2").css("height","500");
+       $("#submenu").show();
+       $("#direct").hide();
+     }
+    function deletemenu(){
+       hidehplace();
+        $("#submenu").hide();
+        $("#Reporter2").css("height","540");
+        $("#ocx").show(); 
+        $("#direct").show();
+     }
+    function PrintReport() {
         var OCX = document.getElementById('Reporter2');
         OCX.EnableMacroPrint(true);
         OCX.PrintPages("报告预览", false);
     }
-
+     function MapFunction(placeid)
+        {
+          var data = $(placeid).mouseout().data('maphilight') || {};
+           data.alwaysOn = !data.alwaysOn;
+           $(placeid).data('maphilight', data).trigger('alwaysOn.maphilight');
+        }
+        function GetHeadachePlace()
+        { 
+          var placesid=new Array("#p1","#p2","#p3","#p4","#p5","#p6","#p7","#p8","#p9");
+           var places=new Array("耳部","枕部","颈部","额部","顶部","颌部","眶部","颞部","脸部");
+          var placevalues=new Array(9);
+        
+               for (var i=0;i<9;i++)
+                {
+                  var data = $(placesid[i]).mouseout().data('maphilight') || {};
+                    if(data.alwaysOn){
+                    placevalues[i]= data.alwaysOn;
+                    }
+                    else{
+                     placevalues[i]=false;
+                    }
+                 
+                }
+            return placevalues;
+     }
     function GetChiefComplaint(OCX)
     {
         var strChiefComplaint = "";
