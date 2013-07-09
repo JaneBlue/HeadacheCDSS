@@ -31,7 +31,7 @@
                 <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157"
                     href="#" onclick="MapFunction('#p8')" />
                 <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220"
-                    href="#" onclick="MapFunction('#p9')" />
+                    href="#"  />
             </map>
         </div>
         <div id="hpNote">
@@ -82,6 +82,16 @@ $(function () {
                     $("#btn2").show();
               }
            });
+
+    $('#p9').click(function (e) {
+            e.preventDefault();
+            var data = $('#p9').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#star').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+
+
     $("#btn1").click(function () {
            
             var OCX = document.getElementById('Reporter2');
