@@ -12,3 +12,10 @@ D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\bin\Entity
 D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\ResolveAssemblyReference.cache
 D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\HeadacheCDSSWeb.dll
 D:\2013HeadacheCDSS\Code\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\HeadacheCDSSWeb.pdb
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\bin\HeadacheCDSSWeb.dll
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\bin\HeadacheCDSSWeb.pdb
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\bin\EntityFramework.dll
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\bin\EntityFramework.xml
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\ResolveAssemblyReference.cache
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\HeadacheCDSSWeb.dll
+D:\FGj\projectcode\HeadacheCDSS\HeadacheCDSSWeb\HeadacheCDSSWeb\obj\Debug\HeadacheCDSSWeb.pdb

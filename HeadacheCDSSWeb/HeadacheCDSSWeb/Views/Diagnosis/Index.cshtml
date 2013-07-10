@@ -15,21 +15,21 @@
             <img src="../../Content/images/peoplehead.jpg" id="first" usemap="#Map" alt="text" />
             <map name="Map" id="Map">
                 <area id="p1" shape="poly" title="耳部" coords="255,268,267,275,281,275,291,266,297,258,303,247,305,237,308,228,311,219,311,207,308,200,303,192,301,184,294,178,286,177,285,176,284,176,274,174,269,177,271,178,268,180,263,186,258,197,263,209,274,215,273,226,270,230,269,236,271,244,265,249,261,255,256,260"
-                    href="#" onclick="MapFunction('#p1')" />
+                    href="#"  />
                 <area id="p2" shape="poly" title="枕部" coords="386,197,364,205,357,215,351,230,346,251,346,261,348,277,354,286,362,295,367,294,374,284,380,272,387,258,393,241,401,222,404,205,403,195"
-                    href="#" onclick="MapFunction('#p2')" />
+                    href="#"  />
                 <area id="p3" shape="poly" title="颈部" coords="362,334,312,341,262,350,217,370,169,394,181,424,188,446,230,442,323,444,342,442,361,445,407,445,412,444,417,441,396,412,385,397,375,375,368,359"
-                    href="#" onclick="MapFunction('#p3')" />
+                    href="#"  />
                 <area id="p4" shape="poly" title="额部" coords="109,97,102,109,98,122,93,135,111,141,127,143,140,141,157,135,156,114,158,96,151,85,142,79,132,70,118,84"
-                    href="#" onclick="MapFunction('#p4')" />
+                    href="#"  />
                 <area id="p5" shape="poly" title="顶部" coords="218,37,172,45,131,67,150,84,173,79,185,83,202,82,221,80,268,79,306,76,347,67,321,53,269,39"
-                    href="#" onclick="MapFunction('#p5')" />
+                    href="#"  />
                 <area id="p6" shape="poly" title="颌部" coords="64,306,61,298,69,284,90,283,114,314,128,325,144,344,151,367,115,386,90,382,75,369,73,362,76,343,67,321,69,313"
-                    href="#" onclick="MapFunction('#p6')" />
+                    href="#"  />
                 <area id="p7" shape="poly" title="眶部" coords="82,167,97,164,113,162,132,173,136,184,141,192,141,199,143,206,130,213,117,218,100,219,100,214,99,208,101,197,92,189"
-                    href="#" onclick="MapFunction('#p7')" />
+                    href="#"  />
                 <area id="p8" shape="poly" title="颞部" coords="149,172,147,190,156,204,163,214,171,219,188,226,208,223,216,216,223,204,229,183,212,161,193,154,175,154,165,157"
-                    href="#" onclick="MapFunction('#p8')" />
+                    href="#" />
                 <area id="p9" shape="poly" title="脸部" coords="99,223,95,233,91,242,91,252,92,266,96,280,104,294,119,312,140,331,148,331,155,332,163,325,167,321,175,312,188,297,192,282,193,262,188,242,184,228,174,222,158,218,129,220"
                     href="#"  />
             </map>
@@ -69,11 +69,11 @@ $(function () {
               if($(this).text()=="头痛部位")
               {        
                      $("#btn2").hide();
-                       $("#ocx").hide();
+                       $("#OcxContent").hide();
                       showhplace();
               }
               else{
-                   $("#ocx").show();
+                   $("#OcxContent").show();
                   hidehplace();
                    OCX.ShowReport();
                    var name=$(this).text();
@@ -83,11 +83,67 @@ $(function () {
               }
            });
 
-    $('#p9').click(function (e) {
+   $('#p1').click(function (e) {
+            e.preventDefault();
+            var data = $('#p1').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p1').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+        $('#p2').click(function (e) {
+            e.preventDefault();
+            var data = $('#p2').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p2').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+       $('#p3').click(function (e) {
+            e.preventDefault();
+            var data = $('#p3').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p3').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+        $('#p4').click(function (e) {
+            e.preventDefault();
+            var data = $('#p4').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p4').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+        $('#p5').click(function (e) {
+            e.preventDefault();
+            var data = $('#p5').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p5').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+        $('#p6').click(function (e) {
+            e.preventDefault();
+            var data = $('#p6').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p6').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+         $('#p8').click(function (e) {
+            e.preventDefault();
+            var data = $('#p8').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p8').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+         $('#p7').click(function (e) {
+            e.preventDefault();
+            var data = $('#p7').mouseout().data('maphilight') || {};
+            data.alwaysOn = !data.alwaysOn;
+            $('#p7').data('maphilight', data).trigger('alwaysOn.maphilight');
+
+        });
+        $('#p9').click(function (e) {
             e.preventDefault();
             var data = $('#p9').mouseout().data('maphilight') || {};
             data.alwaysOn = !data.alwaysOn;
-            $('#star').data('maphilight', data).trigger('alwaysOn.maphilight');
+            $('#p9').data('maphilight', data).trigger('alwaysOn.maphilight');
 
         });
 
@@ -236,18 +292,16 @@ $(function () {
     function PrepareForTab()
     {
            $("#first").maphilight({ fillColor: '008800' });
-           $("#Hplace").css("visibility","hidden");
-            $("#hplace").css("height","0");  
+           
+            $("#hplace").hide();  
             $("#submenu").hide();
     }
     function hidehplace()
     {
-          $("#Hplace").css("visibility","hidden");
-            $("#hplace").css("height","0"); 
+           $("#hplace").hide();
     }
     function showhplace(){
-    $("#Hplace").css("visibility","visible");  
-         $("#hplace").css("height","440");  
+      $("#hplace").show();
     }
     function addprint(){ 
        $("#btn1").after('<div id="btn3" class="btn"><a id="b1">打印报告</a></div>'); 
