@@ -922,7 +922,7 @@ $(function () {
         var strOnsetDateMonth = OCX.GetObjectInfo("TextBox_108", "text");
         var nOnsetDateYear = parseInt(strOnsetDateYear, 10);
         var nOnsetDateMonth = parseInt(strOnsetDateMonth, 10);
-        if(NaN == nOnsetDateYear || NaN == nOnsetDateMonth || nOnsetDateYear<1753 
+        if(nOnsetDateYear.isNaN() || nOnsetDateMonth.isNaN() || nOnsetDateYear<1753 
         || nOnsetDateYear>3000 || nOnsetDateMonth<1 || nOnsetDateMonth>12)
             strOnsetDate = "1753/01/01///";
         else
@@ -1144,7 +1144,7 @@ $(function () {
         var strExamDate1Month = OCX.GetObjectInfo("TextBox_109", "text");
         var nExamDate1Year = parseInt(strExamDate1Year, 10);
         var nExamDate1Month = parseInt(strExamDate1Month, 10);
-        if(NaN == nExamDate1Year || NaN == nExamDate1Month || nExamDate1Year<1753 
+        if(nExamDate1Year.isNaN() || nExamDate1Month.isNaN() || nExamDate1Year<1753 
         || nExamDate1Year>3000 || nExamDate1Month<1 || nExamDate1Month>12)
             strExamDate1 = "1753/01/01///";
         else
@@ -1169,7 +1169,7 @@ $(function () {
         var strExamDate2Month = OCX.GetObjectInfo("TextBox_111", "text");
         var nExamDate2Year = parseInt(strExamDate2Year, 10);
         var nExamDate2Month = parseInt(strExamDate2Month, 10);
-        if(NaN == nExamDate2Year || NaN == nExamDate2Month || nExamDate2Year<1753 
+        if(nExamDate2Year.isNaN() || nExamDate2Month.isNaN() || nExamDate2Year<1753 
         || nExamDate2Year>3000 || nExamDate2Month<1 || nExamDate2Month>12)
             strExamDate2 = "1753/01/01///";
         else
@@ -1194,7 +1194,7 @@ $(function () {
         var strExamDate3Month = OCX.GetObjectInfo("TextBox_111", "text");
         var nExamDate3Year = parseInt(strExamDate3Year, 10);
         var nExamDate3Month = parseInt(strExamDate3Month, 10);
-        if(NaN == nExamDate3Year || NaN == nExamDate3Month || nExamDate3Year<1753 
+        if(nExamDate3Year.isNaN() || nExamDate3Month.isNaN() || nExamDate3Year<1753 
         || nExamDate3Year>3000 || nExamDate3Month<1 || nExamDate3Month>12)
             strExamDate3 = "1753/01/01///";
         else
@@ -1500,7 +1500,7 @@ $(function () {
             var strOnsetDateMonth = OCX.GetObjectInfo("TextBox_108", "text");
             var nOnsetDateYear = parseInt(strOnsetDateYear, 10);
             var nOnsetDateMonth = parseInt(strOnsetDateMonth, 10);
-            if(NaN == nOnsetDateYear || NaN == nOnsetDateMonth || nOnsetDateYear<1753 
+            if(nOnsetDateYear.isNaN() || nOnsetDateMonth.isNaN() || nOnsetDateYear<1753 
             || nOnsetDateYear>3000 || nOnsetDateMonth<1 || nOnsetDateMonth>12)
                 strOnsetDate = "1753/01/01///";
             else
@@ -1742,7 +1742,7 @@ $(function () {
             var strExamDate1Month = OCX.GetObjectInfo("TextBox_109", "text");
             var nExamDate1Year = parseInt(strExamDate1Year, 10);
             var nExamDate1Month = parseInt(strExamDate1Month, 10);
-            if(NaN == nExamDate1Year || NaN == nExamDate1Month || nExamDate1Year<1753 
+            if(nExamDate1Year.isNaN() || nExamDate1Month.isNaN() || nExamDate1Year<1753 
             || nExamDate1Year>3000 || nExamDate1Month<1 || nExamDate1Month>12)
                 strExamDate1 = "1753/01/01///";
             else
@@ -1766,7 +1766,7 @@ $(function () {
             var strExamDate2Month = OCX.GetObjectInfo("TextBox_111", "text");
             var nExamDate2Year = parseInt(strExamDate2Year, 10);
             var nExamDate2Month = parseInt(strExamDate2Month, 10);
-            if(NaN == nExamDate2Year || NaN == nExamDate2Month || nExamDate2Year<1753 
+            if(nExamDate2Year.isNaN() || nExamDate2Month.isNaN() || nExamDate2Year<1753 
             || nExamDate2Year>3000 || nExamDate2Month<1 || nExamDate2Month>12)
                 strExamDate2 = "1753/01/01///";
             else
@@ -1790,7 +1790,7 @@ $(function () {
             var strExamDate3Month = OCX.GetObjectInfo("TextBox_111", "text");
             var nExamDate3Year = parseInt(strExamDate3Year, 10);
             var nExamDate3Month = parseInt(strExamDate3Month, 10);
-            if(NaN == nExamDate3Year || NaN == nExamDate3Month || nExamDate3Year<1753 
+            if(nExamDate3Year.isNaN() || nExamDate3Month.isNaN() || nExamDate3Year<1753 
             || nExamDate3Year>3000 || nExamDate3Month<1 || nExamDate3Month>12)
                 strExamDate3 = "1753/01/01///";
             else
