@@ -373,8 +373,8 @@ $(function () {
         strChiefComplaint += " " + strFrequencyPerDay + "次/每天";
 
         //OCX.SetObjectInfo("DateTime_2", "text", strOnsetDate);
-        var strOnsetYear = strOnsetDate.substring(0, 3);
-        var strOnsetMonth = strOnsetDate.substring(5, 6);
+        var strOnsetYear = strOnsetDate.substring(0, 4);
+        var strOnsetMonth = strOnsetDate.substring(5, 7);
         OCX.SetObjectInfo("TextBox_80", "text", strOnsetYear);
         OCX.SetObjectInfo("TextBox_108", "text", strOnsetMonth);
         //OCX.SetObjectInfo("ComboBox_42", "text", strOnsetFixedDay);
@@ -574,8 +574,8 @@ $(function () {
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_26", "checked", "true");
                 //OCX.SetObjectInfo("DateTime_6", "text", strDate);
-                OCX.SetObjectInfo("TextBox_110", "text", strDate.substring(0,3));
-                OCX.SetObjectInfo("TextBox_109", "text", strDate.substring(5,6));
+                OCX.SetObjectInfo("TextBox_110", "text", strDate.substring(0,4));
+                OCX.SetObjectInfo("TextBox_109", "text", strDate.substring(5,7));
             }
             else if(1 == lPreviousExamIndex)
             {
@@ -583,8 +583,8 @@ $(function () {
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_27", "checked", "true");
                 //OCX.SetObjectInfo("DateTime_5", "text", strDate);
-                OCX.SetObjectInfo("TextBox_112", "text", strDate.substring(0,3));
-                OCX.SetObjectInfo("TextBox_111", "text", strDate.substring(5,6));
+                OCX.SetObjectInfo("TextBox_112", "text", strDate.substring(0,4));
+                OCX.SetObjectInfo("TextBox_111", "text", strDate.substring(5,7));
             }
             else if(2 == lPreviousExamIndex)
             {
@@ -592,8 +592,8 @@ $(function () {
                 if("正常" == strResult)
                     OCX.SetObjectInfo("RadioBox_28", "checked", "true");
                 //OCX.SetObjectInfo("DateTime_4", "text", strDate);
-                OCX.SetObjectInfo("TextBox_114", "text", strDate.substring(0,3));
-                OCX.SetObjectInfo("TextBox_113", "text", strDate.substring(5,6));
+                OCX.SetObjectInfo("TextBox_114", "text", strDate.substring(0,4));
+                OCX.SetObjectInfo("TextBox_113", "text", strDate.substring(5,7));
             }
             else if(3 == lPreviousExamIndex)
             {
