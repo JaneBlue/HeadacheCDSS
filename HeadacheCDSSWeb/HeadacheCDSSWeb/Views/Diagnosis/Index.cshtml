@@ -386,7 +386,21 @@ $(function () {
         {
             var strChiefComplaint = "概述：患者头痛";
             //get the PrimaryHeadacheOverView information
-            var strOnsetDate = OCX.GetObjectInfo("DateTime_2", "text");
+            var strOnsetDate = "";//OCX.GetObjectInfo("DateTime_2", "text");
+            //
+            var strOnsetDateYear = OCX.GetObjectInfo("TextBox_80", "text");
+            var strOnsetDateMonth = OCX.GetObjectInfo("TextBox_108", "text");
+            var nOnsetDateYear = parseInt(strOnsetDateYear, 10);
+            var nOnsetDateMonth = parseInt(strOnsetDateMonth, 10);
+            if(NaN == nOnsetDateYear || NaN == nOnsetDateMonth || nOnsetDateYear<1753 
+            || nOnsetDateYear>3000 || nOnsetDateMonth<1 || nOnsetDateMonth>12)
+                strOnsetDate = "1753/01/01///";
+            else
+            {
+                strOnsetDateYear=nOnsetDateYear.toString();
+                strOnsetDateMonth=nOnsetDateMonth.toString();
+                strOnsetDate = strOnsetDateYear+"/"+strOnsetDateMonth+"/01///";
+            }
             if ("/////" != strOnsetDate) 
             {
                 var nOnsetYear = parseInt(strOnsetDate.substring(0, strOnsetDate.indexOf("/")));
@@ -596,6 +610,20 @@ $(function () {
             if("true" == OCX.GetObjectInfo("RadioBox_26", "checked"))
                 strExamResult1 = "正常";
             var strExamDate1 = OCX.GetObjectInfo("DateTime_6", "text");
+            //
+            var strExamDate1Year = OCX.GetObjectInfo("TextBox_110", "text");
+            var strExamDate1Month = OCX.GetObjectInfo("TextBox_109", "text");
+            var nExamDate1Year = parseInt(strExamDate1Year, 10);
+            var nExamDate1Month = parseInt(strExamDate1Month, 10);
+            if(NaN == nExamDate1Year || NaN == nExamDate1Month || nExamDate1Year<1753 
+            || nExamDate1Year>3000 || nExamDate1Month<1 || nExamDate1Month>12)
+                strExamDate1 = "1753/01/01///";
+            else
+            {
+                strExamDate1Year=nExamDate1Year.toString();
+                strExamDate1Month=nExamDate1Month.toString();
+                strExamDate1 = strExamDate1Year+"/"+strExamDate1Month+"/01///";
+            }
             if ("/////" != strExamDate1) 
             {
                 strChiefComplaint += "曾于" + strExamDate1 + "做过" + strExamName1 + "，检查结果" + strExamResult1 + "；";
@@ -605,7 +633,21 @@ $(function () {
             var strExamResult2 = "异常";
             if("true" == OCX.GetObjectInfo("RadioBox_27", "checked"))
                 strExamResult2 = "正常";
-            var strExamDate2 = OCX.GetObjectInfo("DateTime_5", "text");
+            var strExamDate2 = "";//OCX.GetObjectInfo("DateTime_5", "text");
+            //
+            var strExamDate2Year = OCX.GetObjectInfo("TextBox_112", "text");
+            var strExamDate2Month = OCX.GetObjectInfo("TextBox_111", "text");
+            var nExamDate2Year = parseInt(strExamDate2Year, 10);
+            var nExamDate2Month = parseInt(strExamDate2Month, 10);
+            if(NaN == nExamDate2Year || NaN == nExamDate2Month || nExamDate2Year<1753 
+            || nExamDate2Year>3000 || nExamDate2Month<1 || nExamDate2Month>12)
+                strExamDate2 = "1753/01/01///";
+            else
+            {
+                strExamDate2Year=nExamDate2Year.toString();
+                strExamDate2Month=nExamDate2Month.toString();
+                strExamDate2 = strExamDate2Year+"/"+strExamDate2Month+"/01///";
+            }
             if ("/////" != strExamDate2) 
             {
                 strChiefComplaint += "曾于" + strExamDate2 + "做过" + strExamName2 + "，检查结果" + strExamResult2 + "；";
@@ -615,7 +657,21 @@ $(function () {
             var strExamResult3 = "异常";
             if("true" == OCX.GetObjectInfo("RadioBox_28", "checked"))
                 strExamResult3 = "正常";
-            var strExamDate3 = OCX.GetObjectInfo("DateTime_4", "text");
+            var strExamDate3 = "";//OCX.GetObjectInfo("DateTime_4", "text");
+            //
+            var strExamDate3Year = OCX.GetObjectInfo("TextBox_112", "text");
+            var strExamDate3Month = OCX.GetObjectInfo("TextBox_111", "text");
+            var nExamDate3Year = parseInt(strExamDate3Year, 10);
+            var nExamDate3Month = parseInt(strExamDate3Month, 10);
+            if(NaN == nExamDate3Year || NaN == nExamDate3Month || nExamDate3Year<1753 
+            || nExamDate3Year>3000 || nExamDate3Month<1 || nExamDate3Month>12)
+                strExamDate3 = "1753/01/01///";
+            else
+            {
+                strExamDate3Year=nExamDate3Year.toString();
+                strExamDate3Month=nExamDate3Month.toString();
+                strExamDate3 = strExamDate3Year+"/"+strExamDate3Month+"/01///";
+            }
             if ("/////" != strExamDate3) 
             {
                 strChiefComplaint += "曾于" + strExamDate3 + "做过" + strExamName3 + "，检查结果" + strExamResult3 + "；";
@@ -882,7 +938,21 @@ $(function () {
                  
                 
                 //get the PrimaryHeadacheOverView information
-                var strOnsetDate = OCX.GetObjectInfo("DateTime_2", "text");
+                var strOnsetDate = "";//OCX.GetObjectInfo("DateTime_2", "text");
+                //
+                var strOnsetDateYear = OCX.GetObjectInfo("TextBox_80", "text");
+                var strOnsetDateMonth = OCX.GetObjectInfo("TextBox_108", "text");
+                var nOnsetDateYear = parseInt(strOnsetDateYear, 10);
+                var nOnsetDateMonth = parseInt(strOnsetDateMonth, 10);
+                if(NaN == nOnsetDateYear || NaN == nOnsetDateMonth || nOnsetDateYear<1753 
+                || nOnsetDateYear>3000 || nOnsetDateMonth<1 || nOnsetDateMonth>12)
+                    strOnsetDate = "1753/01/01///";
+                else
+                {
+                    strOnsetDateYear=nOnsetDateYear.toString();
+                    strOnsetDateMonth=nOnsetDateMonth.toString();
+                    strOnsetDate = strOnsetDateYear+"/"+strOnsetDateMonth+"/01///";
+                }
                 if ("/////" == strOnsetDate) 
                 {
                     strOnsetDate = "1753/01/01///";
@@ -1094,6 +1164,20 @@ $(function () {
                 if("true" == OCX.GetObjectInfo("RadioBox_26", "checked"))
                     strExamResult1 = "正常";
                 var strExamDate1 = OCX.GetObjectInfo("DateTime_6", "text");
+                //
+                var strExamDate1Year = OCX.GetObjectInfo("TextBox_110", "text");
+                var strExamDate1Month = OCX.GetObjectInfo("TextBox_109", "text");
+                var nExamDate1Year = parseInt(strExamDate1Year, 10);
+                var nExamDate1Month = parseInt(strExamDate1Month, 10);
+                if(NaN == nExamDate1Year || NaN == nExamDate1Month || nExamDate1Year<1753 
+                || nExamDate1Year>3000 || nExamDate1Month<1 || nExamDate1Month>12)
+                    strExamDate1 = "1753/01/01///";
+                else
+                {
+                    strExamDate1Year=nExamDate1Year.toString();
+                    strExamDate1Month=nExamDate1Month.toString();
+                    strExamDate1 = strExamDate1Year+"/"+strExamDate1Month+"/01///";
+                }
                 if ("/////" == strExamDate1) 
                 {
                     strExamDate1 = "1753/01/01///";
@@ -1104,7 +1188,21 @@ $(function () {
                 var strExamResult2 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_27", "checked"))
                     strExamResult2 = "正常";
-                var strExamDate2 = OCX.GetObjectInfo("DateTime_5", "text");
+                var strExamDate2 = "";//OCX.GetObjectInfo("DateTime_5", "text");
+                //
+                var strExamDate2Year = OCX.GetObjectInfo("TextBox_112", "text");
+                var strExamDate2Month = OCX.GetObjectInfo("TextBox_111", "text");
+                var nExamDate2Year = parseInt(strExamDate2Year, 10);
+                var nExamDate2Month = parseInt(strExamDate2Month, 10);
+                if(NaN == nExamDate2Year || NaN == nExamDate2Month || nExamDate2Year<1753 
+                || nExamDate2Year>3000 || nExamDate2Month<1 || nExamDate2Month>12)
+                    strExamDate2 = "1753/01/01///";
+                else
+                {
+                    strExamDate2Year=nExamDate2Year.toString();
+                    strExamDate2Month=nExamDate2Month.toString();
+                    strExamDate2 = strExamDate2Year+"/"+strExamDate2Month+"/01///";
+                }
                 if ("/////" == strExamDate2) 
                 {
                     strExamDate2 = "1753/01/01///";
@@ -1115,7 +1213,21 @@ $(function () {
                 var strExamResult3 = "异常";
                 if("true" == OCX.GetObjectInfo("RadioBox_28", "checked"))
                     strExamResult3 = "正常";
-                var strExamDate3 = OCX.GetObjectInfo("DateTime_4", "text");
+                var strExamDate3 = "";//OCX.GetObjectInfo("DateTime_4", "text");
+                //
+                var strExamDate3Year = OCX.GetObjectInfo("TextBox_112", "text");
+                var strExamDate3Month = OCX.GetObjectInfo("TextBox_111", "text");
+                var nExamDate3Year = parseInt(strExamDate3Year, 10);
+                var nExamDate3Month = parseInt(strExamDate3Month, 10);
+                if(NaN == nExamDate3Year || NaN == nExamDate3Month || nExamDate3Year<1753 
+                || nExamDate3Year>3000 || nExamDate3Month<1 || nExamDate3Month>12)
+                    strExamDate3 = "1753/01/01///";
+                else
+                {
+                    strExamDate3Year=nExamDate3Year.toString();
+                    strExamDate3Month=nExamDate3Month.toString();
+                    strExamDate3 = strExamDate3Year+"/"+strExamDate3Month+"/01///";
+                }
                 if ("/////" == strExamDate3) 
                 {
                     strExamDate3 = "1753/01/01///";
